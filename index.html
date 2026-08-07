@@ -3489,7 +3489,7 @@ Phantom read | The same filter returns a different set of rows</pre>
         </div>
       </details>
     </article>
-<article class="question-block" id="q-82" data-number="82" data-section="section-4" data-search="what is normalization, and what are 1nf, 2nf, and 3nf? normalization reduces duplicate data and update problems. 1nf keeps values atomic, 2nf removes dependency on part of a composite key, and 3nf removes dependency between non-key fields. a comma-separated phone list violates 1nf. course name depending only on course_id inside a student-course table violates 2nf. department name depending on department_id rather than employee_id violates 3nf.">
+<article class="question-block" id="q-82" data-number="82" data-section="section-4" data-search="what is normalization, and what are 1nf, 2nf, and 3nf? normalization means organizing relational tables to reduce repeated data and avoid insert, update, and delete anomalies. 1nf keeps each column value atomic. 2nf removes partial dependency on only part of a composite key. 3nf removes transitive dependency, where a non-key column depends on another non-key column. a comma-separated phone list violates 1nf because one column has multiple values. in a student_course table with composite key (student_id, course_id), course_name depending only on course_id violates 2nf. in an employee table, employee_id -&gt; department_id -&gt; department_name violates 3nf because department_name depends on department_id, not directly on employee_id.">
       <details>
         <summary>
           <span class="question-number">Q82</span>
@@ -3501,11 +3501,11 @@ Phantom read | The same filter returns a different set of rows</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">ANSWER</div>
-          <div class="part-body prose">Normalization reduces duplicate data and update problems. 1NF keeps values atomic, 2NF removes dependency on part of a composite key, and 3NF removes dependency between non-key fields.</div>
+          <div class="part-body prose">Normalization means organizing relational tables to reduce repeated data and avoid insert, update, and delete anomalies. 1NF keeps each column value atomic. 2NF removes partial dependency on only part of a composite key. 3NF removes transitive dependency, where a non-key column depends on another non-key column.</div>
         </section>
             <section class="answer-part example">
           <div class="part-label">EXAMPLE</div>
-          <pre class="part-body">A comma-separated phone list violates 1NF. Course name depending only on course_id inside a student-course table violates 2NF. Department name depending on department_id rather than employee_id violates 3NF.</pre>
+          <pre class="part-body">A comma-separated phone list violates 1NF because one column has multiple values. In a student_course table with composite key (student_id, course_id), course_name depending only on course_id violates 2NF. In an employee table, employee_id -&gt; department_id -&gt; department_name violates 3NF because department_name depends on department_id, not directly on employee_id.</pre>
         </section>
           </div>
           <footer class="question-footer">
