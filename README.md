@@ -1,8 +1,8 @@
 # Skills Revision Reader
 
-A static, navigable revision interface for 248 questions represented on dedicated GeeksforGeeks interview-question pages, organized into 16 resume-technology categories.
+A static, navigable revision interface for 313 questions represented in relevant GeeksforGeeks interview-question collections, organized into 16 resume-technology categories.
 
-The reader defaults to 216 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, frequency filter, display mode, and theme preferences are stored locally in the browser and are not uploaded anywhere.
+The reader defaults to 260 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, frequency filter, display mode, and theme preferences are stored locally in the browser and are not uploaded anywhere.
 
 ## Source pages
 
@@ -22,6 +22,13 @@ The reader defaults to 216 high-frequency questions and can switch to the comple
 - [OOP](https://www.geeksforgeeks.org/interview-prep/oops-interview-questions/)
 - [Operating Systems](https://www.geeksforgeeks.org/operating-systems/operating-systems-interview-questions/)
 - [Computer Networks](https://www.geeksforgeeks.org/blogs/networking-interview-questions/)
+- [Frontend Developer Interview Questions](https://www.geeksforgeeks.org/interview-prep/front-end-developer-interview-questions/)
+- [Backend Developer Interview Questions](https://www.geeksforgeeks.org/interview-prep/backend-developer-interview-questions-and-answers/)
+- [Full Stack Developer Interview Questions](https://www.geeksforgeeks.org/html/full-stack-developer-interview-questions-and-answers/)
+
+Questions from the role-based collections are included only when they match the resume technologies. Questions about unrelated stacks such as Angular, Vue, Django, PHP, Spring, and Redux are excluded.
+
+Question wording is normalized for quick revision, while answers and examples are concise original explanations of the GFG-listed concepts.
 
 ## Regenerate
 
