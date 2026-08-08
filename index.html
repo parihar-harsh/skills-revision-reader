@@ -11149,9 +11149,15 @@ Example | HTTPS | Real-time media/DNS</pre>
     const progressKey = "skills-reader-reviewed-v2";
     const modeKey = "skills-reader-mode-v1";
     const frequencyKey = "skills-reader-frequency-v1";
+    const readerStateKey = "skills-reader-view-state-v1";
     let activeSection = sectionData[0].id;
     let activeFrequency = "high";
     let reviewed = new Set();
+    let savedReaderState = {};
+    let stateSaveTimer = null;
+    let restoringState = true;
+
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 
     const readStorage = (key, fallback) => {
       try {
@@ -11167,6 +11173,15 @@ Example | HTTPS | Real-time media/DNS</pre>
     };
 
     try {
+      const storedState = JSON.parse(readStorage(readerStateKey, "{}"));
+      savedReaderState = storedState && typeof storedState === "object" && !Array.isArray(storedState)
+        ? storedState
+        : {};
+    } catch (error) {
+      savedReaderState = {};
+    }
+
+    try {
       const stored = JSON.parse(readStorage(progressKey, "[]"));
       reviewed = new Set(stored.filter((number) => Number.isInteger(number) && number >= 1 && number <= totalQuestions));
     } catch (error) {
@@ -11174,6 +11189,42 @@ Example | HTTPS | Real-time media/DNS</pre>
     }
 
     const visibleQuestions = () => questions.filter((question) => !question.hidden);
+
+    const validQuestionNumbers = (value) => Array.isArray(value)
+      ? value.filter((number) => Number.isInteger(number) && number >= 1 && number <= totalQuestions)
+      : [];
+
+    const saveReaderState = () => {
+      if (stateSaveTimer !== null) {
+        window.clearTimeout(stateSaveTimer);
+        stateSaveTimer = null;
+      }
+
+      const state = {
+        activeSection,
+        search: search.value,
+        scrollY: Math.max(0, Math.round(window.scrollY)),
+        openQuestions: questions
+          .filter((question) => question.querySelector("details").open)
+          .map((question) => Number(question.dataset.number)),
+        revealedQuestions: questions
+          .filter((question) => question.classList.contains("revealed"))
+          .map((question) => Number(question.dataset.number)),
+      };
+
+      writeStorage(readerStateKey, JSON.stringify(state));
+    };
+
+    const scheduleReaderStateSave = () => {
+      if (restoringState) return;
+      if (stateSaveTimer !== null) window.clearTimeout(stateSaveTimer);
+      stateSaveTimer = window.setTimeout(saveReaderState, 200);
+    };
+
+    const clearQuestionHash = () => {
+      if (!/^#q-\d+$/.test(location.hash)) return;
+      history.replaceState(null, "", location.pathname + location.search);
+    };
 
     const updateQuestionNavigation = () => {
       const visible = visibleQuestions();
@@ -11286,9 +11337,11 @@ Example | HTTPS | Real-time media/DNS</pre>
     const selectSection = (sectionId) => {
       activeSection = sectionId;
       search.value = "";
+      clearQuestionHash();
       applyFilters();
       closeSidebar();
       window.scrollTo({ top: 0, behavior: "smooth" });
+      scheduleReaderStateSave();
     };
 
     const openQuestion = (number) => {
@@ -11303,6 +11356,7 @@ Example | HTTPS | Real-time media/DNS</pre>
       applyFilters();
       question.querySelector("details").open = true;
       question.scrollIntoView({ block: "start", behavior: "smooth" });
+      scheduleReaderStateSave();
       return true;
     };
 
@@ -11325,23 +11379,30 @@ Example | HTTPS | Real-time media/DNS</pre>
         for (const question of questions) question.classList.remove("revealed");
       }
       writeStorage(modeKey, mode);
+      scheduleReaderStateSave();
     };
 
     const setFrequency = (frequency) => {
       activeFrequency = frequency === "all" ? "all" : "high";
       writeStorage(frequencyKey, activeFrequency);
       applyFilters();
+      scheduleReaderStateSave();
     };
 
     for (const button of sectionButtons) {
       button.addEventListener("click", () => selectSection(button.dataset.sectionButton));
     }
 
-    search.addEventListener("input", applyFilters);
+    search.addEventListener("input", () => {
+      clearQuestionHash();
+      applyFilters();
+      scheduleReaderStateSave();
+    });
     search.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         search.value = "";
         applyFilters();
+        scheduleReaderStateSave();
       }
     });
 
@@ -11352,10 +11413,12 @@ Example | HTTPS | Real-time media/DNS</pre>
 
     document.getElementById("expand-visible").addEventListener("click", () => {
       for (const question of visibleQuestions()) question.querySelector("details").open = true;
+      scheduleReaderStateSave();
     });
 
     document.getElementById("collapse-visible").addEventListener("click", () => {
       for (const question of visibleQuestions()) question.querySelector("details").open = false;
+      scheduleReaderStateSave();
     });
 
     for (const question of questions) {
@@ -11369,6 +11432,12 @@ Example | HTTPS | Real-time media/DNS</pre>
 
       question.querySelector(".reveal-answer").addEventListener("click", () => {
         question.classList.add("revealed");
+        scheduleReaderStateSave();
+      });
+
+      question.querySelector("details").addEventListener("toggle", () => {
+        if (restoringState) return;
+        scheduleReaderStateSave();
       });
     }
 
@@ -11384,6 +11453,7 @@ Example | HTTPS | Real-time media/DNS</pre>
       const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
       document.documentElement.dataset.theme = theme;
       writeStorage("skills-reader-theme", theme);
+      scheduleReaderStateSave();
     });
 
     menuButton.addEventListener("click", () => {
@@ -11407,17 +11477,56 @@ Example | HTTPS | Real-time media/DNS</pre>
     });
 
     window.addEventListener("hashchange", () => {
-      const match = location.hash.match(/^#q-(d+)$/);
+      const match = location.hash.match(/^#q-(\d+)$/);
       if (match) openQuestion(Number(match[1]));
     });
 
+    window.addEventListener("scroll", scheduleReaderStateSave, { passive: true });
+    window.addEventListener("pagehide", saveReaderState);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") saveReaderState();
+    });
+
     activeFrequency = readStorage(frequencyKey, "high") === "all" ? "all" : "high";
+    const validSectionIds = new Set(["all", ...sectionData.map((section) => section.id)]);
+    if (validSectionIds.has(savedReaderState.activeSection)) {
+      activeSection = savedReaderState.activeSection;
+    }
+    if (typeof savedReaderState.search === "string") {
+      search.value = savedReaderState.search.slice(0, 200);
+    }
     setMode(readStorage(modeKey, "review") === "recall" ? "recall" : "review");
+
+    const openQuestions = new Set(validQuestionNumbers(savedReaderState.openQuestions));
+    const revealedQuestions = new Set(validQuestionNumbers(savedReaderState.revealedQuestions));
+    for (const question of questions) {
+      const number = Number(question.dataset.number);
+      question.querySelector("details").open = openQuestions.has(number);
+      question.classList.toggle("revealed", revealedQuestions.has(number));
+    }
+
     updateProgress();
     applyFilters();
 
-    const initialMatch = location.hash.match(/^#q-(d+)$/);
-    if (initialMatch) openQuestion(Number(initialMatch[1]));
+    const initialMatch = location.hash.match(/^#q-(\d+)$/);
+    if (initialMatch) {
+      openQuestion(Number(initialMatch[1]));
+      window.requestAnimationFrame(() => {
+        restoringState = false;
+        saveReaderState();
+      });
+    } else {
+      const savedScrollY = Number.isFinite(savedReaderState.scrollY)
+        ? Math.max(0, savedReaderState.scrollY)
+        : 0;
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          window.scrollTo({ top: savedScrollY, behavior: "auto" });
+          restoringState = false;
+          saveReaderState();
+        });
+      });
+    }
   </script>
 </body>
 </html>

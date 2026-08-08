@@ -2,7 +2,7 @@
 
 A static, navigable revision interface for 313 questions represented in relevant GeeksforGeeks interview-question collections, organized into 16 resume-technology categories.
 
-The reader defaults to 260 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, frequency filter, display mode, and theme preferences are stored locally in the browser and are not uploaded anywhere.
+The reader defaults to 260 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, theme, mode, frequency, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
 
 ## Source pages
 
