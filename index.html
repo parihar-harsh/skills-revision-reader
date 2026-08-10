@@ -199,6 +199,23 @@
       scrollbar-width: thin;
     }
 
+    .nav-group-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 12px 8px 5px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .nav-group-label span:last-child {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+    }
+
     .section-nav-item {
       display: grid;
       grid-template-columns: 36px minmax(0, 1fr);
@@ -241,12 +258,10 @@
 
     .section-nav-title {
       display: block;
-      overflow: hidden;
       font-size: 12px;
       font-weight: 700;
       line-height: 1.28;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      overflow-wrap: anywhere;
     }
 
     .section-nav-meta {
@@ -811,7 +826,7 @@
 </head>
 <body data-mode="review" data-scope="section">
   <div class="app-shell">
-    <aside class="sidebar" id="sidebar" aria-label="Skill sections">
+    <aside class="sidebar" id="sidebar" aria-label="Question categories">
       <header class="brand">
         <div class="brand-mark" aria-hidden="true">SR</div>
         <div>
@@ -824,6 +839,56 @@
         <span class="progress-track" aria-hidden="true"><span id="overall-progress-bar"></span></span>
       </div>
       <nav class="section-nav">
+        <div class="nav-group-label"><span>Eligible positions</span><span>6</span></div>
+        <button class="section-nav-item" type="button" data-role-button="sde-1" aria-pressed="false" style="--section-accent: #334155">
+          <span class="section-nav-code">SDE</span>
+          <span class="section-nav-copy">
+            <span class="section-nav-title">SDE I / Junior Software Engineer</span>
+            <span class="section-nav-meta"><span data-role-progress="sde-1">0/145</span><span><span data-visible-role-count="sde-1">145</span> questions</span></span>
+            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="sde-1"></span></span>
+          </span>
+        </button>
+<button class="section-nav-item" type="button" data-role-button="frontend-react" aria-pressed="false" style="--section-accent: #c2410c">
+          <span class="section-nav-code">FE</span>
+          <span class="section-nav-copy">
+            <span class="section-nav-title">Frontend / React Developer</span>
+            <span class="section-nav-meta"><span data-role-progress="frontend-react">0/155</span><span><span data-visible-role-count="frontend-react">155</span> questions</span></span>
+            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="frontend-react"></span></span>
+          </span>
+        </button>
+<button class="section-nav-item" type="button" data-role-button="backend-node" aria-pressed="false" style="--section-accent: #15803d">
+          <span class="section-nav-code">BE</span>
+          <span class="section-nav-copy">
+            <span class="section-nav-title">Backend / Node.js Developer</span>
+            <span class="section-nav-meta"><span data-role-progress="backend-node">0/157</span><span><span data-visible-role-count="backend-node">157</span> questions</span></span>
+            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="backend-node"></span></span>
+          </span>
+        </button>
+<button class="section-nav-item" type="button" data-role-button="full-stack-js" aria-pressed="false" style="--section-accent: #2563eb">
+          <span class="section-nav-code">FS</span>
+          <span class="section-nav-copy">
+            <span class="section-nav-title">Full-Stack JavaScript Developer</span>
+            <span class="section-nav-meta"><span data-role-progress="full-stack-js">0/237</span><span><span data-visible-role-count="full-stack-js">237</span> questions</span></span>
+            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="full-stack-js"></span></span>
+          </span>
+        </button>
+<button class="section-nav-item" type="button" data-role-button="mern-stack" aria-pressed="false" style="--section-accent: #0f766e">
+          <span class="section-nav-code">MERN</span>
+          <span class="section-nav-copy">
+            <span class="section-nav-title">MERN Stack Developer</span>
+            <span class="section-nav-meta"><span data-role-progress="mern-stack">0/197</span><span><span data-visible-role-count="mern-stack">197</span> questions</span></span>
+            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="mern-stack"></span></span>
+          </span>
+        </button>
+<button class="section-nav-item" type="button" data-role-button="genai-app" aria-pressed="false" style="--section-accent: #b45309">
+          <span class="section-nav-code">AI</span>
+          <span class="section-nav-copy">
+            <span class="section-nav-title">Junior GenAI Application Developer</span>
+            <span class="section-nav-meta"><span data-role-progress="genai-app">0/213</span><span><span data-visible-role-count="genai-app">213</span> questions</span></span>
+            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="genai-app"></span></span>
+          </span>
+        </button>
+        <div class="nav-group-label"><span>Skills</span><span>16</span></div>
         <button class="section-nav-item" type="button" data-section-button="all" aria-pressed="false" style="--section-accent: var(--accent)">
           <span class="section-nav-code">ALL</span>
           <span class="section-nav-copy">
@@ -970,7 +1035,7 @@
 
     <div class="workspace">
       <header class="toolbar">
-        <button id="menu-button" class="control-button menu-button" type="button" aria-controls="sidebar" aria-expanded="false">Sections</button>
+        <button id="menu-button" class="control-button menu-button" type="button" aria-controls="sidebar" aria-expanded="false">Browse</button>
         <label class="search-wrap">
           <span class="sr-only">Search questions, answers, and examples</span>
           <input id="search" class="search-input" type="search" placeholder="Search questions, answers, examples" autocomplete="off">
@@ -11131,10 +11196,15 @@ Example | HTTPS | Real-time media/DNS</pre>
 
   <script>
     const sectionData = [{"id":"section-1","title":"JAVASCRIPT","count":39,"highCount":32,"numbers":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39]},{"id":"section-2","title":"TYPESCRIPT","count":13,"highCount":8,"numbers":[40,41,42,43,44,45,46,47,48,49,50,51,52]},{"id":"section-3","title":"HTML AND CSS","count":36,"highCount":25,"numbers":[53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88]},{"id":"section-4","title":"REACT.JS","count":37,"highCount":35,"numbers":[89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125]},{"id":"section-5","title":"NEXT.JS","count":5,"highCount":4,"numbers":[126,127,128,129,130]},{"id":"section-6","title":"TAILWIND CSS","count":2,"highCount":1,"numbers":[131,132]},{"id":"section-7","title":"NODE.JS","count":15,"highCount":12,"numbers":[133,134,135,136,137,138,139,140,141,142,143,144,145,146,147]},{"id":"section-8","title":"EXPRESS.JS","count":9,"highCount":7,"numbers":[148,149,150,151,152,153,154,155,156]},{"id":"section-9","title":"WEB APIS","count":23,"highCount":20,"numbers":[157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179]},{"id":"section-10","title":"SQL","count":17,"highCount":15,"numbers":[180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196]},{"id":"section-11","title":"DBMS","count":16,"highCount":15,"numbers":[197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212]},{"id":"section-12","title":"MONGODB","count":25,"highCount":17,"numbers":[213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237]},{"id":"section-13","title":"GENERATIVE AI AND RAG","count":16,"highCount":15,"numbers":[238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253]},{"id":"section-14","title":"OOP","count":19,"highCount":18,"numbers":[254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272]},{"id":"section-15","title":"OPERATING SYSTEMS","count":28,"highCount":24,"numbers":[273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300]},{"id":"section-16","title":"COMPUTER NETWORKS","count":13,"highCount":12,"numbers":[301,302,303,304,305,306,307,308,309,310,311,312,313]}];
+    const roleData = [{"id":"sde-1","title":"SDE I / Junior Software Engineer","count":145,"highCount":124,"numbers":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313]},{"id":"frontend-react","title":"Frontend / React Developer","count":155,"highCount":125,"numbers":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179]},{"id":"backend-node","title":"Backend / Node.js Developer","count":157,"highCount":126,"numbers":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237]},{"id":"full-stack-js","title":"Full-Stack JavaScript Developer","count":237,"highCount":191,"numbers":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237]},{"id":"mern-stack","title":"MERN Stack Developer","count":197,"highCount":156,"numbers":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237]},{"id":"genai-app","title":"Junior GenAI Application Developer","count":213,"highCount":171,"numbers":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253]}];
+    const roleQuestionSets = new Map(
+      roleData.map((role) => [role.id, new Set(role.numbers)]),
+    );
     const totalQuestions = 313;
     const questions = [...document.querySelectorAll(".question-block")];
     const sectionGroups = [...document.querySelectorAll("[data-section-group]")];
     const sectionButtons = [...document.querySelectorAll("[data-section-button]")];
+    const roleButtons = [...document.querySelectorAll("[data-role-button]")];
     const search = document.getElementById("search");
     const jumpInput = document.getElementById("jump-input");
     const jumpButton = document.getElementById("jump-button");
@@ -11151,6 +11221,7 @@ Example | HTTPS | Real-time media/DNS</pre>
     const frequencyKey = "skills-reader-frequency-v1";
     const readerStateKey = "skills-reader-view-state-v1";
     let activeSection = sectionData[0].id;
+    let activeRole = null;
     let activeFrequency = "high";
     let reviewed = new Set();
     let savedReaderState = {};
@@ -11202,6 +11273,7 @@ Example | HTTPS | Real-time media/DNS</pre>
 
       const state = {
         activeSection,
+        activeRole,
         search: search.value,
         scrollY: Math.max(0, Math.round(window.scrollY)),
         openQuestions: questions
@@ -11263,6 +11335,13 @@ Example | HTTPS | Real-time media/DNS</pre>
         document.querySelector("[data-section-progress-bar='" + section.id + "']").style.width = sectionPercentage + "%";
       }
 
+      for (const role of roleData) {
+        const completed = role.numbers.filter((number) => reviewed.has(number)).length;
+        const rolePercentage = role.count === 0 ? 0 : (completed / role.count) * 100;
+        document.querySelector("[data-role-progress='" + role.id + "']").textContent = completed + "/" + role.count;
+        document.querySelector("[data-role-progress-bar='" + role.id + "']").style.width = rolePercentage + "%";
+      }
+
       for (const question of questions) {
         const number = Number(question.dataset.number);
         const isReviewed = reviewed.has(number);
@@ -11275,7 +11354,16 @@ Example | HTTPS | Real-time media/DNS</pre>
 
     const updateSectionButtons = () => {
       for (const button of sectionButtons) {
-        button.setAttribute("aria-pressed", String(button.dataset.sectionButton === activeSection));
+        button.setAttribute(
+          "aria-pressed",
+          String(!activeRole && button.dataset.sectionButton === activeSection),
+        );
+      }
+    };
+
+    const updateRoleButtons = () => {
+      for (const button of roleButtons) {
+        button.setAttribute("aria-pressed", String(button.dataset.roleButton === activeRole));
       }
     };
 
@@ -11290,13 +11378,19 @@ Example | HTTPS | Real-time media/DNS</pre>
 
     const applyFilters = () => {
       const query = search.value.trim().toLocaleLowerCase();
+      const selectedRole = roleData.find((role) => role.id === activeRole) || null;
+      const selectedRoleQuestions = selectedRole
+        ? roleQuestionSets.get(selectedRole.id)
+        : null;
       let visibleCount = 0;
 
       for (const question of questions) {
+        const number = Number(question.dataset.number);
         const sectionMatch = activeSection === "all" || question.dataset.section === activeSection;
+        const roleMatch = !selectedRoleQuestions || selectedRoleQuestions.has(number);
         const queryMatch = !query || question.dataset.search.includes(query);
         const frequencyMatch = activeFrequency === "all" || question.dataset.frequency === "high";
-        const visible = frequencyMatch && (query ? queryMatch : sectionMatch);
+        const visible = frequencyMatch && roleMatch && (query ? queryMatch : sectionMatch);
         question.hidden = !visible;
         if (visible) visibleCount += 1;
       }
@@ -11307,8 +11401,13 @@ Example | HTTPS | Real-time media/DNS</pre>
 
       if (query) {
         document.body.dataset.scope = "search";
-        viewTitle.textContent = "Search results";
+        viewTitle.textContent = selectedRole ? selectedRole.title + " search" : "Search results";
         viewMeta.textContent = visibleCount + " matching " + (activeFrequency === "high" ? "high-frequency" : "total") + " questions";
+      } else if (selectedRole) {
+        document.body.dataset.scope = "role";
+        viewTitle.textContent = selectedRole.title;
+        const count = activeFrequency === "high" ? selectedRole.highCount : selectedRole.count;
+        viewMeta.textContent = count + (activeFrequency === "high" ? " high-frequency questions" : " questions");
       } else if (activeSection === "all") {
         document.body.dataset.scope = "all";
         viewTitle.textContent = activeFrequency === "high" ? "High-frequency questions" : "All questions";
@@ -11328,14 +11427,34 @@ Example | HTTPS | Real-time media/DNS</pre>
         if (label) label.textContent = count;
       }
 
+      for (const role of roleData) {
+        const count = activeFrequency === "high" ? role.highCount : role.count;
+        const label = document.querySelector("[data-visible-role-count='" + role.id + "']");
+        if (label) label.textContent = count;
+      }
+
       emptyState.hidden = visibleCount !== 0;
       updateSectionButtons();
+      updateRoleButtons();
       updateFrequencyButtons();
       updateQuestionNavigation();
     };
 
     const selectSection = (sectionId) => {
+      activeRole = null;
       activeSection = sectionId;
+      search.value = "";
+      clearQuestionHash();
+      applyFilters();
+      closeSidebar();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      scheduleReaderStateSave();
+    };
+
+    const selectRole = (roleId) => {
+      if (!roleQuestionSets.has(roleId)) return;
+      activeRole = roleId;
+      activeSection = "all";
       search.value = "";
       clearQuestionHash();
       applyFilters();
@@ -11351,7 +11470,13 @@ Example | HTTPS | Real-time media/DNS</pre>
         activeFrequency = "all";
         writeStorage(frequencyKey, activeFrequency);
       }
-      activeSection = question.dataset.section;
+      const activeRoleQuestions = activeRole ? roleQuestionSets.get(activeRole) : null;
+      if (activeRoleQuestions && activeRoleQuestions.has(number)) {
+        activeSection = "all";
+      } else {
+        activeRole = null;
+        activeSection = question.dataset.section;
+      }
       search.value = "";
       applyFilters();
       question.querySelector("details").open = true;
@@ -11391,6 +11516,10 @@ Example | HTTPS | Real-time media/DNS</pre>
 
     for (const button of sectionButtons) {
       button.addEventListener("click", () => selectSection(button.dataset.sectionButton));
+    }
+
+    for (const button of roleButtons) {
+      button.addEventListener("click", () => selectRole(button.dataset.roleButton));
     }
 
     search.addEventListener("input", () => {
@@ -11489,7 +11618,11 @@ Example | HTTPS | Real-time media/DNS</pre>
 
     activeFrequency = readStorage(frequencyKey, "high") === "all" ? "all" : "high";
     const validSectionIds = new Set(["all", ...sectionData.map((section) => section.id)]);
-    if (validSectionIds.has(savedReaderState.activeSection)) {
+    const validRoleIds = new Set(roleData.map((role) => role.id));
+    if (validRoleIds.has(savedReaderState.activeRole)) {
+      activeRole = savedReaderState.activeRole;
+      activeSection = "all";
+    } else if (validSectionIds.has(savedReaderState.activeSection)) {
       activeSection = savedReaderState.activeSection;
     }
     if (typeof savedReaderState.search === "string") {

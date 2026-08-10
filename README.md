@@ -4,8 +4,11 @@ A static, navigable revision interface for 313 questions represented in relevant
 
 The reader defaults to 260 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, theme, mode, frequency, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
 
+Resume-aligned role filters group the same verified questions for SDE I, frontend/React, backend/Node.js, full-stack JavaScript, MERN, and junior GenAI application positions. Selecting a role does not duplicate or invent questions.
+
 ## Source pages
 
+- [Technical Interview Questions index](https://www.geeksforgeeks.org/gfg-academy/technical-interview-questions/#web-development-technical-interview-questions)
 - [JavaScript](https://www.geeksforgeeks.org/javascript/javascript-interview-questions/)
 - [TypeScript](https://www.geeksforgeeks.org/typescript/typescript-interview-questions/)
 - [HTML](https://www.geeksforgeeks.org/html/html-interview-questions/) and [CSS](https://www.geeksforgeeks.org/css/css-interview-questions/)
