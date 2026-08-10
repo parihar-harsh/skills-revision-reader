@@ -7,7 +7,7 @@
       category: "Frontend",
       roles: ["frontend-react", "full-stack-js", "mern-stack"],
       language: "CSS",
-      idea: "Use a stable desktop layout, fluid media, and one breakpoint that collapses columns instead of calculating widths in JavaScript.",
+      idea: "Start with a stable narrow layout, use fluid media, and add one breakpoint that expands the columns instead of calculating widths in JavaScript.",
       concepts: [
         "semantic HTML layout regions",
         "CSS Grid vs Flexbox",
@@ -17,14 +17,10 @@
         "responsive images and overflow"
       ],
       solution: lines(
-        ".layout {",
-        "  display: grid;",
-        "  grid-template-columns: 240px minmax(0, 1fr);",
-        "  gap: 16px;",
-        "}",
+        ".layout { display: grid; grid-template-columns: 1fr; gap: 16px; }",
         ".layout img { max-width: 100%; height: auto; }",
-        "@media (max-width: 768px) {",
-        "  .layout { grid-template-columns: 1fr; }",
+        "@media (min-width: 769px) {",
+        "  .layout { grid-template-columns: 240px minmax(0, 1fr); }",
         "}"
       ),
       solutionUrl: "https://www.geeksforgeeks.org/css/complete-guide-to-flexbox/",
@@ -48,14 +44,15 @@
         "button, focus, and aria-selected semantics"
       ],
       solution: lines(
-        "function ProfileTabs() {",
+        "function ProfileTabs({ onSave }) {",
         "  const [tab, setTab] = useState('profile');",
         "  const [name, setName] = useState('');",
+        "  const submit = event => { event.preventDefault(); if (name.trim()) onSave(name.trim()); };",
         "  return <>",
-        "    <nav>{['profile', 'settings'].map(value =>",
-        "      <button onClick={() => setTab(value)} aria-selected={tab === value}>{value}</button>",
+        "    <nav role=\"tablist\">{['profile', 'settings'].map(value =>",
+        "      <button key={value} role=\"tab\" onClick={() => setTab(value)} aria-selected={tab === value}>{value}</button>",
         "    )}</nav>",
-        "    {tab === 'profile' && <input value={name} onChange={e => setName(e.target.value)} />}",
+        "    {tab === 'profile' && <form onSubmit={submit}><input value={name} onChange={e => setName(e.target.value)} /><button>Save</button></form>}",
         "    {tab === 'settings' && <p>Settings panel</p>}",
         "  </>;",
         "}"
@@ -121,11 +118,13 @@
         "keeping rendered UI in sync after mutations"
       ],
       solution: lines(
-        "let items = JSON.parse(localStorage.getItem('items') ?? '[]');",
+        "let items;",
+        "try { const stored = JSON.parse(localStorage.getItem('items')); items = Array.isArray(stored) ? stored : []; } catch { items = []; }",
         "const save = () => localStorage.setItem('items', JSON.stringify(items));",
-        "function add(text) { items.push({ id: crypto.randomUUID(), text }); save(); }",
+        "function add(text) { const value = text.trim(); if (!value) return; items.push({ id: crypto.randomUUID(), text: value }); save(); }",
         "function update(id, text) {",
-        "  items = items.map(item => item.id === id ? { ...item, text } : item);",
+        "  const value = text.trim(); if (!value) return;",
+        "  items = items.map(item => item.id === id ? { ...item, text: value } : item);",
         "  save();",
         "}",
         "function remove(id) { items = items.filter(item => item.id !== id); save(); }"
@@ -209,6 +208,40 @@
       evidenceUrls: [
         "https://www.geeksforgeeks.org/interview-experiences/uniphore-interview-experience-for-software-engineer-frontend/",
         "https://www.geeksforgeeks.org/interview-experiences/infosys-interview-experience-for-react-frontend-developer/"
+      ]
+    },
+    {
+      title: "Debug and extend an unfamiliar React codebase",
+      category: "Frontend",
+      roles: ["sde-1", "frontend-react", "full-stack-js", "mern-stack"],
+      language: "React",
+      idea: "Reproduce one reported issue, trace the state and effects that control it, make the smallest correct fix, and retest the affected workflow.",
+      concepts: [
+        "reproducing the bug before editing",
+        "Console, Network, and React DevTools",
+        "state mutation and stale closures",
+        "useEffect dependencies and cleanup",
+        "list keys and conditional rendering",
+        "small fixes and regression checks"
+      ],
+      solution: lines(
+        "function SearchResults({ query }) {",
+        "  const [items, setItems] = useState([]);",
+        "  useEffect(() => {",
+        "    const controller = new AbortController();",
+        "    fetch(`/api/search?q=${encodeURIComponent(query)}`, { signal: controller.signal })",
+        "      .then(response => { if (!response.ok) throw Error(response.status); return response.json(); })",
+        "      .then(setItems)",
+        "      .catch(error => { if (error.name !== 'AbortError') console.error(error); });",
+        "    return () => controller.abort();",
+        "  }, [query]); // correct dependency and stale-request cleanup",
+        "  return items.map(item => <Result key={item.id} item={item} />);",
+        "}"
+      ),
+      solutionUrl: "https://www.geeksforgeeks.org/reactjs/most-common-mistakes-that-react-developers-make/",
+      evidenceUrls: [
+        "https://www.geeksforgeeks.org/interview-experiences/apiwiz-sde-1-frontend/",
+        "https://www.geeksforgeeks.org/interview-experiences/sca-technologies-interview-experience-for-ase/"
       ]
     },
     {
@@ -366,7 +399,9 @@
         "    return () => this.#topics.get(topic)?.delete(handler);",
         "  }",
         "  publish(topic, payload) {",
-        "    for (const handler of this.#topics.get(topic) ?? []) handler(payload);",
+        "    for (const handler of [...(this.#topics.get(topic) ?? [])]) {",
+        "      try { handler(payload); } catch (error) { console.error(error); }",
+        "    }",
         "  }",
         "}"
       ),
@@ -512,7 +547,7 @@
       idea: "Build from a small trusted image, install reproducible production dependencies first for caching, copy the app, and run it as a non-root user.",
       concepts: [
         "image vs container",
-        "small and pinned base images",
+        "small and versioned base images",
         "layer order and build-cache reuse",
         "package lock and npm ci",
         ".dockerignore",

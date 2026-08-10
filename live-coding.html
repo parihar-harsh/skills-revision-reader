@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="General live coding interview patterns with core ideas, focused implementation concepts, and concise inline solutions.">
+  <meta name="description" content="High-probability fresher live coding patterns with focused concepts, inline examples, and working references.">
   <title>Live Coding Patterns</title>
   <style>
     :root {
@@ -168,7 +168,7 @@
     }
     .menu-button { display: none; }
     .search-wrap { flex: 1 1 auto; min-width: 160px; }
-    .search-input, .role-select, .control-button {
+    .search-input, .role-select, .scope-select, .control-button {
       min-height: 40px;
       border: 1px solid var(--border);
       border-radius: 5px;
@@ -177,7 +177,9 @@
     }
     .search-input { width: 100%; padding: 0 12px; }
     .search-input::placeholder { color: var(--muted); }
-    .role-select { min-width: 220px; padding: 0 32px 0 10px; font-size: 12px; font-weight: 700; }
+    .role-select, .scope-select { padding: 0 32px 0 10px; font-size: 12px; font-weight: 700; }
+    .role-select { min-width: 210px; }
+    .scope-select { min-width: 150px; }
     .control-button {
       display: inline-flex;
       align-items: center;
@@ -187,15 +189,49 @@
       font-weight: 700;
       white-space: nowrap;
     }
-    .control-button:hover, .role-select:hover { border-color: var(--border-strong); }
+    .control-button:hover, .role-select:hover, .scope-select:hover { border-color: var(--border-strong); }
     .mobile-pages { display: none; }
 
     main { width: min(980px, 100%); margin: 0 auto; padding: 28px 30px 56px; }
-    .page-head { padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .page-head { padding-bottom: 20px; }
     .eyebrow { margin: 0 0 5px; color: var(--accent); font-size: 11px; font-weight: 800; text-transform: uppercase; }
     .page-head h2 { margin: 0; font-size: 32px; line-height: 1.15; }
     .page-head p { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
     .results-meta { display: block; margin-top: 8px; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+    .head-actions { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 14px; }
+    .study-mode {
+      display: inline-grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3px;
+      padding: 3px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-soft);
+    }
+    .study-button {
+      min-width: 72px;
+      min-height: 32px;
+      padding: 0 10px;
+      border: 0;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .study-button:hover { color: var(--text); }
+    .study-button[aria-pressed="true"] { background: var(--surface); color: var(--accent); box-shadow: 0 1px 3px rgb(20 35 42 / 10%); }
+
+    .execution-guide { margin-top: 20px; border-block: 1px solid var(--border); }
+    .execution-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 12px 0 8px; }
+    .execution-heading h3 { margin: 0; font-size: 13px; }
+    .execution-heading span { color: var(--muted); font-size: 10px; }
+    .execution-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+    .execution-step { min-width: 0; padding: 11px 12px 13px 0; border-top: 1px solid var(--border); }
+    .execution-step:not(:nth-child(3n + 1)) { padding-left: 12px; border-left: 1px solid var(--border); }
+    .execution-step strong { display: block; margin-bottom: 3px; font-size: 10px; text-transform: uppercase; }
+    .execution-step p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .execution-step code { display: block; margin-top: 5px; color: var(--text); font: 9px/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; overflow-wrap: anywhere; }
 
     .category-section { scroll-margin-top: 78px; padding-top: 26px; }
     .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 9px; }
@@ -228,6 +264,8 @@
     .question-content { min-width: 0; }
     .question-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
     .question-title { min-width: 0; margin: 7px 0 0; font-size: 13px; font-weight: 750; overflow-wrap: anywhere; }
+    .frequency-label { flex: 0 0 auto; margin-top: 7px; color: var(--muted); font-size: 9px; font-weight: 800; text-transform: uppercase; }
+    .frequency-label.frequent { color: var(--accent); }
     .idea-box {
       display: grid;
       grid-template-columns: auto minmax(0, 1fr);
@@ -261,6 +299,32 @@
       background: var(--accent);
       content: "";
     }
+    .lesson-list { display: none; margin-top: 10px; border-top: 1px solid var(--border); }
+    .lesson-item {
+      display: grid;
+      grid-template-columns: minmax(120px, 0.33fr) minmax(0, 1fr);
+      gap: 5px 16px;
+      padding: 11px 2px;
+      border-bottom: 1px solid var(--border);
+    }
+    .lesson-title { display: flex; align-items: flex-start; gap: 7px; font-size: 10px; }
+    .lesson-title span { color: var(--accent); font-size: 9px; font-weight: 850; font-variant-numeric: tabular-nums; }
+    .lesson-title strong { line-height: 1.45; }
+    .lesson-text { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+    .lesson-example {
+      grid-column: 2;
+      display: block;
+      min-width: 0;
+      padding: 7px 8px;
+      border-left: 2px solid var(--accent);
+      background: var(--surface-soft);
+      color: var(--text);
+      font: 9px/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    body[data-study-mode="learn"] .prepare-block { display: none; }
+    body[data-study-mode="learn"] .lesson-list { display: block; }
     .solution-meta {
       display: flex;
       align-items: center;
@@ -299,8 +363,11 @@
       .menu-button { display: inline-flex; }
       .mobile-pages { display: flex; gap: 5px; }
       .mobile-pages a { min-height: 40px; padding: 0 8px; }
-      .toolbar { padding: 8px 10px; }
-      .role-select { min-width: 180px; }
+      .toolbar { flex-wrap: wrap; padding: 8px 10px; }
+      .menu-button, .search-wrap, .theme-button { order: 1; }
+      .filter-control, .mobile-pages { order: 2; }
+      .role-select { min-width: 175px; }
+      .scope-select { min-width: 140px; }
       main { padding: 24px 18px 48px; }
     }
 
@@ -308,23 +375,29 @@
       .toolbar { flex-wrap: wrap; gap: 6px; padding: 7px 8px; }
       .menu-button { flex: 0 0 64px; padding-inline: 7px; }
       .search-wrap { min-width: 150px; }
-      .role-select { width: 100%; min-width: 0; }
+      .filter-control { flex: 1 1 calc(50% - 3px); }
+      .role-select, .scope-select { width: 100%; min-width: 0; }
       .mobile-pages { order: 4; flex: 1; }
       .mobile-pages a { flex: 1; }
       .theme-button { flex: 0 0 54px; padding-inline: 7px; }
       main { padding-inline: 10px; }
       .page-head h2 { font-size: 27px; }
+      .head-actions { align-items: flex-start; flex-direction: column; }
+      .execution-steps { grid-template-columns: 1fr; }
+      .execution-step, .execution-step:not(:nth-child(3n + 1)) { padding: 9px 0; border-left: 0; }
       .question-row { grid-template-columns: 34px minmax(0, 1fr); gap: 9px; }
       .question-number { width: 32px; height: 32px; }
       .question-heading { display: block; }
       .question-title { margin-top: 6px; }
       .idea-box { grid-template-columns: 1fr; gap: 3px; }
       .prepare-block { grid-template-columns: 1fr; gap: 4px; }
+      .lesson-item { grid-template-columns: 1fr; gap: 5px; }
+      .lesson-example { grid-column: 1; }
       .solution-code { padding: 10px; font-size: 10px; }
     }
   </style>
 </head>
-<body>
+<body data-study-mode="learn">
   <aside class="sidebar" id="sidebar" aria-label="Live coding categories">
     <header class="brand">
       <div class="brand-mark" aria-hidden="true">LC</div>
@@ -348,11 +421,18 @@
       <button id="menu-button" class="control-button menu-button" type="button" aria-controls="sidebar" aria-expanded="false">Browse</button>
       <label class="search-wrap">
         <span class="sr-only">Search live coding patterns</span>
-        <input id="search" class="search-input" type="search" placeholder="Search live coding patterns" autocomplete="off">
+        <input id="search" class="search-input" type="search" placeholder="Search patterns" autocomplete="off">
       </label>
-      <label>
+      <label class="filter-control">
         <span class="sr-only">Filter by position</span>
         <select id="role-filter" class="role-select" aria-label="Filter by position"></select>
+      </label>
+      <label class="filter-control">
+        <span class="sr-only">Filter by interview frequency</span>
+        <select id="priority-filter" class="scope-select" aria-label="Filter by interview frequency">
+          <option value="frequent">Frequent questions</option>
+          <option value="">All verified</option>
+        </select>
       </label>
       <nav class="mobile-pages" aria-label="Other revision pages">
         <a class="control-button" href="index.html">Theory</a>
@@ -364,30 +444,53 @@
     <main>
       <header class="page-head">
         <p class="eyebrow">Interview practice</p>
-        <h2>General live coding questions</h2>
-        <p>Core ideas, focused implementation concepts, and concise interview-ready examples.</p>
-        <span id="results-meta" class="results-meta" aria-live="polite"></span>
+        <h2>Live coding essentials</h2>
+        <p>Recurring fresher interview tasks, with only the concepts needed to build and explain each solution.</p>
+        <div class="head-actions">
+          <span id="results-meta" class="results-meta" aria-live="polite"></span>
+          <div class="study-mode" role="group" aria-label="Concept detail">
+            <button class="study-button" type="button" data-study-mode="quick" aria-pressed="false">Quick</button>
+            <button class="study-button" type="button" data-study-mode="learn" aria-pressed="true">Learn</button>
+          </div>
+        </div>
+        <section class="execution-guide" aria-labelledby="execution-title">
+          <div class="execution-heading">
+            <h3 id="execution-title">How to handle any live prompt</h3>
+            <span>Use this sequence; do not add unasked features.</span>
+          </div>
+          <ol id="execution-steps" class="execution-steps"></ol>
+        </section>
       </header>
       <div id="question-sections"></div>
     </main>
   </div>
 
-  <script src="live-coding-data.js?v=focused-concepts"></script>
+  <script src="live-coding-data.js?v=realistic-learning"></script>
+  <script src="live-coding-guides.js?v=realistic-learning"></script>
   <script>
     (function () {
       "use strict";
 
-      const questions = Array.isArray(window.liveCodingQuestions) ? window.liveCodingQuestions : [];
+      const rawQuestions = Array.isArray(window.liveCodingQuestions) ? window.liveCodingQuestions : [];
+      const guides = window.liveCodingGuides && typeof window.liveCodingGuides === "object" ? window.liveCodingGuides : {};
+      const executionSteps = Array.isArray(window.liveCodingExecutionSteps) ? window.liveCodingExecutionSteps : [];
+      const questions = rawQuestions.map((question) => ({ ...question, ...(guides[question.title] || {}) }));
       const roleLabels = {
         "sde-1": "SDE I / Software Engineer",
         "frontend-react": "Frontend / React Developer",
         "backend-node": "Backend / Node.js Developer",
         "full-stack-js": "Full-Stack JavaScript Developer",
         "mern-stack": "MERN Stack Developer",
-        "genai-app": "AI / GenAI Engineer",
         "devops-engineer": "DevOps Engineer"
       };
-      const state = { search: "", role: "", category: "" };
+      const savedStudyMode = localStorage.getItem("live-coding-study-mode");
+      const state = {
+        search: "",
+        role: "",
+        category: "",
+        priority: "frequent",
+        studyMode: savedStudyMode === "quick" ? "quick" : "learn"
+      };
       const elements = {
         body: document.body,
         sidebar: document.getElementById("sidebar"),
@@ -395,11 +498,14 @@
         menu: document.getElementById("menu-button"),
         search: document.getElementById("search"),
         role: document.getElementById("role-filter"),
+        priority: document.getElementById("priority-filter"),
         theme: document.getElementById("theme-button"),
         nav: document.getElementById("category-nav"),
         sections: document.getElementById("question-sections"),
         meta: document.getElementById("results-meta"),
-        count: document.getElementById("brand-count")
+        count: document.getElementById("brand-count"),
+        execution: document.getElementById("execution-steps"),
+        studyButtons: [...document.querySelectorAll("[data-study-mode]")]
       };
 
       const escapeHtml = (value) => String(value)
@@ -415,6 +521,13 @@
         .map((id) => `<option value="${id}">${escapeHtml(roleLabels[id])}</option>`)
         .join("");
       elements.count.textContent = `${questions.length} patterns with solutions`;
+      elements.execution.innerHTML = executionSteps.map((step, index) => `
+        <li class="execution-step">
+          <strong>${index + 1}. ${escapeHtml(step.title)}</strong>
+          <p>${escapeHtml(step.text)}</p>
+          <code>${escapeHtml(step.example)}</code>
+        </li>
+      `).join("");
 
       const closeSidebar = () => {
         elements.body.classList.remove("sidebar-open");
@@ -422,10 +535,15 @@
       };
 
       const renderNav = () => {
+        const scopedQuestions = questions.filter((question) => {
+          if (state.role && !question.roles.includes(state.role)) return false;
+          if (state.priority && question.priority !== state.priority) return false;
+          return true;
+        });
         const items = [
-          { name: "", label: "All categories", count: questions.length },
-          ...categories.map((name) => ({ name, label: name, count: questions.filter((question) => question.category === name).length }))
-        ];
+          { name: "", label: "All categories", count: scopedQuestions.length },
+          ...categories.map((name) => ({ name, label: name, count: scopedQuestions.filter((question) => question.category === name).length }))
+        ].filter((item) => !item.name || item.count > 0 || item.name === state.category);
         elements.nav.innerHTML = '<div class="nav-label">Categories</div>' + items.map((item) => `
           <button class="category-button" type="button" data-category="${escapeHtml(item.name)}" aria-pressed="${state.category === item.name}">
             <span class="category-name">${escapeHtml(item.label)}</span>
@@ -439,7 +557,9 @@
         const filtered = questions.filter((question) => {
           if (state.role && !question.roles.includes(state.role)) return false;
           if (state.category && question.category !== state.category) return false;
-          return !query || `${question.title} ${question.category} ${question.language} ${question.idea} ${question.concepts.join(" ")} ${question.solution}`.toLowerCase().includes(query);
+          if (state.priority && question.priority !== state.priority) return false;
+          const lessonText = (question.lessons || []).flatMap((lesson) => [lesson.title, lesson.text, lesson.example]).join(" ");
+          return !query || `${question.title} ${question.category} ${question.language} ${question.idea} ${question.concepts.join(" ")} ${lessonText} ${question.solution}`.toLowerCase().includes(query);
         });
         const visibleCategories = categories.filter((category) => filtered.some((question) => question.category === category));
         let number = 0;
@@ -457,13 +577,23 @@
                       <div class="question-content">
                         <div class="question-heading">
                           <h4 class="question-title">${escapeHtml(question.title)}</h4>
+                          <span class="frequency-label ${question.priority === "frequent" ? "frequent" : ""}">${question.priority === "frequent" ? "Frequent" : "Role-specific"}</span>
                         </div>
                         <div class="idea-box"><span class="idea-label">Core idea</span><p class="idea-text">${escapeHtml(question.idea)}</p></div>
                         <div class="prepare-block">
                           <span class="prepare-label">Prepare these</span>
                           <ul class="concept-list">${question.concepts.map((concept) => `<li class="concept-item">${escapeHtml(concept)}</li>`).join("")}</ul>
                         </div>
-                        <div class="solution-meta"><span>Key example</span><span>${escapeHtml(question.language)}</span></div>
+                        <div class="lesson-list">
+                          ${(question.lessons || []).map((lesson, index) => `
+                            <div class="lesson-item">
+                              <div class="lesson-title"><span>${String(index + 1).padStart(2, "0")}</span><strong>${escapeHtml(lesson.title)}</strong></div>
+                              <p class="lesson-text">${escapeHtml(lesson.text)}</p>
+                              <code class="lesson-example">${escapeHtml(lesson.example)}</code>
+                            </div>
+                          `).join("")}
+                        </div>
+                        <div class="solution-meta"><span>Working reference</span><span>${escapeHtml(question.language)}</span></div>
                         <pre class="solution-code"><code>${escapeHtml(question.solution)}</code></pre>
                       </div>
                     </article>
@@ -478,12 +608,25 @@
             <p>Clear the search or choose a different position or category.</p>
           </div>
         `;
-        elements.meta.textContent = `${filtered.length} of ${questions.length} patterns shown`;
+        const scope = state.priority === "frequent" ? "frequent" : "verified";
+        elements.meta.textContent = `${filtered.length} ${scope} patterns shown · ${state.studyMode === "learn" ? "Learn" : "Quick"} mode`;
         renderNav();
       };
 
+      const resetUnavailableCategory = () => {
+        if (!state.category) return;
+        const categoryAvailable = questions.some((question) => {
+          if (question.category !== state.category) return false;
+          if (state.role && !question.roles.includes(state.role)) return false;
+          if (state.priority && question.priority !== state.priority) return false;
+          return true;
+        });
+        if (!categoryAvailable) state.category = "";
+      };
+
       elements.search.addEventListener("input", () => { state.search = elements.search.value; render(); });
-      elements.role.addEventListener("change", () => { state.role = elements.role.value; render(); });
+      elements.role.addEventListener("change", () => { state.role = elements.role.value; resetUnavailableCategory(); render(); });
+      elements.priority.addEventListener("change", () => { state.priority = elements.priority.value; resetUnavailableCategory(); render(); });
       elements.nav.addEventListener("click", (event) => {
         const button = event.target.closest("[data-category]");
         if (!button) return;
@@ -502,6 +645,15 @@
         : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
       elements.theme.addEventListener("click", () => applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
 
+      const applyStudyMode = (mode) => {
+        state.studyMode = mode === "quick" ? "quick" : "learn";
+        elements.body.dataset.studyMode = state.studyMode;
+        elements.studyButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.studyMode === state.studyMode)));
+        localStorage.setItem("live-coding-study-mode", state.studyMode);
+        render();
+      };
+      elements.studyButtons.forEach((button) => button.addEventListener("click", () => applyStudyMode(button.dataset.studyMode)));
+
       elements.menu.addEventListener("click", () => {
         const open = !elements.body.classList.contains("sidebar-open");
         elements.body.classList.toggle("sidebar-open", open);
@@ -511,7 +663,7 @@
       window.addEventListener("keydown", (event) => { if (event.key === "Escape") closeSidebar(); });
       window.addEventListener("resize", () => { if (window.innerWidth > 820) closeSidebar(); });
 
-      render();
+      applyStudyMode(state.studyMode);
     })();
   </script>
 </body>
