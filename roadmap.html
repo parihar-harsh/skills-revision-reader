@@ -159,6 +159,38 @@
       font-size: 11px;
     }
 
+    .product-switcher {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin: 10px 12px 0;
+      padding: 3px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-muted);
+    }
+
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 6px 8px;
+      border-radius: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .product-link:hover { background: var(--surface-hover); }
+
+    .product-link.active {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--blue);
+    }
+
     .side-progress { padding: 15px 16px 13px; }
 
     .progress-copy {
@@ -305,6 +337,19 @@
       background: color-mix(in srgb, var(--surface) 94%, transparent);
       backdrop-filter: blur(12px);
     }
+
+    .toolbar-primary,
+    .toolbar-options {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+    }
+
+    .toolbar-primary { flex: 1 1 300px; }
+    .toolbar-options { flex: none; }
+
+    .mobile-page-link { display: none; }
 
     .search-wrap {
       flex: 1 1 300px;
@@ -657,7 +702,10 @@
       border: 1px solid var(--border);
       border-radius: 6px;
       background: var(--surface);
+      transition: border-color 140ms ease, background 140ms ease;
     }
+
+    .resource-card:hover { border-color: var(--border-strong); }
 
     .resource-card.completed {
       border-color: color-mix(in srgb, var(--green) 38%, var(--border));
@@ -678,6 +726,7 @@
       color: var(--blue);
       font-size: 12px;
       font-weight: 850;
+      text-decoration: none;
     }
 
     .resource-media img {
@@ -722,6 +771,13 @@
       font-size: 14px;
       line-height: 1.3;
     }
+
+    .resource-title-link {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .resource-title-link:hover { color: var(--blue); }
 
     .resource-note {
       margin: 5px 0 0;
@@ -787,12 +843,24 @@
     @media (max-width: 840px) {
       .app-shell { display: block; }
       .sidebar { display: none; }
-      .toolbar { flex-wrap: wrap; padding: 9px 10px; }
-      .search-wrap { order: 1; flex: 1 1 calc(100% - 124px); }
-      .theme-button { order: 2; }
-      .toolbar-reset { order: 3; }
-      .filter-control { order: 4; flex: 1 1 auto; grid-template-columns: repeat(2, 1fr); }
-      .hide-control { order: 5; }
+      .toolbar { display: grid; gap: 8px; padding: 8px 10px; }
+      .toolbar-primary { width: 100%; }
+      .toolbar-options {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 1px;
+        scrollbar-width: none;
+      }
+      .toolbar-options::-webkit-scrollbar { display: none; }
+      .mobile-page-link {
+        display: inline-flex;
+        flex: none;
+        min-width: 76px;
+        height: 40px;
+        font-size: 11px;
+      }
+      .search-wrap { flex: 1 1 auto; min-width: 0; }
+      .filter-control { grid-template-columns: repeat(2, 1fr); }
       .mobile-module-nav { display: flex; position: sticky; top: var(--toolbar-height); z-index: 15; }
       .content-shell { width: min(100% - 24px, 1240px); padding-top: 22px; }
       .module-section { scroll-margin-top: calc(var(--toolbar-height) + var(--mobile-nav-height) + 12px); }
@@ -802,6 +870,10 @@
 
     @media (max-width: 600px) {
       body { font-size: 14px; }
+      .toolbar { gap: 7px; padding: 7px 8px; }
+      .toolbar-primary, .toolbar-options { gap: 7px; }
+      .mobile-page-link { min-width: 70px; padding: 0 7px; }
+      .theme-button { width: 50px; min-width: 50px; }
       .overview h2 { font-size: 25px; }
       .summary-strip { grid-template-columns: 1fr 1fr; }
       .summary-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--border); }
@@ -842,6 +914,10 @@
           <p>Fresher Applied AI / GenAI</p>
         </div>
       </header>
+      <nav class="product-switcher" aria-label="Revision workspace">
+        <a class="product-link" href="index.html">Questions</a>
+        <a class="product-link active" href="roadmap.html" aria-current="page">AI route</a>
+      </nav>
       <div class="side-progress">
         <div class="progress-copy"><span>Route completed</span><span id="side-progress-copy">0/0</span></div>
         <span class="progress-track" aria-hidden="true"><span id="side-progress-bar"></span></span>
@@ -856,17 +932,22 @@
 
     <div class="workspace">
       <header class="toolbar">
-        <label class="search-wrap">
-          <span class="sr-only">Search modules, topics, and resources</span>
-          <input id="search-input" class="search-input" type="search" placeholder="Search videos or topics" autocomplete="off">
-        </label>
-        <div class="filter-control" aria-label="Roadmap depth">
-          <button class="filter-button" type="button" data-filter="core" aria-pressed="true">Essentials</button>
-          <button class="filter-button" type="button" data-filter="interview" aria-pressed="false">Deep dive</button>
+        <div class="toolbar-primary">
+          <a class="control-button mobile-page-link" href="index.html">Questions</a>
+          <label class="search-wrap">
+            <span class="sr-only">Search modules, topics, and resources</span>
+            <input id="search-input" class="search-input" type="search" placeholder="Search videos or topics" autocomplete="off">
+          </label>
+          <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
         </div>
-        <label class="hide-control" title="Hide completed videos"><input id="hide-completed" type="checkbox"><span>Hide done</span></label>
-        <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
-        <button id="toolbar-reset" class="control-button toolbar-reset" type="button">Reset</button>
+        <div class="toolbar-options" aria-label="Roadmap controls">
+          <div class="filter-control" aria-label="Roadmap depth">
+            <button class="filter-button" type="button" data-filter="core" aria-pressed="true">Essentials</button>
+            <button class="filter-button" type="button" data-filter="interview" aria-pressed="false">Deep dive</button>
+          </div>
+          <label class="hide-control" title="Hide completed videos"><input id="hide-completed" type="checkbox"><span>Hide done</span></label>
+          <button id="toolbar-reset" class="control-button toolbar-reset" type="button">Reset</button>
+        </div>
       </header>
 
       <nav id="mobile-module-nav" class="mobile-module-nav" aria-label="Roadmap modules"></nav>
@@ -1142,7 +1223,7 @@
     function renderMedia(resource) {
       if (resource.videoId) {
         const src = `https://i.ytimg.com/vi/${encodeURIComponent(resource.videoId)}/mqdefault.jpg`;
-        return `<div class="resource-media"><img src="${src}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="sr-only">Video thumbnail</span></div>`;
+        return `<a class="resource-media" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${escapeHtml(resource.title)}"><img src="${src}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="sr-only">Video thumbnail</span></a>`;
       }
       return `<div class="resource-media" aria-hidden="true">VIDEO</div>`;
     }
@@ -1157,7 +1238,7 @@
             <span>${escapeHtml(resource.source)}</span>
             <span>${formatMinutes(resource.minutes)}</span>
           </div>
-          <h4 class="resource-title">${escapeHtml(resource.title)}</h4>
+          <h4 class="resource-title"><a class="resource-title-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(resource.title)}</a></h4>
           <p class="resource-note">${escapeHtml(resource.note)}</p>
         </div>
         <div class="resource-actions">
@@ -1327,6 +1408,11 @@
         document.querySelectorAll("[data-module-target]").forEach((button) => {
           button.classList.toggle("active", button.dataset.moduleTarget === id);
         });
+        const activeMobile = mobileModuleNav.querySelector(`[data-module-target="${CSS.escape(id)}"]`);
+        if (activeMobile && typeof mobileModuleNav.scrollTo === "function") {
+          const left = activeMobile.offsetLeft - (mobileModuleNav.clientWidth - activeMobile.offsetWidth) / 2;
+          mobileModuleNav.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+        }
       }, { rootMargin: "-18% 0px -65% 0px", threshold: [0.01, 0.2, 0.5] });
       sections.forEach((section) => sectionObserver.observe(section));
     }
@@ -1350,6 +1436,14 @@
     searchInput.value = state.search;
     searchInput.addEventListener("input", () => {
       state.search = searchInput.value;
+      saveState();
+      render();
+    });
+
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      searchInput.value = "";
+      state.search = "";
       saveState();
       render();
     });
@@ -1378,6 +1472,8 @@
     continueButton.addEventListener("click", continueNext);
 
     function resetProgress() {
+      if (!completed.size) return;
+      if (!window.confirm("Clear all completed video progress?")) return;
       completed.clear();
       saveState();
       render();

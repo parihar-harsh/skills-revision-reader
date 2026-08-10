@@ -19,6 +19,7 @@
   <style>
     :root {
       color-scheme: light;
+      --toolbar-height: 65px;
       --bg: #f4f6f8;
       --surface: #ffffff;
       --surface-subtle: #f8fafc;
@@ -158,6 +159,38 @@
       color: var(--muted);
       font-size: 12px;
       font-variant-numeric: tabular-nums;
+    }
+
+    .product-switcher {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin: 10px 12px 0;
+      padding: 3px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-subtle);
+    }
+
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 6px 8px;
+      border-radius: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .product-link:hover { background: var(--surface-hover); }
+
+    .product-link.active {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--accent);
     }
 
     .sidebar-progress {
@@ -331,7 +364,20 @@
       backdrop-filter: blur(12px);
     }
 
+    .toolbar-primary,
+    .toolbar-options {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+    }
+
+    .toolbar-primary { flex: 1 1 300px; }
+    .toolbar-options { flex: none; }
+
     .menu-button { display: none; }
+
+    .mobile-page-link { display: none; }
 
     .search-wrap {
       flex: 1 1 340px;
@@ -439,7 +485,7 @@
 
     .theme-button {
       flex: none;
-      width: 62px;
+      width: 58px;
       height: 40px;
       padding: 0;
       font-size: 12px;
@@ -450,6 +496,30 @@
       min-width: 88px;
       height: 40px;
       font-size: 12px;
+    }
+
+    .toggle-control {
+      display: inline-flex;
+      flex: none;
+      align-items: center;
+      gap: 7px;
+      min-height: 40px;
+      padding: 0 10px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-subtle);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .toggle-control input {
+      width: 15px;
+      height: 15px;
+      margin: 0;
+      accent-color: var(--accent);
     }
 
     .content-shell {
@@ -499,6 +569,68 @@
     .control-button {
       min-width: 90px;
       font-size: 12px;
+    }
+
+    .control-button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 750;
+    }
+
+    .control-button.primary:hover {
+      background: color-mix(in srgb, var(--accent) 86%, #000000);
+    }
+
+    .control-button:disabled {
+      cursor: default;
+      opacity: 0.55;
+    }
+
+    .view-progress-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(150px, 240px);
+      gap: 18px;
+      align-items: center;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent);
+      background: var(--surface-subtle);
+    }
+
+    .view-progress-copy {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 5px 12px;
+      min-width: 0;
+    }
+
+    .view-progress-copy strong {
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .view-progress-copy span {
+      color: var(--muted);
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .view-progress-track {
+      display: block;
+      overflow: hidden;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--surface-hover);
+    }
+
+    .view-progress-track span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--answer);
+      transition: width 180ms ease;
     }
 
     .section-group { margin-top: 28px; }
@@ -551,6 +683,7 @@
 
     .question-block.reviewed {
       border-color: color-mix(in srgb, var(--answer) 42%, var(--border));
+      box-shadow: inset 3px 0 0 var(--answer);
     }
 
     .question-block:target {
@@ -786,30 +919,52 @@
         width: 72px;
       }
 
-      .toolbar { flex-wrap: wrap; }
-      .search-wrap { order: 1; flex-basis: calc(100% - 82px); }
-      .jump-control { order: 2; }
-      .mode-control { order: 3; }
-      .frequency-control { order: 4; }
-      .roadmap-link { order: 5; }
-      .theme-button { order: 6; }
+      .toolbar {
+        display: grid;
+        gap: 8px;
+        padding: 8px 10px;
+        overflow-x: hidden;
+      }
+
+      .toolbar-primary { width: 100%; }
+
+      .toolbar-options {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 1px;
+        scrollbar-width: none;
+      }
+
+      .toolbar-options::-webkit-scrollbar { display: none; }
+
+      .mobile-page-link {
+        display: inline-flex;
+        flex: none;
+        min-width: 74px;
+        height: 40px;
+        font-size: 11px;
+      }
     }
 
     @media (max-width: 640px) {
       body { font-size: 14px; }
-      .toolbar { gap: 8px; padding: 8px 10px; }
-      .menu-button { width: 68px; }
-      .search-wrap { flex-basis: calc(100% - 76px); min-width: 0; }
+      .toolbar { gap: 7px; padding: 7px 8px; }
+      .toolbar-primary, .toolbar-options { gap: 7px; }
+      .toolbar-primary .menu-button { flex: 0 0 64px; width: 64px; min-width: 64px; }
+      .search-wrap { min-width: 0; }
       .jump-control { grid-template-columns: 64px 40px; }
       .mode-control { grid-template-columns: repeat(2, 58px); }
       .frequency-control { grid-template-columns: 104px 66px; }
-      .roadmap-link { width: auto; }
-      .theme-button { width: 56px; }
+      .toolbar-primary .mobile-page-link { flex: 0 0 66px; min-width: 66px; padding: 0 7px; }
+      .toolbar-primary .theme-button { flex: 0 0 50px; width: 50px; min-width: 50px; }
       .content-shell { width: min(100% - 20px, 1040px); padding-top: 22px; }
       .page-header { align-items: flex-start; flex-direction: column; gap: 13px; }
       .page-header h2 { font-size: 20px; }
       .page-actions { justify-content: flex-start; width: 100%; }
       .control-button { flex: 1; min-width: 0; }
+      .view-progress-panel { grid-template-columns: 1fr; gap: 8px; }
       .section-heading { grid-template-columns: 40px minmax(0, 1fr); }
       .section-code { width: 40px; }
       details > summary {
@@ -843,6 +998,10 @@
           <p>313 total / 260 high frequency</p>
         </div>
       </header>
+      <nav class="product-switcher" aria-label="Revision workspace">
+        <a class="product-link active" href="index.html" aria-current="page">Questions</a>
+        <a class="product-link" href="roadmap.html">AI route</a>
+      </nav>
       <div class="sidebar-progress">
         <div class="progress-copy"><span>Reviewed</span><span id="overall-progress">0/313</span></div>
         <span class="progress-track" aria-hidden="true"><span id="overall-progress-bar"></span></span>
@@ -1044,26 +1203,34 @@
 
     <div class="workspace">
       <header class="toolbar">
-        <button id="menu-button" class="control-button menu-button" type="button" aria-controls="sidebar" aria-expanded="false">Browse</button>
-        <label class="search-wrap">
-          <span class="sr-only">Search questions, answers, and examples</span>
-          <input id="search" class="search-input" type="search" placeholder="Search questions, answers, examples" autocomplete="off">
-        </label>
-        <div class="jump-control">
-          <label class="sr-only" for="jump-input">Question number</label>
-          <input id="jump-input" class="jump-input" type="number" min="1" max="313" inputmode="numeric" placeholder="Q no.">
-          <button id="jump-button" class="jump-button" type="button">Go</button>
+        <div class="toolbar-primary">
+          <button id="menu-button" class="control-button menu-button" type="button" aria-controls="sidebar" aria-expanded="false">Browse</button>
+          <label class="search-wrap">
+            <span class="sr-only">Search questions, answers, and examples</span>
+            <input id="search" class="search-input" type="search" placeholder="Search questions, answers, examples" autocomplete="off">
+          </label>
+          <a class="control-button mobile-page-link" href="roadmap.html">AI route</a>
+          <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
         </div>
-        <div class="mode-control" aria-label="Revision mode">
-          <button class="mode-button" type="button" data-mode="review" aria-pressed="true">Review</button>
-          <button class="mode-button" type="button" data-mode="recall" aria-pressed="false">Recall</button>
+        <div class="toolbar-options" aria-label="Question controls">
+          <div class="mode-control" aria-label="Revision mode">
+            <button class="mode-button" type="button" data-mode="review" aria-pressed="true">Review</button>
+            <button class="mode-button" type="button" data-mode="recall" aria-pressed="false">Recall</button>
+          </div>
+          <div class="frequency-control" aria-label="Question frequency">
+            <button class="frequency-button" type="button" data-frequency-filter="high" aria-pressed="true">High frequency</button>
+            <button class="frequency-button" type="button" data-frequency-filter="all" aria-pressed="false">All questions</button>
+          </div>
+          <label class="toggle-control" title="Show only questions not marked reviewed">
+            <input id="hide-reviewed" type="checkbox">
+            <span>Hide reviewed</span>
+          </label>
+          <div class="jump-control">
+            <label class="sr-only" for="jump-input">Question number</label>
+            <input id="jump-input" class="jump-input" type="number" min="1" max="313" inputmode="numeric" placeholder="Q no.">
+            <button id="jump-button" class="jump-button" type="button">Go</button>
+          </div>
         </div>
-        <div class="frequency-control" aria-label="Question frequency">
-          <button class="frequency-button" type="button" data-frequency-filter="high" aria-pressed="true">High frequency</button>
-          <button class="frequency-button" type="button" data-frequency-filter="all" aria-pressed="false">All questions</button>
-        </div>
-        <a class="control-button roadmap-link" href="roadmap.html">AI roadmap</a>
-        <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
       </header>
 
       <main class="content-shell">
@@ -1074,10 +1241,19 @@
             <p id="view-meta" aria-live="polite">39 questions</p>
           </div>
           <div class="page-actions">
+            <button id="continue-unreviewed" class="control-button primary" type="button">Continue</button>
             <button id="expand-visible" class="control-button" type="button">Expand all</button>
             <button id="collapse-visible" class="control-button" type="button">Collapse all</button>
           </div>
         </header>
+
+        <section class="view-progress-panel" aria-label="Current view progress">
+          <div class="view-progress-copy">
+            <strong id="view-progress-copy">0 of 0 reviewed</strong>
+            <span id="view-remaining-copy">0 remaining in this view</span>
+          </div>
+          <span class="view-progress-track" aria-hidden="true"><span id="view-progress-bar"></span></span>
+        </section>
 
         <div id="question-list">
           <section class="section-group" data-section-group="section-1" style="--section-accent: #d97706">
@@ -11224,6 +11400,11 @@ Example | HTTPS | Real-time media/DNS</pre>
     const menuButton = document.getElementById("menu-button");
     const scrim = document.getElementById("scrim");
     const themeButton = document.getElementById("theme-button");
+    const hideReviewedInput = document.getElementById("hide-reviewed");
+    const continueUnreviewedButton = document.getElementById("continue-unreviewed");
+    const viewProgressCopy = document.getElementById("view-progress-copy");
+    const viewRemainingCopy = document.getElementById("view-remaining-copy");
+    const viewProgressBar = document.getElementById("view-progress-bar");
     const modeButtons = [...document.querySelectorAll("[data-mode]")];
     const frequencyButtons = [...document.querySelectorAll("[data-frequency-filter]")];
     const progressKey = "skills-reader-reviewed-v2";
@@ -11233,6 +11414,7 @@ Example | HTTPS | Real-time media/DNS</pre>
     let activeSection = sectionData[0].id;
     let activeRole = null;
     let activeFrequency = "high";
+    let hideReviewed = false;
     let reviewed = new Set();
     let savedReaderState = {};
     let stateSaveTimer = null;
@@ -11292,6 +11474,7 @@ Example | HTTPS | Real-time media/DNS</pre>
         revealedQuestions: questions
           .filter((question) => question.classList.contains("revealed"))
           .map((question) => Number(question.dataset.number)),
+        hideReviewed,
       };
 
       writeStorage(readerStateKey, JSON.stringify(state));
@@ -11386,6 +11569,18 @@ Example | HTTPS | Real-time media/DNS</pre>
       }
     };
 
+    const updateViewProgress = (total, completed) => {
+      const remaining = Math.max(0, total - completed);
+      const percentage = total ? (completed / total) * 100 : 0;
+      viewProgressCopy.textContent = completed + " of " + total + " reviewed";
+      viewRemainingCopy.textContent = remaining + " remaining in this view";
+      viewProgressBar.style.width = percentage + "%";
+
+      const next = visibleQuestions().find((question) => !reviewed.has(Number(question.dataset.number)));
+      continueUnreviewedButton.disabled = !next;
+      continueUnreviewedButton.textContent = next ? "Continue Q" + next.dataset.number : "View complete";
+    };
+
     const applyFilters = () => {
       const query = search.value.trim().toLocaleLowerCase();
       const selectedRole = roleData.find((role) => role.id === activeRole) || null;
@@ -11393,6 +11588,8 @@ Example | HTTPS | Real-time media/DNS</pre>
         ? roleQuestionSets.get(selectedRole.id)
         : null;
       let visibleCount = 0;
+      let viewTotal = 0;
+      let viewReviewed = 0;
 
       for (const question of questions) {
         const number = Number(question.dataset.number);
@@ -11400,7 +11597,12 @@ Example | HTTPS | Real-time media/DNS</pre>
         const roleMatch = !selectedRoleQuestions || selectedRoleQuestions.has(number);
         const queryMatch = !query || question.dataset.search.includes(query);
         const frequencyMatch = activeFrequency === "all" || question.dataset.frequency === "high";
-        const visible = frequencyMatch && roleMatch && (query ? queryMatch : sectionMatch);
+        const inCurrentView = frequencyMatch && roleMatch && (query ? queryMatch : sectionMatch);
+        if (inCurrentView) {
+          viewTotal += 1;
+          if (reviewed.has(number)) viewReviewed += 1;
+        }
+        const visible = inCurrentView && (!hideReviewed || !reviewed.has(number));
         question.hidden = !visible;
         if (visible) visibleCount += 1;
       }
@@ -11448,6 +11650,8 @@ Example | HTTPS | Real-time media/DNS</pre>
       updateRoleButtons();
       updateFrequencyButtons();
       updateQuestionNavigation();
+      hideReviewedInput.checked = hideReviewed;
+      updateViewProgress(viewTotal, viewReviewed);
     };
 
     const selectSection = (sectionId) => {
@@ -11476,6 +11680,7 @@ Example | HTTPS | Real-time media/DNS</pre>
     const openQuestion = (number) => {
       const question = document.querySelector("[data-number='" + number + "']");
       if (!question) return false;
+      if (hideReviewed && reviewed.has(number)) hideReviewed = false;
       if (question.dataset.frequency !== "high") {
         activeFrequency = "all";
         writeStorage(frequencyKey, activeFrequency);
@@ -11493,6 +11698,14 @@ Example | HTTPS | Real-time media/DNS</pre>
       question.scrollIntoView({ block: "start", behavior: "smooth" });
       scheduleReaderStateSave();
       return true;
+    };
+
+    const continueUnreviewed = () => {
+      const next = visibleQuestions().find((question) => !reviewed.has(Number(question.dataset.number)));
+      if (!next) return;
+      next.querySelector("details").open = true;
+      next.scrollIntoView({ block: "center", behavior: "smooth" });
+      window.setTimeout(() => next.querySelector("summary").focus({ preventScroll: true }), 300);
     };
 
     const jumpToQuestion = () => {
@@ -11545,6 +11758,12 @@ Example | HTTPS | Real-time media/DNS</pre>
       }
     });
 
+    hideReviewedInput.addEventListener("change", () => {
+      hideReviewed = hideReviewedInput.checked;
+      applyFilters();
+      scheduleReaderStateSave();
+    });
+
     jumpButton.addEventListener("click", jumpToQuestion);
     jumpInput.addEventListener("keydown", (event) => {
       if (event.key === "Enter") jumpToQuestion();
@@ -11560,6 +11779,8 @@ Example | HTTPS | Real-time media/DNS</pre>
       scheduleReaderStateSave();
     });
 
+    continueUnreviewedButton.addEventListener("click", continueUnreviewed);
+
     for (const question of questions) {
       question.querySelector(".review-button").addEventListener("click", () => {
         const number = Number(question.dataset.number);
@@ -11567,6 +11788,8 @@ Example | HTTPS | Real-time media/DNS</pre>
         else reviewed.add(number);
         writeStorage(progressKey, JSON.stringify([...reviewed].sort((a, b) => a - b)));
         updateProgress();
+        applyFilters();
+        scheduleReaderStateSave();
       });
 
       question.querySelector(".reveal-answer").addEventListener("click", () => {
@@ -11588,10 +11811,15 @@ Example | HTTPS | Real-time media/DNS</pre>
       button.addEventListener("click", () => setFrequency(button.dataset.frequencyFilter));
     }
 
+    const updateThemeLabel = () => {
+      themeButton.textContent = document.documentElement.dataset.theme === "dark" ? "Light" : "Dark";
+    };
+
     themeButton.addEventListener("click", () => {
       const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
       document.documentElement.dataset.theme = theme;
       writeStorage("skills-reader-theme", theme);
+      updateThemeLabel();
       scheduleReaderStateSave();
     });
 
@@ -11606,9 +11834,16 @@ Example | HTTPS | Real-time media/DNS</pre>
       reviewed.clear();
       writeStorage(progressKey, "[]");
       updateProgress();
+      applyFilters();
+      scheduleReaderStateSave();
     });
 
     document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && document.body.classList.contains("sidebar-open")) {
+        closeSidebar();
+        return;
+      }
+
       if (event.key === "/" && document.activeElement !== search && document.activeElement !== jumpInput) {
         event.preventDefault();
         search.focus();
@@ -11638,6 +11873,7 @@ Example | HTTPS | Real-time media/DNS</pre>
     if (typeof savedReaderState.search === "string") {
       search.value = savedReaderState.search.slice(0, 200);
     }
+    hideReviewed = savedReaderState.hideReviewed === true;
     setMode(readStorage(modeKey, "review") === "recall" ? "recall" : "review");
 
     const openQuestions = new Set(validQuestionNumbers(savedReaderState.openQuestions));
@@ -11650,6 +11886,7 @@ Example | HTTPS | Real-time media/DNS</pre>
 
     updateProgress();
     applyFilters();
+    updateThemeLabel();
 
     const initialMatch = location.hash.match(/^#q-(\d+)$/);
     if (initialMatch) {
