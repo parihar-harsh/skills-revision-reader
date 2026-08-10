@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>AI Engineer Interview Route</title>
+  <meta name="description" content="A focused, progress-tracked AI Engineer interview roadmap with direct learning links.">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("ai-engineer-roadmap-theme");
+        var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = saved || (dark ? "dark" : "light");
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --toolbar-height: 145px;
+      --mobile-nav-height: 51px;
+      --bg: #f3f5f7;
+      --surface: #ffffff;
+      --surface-muted: #f7f9fb;
+      --surface-hover: #edf1f5;
+      --text: #1d252d;
+      --muted: #63707c;
+      --border: #d8dfe5;
+      --border-strong: #b8c2cc;
+      --blue: #2457d6;
+      --blue-soft: #e8efff;
+      --green: #16714a;
+      --green-soft: #e8f7ef;
+      --amber: #9a5b08;
+      --amber-soft: #fff5dc;
+      --coral: #ad3d32;
+      --coral-soft: #fff0ed;
+      --teal: #0d6d75;
+      --teal-soft: #e5f6f7;
+      --focus: #2563eb;
+      --shadow: 0 12px 34px rgba(25, 38, 53, 0.1);
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #111416;
+      --surface: #1a1e21;
+      --surface-muted: #202529;
+      --surface-hover: #282e33;
+      --text: #eef1f3;
+      --muted: #a6b0b9;
+      --border: #333a40;
+      --border-strong: #515c65;
+      --blue: #8eafff;
+      --blue-soft: #1c2a4a;
+      --green: #82d3aa;
+      --green-soft: #172d23;
+      --amber: #f1bd70;
+      --amber-soft: #322716;
+      --coral: #ff9d93;
+      --coral-soft: #35201e;
+      --teal: #80d8de;
+      --teal-soft: #173034;
+      --focus: #95b5ff;
+      --shadow: 0 14px 38px rgba(0, 0, 0, 0.34);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      letter-spacing: 0;
+    }
+
+    button,
+    input { font: inherit; }
+
+    button,
+    a { -webkit-tap-highlight-color: transparent; }
+
+    button:focus-visible,
+    input:focus-visible,
+    a:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--focus) 38%, transparent);
+      outline-offset: 2px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: 272px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .brand {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 11px;
+      align-items: center;
+      min-height: 72px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid color-mix(in srgb, var(--teal) 46%, var(--border));
+      border-radius: 6px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-weight: 850;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.22;
+    }
+
+    .brand p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .side-progress { padding: 15px 16px 13px; }
+
+    .progress-copy {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress-track {
+      display: block;
+      overflow: hidden;
+      height: 5px;
+      border-radius: 3px;
+      background: var(--surface-hover);
+    }
+
+    .progress-track span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--green);
+      transition: width 180ms ease;
+    }
+
+    .module-nav {
+      flex: 1;
+      overflow-y: auto;
+      padding: 4px 8px 18px;
+      scrollbar-width: thin;
+    }
+
+    .nav-label {
+      padding: 11px 9px 6px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .module-link {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      width: 100%;
+      min-height: 54px;
+      margin: 2px 0;
+      padding: 7px 8px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .module-link:hover { background: var(--surface-hover); }
+
+    .module-link.active {
+      border-color: color-mix(in srgb, var(--blue) 34%, var(--border));
+      background: var(--blue-soft);
+    }
+
+    .module-code {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 32px;
+      border-radius: 5px;
+      background: var(--surface-muted);
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .module-link-title {
+      overflow: hidden;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.25;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .module-link-count {
+      color: var(--muted);
+      font-size: 10px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sidebar-footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      padding: 10px 12px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .quiet-button,
+    .toolbar-link,
+    .control-button,
+    .open-link,
+    .done-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .quiet-button:hover,
+    .toolbar-link:hover,
+    .control-button:hover,
+    .open-link:hover,
+    .done-button:hover { background: var(--surface-hover); }
+
+    .quiet-button {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .workspace { min-width: 0; }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 64px;
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      backdrop-filter: blur(12px);
+    }
+
+    .toolbar-link {
+      flex: none;
+      font-size: 12px;
+    }
+
+    .search-wrap {
+      flex: 1 1 300px;
+      min-width: 180px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 40px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-muted);
+      color: var(--text);
+    }
+
+    .search-input::placeholder { color: var(--muted); }
+
+    .filter-control {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      overflow: hidden;
+      flex: none;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-muted);
+    }
+
+    .filter-button {
+      min-width: 96px;
+      padding: 0 10px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .filter-button + .filter-button { border-left: 1px solid var(--border); }
+
+    .filter-button[aria-pressed="true"] {
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .theme-button {
+      flex: none;
+      width: 58px;
+      height: 40px;
+      padding: 0;
+      font-size: 11px;
+    }
+
+    .mobile-module-nav {
+      display: none;
+      overflow-x: auto;
+      gap: 6px;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      scrollbar-width: none;
+    }
+
+    .mobile-module-nav::-webkit-scrollbar { display: none; }
+
+    .mobile-module-button {
+      flex: none;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-muted);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .mobile-module-button.active {
+      border-color: color-mix(in srgb, var(--blue) 50%, var(--border));
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .content-shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 80px;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding: 0 0 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      margin: 0 0 5px;
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .overview h2 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(25px, 4vw, 38px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .overview-copy {
+      max-width: 780px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .overview-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .control-button.primary {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .control-button.primary:hover {
+      background: color-mix(in srgb, var(--blue) 86%, #000000);
+    }
+
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin: 20px 0 0;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .summary-item {
+      min-width: 0;
+      padding: 14px 16px;
+    }
+
+    .summary-item + .summary-item { border-left: 1px solid var(--border); }
+
+    .summary-value {
+      display: block;
+      font-size: 18px;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .summary-label {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .scope-note {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      margin-top: 18px;
+      padding: 13px 15px;
+      border-left: 3px solid var(--amber);
+      background: var(--amber-soft);
+      color: color-mix(in srgb, var(--text) 84%, var(--amber));
+      font-size: 12px;
+    }
+
+    .scope-note strong { color: var(--amber); }
+
+    .route-map {
+      display: grid;
+      grid-template-columns: repeat(9, minmax(78px, 1fr));
+      gap: 8px;
+      overflow-x: auto;
+      margin: 24px 0 5px;
+      padding-bottom: 7px;
+      scrollbar-width: thin;
+    }
+
+    .route-step {
+      position: relative;
+      min-width: 78px;
+      min-height: 72px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      cursor: pointer;
+    }
+
+    .route-step:hover { border-color: var(--border-strong); }
+
+    .route-step.done {
+      border-color: color-mix(in srgb, var(--green) 46%, var(--border));
+      background: var(--green-soft);
+    }
+
+    .route-step-code {
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .route-step-title {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 750;
+      line-height: 1.25;
+    }
+
+    .module-section {
+      margin-top: 34px;
+      scroll-margin-top: 84px;
+    }
+
+    .module-heading {
+      display: grid;
+      grid-template-columns: 50px minmax(0, 1fr) auto;
+      gap: 13px;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 2px solid color-mix(in srgb, var(--blue) 28%, var(--border));
+    }
+
+    .section-code {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 42px;
+      border-radius: 6px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .module-heading h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .module-heading p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .module-time {
+      padding: 6px 9px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .topic-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .topic-list li {
+      padding: 5px 8px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-muted);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 13px;
+    }
+
+    .resource-card {
+      display: grid;
+      grid-template-columns: 136px minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      min-height: 100px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .resource-card.completed {
+      border-color: color-mix(in srgb, var(--green) 38%, var(--border));
+      background: color-mix(in srgb, var(--green-soft) 38%, var(--surface));
+    }
+
+    .resource-media {
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      width: 136px;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-muted);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .resource-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .resource-copy { min-width: 0; }
+
+    .resource-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .priority-badge {
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .priority-badge.core {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .priority-badge.interview {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .resource-title {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .resource-note {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.42;
+    }
+
+    .resource-actions {
+      display: grid;
+      grid-template-columns: 76px 70px;
+      gap: 7px;
+    }
+
+    .open-link,
+    .done-button {
+      min-height: 38px;
+      padding: 6px 9px;
+      font-size: 11px;
+    }
+
+    .open-link {
+      border-color: color-mix(in srgb, var(--blue) 48%, var(--border));
+      color: var(--blue);
+    }
+
+    .done-button[aria-pressed="true"] {
+      border-color: var(--green);
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .empty-state {
+      margin-top: 28px;
+      padding: 26px;
+      border: 1px dashed var(--border-strong);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .page-footer {
+      margin-top: 42px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @media (max-width: 1040px) {
+      .app-shell { grid-template-columns: 238px minmax(0, 1fr); }
+      .filter-button { min-width: 68px; }
+      .resource-card { grid-template-columns: 120px minmax(0, 1fr); }
+      .resource-media { width: 120px; }
+      .resource-actions { grid-column: 2; grid-template-columns: 76px 70px; justify-content: start; }
+    }
+
+    @media (max-width: 840px) {
+      .app-shell { display: block; }
+      .sidebar { display: none; }
+      .toolbar { flex-wrap: wrap; padding: 9px 10px; }
+      .toolbar-link { order: 1; }
+      .theme-button { order: 2; margin-left: auto; }
+      .search-wrap { order: 3; flex: 1 1 100%; }
+      .filter-control { order: 4; width: 100%; grid-template-columns: repeat(2, 1fr); }
+      .mobile-module-nav { display: flex; position: sticky; top: var(--toolbar-height); z-index: 15; }
+      .content-shell { width: min(100% - 24px, 1120px); padding-top: 22px; }
+      .module-section { scroll-margin-top: calc(var(--toolbar-height) + var(--mobile-nav-height) + 12px); }
+      .overview { grid-template-columns: 1fr; gap: 16px; }
+      .overview-actions { justify-content: flex-start; }
+      .route-map { grid-template-columns: repeat(9, 106px); }
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 14px; }
+      .overview h2 { font-size: 25px; }
+      .summary-strip { grid-template-columns: 1fr 1fr; }
+      .summary-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--border); }
+      .summary-item:nth-child(4) { border-top: 1px solid var(--border); }
+      .module-heading { grid-template-columns: 44px minmax(0, 1fr); }
+      .section-code { width: 44px; height: 40px; }
+      .module-time { grid-column: 2; justify-self: start; }
+      .resource-card { grid-template-columns: 96px minmax(0, 1fr); gap: 10px; }
+      .resource-media { width: 96px; }
+      .resource-actions { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; width: 100%; }
+      .open-link, .done-button { width: 100%; }
+    }
+
+    @media (max-width: 420px) {
+      .toolbar-link { min-width: 0; }
+      .filter-button { min-width: 0; padding: 0 5px; }
+      .overview-actions { display: grid; grid-template-columns: 1fr 1fr; }
+      .overview-actions .control-button { width: 100%; }
+      .resource-card { grid-template-columns: 1fr; }
+      .resource-media { width: 100%; max-height: 170px; }
+      .resource-actions { grid-column: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Roadmap modules">
+      <header class="brand">
+        <div class="brand-mark" aria-hidden="true">AI</div>
+        <div>
+          <h1>Interview Route</h1>
+          <p>Applied AI / GenAI Engineer</p>
+        </div>
+      </header>
+      <div class="side-progress">
+        <div class="progress-copy"><span>Route completed</span><span id="side-progress-copy">0/0</span></div>
+        <span class="progress-track" aria-hidden="true"><span id="side-progress-bar"></span></span>
+      </div>
+      <nav id="module-nav" class="module-nav">
+        <div class="nav-label">Coverage modules</div>
+      </nav>
+      <footer class="sidebar-footer">
+        <a class="quiet-button" href="index.html">Question bank</a>
+        <button id="reset-progress" class="quiet-button" type="button">Reset</button>
+      </footer>
+    </aside>
+
+    <div class="workspace">
+      <header class="toolbar">
+        <a class="toolbar-link" href="index.html">Question bank</a>
+        <label class="search-wrap">
+          <span class="sr-only">Search modules, topics, and resources</span>
+          <input id="search-input" class="search-input" type="search" placeholder="Search topic or resource" autocomplete="off">
+        </label>
+        <div class="filter-control" aria-label="Roadmap depth">
+          <button class="filter-button" type="button" data-filter="core" aria-pressed="false">Core first</button>
+          <button class="filter-button" type="button" data-filter="interview" aria-pressed="true">Full route</button>
+        </div>
+        <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
+      </header>
+
+      <nav id="mobile-module-nav" class="mobile-module-nav" aria-label="Roadmap modules"></nav>
+
+      <main class="content-shell">
+        <header class="overview">
+          <div>
+            <p class="eyebrow">Complete fresher interview coverage</p>
+            <h2>AI Engineer interview preparation, without the course overload.</h2>
+            <p class="overview-copy">Follow the modules in order. Each resource opens the exact lesson, playlist, documentation page, project, or question bank needed for an entry-level Applied AI / GenAI Engineer interview.</p>
+          </div>
+          <div class="overview-actions">
+            <button id="continue-button" class="control-button primary" type="button">Continue next</button>
+            <button id="mark-visible-button" class="control-button" type="button">Complete visible</button>
+          </div>
+        </header>
+
+        <section class="summary-strip" aria-label="Roadmap summary">
+          <div class="summary-item"><span id="summary-progress" class="summary-value">0%</span><span class="summary-label">completed</span></div>
+          <div class="summary-item"><span id="summary-resources" class="summary-value">0</span><span class="summary-label">visible resources</span></div>
+          <div class="summary-item"><span class="summary-value">32-41h</span><span class="summary-label">learning route</span></div>
+          <div class="summary-item"><span class="summary-value">9</span><span class="summary-label">coverage modules</span></div>
+        </section>
+
+        <aside class="scope-note">
+          <strong>Scope</strong>
+          <span>This route targets software-heavy AI Engineer roles: Python, LLM applications, RAG, agents, APIs, evaluation and production. Classical Data Scientist, computer-vision research and training foundation models from scratch are separate tracks.</span>
+        </aside>
+
+        <nav id="route-map" class="route-map" aria-label="Learning sequence"></nav>
+
+        <div id="module-list"></div>
+        <div id="empty-state" class="empty-state" hidden>No resources match the current search and depth filter.</div>
+
+        <footer class="page-footer">Progress, theme and selected depth are stored only in this browser. Resource links open their original publisher pages.</footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const modules = [
+      {
+        id: "python",
+        code: "01",
+        title: "Python for AI",
+        time: "4-5 hours",
+        outcome: "Write and explain production-style Python used by AI services.",
+        topics: ["Collections", "Functions", "OOP", "Exceptions", "Decorators", "Generators", "Typing", "async/await", "Virtual environments"],
+        resources: [
+          { id: "python-chai", title: "Chai aur Python series", source: "Chai aur Code", type: "Video series", duration: "Selected lessons", priority: "core", videoId: "Ca5DLSDfPec", url: "https://www.youtube.com/watch?v=Ca5DLSDfPec", note: "Cover Python syntax, collections, functions, OOP, exceptions, modules and virtual environments. Skip beginner programming explanations you already know from JavaScript." },
+          { id: "python-asyncio", title: "asyncio: asynchronous I/O in Python", source: "Python documentation", type: "Reference", duration: "30 min", priority: "interview", url: "https://docs.python.org/3/library/asyncio.html", note: "Know coroutine, event loop, task, await, I/O concurrency and why async does not make CPU-heavy work parallel." },
+          { id: "python-interview", title: "Python interview questions", source: "GeeksforGeeks", type: "Revision", duration: "60 min", priority: "interview", url: "https://www.geeksforgeeks.org/python/python-interview-questions/", note: "Revise mutable vs immutable objects, iterators, generators, decorators, shallow/deep copy, GIL, memory management and exceptions." }
+        ]
+      },
+      {
+        id: "ml",
+        code: "02",
+        title: "ML foundations",
+        time: "3-4 hours",
+        outcome: "Answer the ML questions that establish whether your AI knowledge has a foundation.",
+        topics: ["Supervised vs unsupervised", "Train/validation/test", "Bias and variance", "Overfitting", "Regularization", "Confusion matrix", "Precision", "Recall", "F1"],
+        resources: [
+          { id: "ml-types", title: "Types of machine learning", source: "CampusX", type: "Video", duration: "28 min", priority: "core", videoId: "81ymPYEtFOw", url: "https://www.youtube.com/watch?v=81ymPYEtFOw", note: "Understand supervised, unsupervised, semi-supervised and reinforcement learning with practical examples." },
+          { id: "ml-bias", title: "Bias-variance, overfitting and underfitting", source: "CampusX", type: "Video", duration: "Interview depth", priority: "core", videoId: "74DU02Fyrhk", url: "https://www.youtube.com/watch?v=74DU02Fyrhk", note: "Be able to diagnose high bias vs high variance and name data, regularization and model-capacity fixes." },
+          { id: "ml-confusion", title: "Accuracy and confusion matrix", source: "CampusX", type: "Video", duration: "31 min", priority: "core", videoId: "c09drtuCS3c", url: "https://www.youtube.com/watch?v=c09drtuCS3c", note: "Know TP, TN, FP, FN, Type I/II errors and why accuracy fails on imbalanced data." },
+          { id: "ml-f1", title: "Precision, recall and F1 score", source: "CampusX", type: "Video", duration: "Interview depth", priority: "core", videoId: "iK-kdhJ-7yI", url: "https://www.youtube.com/watch?v=iK-kdhJ-7yI", note: "Explain the precision-recall trade-off with fraud detection or disease-detection examples." }
+        ]
+      },
+      {
+        id: "transformers",
+        code: "03",
+        title: "DL, NLP and Transformers",
+        time: "4-5 hours",
+        outcome: "Explain how an LLM turns tokens into context-aware predictions.",
+        topics: ["Neural networks", "Forward pass", "Loss", "Gradient descent", "Backpropagation", "Tokenization", "Embeddings", "Self-attention", "Positional encoding", "BERT vs GPT"],
+        resources: [
+          { id: "dl-perceptron", title: "Perceptron and neuron intuition", source: "CampusX", type: "Video", duration: "Foundation", priority: "interview", videoId: "X7iIKPoZ0Sw", url: "https://www.youtube.com/watch?v=X7iIKPoZ0Sw", note: "Understand weighted input, bias, activation and why multiple layers are needed for non-linear patterns." },
+          { id: "dl-forward", title: "Forward propagation", source: "CampusX", type: "Video", duration: "Concept", priority: "core", videoId: "7MuiScUkboE", url: "https://www.youtube.com/watch?v=7MuiScUkboE", note: "Explain how inputs pass through weighted layers and activations to produce a prediction." },
+          { id: "dl-backprop", title: "Backpropagation: what it does", source: "CampusX", type: "Video", duration: "54 min", priority: "core", videoId: "6M1wWQmcUjQ", url: "https://www.youtube.com/watch?v=6M1wWQmcUjQ", note: "Interview depth means intuition: loss creates gradients, gradients flow backward and an optimizer updates weights." },
+          { id: "transformer-attention", title: "Self-attention", source: "CampusX", type: "Video", duration: "23 min", priority: "core", videoId: "XnGGmvpDLA0", url: "https://www.youtube.com/watch?v=XnGGmvpDLA0", note: "Know queries, keys, values and how attention gives each token a context-dependent representation." },
+          { id: "transformer-architecture", title: "Transformer encoder architecture", source: "CampusX", type: "Video", duration: "55 min", priority: "core", videoId: "Vs87qcdm8l0", url: "https://www.youtube.com/watch?v=Vs87qcdm8l0", note: "Cover token embeddings, positional information, multi-head attention, feed-forward layers, residual connections and normalization." }
+        ]
+      },
+      {
+        id: "llm-apps",
+        code: "04",
+        title: "LLM application engineering",
+        time: "3-4 hours",
+        outcome: "Use models reliably instead of treating an LLM API as a black box.",
+        topics: ["Inference", "Temperature", "top-k/top-p", "Context window", "System prompts", "Few-shot", "Structured output", "Tool calling", "Fine-tuning", "LoRA/QLoRA", "Quantization"],
+        resources: [
+          { id: "genai-roadmap", title: "GenAI from a builder's perspective", source: "CampusX", type: "Video", duration: "50 min", priority: "interview", videoId: "pSVk-5WemQ0", url: "https://www.youtube.com/watch?v=pSVk-5WemQ0", note: "Use this to place prompting, RAG, fine-tuning and agents in one architecture instead of memorizing disconnected terms." },
+          { id: "langchain-prompts", title: "Prompts and chat templates", source: "CampusX", type: "Video", duration: "1h 12m", priority: "core", videoId: "3TGqlQxpuU0", url: "https://www.youtube.com/watch?v=3TGqlQxpuU0", note: "Cover system/human/AI messages, prompt templates, chat history and dynamic prompts." },
+          { id: "langchain-output", title: "Structured output and output parsers", source: "CampusX", type: "Video", duration: "53 min", priority: "core", videoId: "Op6PbJZ5b2Q", url: "https://www.youtube.com/watch?v=Op6PbJZ5b2Q", note: "Know why production code needs schema-constrained JSON/Pydantic output rather than free-form text." },
+          { id: "lora-qlora", title: "LoRA and QLoRA", source: "Krish Naik", type: "Video", duration: "Interview depth", priority: "interview", videoId: "SrYXAd4nMvQ", url: "https://www.youtube.com/watch?v=SrYXAd4nMvQ", note: "Understand parameter-efficient fine-tuning, low-rank adapters, 4-bit quantization and when RAG is a better choice." }
+        ]
+      },
+      {
+        id: "rag",
+        code: "05",
+        title: "RAG and LangChain",
+        time: "6-8 hours",
+        outcome: "Design, debug and evaluate retrieval instead of only demonstrating a chatbot.",
+        topics: ["Ingestion", "Parsing", "Chunking", "Embeddings", "Vector stores", "Cosine similarity", "ANN/HNSW", "Metadata filters", "Hybrid search", "RRF", "Reranking", "HyDE", "Citations", "RAG evaluation"],
+        resources: [
+          { id: "rag-concept", title: "Retrieval-Augmented Generation explained", source: "CampusX", type: "Video", duration: "Architecture", priority: "core", videoId: "X0btK9X0Xnk", url: "https://www.youtube.com/watch?v=X0btK9X0Xnk", note: "Learn indexing, retrieval, prompt augmentation, generation, failure modes and RAG vs fine-tuning." },
+          { id: "rag-loaders", title: "Document loaders", source: "CampusX", type: "Video", duration: "55 min", priority: "interview", videoId: "bL92ALSZ2Cg", url: "https://www.youtube.com/watch?v=bL92ALSZ2Cg", note: "Covers PDF, text, directory, web and CSV loading plus lazy loading and custom loaders." },
+          { id: "rag-splitters", title: "Text splitters and semantic chunking", source: "CampusX", type: "Video", duration: "55 min", priority: "core", videoId: "SEWS9P4ODmc", url: "https://www.youtube.com/watch?v=SEWS9P4ODmc", note: "Compare fixed length, recursive, document-structure and semantic splitting. Know chunk size and overlap trade-offs." },
+          { id: "rag-vector", title: "Vector stores and vector databases", source: "CampusX", type: "Video", duration: "45 min", priority: "core", videoId: "k13WK0bxQP0", url: "https://www.youtube.com/watch?v=k13WK0bxQP0", note: "Understand storing embeddings, similarity search, metadata and the vector store vs vector database distinction." },
+          { id: "rag-retrievers", title: "Retrievers, MMR, multi-query and compression", source: "CampusX", type: "Video", duration: "50 min", priority: "core", videoId: "pJdMxwXBsk0", url: "https://www.youtube.com/watch?v=pJdMxwXBsk0", note: "Know how retrieval strategies trade relevance, diversity, recall, latency and token cost." },
+          { id: "rag-ragas", title: "RAGAS evaluation concepts and metrics", source: "RAGAS", type: "Documentation", duration: "45 min", priority: "interview", url: "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/", note: "Focus on context precision/recall, response relevancy, faithfulness and the limits of LLM-as-judge evaluation." },
+          { id: "rag-atlas", title: "MongoDB Atlas Vector Search", source: "MongoDB", type: "Documentation", duration: "Reference", priority: "interview", url: "https://www.mongodb.com/docs/atlas/atlas-vector-search/vector-search-overview/", note: "Relate ANN/HNSW, numCandidates, limit and metadata filters directly to DoxChat AI's retrieval path." }
+        ]
+      },
+      {
+        id: "agents",
+        code: "06",
+        title: "Agents, LangGraph and MCP",
+        time: "5-6 hours",
+        outcome: "Explain controlled agent workflows, state and tool boundaries without claiming that every workflow needs an agent.",
+        topics: ["Agent loop", "State", "Nodes and edges", "Conditional routing", "Tools", "Persistence", "Checkpoints", "Memory", "HITL", "MCP host/client/server", "Tools/resources/prompts"],
+        resources: [
+          { id: "agent-vs-genai", title: "Generative AI vs Agentic AI", source: "CampusX", type: "Video", duration: "60 min", priority: "core", videoId: "xdA0pGDiUPE", url: "https://www.youtube.com/watch?v=xdA0pGDiUPE", note: "Distinguish a plain chatbot, RAG chatbot, tool-augmented system and goal-driven agent." },
+          { id: "langgraph-compare", title: "LangChain vs LangGraph", source: "CampusX", type: "Video", duration: "Interview depth", priority: "interview", videoId: "31qyMKNB2RA", url: "https://www.youtube.com/watch?v=31qyMKNB2RA", note: "Use LangChain for components and simpler pipelines; use LangGraph for explicit state, branching, loops, checkpoints and long-running workflows." },
+          { id: "langgraph-core", title: "LangGraph core concepts", source: "CampusX", type: "Video", duration: "47 min", priority: "core", videoId: "D5KhiCDM9XQ", url: "https://www.youtube.com/watch?v=D5KhiCDM9XQ", note: "State, reducers, nodes, edges, routing, parallelism and the graph execution model." },
+          { id: "langgraph-persistence", title: "Persistence, checkpoints and time travel", source: "CampusX", type: "Video", duration: "Interview depth", priority: "core", videoId: "_IPP7_Bi8uA", url: "https://www.youtube.com/watch?v=_IPP7_Bi8uA", note: "Know thread state, checkpoint storage, short-term memory, resume and replay/debugging concepts." },
+          { id: "langgraph-hitl", title: "Human-in-the-loop with LangGraph", source: "CampusX", type: "Video", duration: "40 min", priority: "interview", videoId: "xxqZzVZ4gE0", url: "https://www.youtube.com/watch?v=xxqZzVZ4gE0", note: "Learn approval, review, clarification and escalation patterns plus interrupt and resume." },
+          { id: "mcp-architecture", title: "MCP architecture", source: "CampusX", type: "Video", duration: "1h 10m", priority: "core", videoId: "nQa31xdXbGk", url: "https://www.youtube.com/watch?v=nQa31xdXbGk", note: "Understand why MCP exists, then learn host, client, server, tools, resources, prompts, JSON-RPC, stdio and remote HTTP transport." }
+        ]
+      },
+      {
+        id: "fastapi",
+        code: "07",
+        title: "FastAPI and model serving",
+        time: "4-5 hours",
+        outcome: "Expose an AI pipeline through a validated, asynchronous production API.",
+        topics: ["Routes", "Path/query/body", "Pydantic", "Validation", "Dependencies", "async endpoints", "File upload", "Streaming", "Authentication", "CORS", "Middleware", "OpenAPI", "Uvicorn"],
+        resources: [
+          { id: "fastapi-playlist", title: "FastAPI for Machine Learning", source: "CampusX", type: "Playlist", duration: "Selected videos", priority: "core", videoId: "WJKsPchji0Q", url: "https://www.youtube.com/playlist?list=PLKnIA16_RmvZ41tjbKB2ZnwchfniNsMuQ", note: "Because you know Express, skip generic HTTP material. Cover routes, Pydantic, validation, errors, async behavior, API-to-model integration and deployment." },
+          { id: "pydantic-models", title: "Pydantic models and validation", source: "Pydantic", type: "Documentation", duration: "45 min", priority: "interview", url: "https://docs.pydantic.dev/latest/concepts/models/", note: "Know BaseModel, field types, constraints, nested models, serialization and validation errors." },
+          { id: "fastapi-async", title: "Concurrency and async/await in FastAPI", source: "FastAPI", type: "Documentation", duration: "30 min", priority: "core", url: "https://fastapi.tiangolo.com/async/", note: "Explain when to use async def, why blocking work still blocks and when CPU-heavy inference needs workers or separate services." },
+          { id: "fastapi-docker", title: "Dockerize a FastAPI application", source: "CampusX", type: "Video", duration: "18 min", priority: "interview", videoId: "jlLs6hfAga4", url: "https://www.youtube.com/watch?v=jlLs6hfAga4", note: "Understand Dockerfile, image build, container port, dependency installation and environment variables." }
+        ]
+      },
+      {
+        id: "production",
+        code: "08",
+        title: "Production AI and LLMOps",
+        time: "3-4 hours",
+        outcome: "Move from a demo to a measurable, secure and recoverable AI service.",
+        topics: ["Evaluation datasets", "Tracing", "Observability", "Latency", "Cost", "Caching", "Retries", "Backoff", "Rate limits", "Queues", "Idempotency", "Guardrails", "Prompt injection", "Secrets", "Docker", "CI/CD", "Cloud basics"],
+        resources: [
+          { id: "langsmith-observability", title: "LangSmith observability with LangGraph", source: "CampusX", type: "Video", duration: "Tracing", priority: "core", videoId: "ikzN6byFNWw", url: "https://www.youtube.com/watch?v=ikzN6byFNWw", note: "Trace model calls, retriever steps, tool calls, latency, errors and token usage. Never copy API keys shown in tutorials." },
+          { id: "owasp-llm", title: "OWASP Top 10 for LLM applications", source: "OWASP", type: "Security reference", duration: "60 min", priority: "core", url: "https://genai.owasp.org/llm-top-10/", note: "Prioritize prompt injection, sensitive-information disclosure, improper output handling, excessive agency and vector/embedding weaknesses." },
+          { id: "github-actions", title: "CI/CD with GitHub Actions", source: "GitHub", type: "Documentation", duration: "Reference", priority: "interview", url: "https://docs.github.com/en/actions/get-started/understand-github-actions", note: "Know workflow, event trigger, job, runner, step, secrets and the test-build-deploy sequence." }
+        ]
+      },
+      {
+        id: "interview",
+        code: "09",
+        title: "Interview execution",
+        time: "Continuous",
+        outcome: "Convert technical knowledge into clear coding, project and design answers.",
+        topics: ["DSA", "OOP", "DBMS", "OS", "Computer networks", "SQL", "REST", "AI system design", "Project trade-offs", "Failure scenarios", "Behavioral answers"],
+        resources: [
+          { id: "skills-bank", title: "Your skills interview question bank", source: "Local revision site", type: "Practice", duration: "Daily revision", priority: "core", url: "index.html", note: "Use the high-frequency filter for Python-adjacent backend, databases, CS fundamentals and GenAI concept revision." },
+          { id: "doxchat-repo", title: "Defend DoxChat AI from the repository", source: "Your GitHub project", type: "Project deep dive", duration: "2-3 hours", priority: "core", url: "https://github.com/parihar-harsh/RAG-based-doc-scanner", note: "Explain upload-to-answer flow, schemas, GridFS, worker/queue, idempotency, retries, chunking, Atlas Vector Search, hybrid retrieval, SSE, failures and scaling." },
+          { id: "doxchat-live", title: "Run every DoxChat AI workflow", source: "Your deployment", type: "Verification", duration: "45 min", priority: "core", url: "https://rag-based-doc-scanner.vercel.app", note: "Test signup, PDF/DOCX upload, progress, chat, citations, retries and deletion before mentioning the project in an interview." },
+          { id: "dsa-gfg", title: "DSA interview preparation", source: "GeeksforGeeks", type: "Coding practice", duration: "Continuous", priority: "core", url: "https://www.geeksforgeeks.org/dsa/dsa-interview-questions/", note: "AI Engineer is still an engineering role. Practice arrays, strings, hashing, two pointers, sliding window, stack/queue, trees, graphs and dynamic programming." },
+          { id: "system-design", title: "System design fundamentals", source: "GitHub", type: "Reference", duration: "Selected topics", priority: "interview", url: "https://github.com/ashishps1/awesome-system-design-resources", note: "Prioritize API design, caching, queues, database indexes, horizontal scaling, consistency, rate limiting, observability and failure recovery." }
+        ]
+      }
+    ];
+
+    const STORAGE_KEY = "ai-engineer-roadmap-state-v1";
+    const allResources = modules.flatMap((module) => module.resources.map((resource) => ({ ...resource, moduleId: module.id })));
+    const resourceById = new Map(allResources.map((resource) => [resource.id, resource]));
+
+    const defaultState = {
+      completed: [],
+      filter: "interview",
+      search: ""
+    };
+
+    function readState() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+        if (!parsed || typeof parsed !== "object") return { ...defaultState };
+        return {
+          completed: Array.isArray(parsed.completed) ? parsed.completed.filter((id) => resourceById.has(id)) : [],
+          filter: ["core", "interview"].includes(parsed.filter) ? parsed.filter : "interview",
+          search: typeof parsed.search === "string" ? parsed.search : ""
+        };
+      } catch (error) {
+        return { ...defaultState };
+      }
+    }
+
+    let state = readState();
+    const completed = new Set(state.completed);
+
+    const moduleNav = document.getElementById("module-nav");
+    const mobileModuleNav = document.getElementById("mobile-module-nav");
+    const routeMap = document.getElementById("route-map");
+    const moduleList = document.getElementById("module-list");
+    const emptyState = document.getElementById("empty-state");
+    const searchInput = document.getElementById("search-input");
+    const toolbar = document.querySelector(".toolbar");
+    const themeButton = document.getElementById("theme-button");
+    const continueButton = document.getElementById("continue-button");
+    const markVisibleButton = document.getElementById("mark-visible-button");
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          completed: [...completed],
+          filter: state.filter,
+          search: state.search
+        }));
+      } catch (error) {
+        // The page remains usable when browser storage is unavailable.
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function isAllowedByDepth(resource) {
+      if (state.filter === "core") return resource.priority === "core";
+      return true;
+    }
+
+    function isSearchMatch(module, resource) {
+      const query = state.search.trim().toLowerCase();
+      if (!query) return true;
+      const haystack = [module.title, module.outcome, ...module.topics, resource.title, resource.source, resource.type, resource.note]
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(query);
+    }
+
+    function visibleResourcesFor(module) {
+      return module.resources.filter((resource) => isAllowedByDepth(resource) && isSearchMatch(module, resource));
+    }
+
+    function renderMedia(resource) {
+      if (resource.videoId) {
+        const src = `https://i.ytimg.com/vi/${encodeURIComponent(resource.videoId)}/mqdefault.jpg`;
+        return `<div class="resource-media"><img src="${src}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="sr-only">Video thumbnail</span></div>`;
+      }
+      const label = resource.type.includes("Documentation") || resource.type.includes("Reference") ? "DOCS" : resource.type.slice(0, 6).toUpperCase();
+      return `<div class="resource-media" aria-hidden="true">${escapeHtml(label)}</div>`;
+    }
+
+    function renderResource(resource) {
+      const isDone = completed.has(resource.id);
+      return `<article class="resource-card${isDone ? " completed" : ""}" data-resource-id="${resource.id}">
+        ${renderMedia(resource)}
+        <div class="resource-copy">
+          <div class="resource-meta">
+            <span class="priority-badge ${resource.priority}">${resource.priority === "core" ? "Must know" : resource.priority}</span>
+            <span>${escapeHtml(resource.source)}</span>
+            <span>${escapeHtml(resource.type)}</span>
+            <span>${escapeHtml(resource.duration)}</span>
+          </div>
+          <h4 class="resource-title">${escapeHtml(resource.title)}</h4>
+          <p class="resource-note">${escapeHtml(resource.note)}</p>
+        </div>
+        <div class="resource-actions">
+          <a class="open-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">Open</a>
+          <button class="done-button" type="button" data-complete-id="${resource.id}" aria-pressed="${isDone}">${isDone ? "Done" : "Mark done"}</button>
+        </div>
+      </article>`;
+    }
+
+    function renderModules() {
+      let visibleTotal = 0;
+      const html = modules.map((module) => {
+        const visibleResources = visibleResourcesFor(module);
+        visibleTotal += visibleResources.length;
+        if (!visibleResources.length) return "";
+        return `<section id="module-${module.id}" class="module-section" data-module-section="${module.id}">
+          <header class="module-heading">
+            <div class="section-code">${module.code}</div>
+            <div>
+              <h3>${escapeHtml(module.title)}</h3>
+              <p>${escapeHtml(module.outcome)}</p>
+            </div>
+            <span class="module-time">${escapeHtml(module.time)}</span>
+          </header>
+          <ul class="topic-list">${module.topics.map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
+          <div class="resource-list">${visibleResources.map(renderResource).join("")}</div>
+        </section>`;
+      }).join("");
+
+      moduleList.innerHTML = html;
+      emptyState.hidden = visibleTotal > 0;
+      document.getElementById("summary-resources").textContent = String(visibleTotal);
+
+      moduleList.querySelectorAll("[data-complete-id]").forEach((button) => {
+        button.addEventListener("click", () => toggleComplete(button.dataset.completeId));
+      });
+
+      moduleList.querySelectorAll("img").forEach((image) => {
+        image.addEventListener("error", () => {
+          image.style.display = "none";
+          image.parentElement.append("VIDEO");
+        }, { once: true });
+      });
+    }
+
+    function renderNavigation() {
+      const navHtml = modules.map((module) => {
+        const allowed = module.resources.filter(isAllowedByDepth);
+        const done = allowed.filter((resource) => completed.has(resource.id)).length;
+        return `<button class="module-link" type="button" data-module-target="${module.id}">
+          <span class="module-code">${module.code}</span>
+          <span class="module-link-title">${escapeHtml(module.title)}</span>
+          <span class="module-link-count">${done}/${allowed.length}</span>
+        </button>`;
+      }).join("");
+      moduleNav.innerHTML = `<div class="nav-label">Coverage modules</div>${navHtml}`;
+
+      mobileModuleNav.innerHTML = modules.map((module) =>
+        `<button class="mobile-module-button" type="button" data-module-target="${module.id}">${module.code} ${escapeHtml(module.title)}</button>`
+      ).join("");
+
+      routeMap.innerHTML = modules.map((module) => {
+        const allowed = module.resources.filter(isAllowedByDepth);
+        const done = allowed.length > 0 && allowed.every((resource) => completed.has(resource.id));
+        return `<button class="route-step${done ? " done" : ""}" type="button" data-module-target="${module.id}">
+          <span class="route-step-code">${module.code}</span>
+          <span class="route-step-title">${escapeHtml(module.title)}</span>
+        </button>`;
+      }).join("");
+
+      document.querySelectorAll("[data-module-target]").forEach((button) => {
+        button.addEventListener("click", () => scrollToModule(button.dataset.moduleTarget));
+      });
+    }
+
+    function renderProgress() {
+      const allowedResources = allResources.filter(isAllowedByDepth);
+      const doneCount = allowedResources.filter((resource) => completed.has(resource.id)).length;
+      const percentage = allowedResources.length ? Math.round((doneCount / allowedResources.length) * 100) : 0;
+      document.getElementById("side-progress-copy").textContent = `${doneCount}/${allowedResources.length}`;
+      document.getElementById("side-progress-bar").style.width = `${percentage}%`;
+      document.getElementById("summary-progress").textContent = `${percentage}%`;
+    }
+
+    function updateFilterButtons() {
+      document.querySelectorAll("[data-filter]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.filter === state.filter));
+      });
+    }
+
+    function render() {
+      renderNavigation();
+      renderModules();
+      renderProgress();
+      updateFilterButtons();
+      updateThemeLabel();
+      observeSections();
+    }
+
+    function toggleComplete(resourceId) {
+      if (!resourceById.has(resourceId)) return;
+      if (completed.has(resourceId)) completed.delete(resourceId);
+      else completed.add(resourceId);
+      saveState();
+      render();
+      const card = document.querySelector(`[data-resource-id="${CSS.escape(resourceId)}"]`);
+      if (card) card.scrollIntoView({ block: "nearest" });
+    }
+
+    function scrollToModule(moduleId) {
+      const target = document.getElementById(`module-${moduleId}`);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function continueNext() {
+      const next = allResources.find((resource) => {
+        const module = modules.find((item) => item.id === resource.moduleId);
+        return !completed.has(resource.id) && isAllowedByDepth(resource) && isSearchMatch(module, resource);
+      });
+      if (!next) return;
+      const card = document.querySelector(`[data-resource-id="${CSS.escape(next.id)}"]`);
+      if (card) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        const link = card.querySelector(".open-link");
+        if (link) window.setTimeout(() => link.focus({ preventScroll: true }), 350);
+      }
+    }
+
+    function completeVisible() {
+      document.querySelectorAll("[data-resource-id]").forEach((card) => completed.add(card.dataset.resourceId));
+      saveState();
+      render();
+    }
+
+    let sectionObserver;
+    function observeSections() {
+      if (sectionObserver) sectionObserver.disconnect();
+      const sections = [...document.querySelectorAll("[data-module-section]")];
+      if (!sections.length) return;
+      sectionObserver = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const id = visible.target.dataset.moduleSection;
+        document.querySelectorAll("[data-module-target]").forEach((button) => {
+          button.classList.toggle("active", button.dataset.moduleTarget === id);
+        });
+      }, { rootMargin: "-18% 0px -65% 0px", threshold: [0.01, 0.2, 0.5] });
+      sections.forEach((section) => sectionObserver.observe(section));
+    }
+
+    function updateThemeLabel() {
+      themeButton.textContent = document.documentElement.dataset.theme === "dark" ? "Light" : "Dark";
+    }
+
+    function syncToolbarHeight() {
+      const height = Math.ceil(toolbar.getBoundingClientRect().height);
+      if (height > 0) document.documentElement.style.setProperty("--toolbar-height", `${height}px`);
+    }
+
+    if ("ResizeObserver" in window) {
+      const toolbarObserver = new ResizeObserver(syncToolbarHeight);
+      toolbarObserver.observe(toolbar);
+    }
+    window.addEventListener("resize", syncToolbarHeight);
+    window.requestAnimationFrame(syncToolbarHeight);
+
+    searchInput.value = state.search;
+    searchInput.addEventListener("input", () => {
+      state.search = searchInput.value;
+      saveState();
+      render();
+    });
+
+    document.querySelectorAll("[data-filter]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.filter = button.dataset.filter;
+        saveState();
+        render();
+      });
+    });
+
+    themeButton.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = nextTheme;
+      try { localStorage.setItem("ai-engineer-roadmap-theme", nextTheme); } catch (error) {}
+      updateThemeLabel();
+    });
+
+    continueButton.addEventListener("click", continueNext);
+    markVisibleButton.addEventListener("click", completeVisible);
+
+    document.getElementById("reset-progress").addEventListener("click", () => {
+      completed.clear();
+      saveState();
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>

@@ -445,6 +445,13 @@
       font-size: 12px;
     }
 
+    .roadmap-link {
+      flex: none;
+      min-width: 88px;
+      height: 40px;
+      font-size: 12px;
+    }
+
     .content-shell {
       width: min(1040px, calc(100% - 40px));
       margin: 0 auto;
@@ -784,7 +791,8 @@
       .jump-control { order: 2; }
       .mode-control { order: 3; }
       .frequency-control { order: 4; }
-      .theme-button { order: 5; }
+      .roadmap-link { order: 5; }
+      .theme-button { order: 6; }
     }
 
     @media (max-width: 640px) {
@@ -795,6 +803,7 @@
       .jump-control { grid-template-columns: 64px 40px; }
       .mode-control { grid-template-columns: repeat(2, 58px); }
       .frequency-control { grid-template-columns: 104px 66px; }
+      .roadmap-link { width: auto; }
       .theme-button { width: 56px; }
       .content-shell { width: min(100% - 20px, 1040px); padding-top: 22px; }
       .page-header { align-items: flex-start; flex-direction: column; gap: 13px; }
@@ -1053,6 +1062,7 @@
           <button class="frequency-button" type="button" data-frequency-filter="high" aria-pressed="true">High frequency</button>
           <button class="frequency-button" type="button" data-frequency-filter="all" aria-pressed="false">All questions</button>
         </div>
+        <a class="control-button roadmap-link" href="roadmap.html">AI roadmap</a>
         <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
       </header>
 
