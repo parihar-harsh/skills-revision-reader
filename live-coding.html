@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="General live coding interview patterns with direct solution links.">
+  <meta name="description" content="General live coding interview patterns with concise inline solutions.">
   <title>Live Coding Patterns</title>
   <style>
     :root {
@@ -204,11 +204,10 @@
     .question-list { display: grid; gap: 8px; }
     .question-row {
       display: grid;
-      grid-template-columns: 38px minmax(0, 1fr) auto;
+      grid-template-columns: 38px minmax(0, 1fr);
       gap: 12px;
-      align-items: center;
-      min-height: 62px;
-      padding: 10px 11px;
+      align-items: start;
+      padding: 12px;
       border: 1px solid var(--border);
       border-radius: 6px;
       background: var(--surface);
@@ -226,22 +225,46 @@
       font-weight: 800;
       font-variant-numeric: tabular-nums;
     }
-    .question-title { min-width: 0; margin: 0; font-size: 13px; font-weight: 700; overflow-wrap: anywhere; }
-    .solution-link {
+    .question-content { min-width: 0; }
+    .question-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .question-title { min-width: 0; margin: 7px 0 0; font-size: 13px; font-weight: 750; overflow-wrap: anywhere; }
+    .reference-link {
       display: inline-flex;
-      min-width: 108px;
-      min-height: 36px;
+      min-height: 30px;
+      flex: 0 0 auto;
       align-items: center;
       justify-content: center;
-      padding: 0 10px;
-      border: 1px solid var(--accent);
-      border-radius: 5px;
+      padding: 0 7px;
       color: var(--accent);
-      font-size: 11px;
-      font-weight: 800;
+      font-size: 10px;
+      font-weight: 750;
       white-space: nowrap;
     }
-    .solution-link:hover { background: var(--accent); color: var(--accent-contrast); }
+    .reference-link:hover { text-decoration: underline; }
+    .solution-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .solution-meta::before { width: 16px; height: 2px; background: var(--accent); content: ""; }
+    .solution-code {
+      max-width: 100%;
+      margin: 6px 0 0;
+      overflow-x: auto;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-soft);
+      color: var(--text);
+      font: 11px/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      tab-size: 2;
+      white-space: pre;
+    }
     .empty-state { padding: 44px 18px; border: 1px dashed var(--border-strong); border-radius: 6px; text-align: center; }
     .empty-state h3 { margin: 0 0 4px; font-size: 17px; }
     .empty-state p { margin: 0; color: var(--muted); font-size: 12px; }
@@ -273,7 +296,10 @@
       .page-head h2 { font-size: 27px; }
       .question-row { grid-template-columns: 34px minmax(0, 1fr); gap: 9px; }
       .question-number { width: 32px; height: 32px; }
-      .solution-link { grid-column: 2; justify-self: start; }
+      .question-heading { display: block; }
+      .question-title { margin-top: 6px; }
+      .reference-link { min-height: 28px; margin-top: 4px; padding: 0; }
+      .solution-code { padding: 10px; font-size: 10px; }
     }
   </style>
 </head>
@@ -318,14 +344,14 @@
       <header class="page-head">
         <p class="eyebrow">Interview practice</p>
         <h2>General live coding questions</h2>
-        <p>Broad patterns grounded in reported interview tasks.</p>
+        <p>Broad patterns with concise, interview-ready code and command references.</p>
         <span id="results-meta" class="results-meta" aria-live="polite"></span>
       </header>
       <div id="question-sections"></div>
     </main>
   </div>
 
-  <script src="live-coding-data.js"></script>
+  <script src="live-coding-data.js?v=inline-solutions"></script>
   <script>
     (function () {
       "use strict";
@@ -392,7 +418,7 @@
         const filtered = questions.filter((question) => {
           if (state.role && !question.roles.includes(state.role)) return false;
           if (state.category && question.category !== state.category) return false;
-          return !query || `${question.title} ${question.category}`.toLowerCase().includes(query);
+          return !query || `${question.title} ${question.category} ${question.language} ${question.solution}`.toLowerCase().includes(query);
         });
         const visibleCategories = categories.filter((category) => filtered.some((question) => question.category === category));
         let number = 0;
@@ -407,8 +433,14 @@
                   return `
                     <article class="question-row">
                       <span class="question-number">${String(number).padStart(2, "0")}</span>
-                      <h4 class="question-title">${escapeHtml(question.title)}</h4>
-                      <a class="solution-link" href="${escapeHtml(question.solutionUrl)}" target="_blank" rel="noopener noreferrer">Open solution</a>
+                      <div class="question-content">
+                        <div class="question-heading">
+                          <h4 class="question-title">${escapeHtml(question.title)}</h4>
+                          <a class="reference-link" href="${escapeHtml(question.solutionUrl)}" target="_blank" rel="noopener noreferrer">GFG reference</a>
+                        </div>
+                        <div class="solution-meta"><span>Key solution</span><span>${escapeHtml(question.language)}</span></div>
+                        <pre class="solution-code"><code>${escapeHtml(question.solution)}</code></pre>
+                      </div>
                     </article>
                   `;
                 }).join("")}
