@@ -1,12 +1,12 @@
 # Skills Revision Reader
 
-A static, navigable revision interface for 347 questions represented in relevant GeeksforGeeks interview-question collections, organized into 16 resume-technology categories. The Generative AI, LLM and RAG category contains all 50 numbered questions from the linked GFG GenAI interview collection, with original concise answers and examples.
+A static, navigable revision interface for 408 questions represented in relevant GeeksforGeeks interview-question collections, organized into 17 resume-technology categories. It includes all 50 numbered questions from the linked GFG GenAI collection and all 61 numbered headings currently present in the GFG DevOps collection, with original concise answers and examples. The DevOps source itself skips number 28, so the reader preserves that source numbering instead of inventing a question.
 
 The deployment also includes `roadmap.html`, a focused Applied AI / GenAI Engineer interview route for freshers. It contains 39 essential videos (about 26 hours) and 20 optional deep-dive videos in Hindi or Hinglish, all as direct YouTube links. The page includes search, depth and completed-item filters, an automatic next lesson, remaining-time estimates, responsive layouts, dark mode, and browser-saved progress.
 
-The reader defaults to 295 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, theme, mode, frequency, position, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
+The reader defaults to 356 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, theme, mode, frequency, position, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
 
-Resume-aligned role filters group the same verified questions for SDE I, frontend/React, backend/Node.js, full-stack JavaScript, MERN, and junior GenAI application positions. Selecting a role does not duplicate or invent questions.
+Resume-aligned role filters group the same verified questions for SDE I, frontend/React, backend/Node.js, full-stack JavaScript, MERN, junior GenAI application, and DevOps positions. Selecting a role does not duplicate or invent questions.
 
 ## Source pages
 
@@ -27,6 +27,7 @@ Resume-aligned role filters group the same verified questions for SDE I, fronten
 - [OOP](https://www.geeksforgeeks.org/interview-prep/oops-interview-questions/)
 - [Operating Systems](https://www.geeksforgeeks.org/operating-systems/operating-systems-interview-questions/)
 - [Computer Networks](https://www.geeksforgeeks.org/blogs/networking-interview-questions/)
+- [DevOps](https://www.geeksforgeeks.org/devops/devops-interview-questions/)
 - [Frontend Developer Interview Questions](https://www.geeksforgeeks.org/interview-prep/front-end-developer-interview-questions/)
 - [Backend Developer Interview Questions](https://www.geeksforgeeks.org/interview-prep/backend-developer-interview-questions-and-answers/)
 - [Full Stack Developer Interview Questions](https://www.geeksforgeeks.org/html/full-stack-developer-interview-questions-and-answers/)
