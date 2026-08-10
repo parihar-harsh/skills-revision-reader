@@ -4,7 +4,7 @@ A static, navigable revision interface for 408 questions represented in relevant
 
 The deployment also includes `roadmap.html`, a focused Applied AI / GenAI Engineer interview route for freshers. It contains 39 essential videos (about 26 hours) and 20 optional deep-dive videos in Hindi or Hinglish, all as direct YouTube links. The page includes search, depth and completed-item filters, an automatic next lesson, remaining-time estimates, responsive layouts, dark mode, and browser-saved progress.
 
-`live-coding.html` adds a searchable, role-filtered list of broad live coding patterns derived from candidate-reported tasks in frontend, backend, databases, DevOps, and CS fundamentals. Every pattern has its interview-experience sources recorded in `live-coding-data.js` and links to a relevant GeeksforGeeks implementation or query reference; inferred practice areas, take-home assignments, and DSA problems are excluded.
+`live-coding.html` adds a searchable, role-filtered list of broad practical patterns derived from candidate-reported live coding, machine coding, and timed assessment tasks in frontend, backend, databases, DevOps, and CS fundamentals. Every pattern has its interview-experience sources recorded in `live-coding-data.js` and links to a relevant GeeksforGeeks implementation or query reference; inferred practice areas, take-home assignments, and DSA problems are excluded.
 
 The reader defaults to 356 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, theme, mode, frequency, position, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
 
