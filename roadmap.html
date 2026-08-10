@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>AI Engineer Interview Route</title>
-  <meta name="description" content="A focused, progress-tracked AI Engineer interview roadmap with direct learning links.">
+  <title>Fresher AI Engineer Video Route</title>
+  <meta name="description" content="A focused, video-only AI Engineer interview roadmap for freshers.">
   <script>
     (function () {
       try {
@@ -500,7 +500,7 @@
 
     .route-map {
       display: grid;
-      grid-template-columns: repeat(9, minmax(78px, 1fr));
+      grid-template-columns: repeat(8, minmax(78px, 1fr));
       gap: 8px;
       overflow-x: auto;
       margin: 24px 0 5px;
@@ -759,7 +759,7 @@
       .module-section { scroll-margin-top: calc(var(--toolbar-height) + var(--mobile-nav-height) + 12px); }
       .overview { grid-template-columns: 1fr; gap: 16px; }
       .overview-actions { justify-content: flex-start; }
-      .route-map { grid-template-columns: repeat(9, 106px); }
+      .route-map { grid-template-columns: repeat(8, 106px); }
     }
 
     @media (max-width: 600px) {
@@ -800,7 +800,7 @@
         <div class="brand-mark" aria-hidden="true">AI</div>
         <div>
           <h1>Interview Route</h1>
-          <p>Applied AI / GenAI Engineer</p>
+          <p>Fresher Applied AI / GenAI</p>
         </div>
       </header>
       <div class="side-progress">
@@ -835,9 +835,9 @@
       <main class="content-shell">
         <header class="overview">
           <div>
-            <p class="eyebrow">Complete fresher interview coverage</p>
+            <p class="eyebrow">Focused fresher video route</p>
             <h2>AI Engineer interview preparation, without the course overload.</h2>
-            <p class="overview-copy">Follow the modules in order. Each resource opens the exact lesson, playlist, documentation page, project, or question bank needed for an entry-level Applied AI / GenAI Engineer interview.</p>
+            <p class="overview-copy">Follow the modules in order. Every resource card opens a specific YouTube lesson or playlist needed for an entry-level Applied AI / GenAI Engineer interview.</p>
           </div>
           <div class="overview-actions">
             <button id="continue-button" class="control-button primary" type="button">Continue next</button>
@@ -848,13 +848,13 @@
         <section class="summary-strip" aria-label="Roadmap summary">
           <div class="summary-item"><span id="summary-progress" class="summary-value">0%</span><span class="summary-label">completed</span></div>
           <div class="summary-item"><span id="summary-resources" class="summary-value">0</span><span class="summary-label">visible resources</span></div>
-          <div class="summary-item"><span class="summary-value">32-41h</span><span class="summary-label">learning route</span></div>
-          <div class="summary-item"><span class="summary-value">9</span><span class="summary-label">coverage modules</span></div>
+          <div class="summary-item"><span class="summary-value">31-40h</span><span class="summary-label">selected videos</span></div>
+          <div class="summary-item"><span class="summary-value">8</span><span class="summary-label">coverage modules</span></div>
         </section>
 
         <aside class="scope-note">
           <strong>Scope</strong>
-          <span>This route targets software-heavy AI Engineer roles: Python, LLM applications, RAG, agents, APIs, evaluation and production. Classical Data Scientist, computer-vision research and training foundation models from scratch are separate tracks.</span>
+          <span>This route targets fresher software-heavy AI Engineer roles: Python, LLM applications, RAG, agents, APIs, evaluation and production. Use the separate question bank for DSA and CS fundamentals. Data Science, computer-vision research and foundation-model training are separate tracks.</span>
         </aside>
 
         <nav id="route-map" class="route-map" aria-label="Learning sequence"></nav>
@@ -862,7 +862,7 @@
         <div id="module-list"></div>
         <div id="empty-state" class="empty-state" hidden>No resources match the current search and depth filter.</div>
 
-        <footer class="page-footer">Progress, theme and selected depth are stored only in this browser. Resource links open their original publisher pages.</footer>
+        <footer class="page-footer">Progress, theme and selected depth are stored only in this browser. Every resource card opens YouTube.</footer>
       </main>
     </div>
   </div>
@@ -877,9 +877,8 @@
         outcome: "Write and explain production-style Python used by AI services.",
         topics: ["Collections", "Functions", "OOP", "Exceptions", "Decorators", "Generators", "Typing", "async/await", "Virtual environments"],
         resources: [
-          { id: "python-chai", title: "Chai aur Python series", source: "Chai aur Code", type: "Video series", duration: "Selected lessons", priority: "core", videoId: "Ca5DLSDfPec", url: "https://www.youtube.com/watch?v=Ca5DLSDfPec", note: "Cover Python syntax, collections, functions, OOP, exceptions, modules and virtual environments. Skip beginner programming explanations you already know from JavaScript." },
-          { id: "python-asyncio", title: "asyncio: asynchronous I/O in Python", source: "Python documentation", type: "Reference", duration: "30 min", priority: "interview", url: "https://docs.python.org/3/library/asyncio.html", note: "Know coroutine, event loop, task, await, I/O concurrency and why async does not make CPU-heavy work parallel." },
-          { id: "python-interview", title: "Python interview questions", source: "GeeksforGeeks", type: "Revision", duration: "60 min", priority: "interview", url: "https://www.geeksforgeeks.org/python/python-interview-questions/", note: "Revise mutable vs immutable objects, iterators, generators, decorators, shallow/deep copy, GIL, memory management and exceptions." }
+          { id: "python-chai", title: "Chai aur Python series", source: "Chai aur Code", type: "Video playlist", duration: "Selected lessons", priority: "core", videoId: "Ca5DLSDfPec", url: "https://www.youtube.com/watch?v=Ca5DLSDfPec&list=PLu71SKxNbfoBsMugTFALhdLlZ5VOqCg2s", note: "Cover syntax, collections, functions, OOP, exceptions, modules and virtual environments. Skip beginner programming ideas you already know from JavaScript." },
+          { id: "python-asyncio", title: "Python AsyncIO and async/await", source: "Tech With Tim", type: "Video", duration: "Interview depth", priority: "interview", videoId: "t5Bo1Je9EmE", url: "https://www.youtube.com/watch?v=t5Bo1Je9EmE", note: "Know coroutine, event loop, task, await, I/O concurrency and why async does not make CPU-heavy work parallel." }
         ]
       },
       {
@@ -938,8 +937,8 @@
           { id: "rag-splitters", title: "Text splitters and semantic chunking", source: "CampusX", type: "Video", duration: "55 min", priority: "core", videoId: "SEWS9P4ODmc", url: "https://www.youtube.com/watch?v=SEWS9P4ODmc", note: "Compare fixed length, recursive, document-structure and semantic splitting. Know chunk size and overlap trade-offs." },
           { id: "rag-vector", title: "Vector stores and vector databases", source: "CampusX", type: "Video", duration: "45 min", priority: "core", videoId: "k13WK0bxQP0", url: "https://www.youtube.com/watch?v=k13WK0bxQP0", note: "Understand storing embeddings, similarity search, metadata and the vector store vs vector database distinction." },
           { id: "rag-retrievers", title: "Retrievers, MMR, multi-query and compression", source: "CampusX", type: "Video", duration: "50 min", priority: "core", videoId: "pJdMxwXBsk0", url: "https://www.youtube.com/watch?v=pJdMxwXBsk0", note: "Know how retrieval strategies trade relevance, diversity, recall, latency and token cost." },
-          { id: "rag-ragas", title: "RAGAS evaluation concepts and metrics", source: "RAGAS", type: "Documentation", duration: "45 min", priority: "interview", url: "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/", note: "Focus on context precision/recall, response relevancy, faithfulness and the limits of LLM-as-judge evaluation." },
-          { id: "rag-atlas", title: "MongoDB Atlas Vector Search", source: "MongoDB", type: "Documentation", duration: "Reference", priority: "interview", url: "https://www.mongodb.com/docs/atlas/atlas-vector-search/vector-search-overview/", note: "Relate ANN/HNSW, numCandidates, limit and metadata filters directly to DoxChat AI's retrieval path." }
+          { id: "rag-ragas", title: "RAG evaluation metrics with RAGAS", source: "Analytics Vidhya", type: "Video", duration: "Selected sections", priority: "interview", videoId: "f8zMrSysnjY", url: "https://www.youtube.com/watch?v=f8zMrSysnjY", note: "Focus on context precision/recall, answer relevancy, faithfulness and how the metrics expose retrieval or generation failures." },
+          { id: "rag-atlas", title: "HNSW in MongoDB Atlas Vector Search", source: "MongoDB", type: "Video", duration: "Selected sections", priority: "interview", videoId: "AvCuiRs2cxw", url: "https://www.youtube.com/watch?v=AvCuiRs2cxw", note: "Learn how HNSW is built and queried, then relate candidates, limits and metadata filtering to DoxChat AI." }
         ]
       },
       {
@@ -962,13 +961,11 @@
         id: "fastapi",
         code: "07",
         title: "FastAPI and model serving",
-        time: "4-5 hours",
+        time: "3-4 hours",
         outcome: "Expose an AI pipeline through a validated, asynchronous production API.",
         topics: ["Routes", "Path/query/body", "Pydantic", "Validation", "Dependencies", "async endpoints", "File upload", "Streaming", "Authentication", "CORS", "Middleware", "OpenAPI", "Uvicorn"],
         resources: [
           { id: "fastapi-playlist", title: "FastAPI for Machine Learning", source: "CampusX", type: "Playlist", duration: "Selected videos", priority: "core", videoId: "WJKsPchji0Q", url: "https://www.youtube.com/playlist?list=PLKnIA16_RmvZ41tjbKB2ZnwchfniNsMuQ", note: "Because you know Express, skip generic HTTP material. Cover routes, Pydantic, validation, errors, async behavior, API-to-model integration and deployment." },
-          { id: "pydantic-models", title: "Pydantic models and validation", source: "Pydantic", type: "Documentation", duration: "45 min", priority: "interview", url: "https://docs.pydantic.dev/latest/concepts/models/", note: "Know BaseModel, field types, constraints, nested models, serialization and validation errors." },
-          { id: "fastapi-async", title: "Concurrency and async/await in FastAPI", source: "FastAPI", type: "Documentation", duration: "30 min", priority: "core", url: "https://fastapi.tiangolo.com/async/", note: "Explain when to use async def, why blocking work still blocks and when CPU-heavy inference needs workers or separate services." },
           { id: "fastapi-docker", title: "Dockerize a FastAPI application", source: "CampusX", type: "Video", duration: "18 min", priority: "interview", videoId: "jlLs6hfAga4", url: "https://www.youtube.com/watch?v=jlLs6hfAga4", note: "Understand Dockerfile, image build, container port, dependency installation and environment variables." }
         ]
       },
@@ -981,23 +978,8 @@
         topics: ["Evaluation datasets", "Tracing", "Observability", "Latency", "Cost", "Caching", "Retries", "Backoff", "Rate limits", "Queues", "Idempotency", "Guardrails", "Prompt injection", "Secrets", "Docker", "CI/CD", "Cloud basics"],
         resources: [
           { id: "langsmith-observability", title: "LangSmith observability with LangGraph", source: "CampusX", type: "Video", duration: "Tracing", priority: "core", videoId: "ikzN6byFNWw", url: "https://www.youtube.com/watch?v=ikzN6byFNWw", note: "Trace model calls, retriever steps, tool calls, latency, errors and token usage. Never copy API keys shown in tutorials." },
-          { id: "owasp-llm", title: "OWASP Top 10 for LLM applications", source: "OWASP", type: "Security reference", duration: "60 min", priority: "core", url: "https://genai.owasp.org/llm-top-10/", note: "Prioritize prompt injection, sensitive-information disclosure, improper output handling, excessive agency and vector/embedding weaknesses." },
-          { id: "github-actions", title: "CI/CD with GitHub Actions", source: "GitHub", type: "Documentation", duration: "Reference", priority: "interview", url: "https://docs.github.com/en/actions/get-started/understand-github-actions", note: "Know workflow, event trigger, job, runner, step, secrets and the test-build-deploy sequence." }
-        ]
-      },
-      {
-        id: "interview",
-        code: "09",
-        title: "Interview execution",
-        time: "Continuous",
-        outcome: "Convert technical knowledge into clear coding, project and design answers.",
-        topics: ["DSA", "OOP", "DBMS", "OS", "Computer networks", "SQL", "REST", "AI system design", "Project trade-offs", "Failure scenarios", "Behavioral answers"],
-        resources: [
-          { id: "skills-bank", title: "Your skills interview question bank", source: "Local revision site", type: "Practice", duration: "Daily revision", priority: "core", url: "index.html", note: "Use the high-frequency filter for Python-adjacent backend, databases, CS fundamentals and GenAI concept revision." },
-          { id: "doxchat-repo", title: "Defend DoxChat AI from the repository", source: "Your GitHub project", type: "Project deep dive", duration: "2-3 hours", priority: "core", url: "https://github.com/parihar-harsh/RAG-based-doc-scanner", note: "Explain upload-to-answer flow, schemas, GridFS, worker/queue, idempotency, retries, chunking, Atlas Vector Search, hybrid retrieval, SSE, failures and scaling." },
-          { id: "doxchat-live", title: "Run every DoxChat AI workflow", source: "Your deployment", type: "Verification", duration: "45 min", priority: "core", url: "https://rag-based-doc-scanner.vercel.app", note: "Test signup, PDF/DOCX upload, progress, chat, citations, retries and deletion before mentioning the project in an interview." },
-          { id: "dsa-gfg", title: "DSA interview preparation", source: "GeeksforGeeks", type: "Coding practice", duration: "Continuous", priority: "core", url: "https://www.geeksforgeeks.org/dsa/dsa-interview-questions/", note: "AI Engineer is still an engineering role. Practice arrays, strings, hashing, two pointers, sliding window, stack/queue, trees, graphs and dynamic programming." },
-          { id: "system-design", title: "System design fundamentals", source: "GitHub", type: "Reference", duration: "Selected topics", priority: "interview", url: "https://github.com/ashishps1/awesome-system-design-resources", note: "Prioritize API design, caching, queues, database indexes, horizontal scaling, consistency, rate limiting, observability and failure recovery." }
+          { id: "owasp-llm", title: "OWASP Top 10 for LLM applications", source: "WhyLabs", type: "Video", duration: "Selected sections", priority: "core", videoId: "dj1H4g4YSlU", url: "https://www.youtube.com/watch?v=dj1H4g4YSlU", note: "Prioritize prompt injection, sensitive-information disclosure, improper output handling, excessive agency and vector/embedding weaknesses." },
+          { id: "github-actions", title: "GitHub Actions and CI/CD with Docker", source: "TechWorld with Nana", type: "Video", duration: "33 min", priority: "interview", videoId: "R8_veQiYBjI", url: "https://www.youtube.com/watch?v=R8_veQiYBjI", note: "Know events, workflows, jobs, runners, steps, secrets and the test-build-deploy sequence." }
         ]
       }
     ];
@@ -1084,8 +1066,7 @@
         const src = `https://i.ytimg.com/vi/${encodeURIComponent(resource.videoId)}/mqdefault.jpg`;
         return `<div class="resource-media"><img src="${src}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="sr-only">Video thumbnail</span></div>`;
       }
-      const label = resource.type.includes("Documentation") || resource.type.includes("Reference") ? "DOCS" : resource.type.slice(0, 6).toUpperCase();
-      return `<div class="resource-media" aria-hidden="true">${escapeHtml(label)}</div>`;
+      return `<div class="resource-media" aria-hidden="true">VIDEO</div>`;
     }
 
     function renderResource(resource) {
