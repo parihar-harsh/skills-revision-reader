@@ -161,7 +161,7 @@
 
     .product-switcher {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 3px;
       margin: 10px 12px 0;
       padding: 3px;
@@ -916,6 +916,7 @@
       </header>
       <nav class="product-switcher" aria-label="Revision workspace">
         <a class="product-link" href="index.html">Questions</a>
+        <a class="product-link" href="live-coding.html">Live coding</a>
         <a class="product-link active" href="roadmap.html" aria-current="page">AI route</a>
       </nav>
       <div class="side-progress">
@@ -934,6 +935,7 @@
       <header class="toolbar">
         <div class="toolbar-primary">
           <a class="control-button mobile-page-link" href="index.html">Questions</a>
+          <a class="control-button mobile-page-link" href="live-coding.html">Live</a>
           <label class="search-wrap">
             <span class="sr-only">Search modules, topics, and resources</span>
             <input id="search-input" class="search-input" type="search" placeholder="Search videos or topics" autocomplete="off">
