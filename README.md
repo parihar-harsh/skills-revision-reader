@@ -1,10 +1,10 @@
 # Skills Revision Reader
 
-A static, navigable revision interface for 313 questions represented in relevant GeeksforGeeks interview-question collections, organized into 16 resume-technology categories.
+A static, navigable revision interface for 347 questions represented in relevant GeeksforGeeks interview-question collections, organized into 16 resume-technology categories. The Generative AI, LLM and RAG category contains all 50 numbered questions from the linked GFG GenAI interview collection, with original concise answers and examples.
 
 The deployment also includes `roadmap.html`, a focused Applied AI / GenAI Engineer interview route for freshers. It contains 39 essential videos (about 26 hours) and 20 optional deep-dive videos in Hindi or Hinglish, all as direct YouTube links. The page includes search, depth and completed-item filters, an automatic next lesson, remaining-time estimates, responsive layouts, dark mode, and browser-saved progress.
 
-The reader defaults to 260 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, theme, mode, frequency, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
+The reader defaults to 295 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, theme, mode, frequency, position, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
 
 Resume-aligned role filters group the same verified questions for SDE I, frontend/React, backend/Node.js, full-stack JavaScript, MERN, and junior GenAI application positions. Selecting a role does not duplicate or invent questions.
 
@@ -34,12 +34,3 @@ Resume-aligned role filters group the same verified questions for SDE I, fronten
 Questions from the role-based collections are included only when they match the resume technologies. Questions about unrelated stacks such as Angular, Vue, Django, PHP, Spring, and Redux are excluded.
 
 Question wording is normalized for quick revision, while answers and examples are concise original explanations of the GFG-listed concepts.
-
-## Regenerate
-
-The deployable `index.html` is generated from the source question bank in the parent directory:
-
-```bash
-cd ..
-node generate-skills-reader.js
-```
