@@ -81,7 +81,8 @@
     }
 
     button,
-    input { font: inherit; }
+    input,
+    select { font: inherit; }
 
     button,
     a,
@@ -89,6 +90,7 @@
 
     button:focus-visible,
     input:focus-visible,
+    select:focus-visible,
     a:focus-visible,
     summary:focus-visible {
       outline: 3px solid color-mix(in srgb, var(--focus) 35%, transparent);
@@ -482,6 +484,44 @@
       color: var(--accent);
       font-weight: 700;
     }
+
+    .position-control {
+      display: grid;
+      grid-template-columns: auto minmax(150px, 1fr);
+      align-items: center;
+      overflow: hidden;
+      flex: 0 0 350px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-subtle);
+    }
+
+    .position-control > span {
+      align-self: stretch;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 9px;
+      border-right: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .position-select {
+      min-width: 0;
+      height: 100%;
+      padding: 0 28px 0 9px;
+      border: 0;
+      border-radius: 0;
+      background-color: var(--surface);
+      color: var(--text);
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .position-select:focus { outline: 0; }
 
     .theme-button {
       flex: none;
@@ -898,6 +938,28 @@
       background: rgba(0, 0, 0, 0.46);
     }
 
+    @media (max-width: 1500px) and (min-width: 901px) {
+      .toolbar {
+        display: grid;
+        gap: 8px;
+        padding-block: 8px;
+        overflow-x: hidden;
+      }
+
+      .toolbar-primary,
+      .toolbar-options { width: 100%; }
+
+      .toolbar-options {
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 1px;
+        scrollbar-width: none;
+      }
+
+      .toolbar-options::-webkit-scrollbar { display: none; }
+      .question-block { scroll-margin-top: 122px; }
+    }
+
     @media (max-width: 900px) {
       .app-shell { display: block; }
 
@@ -938,6 +1000,7 @@
       }
 
       .toolbar-options::-webkit-scrollbar { display: none; }
+      .question-block { scroll-margin-top: 120px; }
 
       .mobile-page-link {
         display: inline-flex;
@@ -957,6 +1020,7 @@
       .jump-control { grid-template-columns: 64px 40px; }
       .mode-control { grid-template-columns: repeat(2, 58px); }
       .frequency-control { grid-template-columns: 104px 66px; }
+      .position-control { flex-basis: 300px; grid-template-columns: auto minmax(212px, 1fr); }
       .toolbar-primary .mobile-page-link { flex: 0 0 66px; min-width: 66px; padding: 0 7px; }
       .toolbar-primary .theme-button { flex: 0 0 50px; width: 50px; min-width: 50px; }
       .content-shell { width: min(100% - 20px, 1040px); padding-top: 22px; }
@@ -990,7 +1054,7 @@
 </head>
 <body data-mode="review" data-scope="section">
   <div class="app-shell">
-    <aside class="sidebar" id="sidebar" aria-label="Question categories">
+    <aside class="sidebar" id="sidebar" aria-label="Skill categories">
       <header class="brand">
         <div class="brand-mark" aria-hidden="true">SR</div>
         <div>
@@ -1006,57 +1070,8 @@
         <div class="progress-copy"><span>Reviewed</span><span id="overall-progress">0/313</span></div>
         <span class="progress-track" aria-hidden="true"><span id="overall-progress-bar"></span></span>
       </div>
-      <nav class="section-nav">
-        <div class="nav-group-label"><span>Eligible positions</span><span>6</span></div>
-        <button class="section-nav-item" type="button" data-role-button="sde-1" aria-pressed="false" style="--section-accent: #334155">
-          <span class="section-nav-code">SDE</span>
-          <span class="section-nav-copy">
-            <span class="section-nav-title">SDE I / Junior Software Engineer</span>
-            <span class="section-nav-meta"><span data-role-progress="sde-1">0/145</span><span><span data-visible-role-count="sde-1">145</span> questions</span></span>
-            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="sde-1"></span></span>
-          </span>
-        </button>
-<button class="section-nav-item" type="button" data-role-button="frontend-react" aria-pressed="false" style="--section-accent: #c2410c">
-          <span class="section-nav-code">FE</span>
-          <span class="section-nav-copy">
-            <span class="section-nav-title">Frontend / React Developer</span>
-            <span class="section-nav-meta"><span data-role-progress="frontend-react">0/155</span><span><span data-visible-role-count="frontend-react">155</span> questions</span></span>
-            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="frontend-react"></span></span>
-          </span>
-        </button>
-<button class="section-nav-item" type="button" data-role-button="backend-node" aria-pressed="false" style="--section-accent: #15803d">
-          <span class="section-nav-code">BE</span>
-          <span class="section-nav-copy">
-            <span class="section-nav-title">Backend / Node.js Developer</span>
-            <span class="section-nav-meta"><span data-role-progress="backend-node">0/157</span><span><span data-visible-role-count="backend-node">157</span> questions</span></span>
-            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="backend-node"></span></span>
-          </span>
-        </button>
-<button class="section-nav-item" type="button" data-role-button="full-stack-js" aria-pressed="false" style="--section-accent: #2563eb">
-          <span class="section-nav-code">FS</span>
-          <span class="section-nav-copy">
-            <span class="section-nav-title">Full-Stack JavaScript Developer</span>
-            <span class="section-nav-meta"><span data-role-progress="full-stack-js">0/237</span><span><span data-visible-role-count="full-stack-js">237</span> questions</span></span>
-            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="full-stack-js"></span></span>
-          </span>
-        </button>
-<button class="section-nav-item" type="button" data-role-button="mern-stack" aria-pressed="false" style="--section-accent: #0f766e">
-          <span class="section-nav-code">MERN</span>
-          <span class="section-nav-copy">
-            <span class="section-nav-title">MERN Stack Developer</span>
-            <span class="section-nav-meta"><span data-role-progress="mern-stack">0/197</span><span><span data-visible-role-count="mern-stack">197</span> questions</span></span>
-            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="mern-stack"></span></span>
-          </span>
-        </button>
-<button class="section-nav-item" type="button" data-role-button="genai-app" aria-pressed="false" style="--section-accent: #b45309">
-          <span class="section-nav-code">AI</span>
-          <span class="section-nav-copy">
-            <span class="section-nav-title">Junior GenAI Application Developer</span>
-            <span class="section-nav-meta"><span data-role-progress="genai-app">0/213</span><span><span data-visible-role-count="genai-app">213</span> questions</span></span>
-            <span class="section-progress-track" aria-hidden="true"><span data-role-progress-bar="genai-app"></span></span>
-          </span>
-        </button>
-        <div class="nav-group-label"><span>Skills</span><span>16</span></div>
+      <nav class="section-nav" aria-label="Skill categories">
+        <div class="nav-group-label"><span>Skill categories</span><span>16</span></div>
         <button class="section-nav-item" type="button" data-section-button="all" aria-pressed="false" style="--section-accent: var(--accent)">
           <span class="section-nav-code">ALL</span>
           <span class="section-nav-copy">
@@ -1199,7 +1214,7 @@
       </footer>
     </aside>
 
-    <button id="scrim" class="scrim" type="button" aria-label="Close sections"></button>
+    <button id="scrim" class="scrim" type="button" aria-label="Close skill categories"></button>
 
     <div class="workspace">
       <header class="toolbar">
@@ -1213,6 +1228,18 @@
           <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
         </div>
         <div class="toolbar-options" aria-label="Question controls">
+          <label class="position-control" for="position-filter">
+            <span>Position</span>
+            <select id="position-filter" class="position-select">
+              <option value="">All positions</option>
+              <option value="sde-1">SDE I / Junior Software Engineer</option>
+              <option value="frontend-react">Frontend / React Developer</option>
+              <option value="backend-node">Backend / Node.js Developer</option>
+              <option value="full-stack-js">Full-Stack JavaScript Developer</option>
+              <option value="mern-stack">MERN Stack Developer</option>
+              <option value="genai-app">Junior GenAI Application Developer</option>
+            </select>
+          </label>
           <div class="mode-control" aria-label="Revision mode">
             <button class="mode-button" type="button" data-mode="review" aria-pressed="true">Review</button>
             <button class="mode-button" type="button" data-mode="recall" aria-pressed="false">Recall</button>
@@ -11390,7 +11417,7 @@ Example | HTTPS | Real-time media/DNS</pre>
     const questions = [...document.querySelectorAll(".question-block")];
     const sectionGroups = [...document.querySelectorAll("[data-section-group]")];
     const sectionButtons = [...document.querySelectorAll("[data-section-button]")];
-    const roleButtons = [...document.querySelectorAll("[data-role-button]")];
+    const positionFilter = document.getElementById("position-filter");
     const search = document.getElementById("search");
     const jumpInput = document.getElementById("jump-input");
     const jumpButton = document.getElementById("jump-button");
@@ -11528,13 +11555,6 @@ Example | HTTPS | Real-time media/DNS</pre>
         document.querySelector("[data-section-progress-bar='" + section.id + "']").style.width = sectionPercentage + "%";
       }
 
-      for (const role of roleData) {
-        const completed = role.numbers.filter((number) => reviewed.has(number)).length;
-        const rolePercentage = role.count === 0 ? 0 : (completed / role.count) * 100;
-        document.querySelector("[data-role-progress='" + role.id + "']").textContent = completed + "/" + role.count;
-        document.querySelector("[data-role-progress-bar='" + role.id + "']").style.width = rolePercentage + "%";
-      }
-
       for (const question of questions) {
         const number = Number(question.dataset.number);
         const isReviewed = reviewed.has(number);
@@ -11549,15 +11569,13 @@ Example | HTTPS | Real-time media/DNS</pre>
       for (const button of sectionButtons) {
         button.setAttribute(
           "aria-pressed",
-          String(!activeRole && button.dataset.sectionButton === activeSection),
+          String(button.dataset.sectionButton === activeSection),
         );
       }
     };
 
-    const updateRoleButtons = () => {
-      for (const button of roleButtons) {
-        button.setAttribute("aria-pressed", String(button.dataset.roleButton === activeRole));
-      }
+    const updatePositionFilter = () => {
+      positionFilter.value = activeRole || "";
     };
 
     const updateFrequencyButtons = () => {
@@ -11611,43 +11629,44 @@ Example | HTTPS | Real-time media/DNS</pre>
         group.hidden = ![...group.querySelectorAll(".question-block")].some((question) => !question.hidden);
       }
 
+      const frequencyLabel = activeFrequency === "high" ? "high-frequency" : "total";
+      const roleSuffix = selectedRole ? " for " + selectedRole.title : "";
+
       if (query) {
         document.body.dataset.scope = "search";
-        viewTitle.textContent = selectedRole ? selectedRole.title + " search" : "Search results";
-        viewMeta.textContent = visibleCount + " matching " + (activeFrequency === "high" ? "high-frequency" : "total") + " questions";
-      } else if (selectedRole) {
-        document.body.dataset.scope = "role";
-        viewTitle.textContent = selectedRole.title;
-        const count = activeFrequency === "high" ? selectedRole.highCount : selectedRole.count;
-        viewMeta.textContent = count + (activeFrequency === "high" ? " high-frequency questions" : " questions");
+        viewTitle.textContent = "Search results";
+        viewMeta.textContent = visibleCount + " matching " + frequencyLabel + " questions" + roleSuffix;
       } else if (activeSection === "all") {
         document.body.dataset.scope = "all";
-        viewTitle.textContent = activeFrequency === "high" ? "High-frequency questions" : "All questions";
-        const count = activeFrequency === "high" ? 260 : totalQuestions;
-        viewMeta.textContent = count + " questions across " + sectionData.length + " sections";
+        viewTitle.textContent = selectedRole
+          ? selectedRole.title
+          : (activeFrequency === "high" ? "High-frequency questions" : "All questions");
+        viewMeta.textContent = viewTotal + " " + frequencyLabel + " questions across " + sectionData.length + " skill categories";
       } else {
         const section = sectionData.find((item) => item.id === activeSection);
         document.body.dataset.scope = "section";
         viewTitle.textContent = section.title;
-        const count = activeFrequency === "high" ? section.highCount : section.count;
-        viewMeta.textContent = count + (activeFrequency === "high" ? " high-frequency questions" : " questions");
+        viewMeta.textContent = viewTotal + " " + frequencyLabel + " questions" + roleSuffix;
       }
 
       for (const section of sectionData) {
-        const count = activeFrequency === "high" ? section.highCount : section.count;
+        const count = questions.filter((question) => {
+          const number = Number(question.dataset.number);
+          const sectionMatch = question.dataset.section === section.id;
+          const roleMatch = !selectedRoleQuestions || selectedRoleQuestions.has(number);
+          const frequencyMatch = activeFrequency === "all" || question.dataset.frequency === "high";
+          return sectionMatch && roleMatch && frequencyMatch;
+        }).length;
         const label = document.querySelector("[data-visible-section-count='" + section.id + "']");
         if (label) label.textContent = count;
-      }
-
-      for (const role of roleData) {
-        const count = activeFrequency === "high" ? role.highCount : role.count;
-        const label = document.querySelector("[data-visible-role-count='" + role.id + "']");
-        if (label) label.textContent = count;
+        const sectionButton = sectionButtons.find((button) => button.dataset.sectionButton === section.id);
+        const sidebarCount = sectionButton?.querySelector(".section-nav-meta span:last-child");
+        if (sidebarCount) sidebarCount.textContent = count + " questions";
       }
 
       emptyState.hidden = visibleCount !== 0;
       updateSectionButtons();
-      updateRoleButtons();
+      updatePositionFilter();
       updateFrequencyButtons();
       updateQuestionNavigation();
       hideReviewedInput.checked = hideReviewed;
@@ -11655,7 +11674,6 @@ Example | HTTPS | Real-time media/DNS</pre>
     };
 
     const selectSection = (sectionId) => {
-      activeRole = null;
       activeSection = sectionId;
       search.value = "";
       clearQuestionHash();
@@ -11665,14 +11683,10 @@ Example | HTTPS | Real-time media/DNS</pre>
       scheduleReaderStateSave();
     };
 
-    const selectRole = (roleId) => {
-      if (!roleQuestionSets.has(roleId)) return;
-      activeRole = roleId;
-      activeSection = "all";
-      search.value = "";
+    const setPositionFilter = (roleId) => {
+      activeRole = roleQuestionSets.has(roleId) ? roleId : null;
       clearQuestionHash();
       applyFilters();
-      closeSidebar();
       window.scrollTo({ top: 0, behavior: "smooth" });
       scheduleReaderStateSave();
     };
@@ -11686,12 +11700,8 @@ Example | HTTPS | Real-time media/DNS</pre>
         writeStorage(frequencyKey, activeFrequency);
       }
       const activeRoleQuestions = activeRole ? roleQuestionSets.get(activeRole) : null;
-      if (activeRoleQuestions && activeRoleQuestions.has(number)) {
-        activeSection = "all";
-      } else {
-        activeRole = null;
-        activeSection = question.dataset.section;
-      }
+      if (activeRoleQuestions && !activeRoleQuestions.has(number)) activeRole = null;
+      activeSection = question.dataset.section;
       search.value = "";
       applyFilters();
       question.querySelector("details").open = true;
@@ -11741,9 +11751,7 @@ Example | HTTPS | Real-time media/DNS</pre>
       button.addEventListener("click", () => selectSection(button.dataset.sectionButton));
     }
 
-    for (const button of roleButtons) {
-      button.addEventListener("click", () => selectRole(button.dataset.roleButton));
-    }
+    positionFilter.addEventListener("change", () => setPositionFilter(positionFilter.value));
 
     search.addEventListener("input", () => {
       clearQuestionHash();
@@ -11864,10 +11872,8 @@ Example | HTTPS | Real-time media/DNS</pre>
     activeFrequency = readStorage(frequencyKey, "high") === "all" ? "all" : "high";
     const validSectionIds = new Set(["all", ...sectionData.map((section) => section.id)]);
     const validRoleIds = new Set(roleData.map((role) => role.id));
-    if (validRoleIds.has(savedReaderState.activeRole)) {
-      activeRole = savedReaderState.activeRole;
-      activeSection = "all";
-    } else if (validSectionIds.has(savedReaderState.activeSection)) {
+    if (validRoleIds.has(savedReaderState.activeRole)) activeRole = savedReaderState.activeRole;
+    if (validSectionIds.has(savedReaderState.activeSection)) {
       activeSection = savedReaderState.activeSection;
     }
     if (typeof savedReaderState.search === "string") {
