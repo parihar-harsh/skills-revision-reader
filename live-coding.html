@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="General live coding interview patterns with concise inline solutions.">
+  <meta name="description" content="General live coding interview patterns with core ideas, must-prepare concepts, and concise inline solutions.">
   <title>Live Coding Patterns</title>
   <style>
     :root {
@@ -240,6 +240,27 @@
     }
     .idea-label { color: var(--accent); font-size: 9px; font-weight: 850; text-transform: uppercase; white-space: nowrap; }
     .idea-text { margin: 0; color: var(--text); font-size: 11px; line-height: 1.5; }
+    .prepare-block {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      margin-top: 10px;
+      padding: 0 2px;
+    }
+    .prepare-label { color: var(--muted); font-size: 9px; font-weight: 850; text-transform: uppercase; white-space: nowrap; }
+    .concept-list { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; }
+    .concept-item { position: relative; padding-left: 9px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .concept-item::before {
+      position: absolute;
+      top: 0.58em;
+      left: 0;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+    }
     .solution-meta {
       display: flex;
       align-items: center;
@@ -298,6 +319,7 @@
       .question-heading { display: block; }
       .question-title { margin-top: 6px; }
       .idea-box { grid-template-columns: 1fr; gap: 3px; }
+      .prepare-block { grid-template-columns: 1fr; gap: 4px; }
       .solution-code { padding: 10px; font-size: 10px; }
     }
   </style>
@@ -343,14 +365,14 @@
       <header class="page-head">
         <p class="eyebrow">Interview practice</p>
         <h2>General live coding questions</h2>
-        <p>Broad patterns with concise, interview-ready code and command references.</p>
+        <p>Core ideas, must-prepare concepts, and concise interview-ready examples.</p>
         <span id="results-meta" class="results-meta" aria-live="polite"></span>
       </header>
       <div id="question-sections"></div>
     </main>
   </div>
 
-  <script src="live-coding-data.js?v=instant-revision"></script>
+  <script src="live-coding-data.js?v=concept-checklist"></script>
   <script>
     (function () {
       "use strict";
@@ -417,7 +439,7 @@
         const filtered = questions.filter((question) => {
           if (state.role && !question.roles.includes(state.role)) return false;
           if (state.category && question.category !== state.category) return false;
-          return !query || `${question.title} ${question.category} ${question.language} ${question.idea} ${question.solution}`.toLowerCase().includes(query);
+          return !query || `${question.title} ${question.category} ${question.language} ${question.idea} ${question.concepts.join(" ")} ${question.solution}`.toLowerCase().includes(query);
         });
         const visibleCategories = categories.filter((category) => filtered.some((question) => question.category === category));
         let number = 0;
@@ -437,6 +459,10 @@
                           <h4 class="question-title">${escapeHtml(question.title)}</h4>
                         </div>
                         <div class="idea-box"><span class="idea-label">Core idea</span><p class="idea-text">${escapeHtml(question.idea)}</p></div>
+                        <div class="prepare-block">
+                          <span class="prepare-label">Prepare these</span>
+                          <ul class="concept-list">${question.concepts.map((concept) => `<li class="concept-item">${escapeHtml(concept)}</li>`).join("")}</ul>
+                        </div>
                         <div class="solution-meta"><span>Key example</span><span>${escapeHtml(question.language)}</span></div>
                         <pre class="solution-code"><code>${escapeHtml(question.solution)}</code></pre>
                       </div>
