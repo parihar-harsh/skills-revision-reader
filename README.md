@@ -2,7 +2,7 @@
 
 A static, navigable revision interface for 313 questions represented in relevant GeeksforGeeks interview-question collections, organized into 16 resume-technology categories.
 
-The deployment also includes `roadmap.html`, a focused Applied AI / GenAI Engineer interview route for freshers. It contains 38 essential videos (about 26 hours) and 20 optional deep-dive videos, all as direct YouTube links. The page includes search, depth and completed-item filters, an automatic next lesson, remaining-time estimates, responsive layouts, dark mode, and browser-saved progress.
+The deployment also includes `roadmap.html`, a focused Applied AI / GenAI Engineer interview route for freshers. It contains 39 essential videos (about 26 hours) and 20 optional deep-dive videos in Hindi or Hinglish, all as direct YouTube links. The page includes search, depth and completed-item filters, an automatic next lesson, remaining-time estimates, responsive layouts, dark mode, and browser-saved progress.
 
 The reader defaults to 260 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, theme, mode, frequency, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
 
