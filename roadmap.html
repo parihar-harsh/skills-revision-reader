@@ -255,7 +255,7 @@
 
     .sidebar-footer {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 7px;
       padding: 10px 12px;
       border-top: 1px solid var(--border);
@@ -263,7 +263,6 @@
     }
 
     .quiet-button,
-    .toolbar-link,
     .control-button,
     .open-link,
     .done-button {
@@ -282,7 +281,6 @@
     }
 
     .quiet-button:hover,
-    .toolbar-link:hover,
     .control-button:hover,
     .open-link:hover,
     .done-button:hover { background: var(--surface-hover); }
@@ -306,11 +304,6 @@
       border-bottom: 1px solid var(--border);
       background: color-mix(in srgb, var(--surface) 94%, transparent);
       backdrop-filter: blur(12px);
-    }
-
-    .toolbar-link {
-      flex: none;
-      font-size: 12px;
     }
 
     .search-wrap {
@@ -750,10 +743,9 @@
       .app-shell { display: block; }
       .sidebar { display: none; }
       .toolbar { flex-wrap: wrap; padding: 9px 10px; }
-      .toolbar-link { order: 1; }
-      .theme-button { order: 2; margin-left: auto; }
-      .search-wrap { order: 3; flex: 1 1 100%; }
-      .filter-control { order: 4; width: 100%; grid-template-columns: repeat(2, 1fr); }
+      .search-wrap { order: 1; flex: 1 1 calc(100% - 68px); }
+      .theme-button { order: 2; }
+      .filter-control { order: 3; width: 100%; grid-template-columns: repeat(2, 1fr); }
       .mobile-module-nav { display: flex; position: sticky; top: var(--toolbar-height); z-index: 15; }
       .content-shell { width: min(100% - 24px, 1120px); padding-top: 22px; }
       .module-section { scroll-margin-top: calc(var(--toolbar-height) + var(--mobile-nav-height) + 12px); }
@@ -778,7 +770,6 @@
     }
 
     @media (max-width: 420px) {
-      .toolbar-link { min-width: 0; }
       .filter-button { min-width: 0; padding: 0 5px; }
       .overview-actions { display: grid; grid-template-columns: 1fr 1fr; }
       .overview-actions .control-button { width: 100%; }
@@ -811,14 +802,12 @@
         <div class="nav-label">Coverage modules</div>
       </nav>
       <footer class="sidebar-footer">
-        <a class="quiet-button" href="index.html">Question bank</a>
         <button id="reset-progress" class="quiet-button" type="button">Reset</button>
       </footer>
     </aside>
 
     <div class="workspace">
       <header class="toolbar">
-        <a class="toolbar-link" href="index.html">Question bank</a>
         <label class="search-wrap">
           <span class="sr-only">Search modules, topics, and resources</span>
           <input id="search-input" class="search-input" type="search" placeholder="Search topic or resource" autocomplete="off">
