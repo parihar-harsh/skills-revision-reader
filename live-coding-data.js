@@ -7,6 +7,7 @@
       category: "Frontend",
       roles: ["frontend-react", "full-stack-js", "mern-stack"],
       language: "CSS",
+      idea: "Use a stable desktop layout, fluid media, and one breakpoint that collapses columns instead of calculating widths in JavaScript.",
       solution: lines(
         ".layout {",
         "  display: grid;",
@@ -28,6 +29,7 @@
       category: "Frontend",
       roles: ["frontend-react", "full-stack-js", "mern-stack"],
       language: "React",
+      idea: "Keep the selected tab and form values in state; render the active panel from that state and update it through event handlers.",
       solution: lines(
         "function ProfileTabs() {",
         "  const [tab, setTab] = useState('profile');",
@@ -52,6 +54,7 @@
       category: "Frontend",
       roles: ["frontend-react", "full-stack-js", "mern-stack"],
       language: "React",
+      idea: "Treat state as the source of truth, reject invalid actions, copy arrays before updating them, and derive results such as the winner from state.",
       solution: lines(
         "const wins = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];",
         "const getWinner = board => {",
@@ -82,6 +85,7 @@
       category: "Frontend",
       roles: ["frontend-react", "full-stack-js", "mern-stack"],
       language: "JavaScript",
+      idea: "Load persisted data once, update the in-memory collection for every CRUD action, and serialize the latest collection after each change.",
       solution: lines(
         "let items = JSON.parse(localStorage.getItem('items') ?? '[]');",
         "const save = () => localStorage.setItem('items', JSON.stringify(items));",
@@ -102,6 +106,7 @@
       category: "Frontend",
       roles: ["frontend-react", "full-stack-js", "mern-stack"],
       language: "JavaScript",
+      idea: "Debounce runs after calls stop for a delay; throttle allows at most one call during each delay window.",
       solution: lines(
         "function debounce(fn, delay) {",
         "  let timer;",
@@ -127,6 +132,7 @@
       category: "Frontend",
       roles: ["frontend-react", "full-stack-js", "mern-stack"],
       language: "React",
+      idea: "Fetch when the query changes, cancel stale requests, reuse cached results, and lazy-load code that is not needed for the first render.",
       solution: lines(
         "const cache = new Map();",
         "const ProductDetails = lazy(() => import('./ProductDetails'));",
@@ -154,6 +160,7 @@
       category: "Frontend",
       roles: ["frontend-react", "full-stack-js", "mern-stack"],
       language: "JavaScript",
+      idea: "Convert every input to a Promise, store results by original index, resolve when all finish, reject on the first failure, and handle an empty input.",
       solution: lines(
         "function promiseAll(iterable) {",
         "  return new Promise((resolve, reject) => {",
@@ -179,6 +186,7 @@
       category: "Backend",
       roles: ["sde-1", "backend-node", "full-stack-js", "mern-stack"],
       language: "Express.js",
+      idea: "Validate input before database work, return the correct HTTP status, and forward unexpected failures to centralized error middleware.",
       solution: lines(
         "app.post('/api/users', async (req, res, next) => {",
         "  try {",
@@ -201,6 +209,7 @@
       category: "Backend",
       roles: ["sde-1", "backend-node", "full-stack-js", "mern-stack"],
       language: "Express.js",
+      idea: "Count requests per client key inside a time window and return 429 after the limit; use a shared store when multiple server instances run.",
       solution: lines(
         "import rateLimit from 'express-rate-limit';",
         "const apiLimiter = rateLimit({",
@@ -221,6 +230,7 @@
       category: "Backend",
       roles: ["sde-1", "backend-node", "full-stack-js"],
       language: "Node.js + WebSocket",
+      idea: "Keep a persistent connection, track connected clients, and send each update only to sockets that are still open.",
       solution: lines(
         "const { WebSocketServer, WebSocket } = require('ws');",
         "const wss = new WebSocketServer({ port: 8080 });",
@@ -245,6 +255,7 @@
       category: "Backend",
       roles: ["sde-1", "backend-node", "full-stack-js"],
       language: "JavaScript",
+      idea: "Store a set of subscribers per topic so publishers can emit events without knowing the consumers, and return an unsubscribe function for cleanup.",
       solution: lines(
         "class EventBus {",
         "  #topics = new Map();",
@@ -268,6 +279,7 @@
       category: "Databases",
       roles: ["sde-1", "backend-node", "full-stack-js", "mern-stack"],
       language: "MongoDB",
+      idea: "Process documents through ordered stages: filter early, group and calculate, rank the groups, limit the result, then reshape the output.",
       solution: lines(
         "db.orders.aggregate([",
         "  { $match: { status: 'PAID' } },",
@@ -287,6 +299,7 @@
       category: "Databases",
       roles: ["sde-1", "backend-node", "full-stack-js"],
       language: "SQL",
+      idea: "Join related rows, aggregate each group, use deterministic ordering, and apply LIMIT/OFFSET only after the final order is known.",
       solution: lines(
         "SELECT u.id, u.name, COUNT(o.id) AS order_count,",
         "       COALESCE(SUM(o.total), 0) AS revenue",
@@ -307,6 +320,7 @@
       category: "Databases",
       roles: ["sde-1", "backend-node", "full-stack-js", "mern-stack"],
       language: "SQL",
+      idea: "Turn entities into tables, connect them with foreign keys, use a junction table for many-to-many relations, and enforce important constraints in the schema.",
       solution: lines(
         "CREATE TABLE users (id BIGINT PRIMARY KEY, email VARCHAR(255) UNIQUE NOT NULL);",
         "CREATE TABLE products (id BIGINT PRIMARY KEY, name VARCHAR(255) NOT NULL, price DECIMAL(10,2) NOT NULL);",
@@ -331,6 +345,7 @@
       category: "DevOps",
       roles: ["devops-engineer"],
       language: "Bash",
+      idea: "Write fail-fast scripts, quote variables, combine small commands with pipes for logs, and inspect disk, process, service, and journal state systematically.",
       solution: lines(
         "#!/usr/bin/env bash",
         "set -euo pipefail",
@@ -353,6 +368,7 @@
       category: "DevOps",
       roles: ["devops-engineer", "backend-node", "full-stack-js"],
       language: "Dockerfile",
+      idea: "Build from a small trusted image, install reproducible production dependencies first for caching, copy the app, and run it as a non-root user.",
       solution: lines(
         "FROM node:22-alpine",
         "WORKDIR /app",
@@ -374,21 +390,10 @@
       category: "DevOps",
       roles: ["devops-engineer"],
       language: "Terraform",
+      idea: "Declare provider configuration, typed inputs, the desired resource, and useful outputs; review terraform plan before applying the change.",
       solution: lines(
-        "terraform {",
-        "  required_providers {",
-        "    aws = {",
-        "      source  = \"hashicorp/aws\"",
-        "      version = \"~> 5.0\"",
-        "    }",
-        "  }",
-        "}",
         "provider \"aws\" {",
-        "  region = var.region",
-        "}",
-        "variable \"region\" {",
-        "  type    = string",
-        "  default = \"ap-south-1\"",
+        "  region = \"ap-south-1\"",
         "}",
         "variable \"bucket_name\" {",
         "  type = string",
@@ -411,6 +416,7 @@
       category: "CS Fundamentals",
       roles: ["sde-1", "backend-node", "full-stack-js"],
       language: "JavaScript",
+      idea: "Call one common method through the parent contract; the actual object's overridden method is selected at runtime.",
       solution: lines(
         "class Notification { send(message) { throw new Error('Implement send()'); } }",
         "class EmailNotification extends Notification {",
@@ -432,6 +438,7 @@
       category: "CS Fundamentals",
       roles: ["sde-1", "backend-node"],
       language: "Pseudocode",
+      idea: "Use counting semaphores to prevent buffer overflow or underflow and a mutex so only one worker modifies the shared queue at a time.",
       solution: lines(
         "semaphore empty = BUFFER_SIZE, full = 0, mutex = 1",
         "producer(item):",

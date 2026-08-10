@@ -228,19 +228,18 @@
     .question-content { min-width: 0; }
     .question-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
     .question-title { min-width: 0; margin: 7px 0 0; font-size: 13px; font-weight: 750; overflow-wrap: anywhere; }
-    .reference-link {
-      display: inline-flex;
-      min-height: 30px;
-      flex: 0 0 auto;
-      align-items: center;
-      justify-content: center;
-      padding: 0 7px;
-      color: var(--accent);
-      font-size: 10px;
-      font-weight: 750;
-      white-space: nowrap;
+    .idea-box {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+      margin-top: 10px;
+      padding: 9px 10px;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
     }
-    .reference-link:hover { text-decoration: underline; }
+    .idea-label { color: var(--accent); font-size: 9px; font-weight: 850; text-transform: uppercase; white-space: nowrap; }
+    .idea-text { margin: 0; color: var(--text); font-size: 11px; line-height: 1.5; }
     .solution-meta {
       display: flex;
       align-items: center;
@@ -298,7 +297,7 @@
       .question-number { width: 32px; height: 32px; }
       .question-heading { display: block; }
       .question-title { margin-top: 6px; }
-      .reference-link { min-height: 28px; margin-top: 4px; padding: 0; }
+      .idea-box { grid-template-columns: 1fr; gap: 3px; }
       .solution-code { padding: 10px; font-size: 10px; }
     }
   </style>
@@ -351,7 +350,7 @@
     </main>
   </div>
 
-  <script src="live-coding-data.js?v=inline-solutions"></script>
+  <script src="live-coding-data.js?v=instant-revision"></script>
   <script>
     (function () {
       "use strict";
@@ -418,7 +417,7 @@
         const filtered = questions.filter((question) => {
           if (state.role && !question.roles.includes(state.role)) return false;
           if (state.category && question.category !== state.category) return false;
-          return !query || `${question.title} ${question.category} ${question.language} ${question.solution}`.toLowerCase().includes(query);
+          return !query || `${question.title} ${question.category} ${question.language} ${question.idea} ${question.solution}`.toLowerCase().includes(query);
         });
         const visibleCategories = categories.filter((category) => filtered.some((question) => question.category === category));
         let number = 0;
@@ -436,9 +435,9 @@
                       <div class="question-content">
                         <div class="question-heading">
                           <h4 class="question-title">${escapeHtml(question.title)}</h4>
-                          <a class="reference-link" href="${escapeHtml(question.solutionUrl)}" target="_blank" rel="noopener noreferrer">GFG reference</a>
                         </div>
-                        <div class="solution-meta"><span>Key solution</span><span>${escapeHtml(question.language)}</span></div>
+                        <div class="idea-box"><span class="idea-label">Core idea</span><p class="idea-text">${escapeHtml(question.idea)}</p></div>
+                        <div class="solution-meta"><span>Key example</span><span>${escapeHtml(question.language)}</span></div>
                         <pre class="solution-code"><code>${escapeHtml(question.solution)}</code></pre>
                       </div>
                     </article>
