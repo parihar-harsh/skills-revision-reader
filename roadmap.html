@@ -20,7 +20,7 @@
   <style>
     :root {
       color-scheme: light;
-      --toolbar-height: 145px;
+      --toolbar-height: 64px;
       --mobile-nav-height: 51px;
       --bg: #f3f5f7;
       --surface: #ffffff;
@@ -335,7 +335,7 @@
     }
 
     .filter-button {
-      min-width: 96px;
+      min-width: 88px;
       padding: 0 10px;
       border: 0;
       background: transparent;
@@ -354,10 +354,41 @@
 
     .theme-button {
       flex: none;
-      width: 58px;
+      width: 56px;
       height: 40px;
       padding: 0;
       font-size: 11px;
+    }
+
+    .toolbar-reset {
+      flex: none;
+      min-width: 58px;
+      height: 40px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .hide-control {
+      display: inline-flex;
+      flex: none;
+      align-items: center;
+      gap: 7px;
+      min-height: 40px;
+      padding: 0 10px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-muted);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .hide-control input {
+      width: 15px;
+      height: 15px;
+      margin: 0;
+      accent-color: var(--blue);
     }
 
     .mobile-module-nav {
@@ -392,17 +423,17 @@
     }
 
     .content-shell {
-      width: min(1120px, calc(100% - 40px));
+      width: min(1240px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 28px 0 80px;
+      padding: 22px 0 80px;
     }
 
     .overview {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 28px;
-      align-items: end;
-      padding: 0 0 24px;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 410px);
+      gap: 34px;
+      align-items: center;
+      padding: 0 0 18px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -417,7 +448,7 @@
     .overview h2 {
       margin: 0;
       max-width: 760px;
-      font-size: clamp(25px, 4vw, 38px);
+      font-size: 30px;
       line-height: 1.12;
       letter-spacing: 0;
     }
@@ -429,11 +460,52 @@
       font-size: 14px;
     }
 
-    .overview-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
+    .next-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      min-width: 0;
+      padding: 14px 0 14px 18px;
+      border-left: 3px solid var(--blue);
+    }
+
+    .next-copy {
+      display: grid;
+      min-width: 0;
+      gap: 2px;
+    }
+
+    .next-label {
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .next-copy strong {
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.3;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .next-copy > span:last-child {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .next-actions {
+      display: grid;
+      gap: 6px;
+    }
+
+    .next-actions .control-button {
+      min-width: 92px;
+      min-height: 34px;
+      padding: 6px 9px;
+      font-size: 10px;
     }
 
     .control-button.primary {
@@ -449,7 +521,7 @@
     .summary-strip {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      margin: 20px 0 0;
+      margin: 16px 0 0;
       border: 1px solid var(--border);
       border-radius: 6px;
       background: var(--surface);
@@ -491,56 +563,14 @@
 
     .scope-note strong { color: var(--amber); }
 
-    .route-map {
-      display: grid;
-      grid-template-columns: repeat(8, minmax(78px, 1fr));
-      gap: 8px;
-      overflow-x: auto;
-      margin: 24px 0 5px;
-      padding-bottom: 7px;
-      scrollbar-width: thin;
-    }
-
-    .route-step {
-      position: relative;
-      min-width: 78px;
-      min-height: 72px;
-      padding: 10px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: var(--surface);
-      cursor: pointer;
-    }
-
-    .route-step:hover { border-color: var(--border-strong); }
-
-    .route-step.done {
-      border-color: color-mix(in srgb, var(--green) 46%, var(--border));
-      background: var(--green-soft);
-    }
-
-    .route-step-code {
-      color: var(--blue);
-      font-size: 10px;
-      font-weight: 850;
-    }
-
-    .route-step-title {
-      display: block;
-      margin-top: 6px;
-      font-size: 11px;
-      font-weight: 750;
-      line-height: 1.25;
-    }
-
     .module-section {
-      margin-top: 34px;
+      margin-top: 28px;
       scroll-margin-top: 84px;
     }
 
     .module-heading {
       display: grid;
-      grid-template-columns: 50px minmax(0, 1fr) auto;
+      grid-template-columns: 50px minmax(0, 1fr) auto auto;
       gap: 13px;
       align-items: center;
       padding-bottom: 12px;
@@ -582,6 +612,13 @@
       font-variant-numeric: tabular-nums;
     }
 
+    .module-progress {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
     .topic-list {
       display: flex;
       flex-wrap: wrap;
@@ -603,17 +640,20 @@
 
     .resource-list {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 9px;
       margin-top: 13px;
     }
 
     .resource-card {
       display: grid;
-      grid-template-columns: 136px minmax(0, 1fr) auto;
-      gap: 14px;
-      align-items: center;
-      min-height: 100px;
-      padding: 10px;
+      grid-template-columns: 112px minmax(0, 1fr);
+      grid-template-rows: auto 1fr auto;
+      gap: 8px 12px;
+      align-items: start;
+      min-width: 0;
+      min-height: 178px;
+      padding: 11px;
       border: 1px solid var(--border);
       border-radius: 6px;
       background: var(--surface);
@@ -629,7 +669,8 @@
       display: grid;
       place-items: center;
       overflow: hidden;
-      width: 136px;
+      grid-row: 1 / 3;
+      width: 112px;
       aspect-ratio: 16 / 9;
       border: 1px solid var(--border);
       border-radius: 5px;
@@ -690,9 +731,11 @@
     }
 
     .resource-actions {
-      display: grid;
-      grid-template-columns: 76px 70px;
+      display: flex;
+      grid-column: 2;
+      flex-wrap: wrap;
       gap: 7px;
+      align-self: end;
     }
 
     .open-link,
@@ -701,6 +744,10 @@
       padding: 6px 9px;
       font-size: 11px;
     }
+
+    .open-link { min-width: 72px; }
+
+    .done-button { min-width: 86px; }
 
     .open-link {
       border-color: color-mix(in srgb, var(--blue) 48%, var(--border));
@@ -734,24 +781,23 @@
     @media (max-width: 1040px) {
       .app-shell { grid-template-columns: 238px minmax(0, 1fr); }
       .filter-button { min-width: 68px; }
-      .resource-card { grid-template-columns: 120px minmax(0, 1fr); }
-      .resource-media { width: 120px; }
-      .resource-actions { grid-column: 2; grid-template-columns: 76px 70px; justify-content: start; }
+      .resource-card { min-height: 142px; }
     }
 
     @media (max-width: 840px) {
       .app-shell { display: block; }
       .sidebar { display: none; }
       .toolbar { flex-wrap: wrap; padding: 9px 10px; }
-      .search-wrap { order: 1; flex: 1 1 calc(100% - 68px); }
+      .search-wrap { order: 1; flex: 1 1 calc(100% - 124px); }
       .theme-button { order: 2; }
-      .filter-control { order: 3; width: 100%; grid-template-columns: repeat(2, 1fr); }
+      .toolbar-reset { order: 3; }
+      .filter-control { order: 4; flex: 1 1 auto; grid-template-columns: repeat(2, 1fr); }
+      .hide-control { order: 5; }
       .mobile-module-nav { display: flex; position: sticky; top: var(--toolbar-height); z-index: 15; }
-      .content-shell { width: min(100% - 24px, 1120px); padding-top: 22px; }
+      .content-shell { width: min(100% - 24px, 1240px); padding-top: 22px; }
       .module-section { scroll-margin-top: calc(var(--toolbar-height) + var(--mobile-nav-height) + 12px); }
       .overview { grid-template-columns: 1fr; gap: 16px; }
-      .overview-actions { justify-content: flex-start; }
-      .route-map { grid-template-columns: repeat(8, 106px); }
+      .next-panel { grid-template-columns: minmax(0, 1fr) auto; padding-left: 14px; }
     }
 
     @media (max-width: 600px) {
@@ -760,22 +806,24 @@
       .summary-strip { grid-template-columns: 1fr 1fr; }
       .summary-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--border); }
       .summary-item:nth-child(4) { border-top: 1px solid var(--border); }
-      .module-heading { grid-template-columns: 44px minmax(0, 1fr); }
+      .resource-list { grid-template-columns: 1fr; }
+      .module-heading { grid-template-columns: 44px minmax(0, 1fr) auto; }
       .section-code { width: 44px; height: 40px; }
       .module-time { grid-column: 2; justify-self: start; }
-      .resource-card { grid-template-columns: 96px minmax(0, 1fr); gap: 10px; }
+      .module-progress { grid-column: 3; grid-row: 1; }
+      .resource-card { grid-template-columns: 96px minmax(0, 1fr); gap: 8px 10px; min-height: 150px; }
       .resource-media { width: 96px; }
-      .resource-actions { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; width: 100%; }
-      .open-link, .done-button { width: 100%; }
+      .resource-actions { grid-column: 2; }
     }
 
     @media (max-width: 420px) {
       .filter-button { min-width: 0; padding: 0 5px; }
-      .overview-actions { display: grid; grid-template-columns: 1fr 1fr; }
-      .overview-actions .control-button { width: 100%; }
-      .resource-card { grid-template-columns: 1fr; }
-      .resource-media { width: 100%; max-height: 170px; }
-      .resource-actions { grid-column: 1; }
+      .next-panel { grid-template-columns: 1fr; }
+      .next-actions { grid-template-columns: 1fr 1fr; }
+      .next-actions .control-button { width: 100%; }
+      .resource-card { grid-template-columns: 88px minmax(0, 1fr); }
+      .resource-media { width: 88px; }
+      .resource-actions { grid-column: 1 / -1; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -790,7 +838,7 @@
       <header class="brand">
         <div class="brand-mark" aria-hidden="true">AI</div>
         <div>
-          <h1>Interview Route</h1>
+          <h1>AI Interview Route</h1>
           <p>Fresher Applied AI / GenAI</p>
         </div>
       </header>
@@ -810,13 +858,15 @@
       <header class="toolbar">
         <label class="search-wrap">
           <span class="sr-only">Search modules, topics, and resources</span>
-          <input id="search-input" class="search-input" type="search" placeholder="Search topic or resource" autocomplete="off">
+          <input id="search-input" class="search-input" type="search" placeholder="Search videos or topics" autocomplete="off">
         </label>
         <div class="filter-control" aria-label="Roadmap depth">
-          <button class="filter-button" type="button" data-filter="core" aria-pressed="false">Core first</button>
-          <button class="filter-button" type="button" data-filter="interview" aria-pressed="true">Full route</button>
+          <button class="filter-button" type="button" data-filter="core" aria-pressed="true">Essentials</button>
+          <button class="filter-button" type="button" data-filter="interview" aria-pressed="false">Deep dive</button>
         </div>
+        <label class="hide-control" title="Hide completed videos"><input id="hide-completed" type="checkbox"><span>Hide done</span></label>
         <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
+        <button id="toolbar-reset" class="control-button toolbar-reset" type="button">Reset</button>
       </header>
 
       <nav id="mobile-module-nav" class="mobile-module-nav" aria-label="Roadmap modules"></nav>
@@ -825,33 +875,38 @@
         <header class="overview">
           <div>
             <p class="eyebrow">Focused fresher video route</p>
-            <h2>AI Engineer interview preparation, without the course overload.</h2>
-            <p class="overview-copy">Follow the modules in order. Every resource card opens a specific YouTube lesson or playlist needed for an entry-level Applied AI / GenAI Engineer interview.</p>
+            <h2>AI Engineer interview route</h2>
+            <p class="overview-copy">Python, ML, transformers, LLM apps, RAG, agents, FastAPI and LLMOps.</p>
           </div>
-          <div class="overview-actions">
-            <button id="continue-button" class="control-button primary" type="button">Continue next</button>
-            <button id="mark-visible-button" class="control-button" type="button">Complete visible</button>
+          <div id="next-panel" class="next-panel">
+            <div class="next-copy">
+              <span class="next-label">Up next</span>
+              <strong id="next-title">Loading route</strong>
+              <span id="next-meta">Finding your next lesson</span>
+            </div>
+            <div class="next-actions">
+              <a id="next-link" class="control-button primary" href="#">Watch next</a>
+              <button id="continue-button" class="control-button" type="button">Find card</button>
+            </div>
           </div>
         </header>
 
         <section class="summary-strip" aria-label="Roadmap summary">
           <div class="summary-item"><span id="summary-progress" class="summary-value">0%</span><span class="summary-label">completed</span></div>
           <div class="summary-item"><span id="summary-resources" class="summary-value">0</span><span class="summary-label">visible resources</span></div>
-          <div class="summary-item"><span class="summary-value">31-40h</span><span class="summary-label">selected videos</span></div>
-          <div class="summary-item"><span class="summary-value">8</span><span class="summary-label">coverage modules</span></div>
+          <div class="summary-item"><span id="summary-hours" class="summary-value">0h</span><span class="summary-label">selected watch time</span></div>
+          <div class="summary-item"><span id="summary-remaining" class="summary-value">0h</span><span class="summary-label">remaining</span></div>
         </section>
 
         <aside class="scope-note">
           <strong>Scope</strong>
-          <span>This route targets fresher software-heavy AI Engineer roles: Python, LLM applications, RAG, agents, APIs, evaluation and production. Use the separate question bank for DSA and CS fundamentals. Data Science, computer-vision research and foundation-model training are separate tracks.</span>
+          <span>This route targets fresher software-heavy AI Engineer roles: Python, LLM applications, RAG, agents, FastAPI, evaluation and production. Full PyTorch training, advanced RAG research and broad data science are intentionally excluded from the fast route.</span>
         </aside>
-
-        <nav id="route-map" class="route-map" aria-label="Learning sequence"></nav>
 
         <div id="module-list"></div>
         <div id="empty-state" class="empty-state" hidden>No resources match the current search and depth filter.</div>
 
-        <footer class="page-footer">Progress, theme and selected depth are stored only in this browser. Every resource card opens YouTube.</footer>
+        <footer class="page-footer">Progress, filters and theme stay in this browser. No account or database is used. Every resource opens a direct YouTube video.</footer>
       </main>
     </div>
   </div>
@@ -862,125 +917,143 @@
         id: "python",
         code: "01",
         title: "Python for AI",
-        time: "4-5 hours",
         outcome: "Write and explain production-style Python used by AI services.",
         topics: ["Collections", "Functions", "OOP", "Exceptions", "Decorators", "Generators", "Typing", "async/await", "Virtual environments"],
         resources: [
-          { id: "python-chai", title: "Chai aur Python series", source: "Chai aur Code", type: "Video playlist", duration: "Selected lessons", priority: "core", videoId: "Ca5DLSDfPec", url: "https://www.youtube.com/watch?v=Ca5DLSDfPec&list=PLu71SKxNbfoBsMugTFALhdLlZ5VOqCg2s", note: "Cover syntax, collections, functions, OOP, exceptions, modules and virtual environments. Skip beginner programming ideas you already know from JavaScript." },
-          { id: "python-asyncio", title: "Python AsyncIO and async/await", source: "Tech With Tim", type: "Video", duration: "Interview depth", priority: "interview", videoId: "t5Bo1Je9EmE", url: "https://www.youtube.com/watch?v=t5Bo1Je9EmE", note: "Know coroutine, event loop, task, await, I/O concurrency and why async does not make CPU-heavy work parallel." }
+          { id: "python-for-js", title: "Python for JavaScript developers", source: "Chai aur Code", type: "Video", minutes: 15, priority: "core", videoId: "mIw7HppKRys", url: "https://www.youtube.com/watch?v=mIw7HppKRys", note: "Use your JavaScript base to learn Python syntax and the language differences relevant to backend and AI code." },
+          { id: "python-mutability", title: "Mutable and immutable objects", source: "Chai aur Code", type: "Video", minutes: 17, priority: "interview", videoId: "MDZ4y-GgZ8k", url: "https://www.youtube.com/watch?v=MDZ4y-GgZ8k", note: "Understand object references, mutation and why lists behave differently from strings, tuples and numbers." },
+          { id: "python-functions", title: "Functions through 10 practical problems", source: "Chai aur Code", type: "Video", minutes: 59, priority: "core", videoId: "JptOj-D6gtw", url: "https://www.youtube.com/watch?v=JptOj-D6gtw", note: "Cover parameters, return values, scope and practical function patterns without repeating basic programming theory." },
+          { id: "python-exceptions", title: "Try, except, else and finally", source: "Corey Schafer", type: "Video", minutes: 11, priority: "core", videoId: "NIWwJbo-9_8", url: "https://www.youtube.com/watch?v=NIWwJbo-9_8", note: "Handle expected failures precisely, avoid broad exception swallowing and understand the complete exception-control flow." },
+          { id: "python-oop", title: "Object-oriented programming in Python", source: "Chai aur Code", type: "Video", minutes: 68, priority: "core", videoId: "6soT3DMBJGQ", url: "https://www.youtube.com/watch?v=6soT3DMBJGQ", note: "Learn classes, objects, instance state, methods, inheritance and how Python OOP differs from JavaScript." },
+          { id: "python-decorators", title: "Decorators in Python", source: "Chai aur Code", type: "Video", minutes: 39, priority: "interview", videoId: "ZEKiIwWv9nM", url: "https://www.youtube.com/watch?v=ZEKiIwWv9nM", note: "Understand a decorator as a function that wraps another function, then connect it to FastAPI route decorators." },
+          { id: "python-generators", title: "Generators and lazy iteration", source: "Corey Schafer", type: "Video", minutes: 12, priority: "interview", videoId: "bD05uGo_sVI", url: "https://www.youtube.com/watch?v=bD05uGo_sVI", note: "Learn yield, lazy iteration and why generators reduce memory use when processing streams or large datasets." },
+          { id: "python-typing", title: "Python type hints", source: "Corey Schafer", type: "Video", minutes: 41, priority: "interview", videoId: "RwH2UzC2rIo", url: "https://www.youtube.com/watch?v=RwH2UzC2rIo", note: "Cover annotations, unions, aliases, TypedDict and generics, then relate typing to Pydantic and FastAPI validation." },
+          { id: "python-venv", title: "Python virtual environments", source: "Chai aur Code", type: "Video", minutes: 18, priority: "core", videoId: "nwN27ORTUXg", url: "https://www.youtube.com/watch?v=nwN27ORTUXg", note: "Learn dependency isolation, environment activation and why each Python service should have its own environment." },
+          { id: "python-asyncio", title: "Python AsyncIO and async/await", source: "Tech With Tim", type: "Video", minutes: 26, priority: "core", videoId: "t5Bo1Je9EmE", url: "https://www.youtube.com/watch?v=t5Bo1Je9EmE", note: "Know coroutine, event loop, task, await, I/O concurrency and why async does not make CPU-heavy work parallel." }
         ]
       },
       {
         id: "ml",
         code: "02",
         title: "ML foundations",
-        time: "3-4 hours",
         outcome: "Answer the ML questions that establish whether your AI knowledge has a foundation.",
         topics: ["Supervised vs unsupervised", "Train/validation/test", "Bias and variance", "Overfitting", "Regularization", "Confusion matrix", "Precision", "Recall", "F1"],
         resources: [
-          { id: "ml-types", title: "Types of machine learning", source: "CampusX", type: "Video", duration: "28 min", priority: "core", videoId: "81ymPYEtFOw", url: "https://www.youtube.com/watch?v=81ymPYEtFOw", note: "Understand supervised, unsupervised, semi-supervised and reinforcement learning with practical examples." },
-          { id: "ml-bias", title: "Bias-variance, overfitting and underfitting", source: "CampusX", type: "Video", duration: "Interview depth", priority: "core", videoId: "74DU02Fyrhk", url: "https://www.youtube.com/watch?v=74DU02Fyrhk", note: "Be able to diagnose high bias vs high variance and name data, regularization and model-capacity fixes." },
-          { id: "ml-confusion", title: "Accuracy and confusion matrix", source: "CampusX", type: "Video", duration: "31 min", priority: "core", videoId: "c09drtuCS3c", url: "https://www.youtube.com/watch?v=c09drtuCS3c", note: "Know TP, TN, FP, FN, Type I/II errors and why accuracy fails on imbalanced data." },
-          { id: "ml-f1", title: "Precision, recall and F1 score", source: "CampusX", type: "Video", duration: "Interview depth", priority: "core", videoId: "iK-kdhJ-7yI", url: "https://www.youtube.com/watch?v=iK-kdhJ-7yI", note: "Explain the precision-recall trade-off with fraud detection or disease-detection examples." }
+          { id: "ml-types", title: "Types of machine learning", source: "CampusX", type: "Video", minutes: 28, priority: "core", videoId: "81ymPYEtFOw", url: "https://www.youtube.com/watch?v=81ymPYEtFOw", note: "Understand supervised, unsupervised, semi-supervised and reinforcement learning with practical examples." },
+          { id: "ml-lifecycle", title: "Machine learning development lifecycle", source: "CampusX", type: "Video", minutes: 25, priority: "core", videoId: "iDbhQGz_rEo", url: "https://www.youtube.com/watch?v=iDbhQGz_rEo", note: "Follow problem framing, data collection, splitting, training, validation, testing, deployment and monitoring as one lifecycle." },
+          { id: "ml-bias", title: "Bias-variance, overfitting and underfitting", source: "CampusX", type: "Video", minutes: 9, priority: "core", videoId: "74DU02Fyrhk", url: "https://www.youtube.com/watch?v=74DU02Fyrhk", note: "Diagnose high bias vs high variance and name data, regularization and model-capacity fixes." },
+          { id: "ml-regularization", title: "L1, L2 regularization and weight decay", source: "CampusX", type: "Video", minutes: 36, priority: "interview", videoId: "4xRonrhtkzc", url: "https://www.youtube.com/watch?v=4xRonrhtkzc", note: "Understand how weight penalties reduce overfitting, then compare L1 sparsity, L2 shrinkage and weight decay." },
+          { id: "ml-confusion", title: "Accuracy and confusion matrix", source: "CampusX", type: "Video", minutes: 35, priority: "core", videoId: "c09drtuCS3c", url: "https://www.youtube.com/watch?v=c09drtuCS3c", note: "Know TP, TN, FP, FN, Type I/II errors and why accuracy fails on imbalanced data." },
+          { id: "ml-f1", title: "Precision, recall and F1 score", source: "CampusX", type: "Video", minutes: 43, priority: "core", videoId: "iK-kdhJ-7yI", url: "https://www.youtube.com/watch?v=iK-kdhJ-7yI", note: "Explain the precision-recall trade-off with fraud-detection or disease-detection examples." }
         ]
       },
       {
         id: "transformers",
         code: "03",
         title: "DL, NLP and Transformers",
-        time: "4-5 hours",
         outcome: "Explain how an LLM turns tokens into context-aware predictions.",
-        topics: ["Neural networks", "Forward pass", "Loss", "Gradient descent", "Backpropagation", "Tokenization", "Embeddings", "Self-attention", "Positional encoding", "BERT vs GPT"],
+        topics: ["Neural networks", "Forward pass", "Loss", "Gradient descent", "Backpropagation", "Token embeddings", "Self-attention", "Positional encoding", "Transformer encoder"],
         resources: [
-          { id: "dl-perceptron", title: "Perceptron and neuron intuition", source: "CampusX", type: "Video", duration: "Foundation", priority: "interview", videoId: "X7iIKPoZ0Sw", url: "https://www.youtube.com/watch?v=X7iIKPoZ0Sw", note: "Understand weighted input, bias, activation and why multiple layers are needed for non-linear patterns." },
-          { id: "dl-forward", title: "Forward propagation", source: "CampusX", type: "Video", duration: "Concept", priority: "core", videoId: "7MuiScUkboE", url: "https://www.youtube.com/watch?v=7MuiScUkboE", note: "Explain how inputs pass through weighted layers and activations to produce a prediction." },
-          { id: "dl-backprop", title: "Backpropagation: what it does", source: "CampusX", type: "Video", duration: "54 min", priority: "core", videoId: "6M1wWQmcUjQ", url: "https://www.youtube.com/watch?v=6M1wWQmcUjQ", note: "Interview depth means intuition: loss creates gradients, gradients flow backward and an optimizer updates weights." },
-          { id: "transformer-attention", title: "Self-attention", source: "CampusX", type: "Video", duration: "23 min", priority: "core", videoId: "XnGGmvpDLA0", url: "https://www.youtube.com/watch?v=XnGGmvpDLA0", note: "Know queries, keys, values and how attention gives each token a context-dependent representation." },
-          { id: "transformer-architecture", title: "Transformer encoder architecture", source: "CampusX", type: "Video", duration: "55 min", priority: "core", videoId: "Vs87qcdm8l0", url: "https://www.youtube.com/watch?v=Vs87qcdm8l0", note: "Cover token embeddings, positional information, multi-head attention, feed-forward layers, residual connections and normalization." }
+          { id: "dl-perceptron", title: "Perceptron and neuron intuition", source: "CampusX", type: "Video", minutes: 39, priority: "interview", videoId: "X7iIKPoZ0Sw", url: "https://www.youtube.com/watch?v=X7iIKPoZ0Sw", note: "Understand weighted input, bias, activation and why multiple layers are needed for non-linear patterns." },
+          { id: "dl-forward", title: "Forward propagation", source: "CampusX", type: "Video", minutes: 16, priority: "core", videoId: "7MuiScUkboE", url: "https://www.youtube.com/watch?v=7MuiScUkboE", note: "Explain how inputs pass through weighted layers and activations to produce a prediction." },
+          { id: "dl-backprop", title: "Backpropagation: what it does", source: "CampusX", type: "Video", minutes: 55, priority: "core", videoId: "6M1wWQmcUjQ", url: "https://www.youtube.com/watch?v=6M1wWQmcUjQ", note: "Focus on intuition: loss creates gradients, gradients flow backward and an optimizer updates weights." },
+          { id: "transformer-attention", title: "Self-attention", source: "CampusX", type: "Video", minutes: 24, priority: "core", videoId: "XnGGmvpDLA0", url: "https://www.youtube.com/watch?v=XnGGmvpDLA0", note: "Know queries, keys, values and how attention gives each token a context-dependent representation." },
+          { id: "transformer-architecture", title: "Transformer encoder architecture", source: "CampusX", type: "Video", minutes: 55, priority: "core", videoId: "Vs87qcdm8l0", url: "https://www.youtube.com/watch?v=Vs87qcdm8l0", note: "Cover token embeddings, positional information, multi-head attention, feed-forward layers, residual connections and normalization." }
         ]
       },
       {
         id: "llm-apps",
         code: "04",
         title: "LLM application engineering",
-        time: "3-4 hours",
         outcome: "Use models reliably instead of treating an LLM API as a black box.",
-        topics: ["Inference", "Temperature", "top-k/top-p", "Context window", "System prompts", "Few-shot", "Structured output", "Tool calling", "Fine-tuning", "LoRA/QLoRA", "Quantization"],
+        topics: ["Model APIs", "Prompt templates", "System messages", "Structured output", "Runnables", "Tool calling", "Context windows", "RAG vs fine-tuning", "LoRA/QLoRA"],
         resources: [
-          { id: "genai-roadmap", title: "GenAI from a builder's perspective", source: "CampusX", type: "Video", duration: "50 min", priority: "interview", videoId: "pSVk-5WemQ0", url: "https://www.youtube.com/watch?v=pSVk-5WemQ0", note: "Use this to place prompting, RAG, fine-tuning and agents in one architecture instead of memorizing disconnected terms." },
-          { id: "langchain-prompts", title: "Prompts and chat templates", source: "CampusX", type: "Video", duration: "1h 12m", priority: "core", videoId: "3TGqlQxpuU0", url: "https://www.youtube.com/watch?v=3TGqlQxpuU0", note: "Cover system/human/AI messages, prompt templates, chat history and dynamic prompts." },
-          { id: "langchain-output", title: "Structured output and output parsers", source: "CampusX", type: "Video", duration: "53 min", priority: "core", videoId: "Op6PbJZ5b2Q", url: "https://www.youtube.com/watch?v=Op6PbJZ5b2Q", note: "Know why production code needs schema-constrained JSON/Pydantic output rather than free-form text." },
-          { id: "lora-qlora", title: "LoRA and QLoRA", source: "Krish Naik", type: "Video", duration: "Interview depth", priority: "interview", videoId: "SrYXAd4nMvQ", url: "https://www.youtube.com/watch?v=SrYXAd4nMvQ", note: "Understand parameter-efficient fine-tuning, low-rank adapters, 4-bit quantization and when RAG is a better choice." }
+          { id: "langchain-components", title: "LangChain components", source: "CampusX", type: "Video", minutes: 53, priority: "core", videoId: "-xSJA8-o6Eg", url: "https://www.youtube.com/watch?v=-xSJA8-o6Eg", note: "Map models, prompts, chains, indexes, memory and agents before learning each component in isolation." },
+          { id: "langchain-prompts", title: "Prompts and chat templates", source: "CampusX", type: "Video", minutes: 78, priority: "core", videoId: "3TGqlQxpuU0", url: "https://www.youtube.com/watch?v=3TGqlQxpuU0", note: "Cover system, human and AI messages, prompt templates, chat history and dynamic prompts." },
+          { id: "langchain-structured-output", title: "Structured output in LangChain", source: "CampusX", type: "Video", minutes: 68, priority: "core", videoId: "y5EmRr1O1h4", url: "https://www.youtube.com/watch?v=y5EmRr1O1h4", note: "Know why production code needs schema-constrained JSON or Pydantic output rather than free-form text." },
+          { id: "langchain-runnables", title: "Runnables and chain composition", source: "CampusX", type: "Video", minutes: 76, priority: "interview", videoId: "u3b-W1NgYa4", url: "https://www.youtube.com/watch?v=u3b-W1NgYa4", note: "Learn why runnables exist, how they compose model pipelines and how they replace brittle manual chain wiring." },
+          { id: "langchain-tool-calling", title: "Tool calling in LangChain", source: "CampusX", type: "Video", minutes: 58, priority: "core", videoId: "EzYaFF7ahKw", url: "https://www.youtube.com/watch?v=EzYaFF7ahKw", note: "Understand tool binding, model-generated tool calls, application-side execution and returning tool results to the model." },
+          { id: "lora-qlora", title: "LoRA and QLoRA", source: "Krish Naik Hindi", type: "Video", minutes: 27, priority: "interview", videoId: "SrYXAd4nMvQ", url: "https://www.youtube.com/watch?v=SrYXAd4nMvQ", note: "Understand parameter-efficient fine-tuning, low-rank adapters, 4-bit quantization and when RAG is a better choice." }
         ]
       },
       {
         id: "rag",
         code: "05",
         title: "RAG and LangChain",
-        time: "6-8 hours",
         outcome: "Design, debug and evaluate retrieval instead of only demonstrating a chatbot.",
         topics: ["Ingestion", "Parsing", "Chunking", "Embeddings", "Vector stores", "Cosine similarity", "ANN/HNSW", "Metadata filters", "Hybrid search", "RRF", "Reranking", "HyDE", "Citations", "RAG evaluation"],
         resources: [
-          { id: "rag-concept", title: "Retrieval-Augmented Generation explained", source: "CampusX", type: "Video", duration: "Architecture", priority: "core", videoId: "X0btK9X0Xnk", url: "https://www.youtube.com/watch?v=X0btK9X0Xnk", note: "Learn indexing, retrieval, prompt augmentation, generation, failure modes and RAG vs fine-tuning." },
-          { id: "rag-loaders", title: "Document loaders", source: "CampusX", type: "Video", duration: "55 min", priority: "interview", videoId: "bL92ALSZ2Cg", url: "https://www.youtube.com/watch?v=bL92ALSZ2Cg", note: "Covers PDF, text, directory, web and CSV loading plus lazy loading and custom loaders." },
-          { id: "rag-splitters", title: "Text splitters and semantic chunking", source: "CampusX", type: "Video", duration: "55 min", priority: "core", videoId: "SEWS9P4ODmc", url: "https://www.youtube.com/watch?v=SEWS9P4ODmc", note: "Compare fixed length, recursive, document-structure and semantic splitting. Know chunk size and overlap trade-offs." },
-          { id: "rag-vector", title: "Vector stores and vector databases", source: "CampusX", type: "Video", duration: "45 min", priority: "core", videoId: "k13WK0bxQP0", url: "https://www.youtube.com/watch?v=k13WK0bxQP0", note: "Understand storing embeddings, similarity search, metadata and the vector store vs vector database distinction." },
-          { id: "rag-retrievers", title: "Retrievers, MMR, multi-query and compression", source: "CampusX", type: "Video", duration: "50 min", priority: "core", videoId: "pJdMxwXBsk0", url: "https://www.youtube.com/watch?v=pJdMxwXBsk0", note: "Know how retrieval strategies trade relevance, diversity, recall, latency and token cost." },
-          { id: "rag-ragas", title: "RAG evaluation metrics with RAGAS", source: "Analytics Vidhya", type: "Video", duration: "Selected sections", priority: "interview", videoId: "f8zMrSysnjY", url: "https://www.youtube.com/watch?v=f8zMrSysnjY", note: "Focus on context precision/recall, answer relevancy, faithfulness and how the metrics expose retrieval or generation failures." },
-          { id: "rag-atlas", title: "HNSW in MongoDB Atlas Vector Search", source: "MongoDB", type: "Video", duration: "Selected sections", priority: "interview", videoId: "AvCuiRs2cxw", url: "https://www.youtube.com/watch?v=AvCuiRs2cxw", note: "Learn how HNSW is built and queried, then relate candidates, limits and metadata filtering to DoxChat AI." }
+          { id: "rag-concept", title: "Retrieval-Augmented Generation explained", source: "CampusX", type: "Video", minutes: 59, priority: "core", videoId: "X0btK9X0Xnk", url: "https://www.youtube.com/watch?v=X0btK9X0Xnk", note: "Learn indexing, retrieval, prompt augmentation, generation, failure modes and RAG vs fine-tuning." },
+          { id: "rag-loaders", title: "Document loaders", source: "CampusX", type: "Video", minutes: 56, priority: "interview", videoId: "bL92ALSZ2Cg", url: "https://www.youtube.com/watch?v=bL92ALSZ2Cg", note: "Covers PDF, text, directory, web and CSV loading plus lazy loading and custom loaders." },
+          { id: "rag-splitters", title: "Text splitters and semantic chunking", source: "CampusX", type: "Video", minutes: 59, priority: "core", videoId: "SEWS9P4ODmc", url: "https://www.youtube.com/watch?v=SEWS9P4ODmc", note: "Compare fixed length, recursive, document-structure and semantic splitting. Know chunk size and overlap trade-offs." },
+          { id: "rag-vector", title: "Vector stores and vector databases", source: "CampusX", type: "Video", minutes: 50, priority: "core", videoId: "k13WK0bxQP0", url: "https://www.youtube.com/watch?v=k13WK0bxQP0", note: "Understand storing embeddings, similarity search, metadata and the vector store vs vector database distinction." },
+          { id: "rag-retrievers", title: "Retrievers, MMR, multi-query and compression", source: "CampusX", type: "Video", minutes: 51, priority: "core", videoId: "pJdMxwXBsk0", url: "https://www.youtube.com/watch?v=pJdMxwXBsk0", note: "Know how retrieval strategies trade relevance, diversity, recall, latency and token cost." },
+          { id: "rag-hybrid-rrf", title: "Hybrid search and reciprocal rank fusion", source: "MongoDB", type: "Video", minutes: 6, priority: "core", videoId: "XFH6xUCBMmc", url: "https://www.youtube.com/watch?v=XFH6xUCBMmc", note: "Combine lexical and vector result lists using rank-based fusion, then relate MongoDB's rankFusion demo to DoxChat AI's RRF logic." },
+          { id: "rag-reranking", title: "Reranking with a cross-encoder", source: "Manish Malik", type: "Video", minutes: 12, priority: "interview", videoId: "zUOGotiUFvg", url: "https://www.youtube.com/watch?v=zUOGotiUFvg", note: "Retrieve a wider candidate set cheaply, then use a stronger pairwise model to reorder the candidates before generation." },
+          { id: "rag-hyde", title: "HyDE: hypothetical document embeddings", source: "Sam Witteveen", type: "Video", minutes: 12, priority: "interview", videoId: "v_BnBEubv58", url: "https://www.youtube.com/watch?v=v_BnBEubv58", note: "Generate a hypothetical answer, embed it and use that answer-like vector to retrieve semantically closer source chunks." },
+          { id: "rag-ragas", title: "RAG evaluation metrics with RAGAS", source: "Analytics Vidhya", type: "Video", minutes: 6, priority: "core", videoId: "f8zMrSysnjY", url: "https://www.youtube.com/watch?v=f8zMrSysnjY", note: "Learn context precision and recall, answer relevancy, faithfulness, and whether a failure came from retrieval or generation." },
+          { id: "rag-atlas", title: "HNSW in MongoDB Atlas Vector Search", source: "MongoDB", type: "Video", minutes: 59, priority: "interview", videoId: "AvCuiRs2cxw", url: "https://www.youtube.com/watch?v=AvCuiRs2cxw", note: "Learn how HNSW is built and queried, then relate candidates, limits and metadata filtering to DoxChat AI." }
         ]
       },
       {
         id: "agents",
         code: "06",
         title: "Agents, LangGraph and MCP",
-        time: "5-6 hours",
         outcome: "Explain controlled agent workflows, state and tool boundaries without claiming that every workflow needs an agent.",
         topics: ["Agent loop", "State", "Nodes and edges", "Conditional routing", "Tools", "Persistence", "Checkpoints", "Memory", "HITL", "MCP host/client/server", "Tools/resources/prompts"],
         resources: [
-          { id: "agent-vs-genai", title: "Generative AI vs Agentic AI", source: "CampusX", type: "Video", duration: "60 min", priority: "core", videoId: "xdA0pGDiUPE", url: "https://www.youtube.com/watch?v=xdA0pGDiUPE", note: "Distinguish a plain chatbot, RAG chatbot, tool-augmented system and goal-driven agent." },
-          { id: "langgraph-compare", title: "LangChain vs LangGraph", source: "CampusX", type: "Video", duration: "Interview depth", priority: "interview", videoId: "31qyMKNB2RA", url: "https://www.youtube.com/watch?v=31qyMKNB2RA", note: "Use LangChain for components and simpler pipelines; use LangGraph for explicit state, branching, loops, checkpoints and long-running workflows." },
-          { id: "langgraph-core", title: "LangGraph core concepts", source: "CampusX", type: "Video", duration: "47 min", priority: "core", videoId: "D5KhiCDM9XQ", url: "https://www.youtube.com/watch?v=D5KhiCDM9XQ", note: "State, reducers, nodes, edges, routing, parallelism and the graph execution model." },
-          { id: "langgraph-persistence", title: "Persistence, checkpoints and time travel", source: "CampusX", type: "Video", duration: "Interview depth", priority: "core", videoId: "_IPP7_Bi8uA", url: "https://www.youtube.com/watch?v=_IPP7_Bi8uA", note: "Know thread state, checkpoint storage, short-term memory, resume and replay/debugging concepts." },
-          { id: "langgraph-hitl", title: "Human-in-the-loop with LangGraph", source: "CampusX", type: "Video", duration: "40 min", priority: "interview", videoId: "xxqZzVZ4gE0", url: "https://www.youtube.com/watch?v=xxqZzVZ4gE0", note: "Learn approval, review, clarification and escalation patterns plus interrupt and resume." },
-          { id: "mcp-architecture", title: "MCP architecture", source: "CampusX", type: "Video", duration: "1h 10m", priority: "core", videoId: "nQa31xdXbGk", url: "https://www.youtube.com/watch?v=nQa31xdXbGk", note: "Understand why MCP exists, then learn host, client, server, tools, resources, prompts, JSON-RPC, stdio and remote HTTP transport." }
+          { id: "agent-vs-genai", title: "Generative AI vs Agentic AI", source: "CampusX", type: "Video", minutes: 62, priority: "core", videoId: "xdA0pGDiUPE", url: "https://www.youtube.com/watch?v=xdA0pGDiUPE", note: "Distinguish a plain chatbot, RAG chatbot, tool-augmented system and goal-driven agent." },
+          { id: "langgraph-core", title: "LangGraph core concepts", source: "CampusX", type: "Video", minutes: 51, priority: "core", videoId: "D5KhiCDM9XQ", url: "https://www.youtube.com/watch?v=D5KhiCDM9XQ", note: "Learn state, reducers, nodes, edges, routing, parallelism and the graph execution model." },
+          { id: "langgraph-conditional", title: "Conditional workflows in LangGraph", source: "CampusX", type: "Video", minutes: 47, priority: "core", videoId: "I-dvZqTz-Wc", url: "https://www.youtube.com/watch?v=I-dvZqTz-Wc", note: "Implement decisions and dynamic routing instead of forcing every request through one fixed sequence." },
+          { id: "langgraph-tools", title: "Tools and ToolNode in LangGraph", source: "CampusX", type: "Video", minutes: 34, priority: "core", videoId: "_UuUigoM9MA", url: "https://www.youtube.com/watch?v=_UuUigoM9MA", note: "Connect model tool calls to ToolNode execution and route the tool result back into graph state." },
+          { id: "llm-memory", title: "How memory is built around stateless LLMs", source: "CampusX", type: "Video", minutes: 57, priority: "core", videoId: "DcPKJrOF9Wo", url: "https://www.youtube.com/watch?v=DcPKJrOF9Wo", note: "Understand context-window memory, conversation history, short-term limits and long-term memory architecture." },
+          { id: "langgraph-persistence", title: "Persistence, checkpoints and time travel", source: "CampusX", type: "Video", minutes: 58, priority: "interview", videoId: "_IPP7_Bi8uA", url: "https://www.youtube.com/watch?v=_IPP7_Bi8uA", note: "Know thread state, checkpoint storage, resume, replay and debugging concepts." },
+          { id: "langgraph-hitl", title: "Human-in-the-loop with LangGraph", source: "CampusX", type: "Video", minutes: 40, priority: "interview", videoId: "xxqZzVZ4gE0", url: "https://www.youtube.com/watch?v=xxqZzVZ4gE0", note: "Learn approval, review, clarification and escalation patterns plus interrupt and resume." },
+          { id: "mcp-architecture", title: "MCP architecture", source: "CampusX", type: "Video", minutes: 77, priority: "interview", videoId: "nQa31xdXbGk", url: "https://www.youtube.com/watch?v=nQa31xdXbGk", note: "Understand why MCP exists, then learn host, client, server, tools, resources, prompts, JSON-RPC, stdio and remote HTTP transport." }
         ]
       },
       {
         id: "fastapi",
         code: "07",
         title: "FastAPI and model serving",
-        time: "3-4 hours",
         outcome: "Expose an AI pipeline through a validated, asynchronous production API.",
-        topics: ["Routes", "Path/query/body", "Pydantic", "Validation", "Dependencies", "async endpoints", "File upload", "Streaming", "Authentication", "CORS", "Middleware", "OpenAPI", "Uvicorn"],
+        topics: ["Route decorators", "Request bodies", "Pydantic", "Validation", "Error handling", "Model inference", "OpenAPI", "Uvicorn", "Docker"],
         resources: [
-          { id: "fastapi-playlist", title: "FastAPI for Machine Learning", source: "CampusX", type: "Playlist", duration: "Selected videos", priority: "core", videoId: "WJKsPchji0Q", url: "https://www.youtube.com/playlist?list=PLKnIA16_RmvZ41tjbKB2ZnwchfniNsMuQ", note: "Because you know Express, skip generic HTTP material. Cover routes, Pydantic, validation, errors, async behavior, API-to-model integration and deployment." },
-          { id: "fastapi-docker", title: "Dockerize a FastAPI application", source: "CampusX", type: "Video", duration: "18 min", priority: "interview", videoId: "jlLs6hfAga4", url: "https://www.youtube.com/watch?v=jlLs6hfAga4", note: "Understand Dockerfile, image build, container port, dependency installation and environment variables." }
+          { id: "fastapi-setup", title: "FastAPI setup and first API", source: "CampusX", type: "Video", minutes: 42, priority: "core", videoId: "lXx-_1r0Uss", url: "https://www.youtube.com/watch?v=lXx-_1r0Uss", note: "Learn project setup, route decorators, Uvicorn and automatic OpenAPI documentation without repeating general backend theory." },
+          { id: "fastapi-pydantic", title: "Pydantic data validation", source: "CampusX", type: "Video", minutes: 85, priority: "core", videoId: "lRArylZCeOs", url: "https://www.youtube.com/watch?v=lRArylZCeOs", note: "Understand BaseModel, typed fields, validators, validation errors and schema-driven AI API inputs and outputs." },
+          { id: "fastapi-request-body", title: "POST requests and request bodies", source: "CampusX", type: "Video", minutes: 35, priority: "core", videoId: "sw8V7mLl3OI", url: "https://www.youtube.com/watch?v=sw8V7mLl3OI", note: "Connect Pydantic models to JSON request bodies and see how FastAPI validates request data before an endpoint runs." },
+          { id: "fastapi-model-serving", title: "Serving ML models with FastAPI", source: "CampusX", type: "Video", minutes: 46, priority: "core", videoId: "JdDoMi_vqbM", url: "https://www.youtube.com/watch?v=JdDoMi_vqbM", note: "Follow the complete flow from validated request to model inference and structured API response." },
+          { id: "fastapi-improvements", title: "Improving a FastAPI application", source: "CampusX", type: "Video", minutes: 40, priority: "interview", videoId: "M17qwKnmG38", url: "https://www.youtube.com/watch?v=M17qwKnmG38", note: "Focus on cleaner API structure, validation, error handling and maintainability after the first working implementation." },
+          { id: "fastapi-docker", title: "Dockerize a FastAPI application", source: "CampusX", type: "Video", minutes: 19, priority: "interview", videoId: "jlLs6hfAga4", url: "https://www.youtube.com/watch?v=jlLs6hfAga4", note: "Understand the Dockerfile, image build, container port, dependency installation and environment variables." }
         ]
       },
       {
         id: "production",
         code: "08",
         title: "Production AI and LLMOps",
-        time: "3-4 hours",
         outcome: "Move from a demo to a measurable, secure and recoverable AI service.",
-        topics: ["Evaluation datasets", "Tracing", "Observability", "Latency", "Cost", "Caching", "Retries", "Backoff", "Rate limits", "Queues", "Idempotency", "Guardrails", "Prompt injection", "Secrets", "Docker", "CI/CD", "Cloud basics"],
+        topics: ["Golden datasets", "Application evals", "Tracing", "Observability", "Latency", "Cost", "LLM security", "Prompt injection", "MLOps lifecycle", "Docker", "CI/CD"],
         resources: [
-          { id: "langsmith-observability", title: "LangSmith observability with LangGraph", source: "CampusX", type: "Video", duration: "Tracing", priority: "core", videoId: "ikzN6byFNWw", url: "https://www.youtube.com/watch?v=ikzN6byFNWw", note: "Trace model calls, retriever steps, tool calls, latency, errors and token usage. Never copy API keys shown in tutorials." },
-          { id: "owasp-llm", title: "OWASP Top 10 for LLM applications", source: "WhyLabs", type: "Video", duration: "Selected sections", priority: "core", videoId: "dj1H4g4YSlU", url: "https://www.youtube.com/watch?v=dj1H4g4YSlU", note: "Prioritize prompt injection, sensitive-information disclosure, improper output handling, excessive agency and vector/embedding weaknesses." },
-          { id: "github-actions", title: "GitHub Actions and CI/CD with Docker", source: "TechWorld with Nana", type: "Video", duration: "33 min", priority: "interview", videoId: "R8_veQiYBjI", url: "https://www.youtube.com/watch?v=R8_veQiYBjI", note: "Know events, workflows, jobs, runners, steps, secrets and the test-build-deploy sequence." }
+          { id: "llm-eval-intro", title: "Model evals vs application evals", source: "CampusX", type: "Video", minutes: 24, priority: "core", videoId: "cNF_MO82Qew", url: "https://www.youtube.com/watch?v=cNF_MO82Qew", note: "Distinguish model capability benchmarks from evaluating the quality, safety and operation of your own LLM application." },
+          { id: "llm-eval-workflow", title: "The complete LLM application evaluation workflow", source: "CampusX", type: "Video", minutes: 17, priority: "core", videoId: "Pv4mkG2K_s8", url: "https://www.youtube.com/watch?v=Pv4mkG2K_s8", note: "Define success, build a golden dataset, choose methods, analyze failures, iterate and monitor after deployment." },
+          { id: "llm-eval-pipelines", title: "Why one AI app needs multiple eval pipelines", source: "CampusX", type: "Video", minutes: 28, priority: "interview", videoId: "DcZ-XCk-O_M", url: "https://www.youtube.com/watch?v=DcZ-XCk-O_M", note: "Evaluate components, workflows and the complete application across quality, safety, latency and cost." },
+          { id: "langsmith-observability", title: "LangSmith observability with LangGraph", source: "CampusX", type: "Video", minutes: 21, priority: "core", videoId: "ikzN6byFNWw", url: "https://www.youtube.com/watch?v=ikzN6byFNWw", note: "Trace model calls, retriever steps, tool calls, latency, errors and token usage. Never copy API keys shown in tutorials." },
+          { id: "owasp-llm", title: "OWASP Top 10 for LLM applications", source: "WhyLabs", type: "Video", minutes: 58, priority: "core", videoId: "dj1H4g4YSlU", url: "https://www.youtube.com/watch?v=dj1H4g4YSlU", note: "Prioritize prompt injection, sensitive-information disclosure, improper output handling, excessive agency and vector or embedding weaknesses." },
+          { id: "mlops-overview", title: "MLOps explained end to end", source: "CampusX", type: "Video", minutes: 60, priority: "interview", videoId: "6SRifO6dmuE", url: "https://www.youtube.com/watch?v=6SRifO6dmuE", note: "Understand data and model versioning, experiment tracking, deployment, monitoring and retraining as one lifecycle." },
+          { id: "github-actions", title: "GitHub Actions and CI/CD with Docker", source: "TechWorld with Nana", type: "Video", minutes: 33, priority: "interview", videoId: "R8_veQiYBjI", url: "https://www.youtube.com/watch?v=R8_veQiYBjI", note: "Know events, workflows, jobs, runners, steps, secrets and the test-build-deploy sequence." }
         ]
       }
     ];
 
-    const STORAGE_KEY = "ai-engineer-roadmap-state-v1";
+    const STORAGE_KEY = "ai-engineer-roadmap-state-v2";
     const allResources = modules.flatMap((module) => module.resources.map((resource) => ({ ...resource, moduleId: module.id })));
     const resourceById = new Map(allResources.map((resource) => [resource.id, resource]));
 
     const defaultState = {
       completed: [],
-      filter: "interview",
-      search: ""
+      filter: "core",
+      search: "",
+      hideCompleted: false
     };
 
     function readState() {
@@ -989,8 +1062,9 @@
         if (!parsed || typeof parsed !== "object") return { ...defaultState };
         return {
           completed: Array.isArray(parsed.completed) ? parsed.completed.filter((id) => resourceById.has(id)) : [],
-          filter: ["core", "interview"].includes(parsed.filter) ? parsed.filter : "interview",
-          search: typeof parsed.search === "string" ? parsed.search : ""
+          filter: ["core", "interview"].includes(parsed.filter) ? parsed.filter : "core",
+          search: typeof parsed.search === "string" ? parsed.search : "",
+          hideCompleted: parsed.hideCompleted === true
         };
       } catch (error) {
         return { ...defaultState };
@@ -1002,21 +1076,24 @@
 
     const moduleNav = document.getElementById("module-nav");
     const mobileModuleNav = document.getElementById("mobile-module-nav");
-    const routeMap = document.getElementById("route-map");
     const moduleList = document.getElementById("module-list");
     const emptyState = document.getElementById("empty-state");
     const searchInput = document.getElementById("search-input");
     const toolbar = document.querySelector(".toolbar");
     const themeButton = document.getElementById("theme-button");
     const continueButton = document.getElementById("continue-button");
-    const markVisibleButton = document.getElementById("mark-visible-button");
+    const hideCompletedInput = document.getElementById("hide-completed");
+    const nextTitle = document.getElementById("next-title");
+    const nextMeta = document.getElementById("next-meta");
+    const nextLink = document.getElementById("next-link");
 
     function saveState() {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
           completed: [...completed],
           filter: state.filter,
-          search: state.search
+          search: state.search,
+          hideCompleted: state.hideCompleted
         }));
       } catch (error) {
         // The page remains usable when browser storage is unavailable.
@@ -1047,7 +1124,18 @@
     }
 
     function visibleResourcesFor(module) {
-      return module.resources.filter((resource) => isAllowedByDepth(resource) && isSearchMatch(module, resource));
+      return module.resources.filter((resource) =>
+        isAllowedByDepth(resource) &&
+        isSearchMatch(module, resource) &&
+        (!state.hideCompleted || !completed.has(resource.id))
+      );
+    }
+
+    function formatMinutes(minutes) {
+      if (minutes < 60) return `${minutes}m`;
+      const hours = Math.floor(minutes / 60);
+      const remainder = minutes % 60;
+      return remainder ? `${hours}h ${remainder}m` : `${hours}h`;
     }
 
     function renderMedia(resource) {
@@ -1064,16 +1152,15 @@
         ${renderMedia(resource)}
         <div class="resource-copy">
           <div class="resource-meta">
-            <span class="priority-badge ${resource.priority}">${resource.priority === "core" ? "Must know" : resource.priority}</span>
+            <span class="priority-badge ${resource.priority}">${resource.priority === "core" ? "Essential" : "Deep dive"}</span>
             <span>${escapeHtml(resource.source)}</span>
-            <span>${escapeHtml(resource.type)}</span>
-            <span>${escapeHtml(resource.duration)}</span>
+            <span>${formatMinutes(resource.minutes)}</span>
           </div>
           <h4 class="resource-title">${escapeHtml(resource.title)}</h4>
           <p class="resource-note">${escapeHtml(resource.note)}</p>
         </div>
         <div class="resource-actions">
-          <a class="open-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">Open</a>
+          <a class="open-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">Watch</a>
           <button class="done-button" type="button" data-complete-id="${resource.id}" aria-pressed="${isDone}">${isDone ? "Done" : "Mark done"}</button>
         </div>
       </article>`;
@@ -1083,6 +1170,9 @@
       let visibleTotal = 0;
       const html = modules.map((module) => {
         const visibleResources = visibleResourcesFor(module);
+        const allowedResources = module.resources.filter(isAllowedByDepth);
+        const doneCount = allowedResources.filter((resource) => completed.has(resource.id)).length;
+        const moduleMinutes = allowedResources.reduce((total, resource) => total + resource.minutes, 0);
         visibleTotal += visibleResources.length;
         if (!visibleResources.length) return "";
         return `<section id="module-${module.id}" class="module-section" data-module-section="${module.id}">
@@ -1092,7 +1182,8 @@
               <h3>${escapeHtml(module.title)}</h3>
               <p>${escapeHtml(module.outcome)}</p>
             </div>
-            <span class="module-time">${escapeHtml(module.time)}</span>
+            <span class="module-time">${formatMinutes(moduleMinutes)}</span>
+            <span class="module-progress">${doneCount}/${allowedResources.length}</span>
           </header>
           <ul class="topic-list">${module.topics.map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
           <div class="resource-list">${visibleResources.map(renderResource).join("")}</div>
@@ -1131,15 +1222,6 @@
         `<button class="mobile-module-button" type="button" data-module-target="${module.id}">${module.code} ${escapeHtml(module.title)}</button>`
       ).join("");
 
-      routeMap.innerHTML = modules.map((module) => {
-        const allowed = module.resources.filter(isAllowedByDepth);
-        const done = allowed.length > 0 && allowed.every((resource) => completed.has(resource.id));
-        return `<button class="route-step${done ? " done" : ""}" type="button" data-module-target="${module.id}">
-          <span class="route-step-code">${module.code}</span>
-          <span class="route-step-title">${escapeHtml(module.title)}</span>
-        </button>`;
-      }).join("");
-
       document.querySelectorAll("[data-module-target]").forEach((button) => {
         button.addEventListener("click", () => scrollToModule(button.dataset.moduleTarget));
       });
@@ -1147,11 +1229,41 @@
 
     function renderProgress() {
       const allowedResources = allResources.filter(isAllowedByDepth);
-      const doneCount = allowedResources.filter((resource) => completed.has(resource.id)).length;
+      const doneResources = allowedResources.filter((resource) => completed.has(resource.id));
+      const doneCount = doneResources.length;
       const percentage = allowedResources.length ? Math.round((doneCount / allowedResources.length) * 100) : 0;
+      const totalMinutes = allowedResources.reduce((total, resource) => total + resource.minutes, 0);
+      const doneMinutes = doneResources.reduce((total, resource) => total + resource.minutes, 0);
       document.getElementById("side-progress-copy").textContent = `${doneCount}/${allowedResources.length}`;
       document.getElementById("side-progress-bar").style.width = `${percentage}%`;
       document.getElementById("summary-progress").textContent = `${percentage}%`;
+      document.getElementById("summary-hours").textContent = formatMinutes(totalMinutes);
+      document.getElementById("summary-remaining").textContent = formatMinutes(totalMinutes - doneMinutes);
+    }
+
+    function renderNext() {
+      const next = allResources.find((resource) => {
+        const module = modules.find((item) => item.id === resource.moduleId);
+        return !completed.has(resource.id) && isAllowedByDepth(resource) && isSearchMatch(module, resource);
+      });
+
+      if (!next) {
+        nextTitle.textContent = state.search ? "No unfinished match" : "Route complete";
+        nextMeta.textContent = state.search ? "Clear search or change depth" : "All selected videos are marked done";
+        nextLink.textContent = "Completed";
+        nextLink.removeAttribute("href");
+        nextLink.setAttribute("aria-disabled", "true");
+        return;
+      }
+
+      const module = modules.find((item) => item.id === next.moduleId);
+      nextTitle.textContent = next.title;
+      nextMeta.textContent = `${module.title} / ${formatMinutes(next.minutes)}`;
+      nextLink.textContent = "Watch next";
+      nextLink.href = next.url;
+      nextLink.target = "_blank";
+      nextLink.rel = "noopener noreferrer";
+      nextLink.removeAttribute("aria-disabled");
     }
 
     function updateFilterButtons() {
@@ -1164,8 +1276,10 @@
       renderNavigation();
       renderModules();
       renderProgress();
+      renderNext();
       updateFilterButtons();
       updateThemeLabel();
+      hideCompletedInput.checked = state.hideCompleted;
       observeSections();
     }
 
@@ -1196,12 +1310,6 @@
         const link = card.querySelector(".open-link");
         if (link) window.setTimeout(() => link.focus({ preventScroll: true }), 350);
       }
-    }
-
-    function completeVisible() {
-      document.querySelectorAll("[data-resource-id]").forEach((card) => completed.add(card.dataset.resourceId));
-      saveState();
-      render();
     }
 
     let sectionObserver;
@@ -1253,6 +1361,12 @@
       });
     });
 
+    hideCompletedInput.addEventListener("change", () => {
+      state.hideCompleted = hideCompletedInput.checked;
+      saveState();
+      render();
+    });
+
     themeButton.addEventListener("click", () => {
       const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
       document.documentElement.dataset.theme = nextTheme;
@@ -1261,13 +1375,15 @@
     });
 
     continueButton.addEventListener("click", continueNext);
-    markVisibleButton.addEventListener("click", completeVisible);
 
-    document.getElementById("reset-progress").addEventListener("click", () => {
+    function resetProgress() {
       completed.clear();
       saveState();
       render();
-    });
+    }
+
+    document.getElementById("reset-progress").addEventListener("click", resetProgress);
+    document.getElementById("toolbar-reset").addEventListener("click", resetProgress);
 
     render();
   </script>
