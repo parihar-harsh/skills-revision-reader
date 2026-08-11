@@ -563,6 +563,11 @@
       background: color-mix(in srgb, var(--blue) 86%, #000000);
     }
 
+    .control-button[aria-disabled="true"] {
+      pointer-events: none;
+      opacity: 0.58;
+    }
+
     .summary-strip {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -608,6 +613,105 @@
 
     .scope-note strong { color: var(--amber); }
 
+    .sequence-panel {
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .sequence-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sequence-heading strong {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .sequence-heading span {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .phase-track {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .phase-step {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+      min-height: 72px;
+      padding: 11px 13px;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .phase-step + .phase-step { border-left: 1px solid var(--border); }
+    .phase-step:hover { background: var(--surface-hover); }
+
+    .phase-step.current {
+      background: var(--blue-soft);
+    }
+
+    .phase-step.complete {
+      background: color-mix(in srgb, var(--green-soft) 48%, var(--surface));
+    }
+
+    .phase-number {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 5px;
+      background: var(--surface-muted);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .phase-step.complete .phase-number {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .phase-copy { min-width: 0; }
+
+    .phase-copy strong,
+    .phase-copy span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .phase-copy strong { font-size: 12px; }
+
+    .phase-copy span {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .phase-count {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+    }
+
     .module-section {
       margin-top: 28px;
       scroll-margin-top: 84px;
@@ -638,6 +742,15 @@
       margin: 0;
       font-size: 20px;
       line-height: 1.2;
+    }
+
+    .module-kicker {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--blue);
+      font-size: 9px;
+      font-weight: 850;
+      text-transform: uppercase;
     }
 
     .module-heading p {
@@ -685,9 +798,9 @@
 
     .module-checkpoint {
       display: grid;
-      grid-template-columns: 118px minmax(0, 1fr);
+      grid-template-columns: 118px minmax(0, 1fr) auto;
       gap: 12px;
-      align-items: start;
+      align-items: center;
       margin-top: 12px;
       padding: 11px 13px;
       border-left: 3px solid var(--green);
@@ -704,6 +817,41 @@
     }
 
     .module-checkpoint p { margin: 0; }
+
+    .module-checkpoint.current {
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--blue) 58%, transparent);
+    }
+
+    .module-checkpoint.complete {
+      background: color-mix(in srgb, var(--green-soft) 72%, var(--surface));
+    }
+
+    .checkpoint-button {
+      min-width: 112px;
+      min-height: 34px;
+      padding: 6px 9px;
+      border: 1px solid var(--green);
+      border-radius: 5px;
+      background: var(--surface);
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .checkpoint-button:not(:disabled):hover { background: var(--surface-hover); }
+
+    .checkpoint-button:disabled {
+      border-color: var(--border-strong);
+      background: var(--surface-muted);
+      color: var(--muted);
+      cursor: not-allowed;
+    }
+
+    .checkpoint-button[aria-pressed="true"] {
+      background: var(--green);
+      color: #ffffff;
+    }
 
     .resource-list {
       display: grid;
@@ -732,6 +880,11 @@
     .resource-card.completed {
       border-color: color-mix(in srgb, var(--green) 38%, var(--border));
       background: color-mix(in srgb, var(--green-soft) 38%, var(--surface));
+    }
+
+    .resource-card.current {
+      border-color: color-mix(in srgb, var(--blue) 62%, var(--border));
+      box-shadow: inset 3px 0 0 var(--blue);
     }
 
     .resource-media {
@@ -786,6 +939,11 @@
     .priority-badge.interview {
       background: var(--blue-soft);
       color: var(--blue);
+    }
+
+    .lesson-order {
+      color: var(--blue);
+      font-variant-numeric: tabular-nums;
     }
 
     .resource-title {
@@ -900,9 +1058,20 @@
       .summary-strip { grid-template-columns: 1fr 1fr; }
       .summary-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--border); }
       .summary-item:nth-child(4) { border-top: 1px solid var(--border); }
+      .sequence-heading { align-items: flex-start; flex-direction: column; gap: 2px; }
+      .phase-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .phase-track::-webkit-scrollbar { display: none; }
+      .phase-step { flex: 0 0 82%; scroll-snap-align: start; }
+      .phase-step + .phase-step { border-left: 1px solid var(--border); }
       .resource-list { grid-template-columns: 1fr; }
       .module-heading { grid-template-columns: 44px minmax(0, 1fr) auto; }
       .module-checkpoint { grid-template-columns: 1fr; gap: 4px; }
+      .checkpoint-button { width: 100%; margin-top: 4px; }
       .section-code { width: 44px; height: 40px; }
       .module-time { grid-column: 2; justify-self: start; }
       .module-progress { grid-column: 3; grid-row: 1; }
@@ -967,8 +1136,8 @@
         </div>
         <div class="toolbar-options" aria-label="Roadmap controls">
           <div class="filter-control" aria-label="Roadmap depth">
-            <button class="filter-button" type="button" data-filter="core" aria-pressed="true">Essentials</button>
-            <button class="filter-button" type="button" data-filter="interview" aria-pressed="false">Full route</button>
+            <button class="filter-button" type="button" data-filter="core" aria-pressed="false">Fast track</button>
+            <button class="filter-button" type="button" data-filter="interview" aria-pressed="true">Full coverage</button>
           </div>
           <label class="hide-control" title="Hide completed videos"><input id="hide-completed" type="checkbox"><span>Hide done</span></label>
           <button id="toolbar-reset" class="control-button toolbar-reset" type="button">Reset</button>
@@ -992,7 +1161,7 @@
             </div>
             <div class="next-actions">
               <a id="next-link" class="control-button primary" href="#">Watch next</a>
-              <button id="continue-button" class="control-button" type="button">Find card</button>
+              <button id="continue-button" class="control-button" type="button">Find task</button>
             </div>
           </div>
         </header>
@@ -1004,13 +1173,21 @@
           <div class="summary-item"><span id="summary-remaining" class="summary-value">0h</span><span class="summary-label">remaining</span></div>
         </section>
 
-        <aside class="scope-note">
-          <strong>Scope</strong>
-          <span>Assumes software-development fundamentals but zero AI knowledge. Every selected lesson is in Hindi or Hinglish and targets product-facing AI Engineer, GenAI Engineer, LLM application and agentic-AI roles. Essentials is the shortest job-focused path; Full route adds interview-depth topics. NumPy, Pandas and classical ML stop at the working foundation these roles repeatedly require. Research, foundation-model training, data science, computer vision and advanced MLOps are intentionally excluded. Complete each build checkpoint before moving on.</span>
-        </aside>
+        <section class="sequence-panel" aria-label="Learning sequence">
+          <div class="sequence-heading">
+            <strong>Learning sequence</strong>
+            <span>L = lessons, G = checkpoints. Complete each phase from left to right.</span>
+          </div>
+          <div id="phase-track" class="phase-track"></div>
+        </section>
 
         <div id="module-list"></div>
         <div id="empty-state" class="empty-state" hidden>No resources match the current search and depth filter.</div>
+
+        <aside class="scope-note">
+          <strong>Scope</strong>
+          <span>Assumes software-development fundamentals and zero AI knowledge. All lessons are Hindi or Hinglish. Full coverage is selected by default; Fast track skips five interview-depth lessons. Research, data science, computer vision, foundation-model training and advanced MLOps are intentionally excluded.</span>
+        </aside>
 
         <footer class="page-footer">Progress, filters and theme stay in this browser. No account or database is used. Every resource opens a direct YouTube video.</footer>
       </main>
@@ -1167,13 +1344,20 @@
       }
     ];
 
+    const phases = [
+      { number: "01", title: "Foundations", detail: "Python, ML and LLMs", moduleIds: ["python", "ai-foundations", "llm-foundations"] },
+      { number: "02", title: "Build AI systems", detail: "APIs, RAG, agents and FastAPI", moduleIds: ["llm-apps", "rag", "agents", "fastapi"] },
+      { number: "03", title: "Ship and improve", detail: "Evaluation, reliability and security", moduleIds: ["evaluation", "security"] }
+    ];
+
     const STORAGE_KEY = "ai-engineer-roadmap-state-v2";
     const allResources = modules.flatMap((module) => module.resources.map((resource) => ({ ...resource, moduleId: module.id })));
     const resourceById = new Map(allResources.map((resource) => [resource.id, resource]));
 
     const defaultState = {
       completed: [],
-      filter: "core",
+      checkpoints: [],
+      filter: "interview",
       search: "",
       hideCompleted: false
     };
@@ -1184,7 +1368,8 @@
         if (!parsed || typeof parsed !== "object") return { ...defaultState };
         return {
           completed: Array.isArray(parsed.completed) ? parsed.completed.filter((id) => resourceById.has(id)) : [],
-          filter: ["core", "interview"].includes(parsed.filter) ? parsed.filter : "core",
+          checkpoints: Array.isArray(parsed.checkpoints) ? parsed.checkpoints.filter((id) => modules.some((module) => module.id === id)) : [],
+          filter: ["core", "interview"].includes(parsed.filter) ? parsed.filter : "interview",
           search: typeof parsed.search === "string" ? parsed.search : "",
           hideCompleted: parsed.hideCompleted === true
         };
@@ -1195,9 +1380,11 @@
 
     let state = readState();
     const completed = new Set(state.completed);
+    const completedCheckpoints = new Set(state.checkpoints);
 
     const moduleNav = document.getElementById("module-nav");
     const mobileModuleNav = document.getElementById("mobile-module-nav");
+    const phaseTrack = document.getElementById("phase-track");
     const moduleList = document.getElementById("module-list");
     const emptyState = document.getElementById("empty-state");
     const searchInput = document.getElementById("search-input");
@@ -1213,6 +1400,7 @@
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
           completed: [...completed],
+          checkpoints: [...completedCheckpoints],
           filter: state.filter,
           search: state.search,
           hideCompleted: state.hideCompleted
@@ -1253,6 +1441,27 @@
       );
     }
 
+    function getNextRouteTask({ respectSearch = true } = {}) {
+      const routeResources = allResources.filter(isAllowedByDepth);
+      const hasSearch = respectSearch && state.search.trim().length > 0;
+
+      if (hasSearch) {
+        const resource = routeResources.find((item) => {
+          const module = modules.find((candidate) => candidate.id === item.moduleId);
+          return !completed.has(item.id) && isSearchMatch(module, item);
+        });
+        return resource ? { type: "video", resource, moduleId: resource.moduleId } : null;
+      }
+
+      for (const module of modules) {
+        const resource = module.resources.find((item) => isAllowedByDepth(item) && !completed.has(item.id));
+        if (resource) return { type: "video", resource: { ...resource, moduleId: module.id }, moduleId: module.id };
+        if (!completedCheckpoints.has(module.id)) return { type: "checkpoint", moduleId: module.id };
+      }
+
+      return null;
+    }
+
     function formatMinutes(minutes) {
       if (minutes < 60) return `${minutes}m`;
       const hours = Math.floor(minutes / 60);
@@ -1268,12 +1477,14 @@
       return `<div class="resource-media" aria-hidden="true">VIDEO</div>`;
     }
 
-    function renderResource(resource) {
+    function renderResource(resource, order, routeTotal, currentId) {
       const isDone = completed.has(resource.id);
-      return `<article class="resource-card${isDone ? " completed" : ""}" data-resource-id="${resource.id}">
+      const isCurrent = resource.id === currentId;
+      return `<article class="resource-card${isDone ? " completed" : ""}${isCurrent ? " current" : ""}" data-resource-id="${resource.id}">
         ${renderMedia(resource)}
         <div class="resource-copy">
           <div class="resource-meta">
+            <span class="lesson-order">Lesson ${String(order).padStart(2, "0")}/${routeTotal}</span>
             <span class="priority-badge ${resource.priority}">${resource.priority === "core" ? "Essential" : "Interview depth"}</span>
             <span>${escapeHtml(resource.source)}</span>
             <span>${formatMinutes(resource.minutes)}</span>
@@ -1290,17 +1501,25 @@
 
     function renderModules() {
       let visibleTotal = 0;
-      const html = modules.map((module) => {
+      const routeResources = allResources.filter(isAllowedByDepth);
+      const orderById = new Map(routeResources.map((resource, index) => [resource.id, index + 1]));
+      const nextTask = getNextRouteTask();
+      const currentVideoId = nextTask?.type === "video" ? nextTask.resource.id : null;
+      const html = modules.map((module, moduleIndex) => {
         const visibleResources = visibleResourcesFor(module);
         const allowedResources = module.resources.filter(isAllowedByDepth);
         const doneCount = allowedResources.filter((resource) => completed.has(resource.id)).length;
+        const checkpointDone = completedCheckpoints.has(module.id);
+        const checkpointUnlocked = doneCount === allowedResources.length;
+        const checkpointOnly = !state.search.trim() && state.hideCompleted && !visibleResources.length && !checkpointDone && doneCount === allowedResources.length;
         const moduleMinutes = allowedResources.reduce((total, resource) => total + resource.minutes, 0);
         visibleTotal += visibleResources.length;
-        if (!visibleResources.length) return "";
+        if (!visibleResources.length && !checkpointOnly) return "";
         return `<section id="module-${module.id}" class="module-section" data-module-section="${module.id}">
           <header class="module-heading">
             <div class="section-code">${module.code}</div>
             <div>
+              <span class="module-kicker">${escapeHtml(phases.find((phase) => phase.moduleIds.includes(module.id)).title)} / Module ${moduleIndex + 1} of ${modules.length}</span>
               <h3>${escapeHtml(module.title)}</h3>
               <p>${escapeHtml(module.outcome)}</p>
             </div>
@@ -1308,17 +1527,25 @@
             <span class="module-progress">${doneCount}/${allowedResources.length}</span>
           </header>
           <ul class="topic-list">${module.topics.map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
-          <div class="module-checkpoint"><strong>Build checkpoint</strong><p>${escapeHtml(module.checkpoint)}</p></div>
-          <div class="resource-list">${visibleResources.map(renderResource).join("")}</div>
+          ${visibleResources.length ? `<div class="resource-list">${visibleResources.map((resource) => renderResource(resource, orderById.get(resource.id), routeResources.length, currentVideoId)).join("")}</div>` : ""}
+          <div class="module-checkpoint${checkpointDone ? " complete" : ""}${nextTask?.type === "checkpoint" && nextTask.moduleId === module.id ? " current" : ""}" data-checkpoint-card="${module.id}">
+            <strong>Module checkpoint</strong>
+            <p>${escapeHtml(module.checkpoint)}</p>
+            <button class="checkpoint-button" type="button" data-checkpoint-id="${module.id}" aria-pressed="${checkpointDone}"${!checkpointDone && !checkpointUnlocked ? ' disabled title="Complete this module\'s lessons first"' : ""}>${checkpointDone ? "Completed" : checkpointUnlocked ? "Mark complete" : "Finish lessons first"}</button>
+          </div>
         </section>`;
       }).join("");
 
       moduleList.innerHTML = html;
-      emptyState.hidden = visibleTotal > 0;
+      emptyState.hidden = moduleList.children.length > 0;
       document.getElementById("summary-resources").textContent = String(visibleTotal);
 
       moduleList.querySelectorAll("[data-complete-id]").forEach((button) => {
         button.addEventListener("click", () => toggleComplete(button.dataset.completeId));
+      });
+
+      moduleList.querySelectorAll("[data-checkpoint-id]").forEach((button) => {
+        button.addEventListener("click", () => toggleCheckpoint(button.dataset.checkpointId));
       });
 
       moduleList.querySelectorAll("img").forEach((image) => {
@@ -1327,6 +1554,37 @@
           image.parentElement.append("VIDEO");
         }, { once: true });
       });
+    }
+
+    function renderPhases() {
+      const routeResources = allResources.filter(isAllowedByDepth);
+      const nextTask = getNextRouteTask({ respectSearch: false });
+      const currentModuleId = nextTask?.moduleId;
+
+      phaseTrack.innerHTML = phases.map((phase) => {
+        const resources = routeResources.filter((resource) => phase.moduleIds.includes(resource.moduleId));
+        const done = resources.filter((resource) => completed.has(resource.id)).length;
+        const doneGates = phase.moduleIds.filter((moduleId) => completedCheckpoints.has(moduleId)).length;
+        const isComplete = resources.length > 0 && done === resources.length && doneGates === phase.moduleIds.length;
+        const isCurrent = !isComplete && phase.moduleIds.includes(currentModuleId);
+        const targetModuleId = phase.moduleIds.find((moduleId) => {
+          const hasIncompleteLesson = routeResources.some((resource) => resource.moduleId === moduleId && !completed.has(resource.id));
+          return hasIncompleteLesson || !completedCheckpoints.has(moduleId);
+        }) || phase.moduleIds[0];
+        return `<button class="phase-step${isComplete ? " complete" : ""}${isCurrent ? " current" : ""}" type="button" data-module-target="${targetModuleId}"${isCurrent ? ' aria-current="step"' : ""}>
+          <span class="phase-number">${phase.number}</span>
+          <span class="phase-copy"><strong>${escapeHtml(phase.title)}</strong><span>${escapeHtml(phase.detail)}</span></span>
+          <span class="phase-count" title="Lessons and module checkpoints">L ${done}/${resources.length} / G ${doneGates}/${phase.moduleIds.length}</span>
+        </button>`;
+      }).join("");
+
+      const activePhase = phaseTrack.querySelector(".phase-step.current");
+      if (activePhase && typeof phaseTrack.scrollTo === "function") {
+        window.requestAnimationFrame(() => {
+          const left = activePhase.offsetLeft - (phaseTrack.clientWidth - activePhase.offsetWidth) / 2;
+          phaseTrack.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+        });
+      }
     }
 
     function renderNavigation() {
@@ -1353,11 +1611,12 @@
     function renderProgress() {
       const allowedResources = allResources.filter(isAllowedByDepth);
       const doneResources = allowedResources.filter((resource) => completed.has(resource.id));
-      const doneCount = doneResources.length;
-      const percentage = allowedResources.length ? Math.round((doneCount / allowedResources.length) * 100) : 0;
+      const doneCount = doneResources.length + completedCheckpoints.size;
+      const taskCount = allowedResources.length + modules.length;
+      const percentage = taskCount ? Math.round((doneCount / taskCount) * 100) : 0;
       const totalMinutes = allowedResources.reduce((total, resource) => total + resource.minutes, 0);
       const doneMinutes = doneResources.reduce((total, resource) => total + resource.minutes, 0);
-      document.getElementById("side-progress-copy").textContent = `${doneCount}/${allowedResources.length}`;
+      document.getElementById("side-progress-copy").textContent = `${doneCount}/${taskCount}`;
       document.getElementById("side-progress-bar").style.width = `${percentage}%`;
       document.getElementById("summary-progress").textContent = `${percentage}%`;
       document.getElementById("summary-hours").textContent = formatMinutes(totalMinutes);
@@ -1365,23 +1624,36 @@
     }
 
     function renderNext() {
-      const next = allResources.find((resource) => {
-        const module = modules.find((item) => item.id === resource.moduleId);
-        return !completed.has(resource.id) && isAllowedByDepth(resource) && isSearchMatch(module, resource);
-      });
+      const nextTask = getNextRouteTask();
 
-      if (!next) {
+      if (!nextTask) {
         nextTitle.textContent = state.search ? "No unfinished match" : "Route complete";
-        nextMeta.textContent = state.search ? "Clear search or change depth" : "All selected videos are marked done";
+        nextMeta.textContent = state.search ? "Clear search or change depth" : "All lessons and module checkpoints are complete";
         nextLink.textContent = "Completed";
         nextLink.removeAttribute("href");
+        nextLink.removeAttribute("target");
+        nextLink.removeAttribute("rel");
         nextLink.setAttribute("aria-disabled", "true");
         return;
       }
 
-      const module = modules.find((item) => item.id === next.moduleId);
+      const module = modules.find((item) => item.id === nextTask.moduleId);
+      if (nextTask.type === "checkpoint") {
+        nextTitle.textContent = `${module.title} checkpoint`;
+        nextMeta.textContent = `Module ${module.code} gate / complete before the next module`;
+        nextLink.textContent = "Checkpoint due";
+        nextLink.removeAttribute("href");
+        nextLink.removeAttribute("target");
+        nextLink.removeAttribute("rel");
+        nextLink.setAttribute("aria-disabled", "true");
+        return;
+      }
+
+      const next = nextTask.resource;
+      const routeResources = allResources.filter(isAllowedByDepth);
+      const lessonNumber = routeResources.findIndex((resource) => resource.id === next.id) + 1;
       nextTitle.textContent = next.title;
-      nextMeta.textContent = `${module.title} / ${formatMinutes(next.minutes)}`;
+      nextMeta.textContent = `Lesson ${lessonNumber} of ${routeResources.length} / Module ${module.code} / ${formatMinutes(next.minutes)}`;
       nextLink.textContent = "Watch next";
       nextLink.href = next.url;
       nextLink.target = "_blank";
@@ -1396,6 +1668,7 @@
     }
 
     function render() {
+      renderPhases();
       renderNavigation();
       renderModules();
       renderProgress();
@@ -1408,12 +1681,27 @@
 
     function toggleComplete(resourceId) {
       if (!resourceById.has(resourceId)) return;
-      if (completed.has(resourceId)) completed.delete(resourceId);
-      else completed.add(resourceId);
+      if (completed.has(resourceId)) {
+        completed.delete(resourceId);
+        completedCheckpoints.delete(resourceById.get(resourceId).moduleId);
+      } else completed.add(resourceId);
       saveState();
       render();
       const card = document.querySelector(`[data-resource-id="${CSS.escape(resourceId)}"]`);
       if (card) card.scrollIntoView({ block: "nearest" });
+    }
+
+    function toggleCheckpoint(moduleId) {
+      const module = modules.find((candidate) => candidate.id === moduleId);
+      if (!module) return;
+      const checkpointUnlocked = module.resources.filter(isAllowedByDepth).every((resource) => completed.has(resource.id));
+      if (!checkpointUnlocked && !completedCheckpoints.has(moduleId)) return;
+      if (completedCheckpoints.has(moduleId)) completedCheckpoints.delete(moduleId);
+      else completedCheckpoints.add(moduleId);
+      saveState();
+      render();
+      const checkpoint = document.querySelector(`[data-checkpoint-card="${CSS.escape(moduleId)}"]`);
+      if (checkpoint) checkpoint.scrollIntoView({ block: "nearest" });
     }
 
     function scrollToModule(moduleId) {
@@ -1422,12 +1710,19 @@
     }
 
     function continueNext() {
-      const next = allResources.find((resource) => {
-        const module = modules.find((item) => item.id === resource.moduleId);
-        return !completed.has(resource.id) && isAllowedByDepth(resource) && isSearchMatch(module, resource);
-      });
-      if (!next) return;
-      const card = document.querySelector(`[data-resource-id="${CSS.escape(next.id)}"]`);
+      const nextTask = getNextRouteTask();
+      if (!nextTask) return;
+      if (nextTask.type === "checkpoint") {
+        const checkpoint = document.querySelector(`[data-checkpoint-card="${CSS.escape(nextTask.moduleId)}"]`);
+        if (checkpoint) {
+          checkpoint.scrollIntoView({ behavior: "smooth", block: "center" });
+          const button = checkpoint.querySelector(".checkpoint-button");
+          if (button) window.setTimeout(() => button.focus({ preventScroll: true }), 350);
+        }
+        return;
+      }
+
+      const card = document.querySelector(`[data-resource-id="${CSS.escape(nextTask.resource.id)}"]`);
       if (card) {
         card.scrollIntoView({ behavior: "smooth", block: "center" });
         const link = card.querySelector(".open-link");
@@ -1513,9 +1808,10 @@
     continueButton.addEventListener("click", continueNext);
 
     function resetProgress() {
-      if (!completed.size) return;
-      if (!window.confirm("Clear all completed video progress?")) return;
+      if (!completed.size && !completedCheckpoints.size) return;
+      if (!window.confirm("Clear all completed lesson and checkpoint progress?")) return;
       completed.clear();
+      completedCheckpoints.clear();
       saveState();
       render();
     }
