@@ -1224,7 +1224,7 @@
 
         <aside class="scope-note">
           <strong>Scope</strong>
-          <span>Follows the provided syllabus's technical and job-preparation scope. Full coverage is selected by default; Fast track skips four classical-ML interview-awareness lessons. Transformer mathematics, foundation-model training, research, data science, computer vision and advanced MLOps are intentionally excluded.</span>
+          <span>Uses the provided syllabus as the only curriculum source. Fast track covers its main eight technical weeks; Full coverage adds its two bonus interview and job-search weeks. Transformer and attention mathematics, backpropagation, gradient descent, loss functions, foundation-model training, heavy RLHF/DPO, distributed training, CNNs, RNNs and classical deep-learning detours are intentionally excluded.</span>
         </aside>
 
         <footer class="page-footer">Progress, filters and theme stay in this browser. No account or database is used. Every resource opens a direct YouTube video.</footer>
@@ -1239,7 +1239,7 @@
         code: "01",
         title: "LLM fundamentals and API mastery",
         outcome: "Call hosted models reliably and explain the controls, costs and failure modes behind each response.",
-        topics: ["Tokens", "Context windows", "Messages and roles", "Temperature", "Top-p", "Hallucinations", "Provider SDKs", "Streaming", "Structured output", "Pydantic", "Model selection", "Token cost", "Timeouts", "Retries", "Rate limits"],
+        topics: ["Tokens", "Context windows", "Messages and roles", "Temperature", "Top-p", "Hallucinations", "OpenAI", "Anthropic", "Groq", "Gemini", "Ollama", "Provider SDKs", "Streaming", "Async calls", "Tenacity", "Structured output", "Pydantic", "Model selection", "Token cost", "Timeouts", "Retries", "Rate limits"],
         checkpoint: "Build a multi-provider CLI chatbot that streams output, validates one Pydantic response schema, handles timeouts and transient 429/5xx failures with capped backoff, and compares quality, latency and token cost across three providers.",
         resources: [
           { id: "course-first-llm-call", title: "Understand your first LLM call", source: "Padho with Pratyush", type: "Video", minutes: 44, priority: "core", videoId: "Vl2WcqdizZ0", url: "https://www.youtube.com/watch?v=Vl2WcqdizZ0", note: "Set up a provider SDK, send messages and inspect the model response before introducing orchestration frameworks." },
@@ -1253,14 +1253,14 @@
         id: "prompting",
         code: "02",
         title: "Production prompting and LangChain",
-        outcome: "Design, compare and version prompts, then use LangChain only for orchestration that earns its complexity.",
-        topics: ["System prompt structure", "Constraints", "Delimiters", "Output formats", "Zero-shot", "Few-shot", "ReAct", "Prompt chaining", "Meta-prompting", "Prompt caching", "Prompt versioning", "Output validation", "Defensive prompting", "LangChain"],
-        checkpoint: "Create a versioned extraction pipeline with zero-shot and few-shot variants, a two-stage prompt chain, schema validation, retry-on-invalid behavior and a fixed evaluation set; record which prompt wins and why.",
+        outcome: "Design and compare reliable prompts, then use LangChain for the orchestration patterns named by the syllabus.",
+        topics: ["System prompt structure", "Constraints", "Output formats", "XML versus Markdown", "Zero-shot", "Few-shot", "Chain-of-thought", "Self-consistency", "ReAct", "Prompt chaining", "Meta-prompting", "Prompt caching", "Output validation", "Jailbreak resistance", "LangChain"],
+        checkpoint: "Rewrite three unreliable prompts using explicit roles, constraints, examples and output formats, then build a chained PDF or email extraction pipeline with Pydantic validation and retry-on-invalid behavior.",
         resources: [
           { id: "course-prompt-engineering", title: "Prompt engineering for production", source: "Padho with Pratyush", type: "Video", minutes: 37, priority: "core", videoId: "hveoP-ioP9I", url: "https://www.youtube.com/watch?v=hveoP-ioP9I", note: "Structure prompts around role, task, context, constraints, examples and output format instead of relying on vague instructions." },
           { id: "course-prompt-chaining", title: "Prompt chaining", source: "Padho with Pratyush", type: "Video", minutes: 41, priority: "core", videoId: "-aOdRksvZSo", url: "https://www.youtube.com/watch?v=-aOdRksvZSo", note: "Split complex work into observable stages with validated hand-offs instead of one oversized prompt." },
-          { id: "langchain-current", title: "LangChain crash course with practical code", source: "5 Minutes Engineering", type: "Video", minutes: 106, priority: "core", videoId: "mQUVzpyfzng", url: "https://www.youtube.com/watch?v=mQUVzpyfzng", note: "Cover prompt templates, structured output, tool calling, chains, parallel branches, ReAct, memory and a small RAG flow after learning direct SDK calls." },
-          { id: "hugging-face-basics", title: "Hugging Face and open-source LLM basics", source: "Hello World", type: "Video", minutes: 47, priority: "core", videoId: "ZqHTssFmKjY", url: "https://www.youtube.com/watch?v=ZqHTssFmKjY", note: "Explore the model hub, inference APIs, local pipelines, parameter counts, hardware constraints and quantization; compare open and hosted model trade-offs." }
+          { id: "langchain-current", title: "LangChain crash course with practical code", source: "5 Minutes Engineering", type: "Video", minutes: 106, priority: "core", videoId: "mQUVzpyfzng", url: "https://www.youtube.com/watch?v=mQUVzpyfzng", note: "Use LangChain for prompt templates, structured output, chains, ReAct, memory, tool calling and the syllabus's RAG workflow." },
+          { id: "hugging-face-basics", title: "Hugging Face and open-source LLM basics", source: "Hello World", type: "Video", minutes: 47, priority: "core", videoId: "ZqHTssFmKjY", url: "https://www.youtube.com/watch?v=ZqHTssFmKjY", note: "Use the Hugging Face model hub and free inference options, then compare open-source models with hosted providers." }
         ]
       },
       {
@@ -1268,15 +1268,14 @@
         code: "03",
         title: "RAG foundations",
         outcome: "Build a cited document Q&A pipeline from ingestion through retrieval and grounded generation.",
-        topics: ["RAG flow", "Embeddings", "Ingestion", "Parsing", "Chunking", "Chunk overlap", "Vector stores", "Vector databases", "Cosine similarity", "Metadata", "Top-k", "Citations", "RAG versus fine-tuning"],
-        checkpoint: "Build RAG v1 for PDF and one additional file type: parse, chunk, embed, store, retrieve, answer with citations, preserve source metadata and handle empty or unsupported documents.",
+        topics: ["RAG flow", "Embeddings", "BGE", "Nomic", "Vector databases", "ChromaDB", "Qdrant", "Pinecone", "pgvector", "FAISS", "LlamaIndex", "Fixed-size chunking", "Recursive chunking", "Semantic chunking", "Sentence chunking", "Markdown-aware chunking", "Parent-child chunking", "Ingest", "Retrieve", "Generate", "Citations", "Streamlit", "RAG versus fine-tuning"],
+        checkpoint: "Build the syllabus's RAG v1: upload a PDF, ingest, chunk, embed, store, retrieve and generate an answer with citations in a Streamlit interface.",
         resources: [
           { id: "course-rag-intro", title: "What is Retrieval-Augmented Generation?", source: "Padho with Pratyush", type: "Video", minutes: 29, priority: "core", videoId: "dU5Nz-sMTdk", url: "https://www.youtube.com/watch?v=dU5Nz-sMTdk", note: "Understand retrieve-then-generate, why RAG grounds answers and when a simpler prompt or fine-tuning is a better choice." },
           { id: "course-embeddings", title: "Embeddings without the math", source: "Padho with Pratyush", type: "Video", minutes: 27, priority: "core", videoId: "fqf4pdGCev0", url: "https://www.youtube.com/watch?v=fqf4pdGCev0", note: "Build an intuitive model of semantic vectors, dimensions and similarity without an academic detour." },
-          { id: "rag-loaders", title: "Document loaders", source: "CampusX", type: "Video", minutes: 56, priority: "core", videoId: "bL92ALSZ2Cg", url: "https://www.youtube.com/watch?v=bL92ALSZ2Cg", note: "Load PDF, text, directories, web pages and CSV data, then understand lazy loading and custom loaders." },
-          { id: "rag-splitters", title: "Text splitters and semantic chunking", source: "CampusX", type: "Video", minutes: 59, priority: "core", videoId: "SEWS9P4ODmc", url: "https://www.youtube.com/watch?v=SEWS9P4ODmc", note: "Compare fixed, recursive, structure-aware and semantic splitting, including chunk-size and overlap trade-offs." },
-          { id: "rag-vector", title: "Vector stores and vector databases", source: "CampusX", type: "Video", minutes: 50, priority: "core", videoId: "k13WK0bxQP0", url: "https://www.youtube.com/watch?v=k13WK0bxQP0", note: "Understand similarity search, metadata and the operational difference between an in-process vector store and a production vector database." },
-          { id: "rag-vector-operations", title: "Vector DB CRUD and metadata filtering", source: "Yash Jain", type: "Video", minutes: 14, priority: "core", videoId: "7BHu2q3vXF4", url: "https://www.youtube.com/watch?v=7BHu2q3vXF4", note: "Insert, update, delete and count records, then filter candidates by user, document or category before generation." }
+          { id: "rag-loaders", title: "Document loaders", source: "CampusX", type: "Video", minutes: 56, priority: "core", videoId: "bL92ALSZ2Cg", url: "https://www.youtube.com/watch?v=bL92ALSZ2Cg", note: "Load a PDF into the ingestion stage of the syllabus's document Q&A pipeline." },
+          { id: "rag-splitters", title: "Text splitters and semantic chunking", source: "CampusX", type: "Video", minutes: 59, priority: "core", videoId: "SEWS9P4ODmc", url: "https://www.youtube.com/watch?v=SEWS9P4ODmc", note: "Compare fixed-size, recursive, semantic, sentence, Markdown-aware and parent-child chunking on the same PDF." },
+          { id: "rag-vector", title: "Vector stores and vector databases", source: "CampusX", type: "Video", minutes: 50, priority: "core", videoId: "k13WK0bxQP0", url: "https://www.youtube.com/watch?v=k13WK0bxQP0", note: "Compare ChromaDB, Qdrant, Pinecone, pgvector and FAISS, then choose between a learning store and a production-style database." }
         ]
       },
       {
@@ -1284,10 +1283,9 @@
         code: "04",
         title: "Advanced RAG and evaluation",
         outcome: "Improve retrieval with measured experiments instead of stacking techniques without evidence.",
-        topics: ["MMR", "Multi-query retrieval", "Query rewriting", "HyDE", "Query decomposition", "Contextual retrieval", "Hybrid search", "BM25", "RRF", "Cross-encoder reranking", "Golden datasets", "RAGAS", "Faithfulness", "Context precision and recall"],
+        topics: ["Hybrid search", "BM25", "Semantic retrieval", "RRF", "LangChain EnsembleRetriever", "Cross-encoder reranking", "Cohere Rerank", "BGE reranker", "Contextual retrieval", "Query rewriting", "HyDE", "Query decomposition", "Multi-query retrieval", "Golden datasets", "RAGAS", "Faithfulness", "Answer relevancy", "Context precision and recall"],
         checkpoint: "Upgrade RAG v1 with hybrid retrieval, reranking and one justified query-transformation method; evaluate a fixed golden set, compare against the baseline and keep only changes that improve measured quality enough to justify latency and cost.",
         resources: [
-          { id: "rag-retrievers", title: "Retrievers, MMR, multi-query and compression", source: "CampusX", type: "Video", minutes: 51, priority: "core", videoId: "pJdMxwXBsk0", url: "https://www.youtube.com/watch?v=pJdMxwXBsk0", note: "Compare retrieval strategies by relevance, diversity, recall, latency and token cost." },
           { id: "rag-query-transformations", title: "Query transformation with HyDE and multi-query", source: "Yash Jain", type: "Video", minutes: 14, priority: "core", videoId: "qn3A-gCquM0", url: "https://www.youtube.com/watch?v=qn3A-gCquM0", note: "Use rewriting, HyDE, multi-query or decomposition only when the query and corpus need it, then measure the added LLM latency." },
           { id: "rag-hybrid-rrf", title: "Hybrid search with BM25 and vectors", source: "Yash Jain", type: "Video", minutes: 17, priority: "core", videoId: "F5TlaHXNAaI", url: "https://www.youtube.com/watch?v=F5TlaHXNAaI", note: "Combine lexical and semantic candidate lists with rank-based fusion when either retrieval method alone misses useful evidence." },
           { id: "rag-reranking", title: "Cross-encoder reranking for RAG", source: "Understanding AIML", type: "Video", minutes: 9, priority: "core", videoId: "LOK4GnVUnng", url: "https://www.youtube.com/watch?v=LOK4GnVUnng", note: "Retrieve a wider candidate set cheaply, then apply a stronger cross-encoder before sending context to the LLM." },
@@ -1299,8 +1297,8 @@
         code: "05",
         title: "Agents and tool use",
         outcome: "Build bounded tool-using agents and know when a deterministic chain is the safer design.",
-        topics: ["Agent versus chain", "Function calling", "JSON tool schemas", "Parallel tool calls", "ReAct loop", "Tool results", "Stop conditions", "Maximum steps", "Tool errors", "Citation tracking"],
-        checkpoint: "Build a research agent with at least two validated tools, explicit stop conditions, a maximum step count, tool-failure handling and cited synthesis; explain why each step needs agentic choice instead of fixed code.",
+        topics: ["Agent versus chain", "Function calling", "JSON tool schemas", "Parallel tool calls", "Tool results", "ReAct loop", "Termination conditions", "Agent failure modes", "Web search", "Summarization", "Citation tracking"],
+        checkpoint: "Build the syllabus's research agent with web search, summarization, citation tracking and an explicit termination condition; explain when a fixed chain is safer than an agent.",
         resources: [
           { id: "agent-vs-genai", title: "Generative AI versus Agentic AI", source: "CampusX", type: "Video", minutes: 63, priority: "core", videoId: "xdA0pGDiUPE", url: "https://www.youtube.com/watch?v=xdA0pGDiUPE", note: "Compare plain chat, RAG, tool-augmented workflows and goal-driven agents before adding autonomous loops." },
           { id: "course-react-agents", title: "ReAct introduction to AI agents", source: "Padho with Pratyush", type: "Video", minutes: 38, priority: "core", videoId: "solZdnrrtG4", url: "https://www.youtube.com/watch?v=solZdnrrtG4", note: "Follow the reasoning, action and observation loop while keeping termination and tool boundaries explicit." },
@@ -1312,33 +1310,32 @@
         code: "06",
         title: "LangGraph, multi-agent systems and MCP",
         outcome: "Model stateful workflows, coordinate specialized agents and expose tools through a standard protocol.",
-        topics: ["Graph state", "Nodes and edges", "Conditional routing", "Memory", "Persistence", "Checkpoints", "Human approval", "Supervisor pattern", "Agent hand-offs", "MCP host", "MCP client", "MCP server", "Tools", "Resources", "Transport"],
-        checkpoint: "Build a planner-executor-reviewer workflow with persisted state and one human-approval boundary, then expose one real API or database operation through a custom MCP server and connect it through an MCP client.",
+        topics: ["State graphs", "Nodes and edges", "Conditional routing", "Human in the loop", "Short-term memory", "Long-term memory", "Persistent state", "Supervisor", "Swarm", "Hierarchy", "Agent hand-offs", "CrewAI comparison", "MCP client", "MCP server", "Claude Desktop", "Custom MCP server"],
+        checkpoint: "Build the syllabus's planner-executor-reviewer workflow with a supervisor pattern, then expose one database or API through a custom MCP server and connect it to an MCP client.",
         resources: [
-          { id: "langgraph-core", title: "LangGraph core concepts", source: "CampusX", type: "Video", minutes: 51, priority: "core", videoId: "D5KhiCDM9XQ", url: "https://www.youtube.com/watch?v=D5KhiCDM9XQ", note: "Learn state, reducers, nodes, edges, routing, parallel branches and graph execution." },
+          { id: "langgraph-core", title: "LangGraph core concepts", source: "CampusX", type: "Video", minutes: 51, priority: "core", videoId: "D5KhiCDM9XQ", url: "https://www.youtube.com/watch?v=D5KhiCDM9XQ", note: "Learn state graphs, nodes, edges, conditional routing and human-in-the-loop workflows." },
           { id: "langgraph-conditional", title: "Conditional workflows in LangGraph", source: "CampusX", type: "Video", minutes: 47, priority: "core", videoId: "I-dvZqTz-Wc", url: "https://www.youtube.com/watch?v=I-dvZqTz-Wc", note: "Route requests dynamically while keeping business rules and termination conditions explicit." },
-          { id: "langgraph-persistence", title: "Persistence, checkpoints and time travel", source: "CampusX", type: "Video", minutes: 58, priority: "core", videoId: "_IPP7_Bi8uA", url: "https://www.youtube.com/watch?v=_IPP7_Bi8uA", note: "Persist thread state, resume interrupted work, replay from checkpoints and debug earlier execution steps." },
+          { id: "langgraph-persistence", title: "Agent memory, persistence and checkpoints", source: "CampusX", type: "Video", minutes: 58, priority: "core", videoId: "_IPP7_Bi8uA", url: "https://www.youtube.com/watch?v=_IPP7_Bi8uA", note: "Implement short-term, long-term and persistent agent state with checkpointers." },
           { id: "langgraph-multi-agent", title: "Build a multi-agent system with LangGraph", source: "Code With Aarohi Hindi", type: "Video", minutes: 64, priority: "core", videoId: "ctHby5vhDqg", url: "https://www.youtube.com/watch?v=ctHby5vhDqg", note: "Coordinate specialized agents with shared state, memory and APIs instead of using multiple agents where one workflow is enough." },
-          { id: "mcp-architecture", title: "MCP architecture", source: "CampusX", type: "Video", minutes: 77, priority: "core", videoId: "nQa31xdXbGk", url: "https://www.youtube.com/watch?v=nQa31xdXbGk", note: "Learn host, client, server, tools, resources, prompts, JSON-RPC and transport boundaries; MCP standardizes integration, not reasoning." },
-          { id: "mcp-practical", title: "Build and connect MCP servers", source: "Code With Aarohi Hindi", type: "Video", minutes: 40, priority: "core", videoId: "_KB2146fFYs", url: "https://www.youtube.com/watch?v=_KB2146fFYs", note: "Run local weather and calculator servers, connect one client to multiple servers and compare local with hosted MCP deployment." }
+          { id: "mcp-architecture", title: "MCP client and server architecture", source: "CampusX", type: "Video", minutes: 77, priority: "core", videoId: "nQa31xdXbGk", url: "https://www.youtube.com/watch?v=nQa31xdXbGk", note: "Understand MCP clients and servers and how Claude or Cursor connects to exposed tools." },
+          { id: "mcp-practical", title: "Build and connect an MCP server", source: "Code With Aarohi Hindi", type: "Video", minutes: 40, priority: "core", videoId: "_KB2146fFYs", url: "https://www.youtube.com/watch?v=_KB2146fFYs", note: "Build a custom MCP server for an API or database and connect it through an MCP client." }
         ]
       },
       {
         id: "shipping",
         code: "07",
         title: "FastAPI, deployment and fine-tuning",
-        outcome: "Expose, test and deploy an AI service, then choose prompting, RAG or fine-tuning from evidence.",
-        topics: ["FastAPI", "Pydantic", "Dependency injection", "Async endpoints", "StreamingResponse", "Error mapping", "API testing", "Docker", "Render deployment", "Environment secrets", "RAG versus fine-tuning", "LoRA", "QLoRA", "Quantization"],
-        checkpoint: "Ship a Dockerized FastAPI service with typed schemas, streaming, central errors, timeout and cancellation handling, tests and environment-based secrets; run one small LoRA/QLoRA notebook and document why the capstone does or does not need fine-tuning.",
+        outcome: "Expose and deploy an AI service, then choose prompting, RAG or fine-tuning from evidence.",
+        topics: ["FastAPI", "Streaming responses", "WebSocket chat", "Async patterns", "Dependency injection", "Docker", "Render", "Railway", "Hugging Face Spaces", "Streamlit", "Gradio", "Environment variables", "RAG versus fine-tuning", "Prompting versus fine-tuning", "LoRA", "Unsloth", "Google Colab"],
+        checkpoint: "Dockerize and deploy a FastAPI AI application with streaming, WebSocket chat, async calls, dependency-injected LLM clients and environment variables; run the syllabus's one-shot LoRA demo with Unsloth and explain when not to fine-tune.",
         resources: [
-          { id: "fastapi-crash", title: "FastAPI crash course for developers", source: "Chai aur Code", type: "Video", minutes: 24, priority: "core", videoId: "foGklduxhM0", url: "https://www.youtube.com/watch?v=foGklduxhM0", note: "Translate existing backend knowledge into FastAPI routes, request models, validation, Uvicorn and generated API documentation." },
-          { id: "fastapi-depends", title: "FastAPI Depends and dependency injection", source: "Yash Jain", type: "Video", minutes: 9, priority: "core", videoId: "Rslj1IBkc9Q", url: "https://www.youtube.com/watch?v=Rslj1IBkc9Q", note: "Reuse authentication, clients and shared request logic while keeping routes testable." },
-          { id: "fastapi-async", title: "Async and await in FastAPI", source: "Mohit Decodes", type: "Video", minutes: 8, priority: "core", videoId: "uN13SnI_szY", url: "https://www.youtube.com/watch?v=uN13SnI_szY", note: "Use async endpoints for non-blocking I/O and avoid blocking the event loop with synchronous network or CPU-heavy work." },
-          { id: "fastapi-testing", title: "Test FastAPI endpoints with pytest", source: "Mohit Decodes", type: "Video", minutes: 9, priority: "core", videoId: "0WcavHYspn8", url: "https://www.youtube.com/watch?v=0WcavHYspn8", note: "Use TestClient, assertions and dependency overrides for invalid input and provider failures." },
+          { id: "fastapi-crash", title: "FastAPI crash course for developers", source: "Chai aur Code", type: "Video", minutes: 24, priority: "core", videoId: "foGklduxhM0", url: "https://www.youtube.com/watch?v=foGklduxhM0", note: "Build the FastAPI backend required by the syllabus's full-stack AI product." },
+          { id: "fastapi-depends", title: "FastAPI Depends and dependency injection", source: "Yash Jain", type: "Video", minutes: 9, priority: "core", videoId: "Rslj1IBkc9Q", url: "https://www.youtube.com/watch?v=Rslj1IBkc9Q", note: "Inject and reuse LLM clients through FastAPI dependencies." },
+          { id: "fastapi-async", title: "Async and await in FastAPI", source: "Mohit Decodes", type: "Video", minutes: 8, priority: "core", videoId: "uN13SnI_szY", url: "https://www.youtube.com/watch?v=uN13SnI_szY", note: "Use async patterns for LLM calls and streamed responses in FastAPI." },
           { id: "fastapi-llm-streaming", title: "Stream LLM output with LangChain and FastAPI", source: "Tech Jitendra Nadol", type: "Video", minutes: 11, priority: "core", videoId: "eE6Yh9lrRZI", url: "https://www.youtube.com/watch?v=eE6Yh9lrRZI", note: "Connect model astream output to StreamingResponse and verify incremental delivery to a client." },
           { id: "fastapi-docker", title: "Dockerize a FastAPI application", source: "CampusX", type: "Video", minutes: 20, priority: "core", videoId: "jlLs6hfAga4", url: "https://www.youtube.com/watch?v=jlLs6hfAga4", note: "Write a Dockerfile, build the image, run the container and verify the packaged API before deployment." },
           { id: "fastapi-render-deploy", title: "Deploy FastAPI on Render", source: "Moh Technology", type: "Video", minutes: 11, priority: "core", videoId: "_5N8IPPzJJQ", url: "https://www.youtube.com/watch?v=_5N8IPPzJJQ", note: "Push a FastAPI service from GitHub to Render and configure its production command and environment variables." },
-          { id: "lora-qlora", title: "Fine-tune an LLM with Unsloth", source: "Sunny Savita", type: "Video", minutes: 56, priority: "core", videoId: "2yZUOeIA7gE", url: "https://www.youtube.com/watch?v=2yZUOeIA7gE", note: "Run a low-memory Unsloth fine-tuning workflow, connect it to LoRA/QLoRA and decide when prompting or RAG is cheaper and more appropriate." }
+          { id: "lora-unsloth", title: "One-shot LoRA fine-tuning with Unsloth", source: "Sunny Savita", type: "Video", minutes: 56, priority: "core", videoId: "2yZUOeIA7gE", url: "https://www.youtube.com/watch?v=2yZUOeIA7gE", note: "Fine-tune a small open-source model with LoRA and Unsloth on free Colab, then compare fine-tuning with prompting and RAG." }
         ]
       },
       {
@@ -1346,15 +1343,14 @@
         code: "08",
         title: "Evaluation, observability and security",
         outcome: "Make quality measurable, failures diagnosable and model or tool access safe enough for production use.",
-        topics: ["Success criteria", "Golden datasets", "Deterministic checks", "Human review", "LLM-as-judge", "Continuous evaluation", "Tracing", "Latency", "Tokens and cost", "Prompt caching", "Semantic caching", "Model routing", "Batching", "Prompt injection", "PII", "Least privilege", "Tenant isolation"],
-        checkpoint: "Add a versioned 20-case eval set, deterministic and rubric checks, trace spans, CI regression checks, quality/latency/token/cost reporting, capped retries, fallback and cancellation; then test prompt injection, malicious retrieved text, PII leakage and unauthorized tool access.",
+        topics: ["LangSmith", "Langfuse", "Tracing", "LLM-as-judge", "Continuous evaluation", "RAGAS", "DeepEval", "CI regressions", "OWASP LLM Top 10", "Prompt injection", "PII detection", "Output moderation", "Guardrails AI", "NeMo Guardrails", "Prompt caching", "Semantic caching", "Redis", "Model routing", "Batching", "Streaming perceived latency"],
+        checkpoint: "Add Langfuse or LangSmith tracing, an LLM-as-judge evaluation in CI and basic OWASP-informed guardrails to the agent; then reduce cost or latency with prompt caching, Redis semantic caching, model routing, batching or streaming.",
         resources: [
           { id: "llm-eval-workflow", title: "Complete LLM application evaluation workflow", source: "CampusX", type: "Video", minutes: 17, priority: "core", videoId: "Pv4mkG2K_s8", url: "https://www.youtube.com/watch?v=Pv4mkG2K_s8", note: "Define success, build a representative dataset, run checks, analyze failures, iterate and monitor after release." },
-          { id: "llm-eval-methods", title: "LLM eval methods and LLM-as-judge", source: "CampusX", type: "Video", minutes: 53, priority: "core", videoId: "uQFLY8rQVYA", url: "https://www.youtube.com/watch?v=uQFLY8rQVYA", note: "Compare deterministic, retrieval, human and model-graded evaluation, including rubrics and reference-based versus reference-free checks." },
+          { id: "llm-eval-methods", title: "LLM eval methods and LLM-as-judge", source: "CampusX", type: "Video", minutes: 53, priority: "core", videoId: "uQFLY8rQVYA", url: "https://www.youtube.com/watch?v=uQFLY8rQVYA", note: "Build an LLM-as-judge evaluation and run it continuously in CI to catch regressions." },
           { id: "langfuse-observability", title: "Langfuse tracing and observability", source: "Loop Kaka", type: "Video", minutes: 20, priority: "core", videoId: "pN9sF1KgiAI", url: "https://www.youtube.com/watch?v=pN9sF1KgiAI", note: "Trace model, retrieval and tool spans, inspect failures and monitor latency, token usage and cost." },
-          { id: "llm-caching", title: "LLM caching with Redis and Qdrant", source: "Neural with Mohit", type: "Video", minutes: 20, priority: "core", videoId: "IcF663DYhoQ", url: "https://www.youtube.com/watch?v=IcF663DYhoQ", note: "Use semantic caching to reduce repeated model calls, then reason about cache keys, invalidation, latency, cost and stale answers." },
-          { id: "agent-guardrails", title: "AI agent guardrails: hands-on", source: "Deepak Mittal (AI Engineer)", type: "Video", minutes: 41, priority: "core", videoId: "fhABsI_T31w", url: "https://www.youtube.com/watch?v=fhABsI_T31w", note: "Protect agents from prompt injection, PII leaks, unauthorized tools and unsafe outputs with input, tool, output and human-approval controls." },
-          { id: "rag-guardrails", title: "Guardrails for RAG applications", source: "Yash Jain", type: "Video", minutes: 18, priority: "core", videoId: "-PtntA-4uwM", url: "https://www.youtube.com/watch?v=-PtntA-4uwM", note: "Treat retrieved documents as untrusted data, validate inputs and context, constrain output and test malicious-document cases." }
+          { id: "llm-caching", title: "Semantic caching for LLM applications", source: "Neural with Mohit", type: "Video", minutes: 20, priority: "core", videoId: "IcF663DYhoQ", url: "https://www.youtube.com/watch?v=IcF663DYhoQ", note: "Use Redis-backed semantic caching, then compare it with prompt caching, model routing, batching and streaming for cost and latency." },
+          { id: "agent-guardrails", title: "LLM guardrails and security: hands-on", source: "Deepak Mittal (AI Engineer)", type: "Video", minutes: 41, priority: "core", videoId: "fhABsI_T31w", url: "https://www.youtube.com/watch?v=fhABsI_T31w", note: "Apply OWASP LLM Top 10 awareness, prompt-injection defenses, PII detection and output moderation with Guardrails AI or NeMo Guardrails." }
         ]
       },
       {
@@ -1362,17 +1358,13 @@
         code: "09",
         title: "AI interview and portfolio readiness",
         outcome: "Explain the system, defend its trade-offs and present measured project evidence instead of memorized framework names.",
-        topics: ["Interview structure", "Classical ML awareness", "AI system design", "Functional requirements", "Latency", "Cost", "Scale", "Failure handling", "STAR stories", "Resume metrics", "Architecture README", "Portfolio demo", "Application channels"],
-        checkpoint: "Answer 30 LLM, RAG and agent questions aloud, design a customer-support RAG system and a code-review agent, prepare three STAR stories, and publish one capstone with architecture, setup, evaluation results, latency, token cost, failure handling, trade-offs, known limits and a live demo.",
+        topics: ["Interview stages", "60/25/15 interview split", "Company interview patterns", "Thirty AI questions", "AI system design", "Functional requirements", "Latency", "Cost", "Scale", "Trade-offs", "Behavioural interviews", "STAR stories", "Salary negotiation", "Resume metrics", "GitHub README", "LinkedIn", "Twitter", "Building in public", "Mock interview", "Cold outreach"],
+        checkpoint: "Answer 30 LLM, RAG and agent questions aloud; design a customer-support RAG chatbot and a code-review agent; prepare STAR answers and salary negotiation; then publish one capstone with a live demo, measurable results and a clear GitHub README.",
         resources: [
-          { id: "ai-system-design-interview", title: "AI system design interview questions", source: "AmanAI Lab", type: "Video", minutes: 62, priority: "core", videoId: "ni4JFRIYnOk", url: "https://www.youtube.com/watch?v=ni4JFRIYnOk", note: "Practice requirement clarification, data flow, model and retrieval choices, scaling, evaluation, safety, latency and cost trade-offs." },
-          { id: "resume-ats", title: "Build an ATS-ready technical resume", source: "Rishabh Mishra", type: "Video", minutes: 16, priority: "core", videoId: "ZcuziWFfpQY", url: "https://www.youtube.com/watch?v=ZcuziWFfpQY", note: "Frame project work around what was built, how it was built and a defensible result; keep formatting readable for both recruiters and parsers." },
-          { id: "ai-portfolio", title: "Build a focused AI portfolio", source: "Saumya Singh", type: "Video", minutes: 12, priority: "core", videoId: "qprswOqCtI0", url: "https://www.youtube.com/watch?v=qprswOqCtI0", note: "Present a small number of complete projects with live demos, architecture, source code, measured evaluation and known limitations." },
-          { id: "job-outreach", title: "LinkedIn applications and cold outreach", source: "Rahul Shimpi", type: "Video", minutes: 11, priority: "core", videoId: "NNhWaegP2Ug", url: "https://www.youtube.com/watch?v=NNhWaegP2Ug", note: "Find relevant openings and contacts, personalize concise outreach and track applications instead of sending the same message everywhere." },
-          { id: "ml-types", title: "Supervised, unsupervised and other ML types", source: "CampusX", type: "Video", minutes: 28, priority: "interview", videoId: "81ymPYEtFOw", url: "https://www.youtube.com/watch?v=81ymPYEtFOw", note: "Build only the classical-ML awareness needed to distinguish classification, regression and clustering in interviews." },
-          { id: "ml-data-splits", title: "Training, validation and test data", source: "5 Minutes Engineering", type: "Video", minutes: 6, priority: "interview", videoId: "ezpxpfeHmcU", url: "https://www.youtube.com/watch?v=ezpxpfeHmcU", note: "Explain why fitting, tuning and final evaluation use separate data and how leakage invalidates results." },
-          { id: "ml-bias", title: "Bias-variance, overfitting and underfitting", source: "CampusX", type: "Video", minutes: 9, priority: "interview", videoId: "74DU02Fyrhk", url: "https://www.youtube.com/watch?v=74DU02Fyrhk", note: "Recognize poor generalization and explain the likely data, capacity or regularization response." },
-          { id: "ml-classification-metrics", title: "Confusion matrix and classification metrics", source: "Analytics With Rajat", type: "Video", minutes: 13, priority: "interview", videoId: "QpwKQtc5R20", url: "https://www.youtube.com/watch?v=QpwKQtc5R20", note: "Choose accuracy, precision, recall or F1 from the business cost of false positives and false negatives." }
+          { id: "ai-system-design-interview", title: "AI system design interview questions", source: "AmanAI Lab", type: "Video", minutes: 62, priority: "interview", videoId: "ni4JFRIYnOk", url: "https://www.youtube.com/watch?v=ni4JFRIYnOk", note: "Practice functional and non-functional requirements, data flow, components and trade-offs for RAG chatbots and agent systems." },
+          { id: "resume-ats", title: "Build an ATS-ready technical resume", source: "Rishabh Mishra", type: "Video", minutes: 16, priority: "interview", videoId: "ZcuziWFfpQY", url: "https://www.youtube.com/watch?v=ZcuziWFfpQY", note: "Frame each project as what you built, what you used and the measurable result, then make the GitHub README easy to evaluate." },
+          { id: "ai-portfolio", title: "Build a focused AI portfolio", source: "Saumya Singh", type: "Video", minutes: 12, priority: "interview", videoId: "qprswOqCtI0", url: "https://www.youtube.com/watch?v=qprswOqCtI0", note: "Polish one syllabus capstone as the centerpiece while keeping live demos and measurable evidence for all three projects." },
+          { id: "job-outreach", title: "LinkedIn applications and cold outreach", source: "Rahul Shimpi", type: "Video", minutes: 11, priority: "interview", videoId: "NNhWaegP2Ug", url: "https://www.youtube.com/watch?v=NNhWaegP2Ug", note: "Optimize the profile, build in public, find relevant openings and personalize concise outreach instead of sending one generic message." }
         ]
       }
     ];
@@ -1476,6 +1468,10 @@
       );
     }
 
+    function allowedModulesForDepth() {
+      return modules.filter((module) => module.resources.some(isAllowedByDepth));
+    }
+
     function getNextRouteTask({ respectSearch = true } = {}) {
       const routeResources = allResources.filter(isAllowedByDepth);
       const hasSearch = respectSearch && state.search.trim().length > 0;
@@ -1488,7 +1484,7 @@
         return resource ? { type: "video", resource, moduleId: resource.moduleId } : null;
       }
 
-      for (const module of modules) {
+      for (const module of allowedModulesForDepth()) {
         const resource = module.resources.find((item) => isAllowedByDepth(item) && !completed.has(item.id));
         if (resource) return { type: "video", resource: { ...resource, moduleId: module.id }, moduleId: module.id };
         if (!completedCheckpoints.has(module.id)) return { type: "checkpoint", moduleId: module.id };
@@ -1520,7 +1516,7 @@
         <div class="resource-copy">
           <div class="resource-meta">
             <span class="lesson-order">Lesson ${String(order).padStart(2, "0")}/${routeTotal}</span>
-            <span class="priority-badge ${resource.priority}">${resource.priority === "core" ? "Essential" : "Interview depth"}</span>
+            <span class="priority-badge ${resource.priority}">${resource.priority === "core" ? "Main course" : "Bonus week"}</span>
             <span>${escapeHtml(resource.source)}</span>
             <span>${formatMinutes(resource.minutes)}</span>
           </div>
@@ -1543,6 +1539,7 @@
       const html = modules.map((module, moduleIndex) => {
         const visibleResources = visibleResourcesFor(module);
         const allowedResources = module.resources.filter(isAllowedByDepth);
+        if (!allowedResources.length) return "";
         const doneCount = allowedResources.filter((resource) => completed.has(resource.id)).length;
         const checkpointDone = completedCheckpoints.has(module.id);
         const checkpointUnlocked = doneCount === allowedResources.length;
@@ -1593,23 +1590,26 @@
 
     function renderPhases() {
       const routeResources = allResources.filter(isAllowedByDepth);
+      const routeModules = allowedModulesForDepth();
+      const routeModuleIds = new Set(routeModules.map((module) => module.id));
       const nextTask = getNextRouteTask({ respectSearch: false });
       const currentModuleId = nextTask?.moduleId;
 
-      phaseTrack.innerHTML = phases.map((phase) => {
-        const resources = routeResources.filter((resource) => phase.moduleIds.includes(resource.moduleId));
+      phaseTrack.innerHTML = phases.filter((phase) => phase.moduleIds.some((moduleId) => routeModuleIds.has(moduleId))).map((phase) => {
+        const activeModuleIds = phase.moduleIds.filter((moduleId) => routeModuleIds.has(moduleId));
+        const resources = routeResources.filter((resource) => activeModuleIds.includes(resource.moduleId));
         const done = resources.filter((resource) => completed.has(resource.id)).length;
-        const doneGates = phase.moduleIds.filter((moduleId) => completedCheckpoints.has(moduleId)).length;
-        const isComplete = resources.length > 0 && done === resources.length && doneGates === phase.moduleIds.length;
-        const isCurrent = !isComplete && phase.moduleIds.includes(currentModuleId);
-        const targetModuleId = phase.moduleIds.find((moduleId) => {
+        const doneGates = activeModuleIds.filter((moduleId) => completedCheckpoints.has(moduleId)).length;
+        const isComplete = resources.length > 0 && done === resources.length && doneGates === activeModuleIds.length;
+        const isCurrent = !isComplete && activeModuleIds.includes(currentModuleId);
+        const targetModuleId = activeModuleIds.find((moduleId) => {
           const hasIncompleteLesson = routeResources.some((resource) => resource.moduleId === moduleId && !completed.has(resource.id));
           return hasIncompleteLesson || !completedCheckpoints.has(moduleId);
-        }) || phase.moduleIds[0];
+        }) || activeModuleIds[0];
         return `<button class="phase-step${isComplete ? " complete" : ""}${isCurrent ? " current" : ""}" type="button" data-module-target="${targetModuleId}"${isCurrent ? ' aria-current="step"' : ""}>
           <span class="phase-number">${phase.number}</span>
           <span class="phase-copy"><strong>${escapeHtml(phase.title)}</strong><span>${escapeHtml(phase.detail)}</span></span>
-          <span class="phase-count" title="Lessons and module checkpoints">L ${done}/${resources.length} / G ${doneGates}/${phase.moduleIds.length}</span>
+          <span class="phase-count" title="Lessons and module checkpoints">L ${done}/${resources.length} / G ${doneGates}/${activeModuleIds.length}</span>
         </button>`;
       }).join("");
 
@@ -1623,7 +1623,8 @@
     }
 
     function renderNavigation() {
-      const navHtml = modules.map((module) => {
+      const routeModules = allowedModulesForDepth();
+      const navHtml = routeModules.map((module) => {
         const allowed = module.resources.filter(isAllowedByDepth);
         const done = allowed.filter((resource) => completed.has(resource.id)).length;
         return `<button class="module-link" type="button" data-module-target="${module.id}">
@@ -1634,7 +1635,7 @@
       }).join("");
       moduleNav.innerHTML = `<div class="nav-label">Coverage modules</div>${navHtml}`;
 
-      mobileModuleNav.innerHTML = modules.map((module) =>
+      mobileModuleNav.innerHTML = routeModules.map((module) =>
         `<button class="mobile-module-button" type="button" data-module-target="${module.id}">${module.code} ${escapeHtml(module.title)}</button>`
       ).join("");
 
@@ -1645,9 +1646,12 @@
 
     function renderProgress() {
       const allowedResources = allResources.filter(isAllowedByDepth);
+      const routeModules = allowedModulesForDepth();
+      const routeModuleIds = new Set(routeModules.map((module) => module.id));
       const doneResources = allowedResources.filter((resource) => completed.has(resource.id));
-      const doneCount = doneResources.length + completedCheckpoints.size;
-      const taskCount = allowedResources.length + modules.length;
+      const doneCheckpoints = [...completedCheckpoints].filter((moduleId) => routeModuleIds.has(moduleId)).length;
+      const doneCount = doneResources.length + doneCheckpoints;
+      const taskCount = allowedResources.length + routeModules.length;
       const percentage = taskCount ? Math.round((doneCount / taskCount) * 100) : 0;
       const totalMinutes = allowedResources.reduce((total, resource) => total + resource.minutes, 0);
       const doneMinutes = doneResources.reduce((total, resource) => total + resource.minutes, 0);
