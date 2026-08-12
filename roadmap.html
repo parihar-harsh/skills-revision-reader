@@ -379,6 +379,30 @@
       background: var(--surface-muted);
     }
 
+    .role-control {
+      display: flex;
+      flex: none;
+      width: 178px;
+      height: 40px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-muted);
+    }
+
+    .role-select {
+      width: 100%;
+      min-width: 0;
+      padding: 0 30px 0 10px;
+      border: 0;
+      outline: 0;
+      background: var(--surface-muted);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
     .filter-button {
       min-width: 88px;
       padding: 0 10px;
@@ -575,6 +599,44 @@
       border: 1px solid var(--border);
       border-radius: 6px;
       background: var(--surface);
+    }
+
+    .role-context {
+      display: grid;
+      grid-template-columns: 178px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      margin-top: 16px;
+      padding: 11px 14px;
+      border-left: 3px solid var(--teal);
+      background: var(--surface);
+    }
+
+    .role-context-heading {
+      display: grid;
+      gap: 1px;
+    }
+
+    .role-context-label {
+      color: var(--teal);
+      font-size: 9px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .role-context-heading strong { font-size: 12px; }
+
+    .role-context p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .role-context-meta {
+      color: var(--teal);
+      font-size: 10px;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
     .summary-item {
@@ -1016,6 +1078,7 @@
 
     @media (max-width: 1040px) {
       .app-shell { grid-template-columns: 238px minmax(0, 1fr); }
+      .role-control { width: 156px; }
       .filter-button { min-width: 68px; }
       .resource-card { min-height: 142px; }
     }
@@ -1046,6 +1109,7 @@
       .module-section { scroll-margin-top: calc(var(--toolbar-height) + var(--mobile-nav-height) + 12px); }
       .overview { grid-template-columns: 1fr; gap: 16px; }
       .next-panel { grid-template-columns: minmax(0, 1fr) auto; padding-left: 14px; }
+      .role-control { width: 178px; }
     }
 
     @media (max-width: 600px) {
@@ -1055,6 +1119,8 @@
       .mobile-page-link { min-width: 70px; padding: 0 7px; }
       .theme-button { width: 50px; min-width: 50px; }
       .overview h2 { font-size: 25px; }
+      .role-context { grid-template-columns: 1fr; gap: 4px; }
+      .role-context-meta { white-space: normal; }
       .summary-strip { grid-template-columns: 1fr 1fr; }
       .summary-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--border); }
       .summary-item:nth-child(4) { border-top: 1px solid var(--border); }
@@ -1135,6 +1201,16 @@
           <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
         </div>
         <div class="toolbar-options" aria-label="Roadmap controls">
+          <label class="role-control">
+            <span class="sr-only">Filter roadmap by target position</span>
+            <select id="role-filter" class="role-select" aria-label="Filter roadmap by target position">
+              <option value="all">Complete route</option>
+              <option value="ai-engineer">AI Engineer</option>
+              <option value="genai-engineer">GenAI Engineer</option>
+              <option value="llmops-engineer">LLMOps Engineer</option>
+              <option value="agentic-ai-engineer">Agentic AI Engineer</option>
+            </select>
+          </label>
           <div class="filter-control" aria-label="Roadmap depth">
             <button class="filter-button" type="button" data-filter="core" aria-pressed="false">Fast track</button>
             <button class="filter-button" type="button" data-filter="interview" aria-pressed="true">Full coverage</button>
@@ -1151,7 +1227,7 @@
           <div>
             <p class="eyebrow">Hindi/Hinglish fresher video route</p>
             <h2>AI / GenAI Engineer route</h2>
-            <p class="overview-copy">Starts from zero Python and AI, then builds on your existing programming, full-stack, database, cloud and DevOps skills.</p>
+            <p class="overview-copy">Starts from zero Python and AI, then builds toward AI, GenAI and agentic application work with an LLMOps production foundation.</p>
           </div>
           <div id="next-panel" class="next-panel">
             <div class="next-copy">
@@ -1165,6 +1241,15 @@
             </div>
           </div>
         </header>
+
+        <section class="role-context" aria-live="polite" aria-atomic="true">
+          <div class="role-context-heading">
+            <span class="role-context-label">Role focus</span>
+            <strong id="role-context-title">Complete route</strong>
+          </div>
+          <p id="role-context-copy">All shared foundations and specialization lessons for the four target role families.</p>
+          <span id="role-context-meta" class="role-context-meta">70 lessons</span>
+        </section>
 
         <section class="summary-strip" aria-label="Roadmap summary">
           <div class="summary-item"><span id="summary-progress" class="summary-value">0%</span><span class="summary-label">completed</span></div>
@@ -1186,7 +1271,7 @@
 
         <aside class="scope-note">
           <strong>Scope</strong>
-          <span>Assumes your existing DSA/OOP, JavaScript/TypeScript, React/Next.js, Node/Express/REST API, SQL/NoSQL, AWS/Cloudflare, Docker/Kubernetes and Git skills, but no Python or AI knowledge. CampusX is the primary source; Krish Naik and focused specialists fill lessons where they provide missing or substantially more concise coverage. Lessons are mostly Hindi/Hinglish, with a labeled English fallback only where needed. Fast track keeps application essentials, while Full coverage adds optional interview depth. Research, data science, computer vision, foundation-model training and advanced MLOps are intentionally excluded.</span>
+          <span>Assumes your existing DSA/OOP, JavaScript/TypeScript, React/Next.js, Node/Express/REST API, SQL/NoSQL, AWS/Cloudflare, Docker/Kubernetes and Git skills, but no Python or AI knowledge. CampusX is the primary source; Krish Naik and focused specialists fill lessons where their verified content is more complete or directly relevant. Content sufficiency is the first selection rule; runtime matters only between equally complete lessons. Short videos remain only for narrow, self-contained concepts. Lessons are mostly Hindi/Hinglish, with labeled English fallbacks where needed. Fast track covers application essentials, while Full coverage adds interview depth and LLMOps infrastructure. Research, data science, computer vision, foundation-model training, GPU-kernel work and deep platform administration are intentionally excluded.</span>
         </aside>
 
         <footer class="page-footer">Progress, filters and theme stay in this browser. No account or database is used. Every resource opens a direct YouTube video.</footer>
@@ -1213,10 +1298,10 @@
           { id: "python-exceptions", title: "Exception handling: selected 28 minutes", source: "CampusX", type: "Video", minutes: 28, priority: "core", videoId: "rvKR6tciJ2Q", url: "https://www.youtube.com/watch?v=rvKR6tciJ2Q", note: "Watch 23:50-51:24 for try/except, multiple and specific exceptions, else and finally. Earlier error taxonomy and later custom-exception depth are optional." },
           { id: "python-typing", title: "Python type hints", source: "Learn Code With Durgesh", type: "Video", minutes: 18, priority: "core", videoId: "T-iih8-Of0M", url: "https://www.youtube.com/watch?v=T-iih8-Of0M", note: "Use annotations for functions and collections, then connect typing to Pydantic validation and FastAPI schemas." },
           { id: "python-venv", title: "Python virtual environments", source: "Krish Naik", type: "Video", minutes: 9, priority: "core", videoId: "bf7pCxj6mEg", url: "https://www.youtube.com/watch?v=bf7pCxj6mEg", note: "Compare venv, virtualenv and Conda, then isolate dependencies so each Python service has a reproducible environment." },
-          { id: "python-asyncio", title: "Python AsyncIO and async/await", source: "CodeWithHarry", type: "Video", minutes: 11, priority: "core", videoId: "lgoB3_-ejnI", url: "https://www.youtube.com/watch?v=lgoB3_-ejnI", note: "Understand coroutines, the event loop and I/O concurrency; async does not make CPU-heavy work parallel." },
+          { id: "python-asyncio", title: "Python AsyncIO, coroutines and tasks: selected 16 minutes", source: "Tech With Tim (English fallback)", type: "Video", minutes: 16, priority: "core", videoId: "Qb9s3UiMSTA", url: "https://www.youtube.com/watch?v=Qb9s3UiMSTA", note: "Watch 0:00-2:47 and 3:29-16:50. Learn when AsyncIO fits I/O-bound waiting, how the event loop cooperatively schedules coroutines, why sequential awaits remain sequential, and how create_task, gather and TaskGroup add concurrency. Skip the promotion. AsyncIO does not run Python CPU work on multiple cores, and blocking calls inside async code still block the event loop." },
           { id: "python-pytest", title: "pytest foundations: selected 30 minutes", source: "Tech With Tim (English fallback)", type: "Video", minutes: 30, priority: "core", videoId: "EgpLj86ZHFQ", url: "https://www.youtube.com/watch?v=EgpLj86ZHFQ", note: "Watch 0:00-30:24 for test discovery, assertions, unit-test boundaries, fixtures, setup and teardown, parameterization and mocks. Stop before the API-test example because Module 07 applies pytest to FastAPI." },
           { id: "python-numpy", title: "NumPy arrays for AI applications", source: "Krish Naik Hindi", type: "Video", minutes: 26, priority: "core", videoId: "OISfc1it7lc", url: "https://www.youtube.com/watch?v=OISfc1it7lc", note: "Practice multidimensional arrays, dimensions, shapes, indexing, broadcasting and array operations needed to understand embeddings and similarity calculations." },
-          { id: "python-pandas", title: "Pandas essentials: selected 38 minutes", source: "Datascience ki Baatein", type: "Video", minutes: 38, priority: "core", videoId: "NyvxNTV3Ag4", url: "https://www.youtube.com/watch?v=NyvxNTV3Ag4", note: "Required segments from the 70-minute video: 0:00-32:19 for DataFrames, CSV/JSON, filtering and missing values; 37:32-40:30 for GroupBy; 66:10-68:48 for export. Skip advanced analytics chapters." }
+          { id: "python-pandas", title: "Pandas essentials: selected 38 minutes", source: "Datascience ki Baatein", type: "Video", minutes: 38, priority: "core", videoId: "NyvxNTV3Ag4", url: "https://www.youtube.com/watch?v=NyvxNTV3Ag4", note: "Required segments from the 70-minute video: 0:00-32:19 for DataFrames, CSV/JSON, filtering and missing values; 37:32-40:30 for GroupBy; 66:10-68:48 for export. Skip advanced analytics chapters. In the checkpoint, also use duplicated() to inspect repeated rows and drop_duplicates() only after deciding which columns define a duplicate." }
         ]
       },
       {
@@ -1226,9 +1311,14 @@
         outcome: "Learn the minimum AI and ML concepts, then train and evaluate one classical model without taking a data-science detour.",
         topics: ["AI vs ML vs DL vs GenAI", "Supervised and unsupervised learning", "Classification and regression", "Training vs inference", "Train, validation and test data", "Generalization", "Data leakage", "Overfitting", "Bias and variance", "Confusion matrix", "Accuracy, precision, recall and F1", "scikit-learn", "fit and predict"],
         checkpoint: "Given three product problems, choose a rule, classical ML model or LLM API and explain why. Then train one leakage-safe scikit-learn classifier, evaluate it on unseen data, and select accuracy, precision, recall or F1 from the cost of false positives and false negatives.",
+        roleCheckpoints: {
+          "genai-engineer": "Given three product problems, choose a rule, classical ML model or LLM API and explain why. Identify leakage, overfitting and the correct data split, then select accuracy, precision, recall or F1 from false-positive and false-negative costs. Classical model implementation is not required in this role focus.",
+          "llmops-engineer": "Explain the AI, ML and GenAI lifecycle; separate training, validation and test data; identify leakage, overfitting and drift; and choose accuracy, precision, recall or F1 from operational failure costs. Classical model implementation is not required in this role focus.",
+          "agentic-ai-engineer": "Explain how rules, classical ML and LLM systems differ, then choose a suitable metric from false-positive and false-negative costs. Connect data splits and generalization to honest agent evaluation; classical model implementation is not required in this role focus."
+        },
         resources: [
           { id: "ai-to-llms", title: "AI vs ML vs deep learning vs generative AI", source: "Krish Naik", type: "Video", minutes: 16, priority: "core", videoId: "X7Zd4VyUgL0", url: "https://www.youtube.com/watch?v=X7Zd4VyUgL0", note: "Build the hierarchy from AI to ML, deep learning and generative AI, including how learned patterns differ from generated text, images and other outputs." },
-          { id: "ml-types", title: "Supervised, unsupervised and other ML types", source: "CampusX", type: "Video", minutes: 28, priority: "core", videoId: "81ymPYEtFOw", url: "https://www.youtube.com/watch?v=81ymPYEtFOw", note: "Distinguish classification, regression, clustering, dimensionality reduction, semi-supervised learning and reinforcement learning at a practical level." },
+          { id: "ml-types", title: "Supervised, unsupervised and semi-supervised ML", source: "CampusX", type: "Video", minutes: 28, priority: "core", videoId: "81ymPYEtFOw", url: "https://www.youtube.com/watch?v=81ymPYEtFOw", note: "Distinguish classification, regression, clustering, dimensionality reduction and semi-supervised learning at a practical level. Reinforcement learning is named briefly but is not taught here and is not required for this application-engineering route." },
           { id: "ml-data-splits", title: "Training, validation and test data", source: "Krish Naik Hindi", type: "Video", minutes: 15, priority: "core", videoId: "XCYlRBf18YI", url: "https://www.youtube.com/watch?v=XCYlRBf18YI", note: "Separate parameter fitting, hyperparameter tuning and final assessment so the test set remains an honest measure of unseen performance." },
           { id: "ml-bias", title: "Bias-variance, overfitting and underfitting", source: "CampusX", type: "Video", minutes: 9, priority: "core", videoId: "74DU02Fyrhk", url: "https://www.youtube.com/watch?v=74DU02Fyrhk", note: "Recognize poor generalization and explain whether data, model capacity or regularization is the likely fix." },
           { id: "ml-classification-metrics", title: "Classification metrics and confusion matrix", source: "CampusX", type: "Video", minutes: 15, priority: "core", videoId: "eK-mHaZOV08", url: "https://www.youtube.com/watch?v=eK-mHaZOV08", note: "Derive accuracy, precision, recall and F1 from the confusion matrix, then choose a metric from class balance and the cost of false positives versus false negatives instead of defaulting to accuracy." },
@@ -1239,16 +1329,18 @@
         id: "llm-foundations",
         code: "03",
         title: "LLM and transformer fundamentals",
-        outcome: "Explain how a base model becomes an assistant and how a decoder-only LLM turns text into token IDs, processes context and samples output one token at a time.",
-        topics: ["Pretraining", "Base models", "Supervised fine-tuning", "Preference alignment", "RLHF", "Tokenization", "Token IDs", "Context window", "Token embeddings", "Positional information", "Decoder-only transformer", "Self-attention", "Queries, keys and values", "Causal masking", "Logits", "Next-token prediction", "Temperature", "Top-p and top-k"],
-        checkpoint: "Explain the handoff from pretraining to supervised post-training and preference alignment. Then trace text through tokenizer, token IDs, context budget, token embeddings and transformer blocks to next-token logits and decoding. Distinguish lower randomness from factual accuracy and internal token embeddings from retrieval embeddings. In Full coverage, also trace queries, keys, values, causal masking and multi-head attention.",
+        outcome: "Explain how a base model becomes an assistant, distinguish the three transformer families, and trace how a decoder-only LLM generates text one token at a time.",
+        topics: ["Pretraining", "Base models", "Supervised fine-tuning", "Preference alignment", "RLHF", "Encoder-only models", "Decoder-only models", "Encoder-decoder models", "Tokenization", "Token IDs", "Context window", "Token embeddings", "Positional information", "Self-attention", "Queries, keys and values", "Causal masking", "Logits", "Next-token prediction", "Temperature", "Top-p and top-k"],
+        checkpoint: "Explain the handoff from pretraining to supervised post-training and preference alignment. Match encoder-only models to representation tasks, decoder-only models to generation and encoder-decoder models to sequence-to-sequence tasks. Then trace text through tokenizer, token IDs, context budget, token and positional representations, transformer blocks, next-token logits and decoding. Distinguish lower randomness from factual accuracy and internal token embeddings from retrieval embeddings. In Full coverage, also trace queries, keys, values, causal masking and multi-head attention.",
         resources: [
+          { id: "llm-training-lifecycle", title: "How base models become assistants: selected 18 minutes", source: "Andrej Karpathy (English fallback)", type: "Video", minutes: 18, priority: "core", videoId: "7xTGNNLPyMI", url: "https://www.youtube.com/watch?v=7xTGNNLPyMI", note: "Watch 59:23-1:05:23, 2:07:28-2:10:28 and 2:48:26-2:57:26. Connect internet-scale pretraining to a base model, supervised conversation fine-tuning, human preference data, reward modeling and RLHF without entering model-training mathematics. RLHF is one alignment method, not a mandatory stage for every modern model; alternatives such as direct preference optimization also exist." },
+          { id: "transformer-families", title: "Encoder, decoder and encoder-decoder transformers", source: "Hugging Face (English fallback)", type: "Video", minutes: 3, priority: "core", videoId: "H39Z_720T5s", url: "https://www.youtube.com/watch?v=H39Z_720T5s", note: "Compare bidirectional encoder representations, causally masked autoregressive decoders and encoder-decoder sequence-to-sequence models. Use this family map before studying the decoder-only generation path in depth." },
           { id: "llm-tokens", title: "Tokens, token IDs and tokenizer-specific cost", source: "Matt Pocock (English fallback)", type: "Video", minutes: 11, priority: "core", videoId: "nKSk_TiR8YA", url: "https://www.youtube.com/watch?v=nKSk_TiR8YA", note: "Learn the difference between text, tokens and numeric token IDs; see why splits and token counts depend on the model's tokenizer instead of following one universal word-to-token rule." },
           { id: "llm-context", title: "Context windows and their limits: selected 6 minutes", source: "IBM Technology (English fallback)", type: "Video", minutes: 6, priority: "core", videoId: "-QVoIxEpFkM", url: "https://www.youtube.com/watch?v=-QVoIxEpFkM", note: "Watch 0:00-2:49 and 9:02-11:30. Treat the context window as the model/provider's bounded token budget for the active interaction, check the exact input-output contract for the API you use, and do not assume that fitting more text guarantees reliable recall. Skip the repeated tokenization and self-attention chapters." },
+          { id: "transformer-flow", title: "Decoder-only transformer data flow: selected 14 minutes", source: "3Blue1Brown (English fallback)", type: "Video", minutes: 14, priority: "core", videoId: "wjZofJX0v4M", url: "https://www.youtube.com/watch?v=wjZofJX0v4M", note: "Watch 3:03-6:36 and 12:27-22:22. Trace token and positional representations through repeated attention and MLP blocks to contextual representations, unembedding and logits. Skip the general neural-network recap and later sampling overlap." },
+          { id: "transformer-position", title: "Why transformers need positional information: selected 4 minutes", source: "AI Coffee Break (English fallback)", type: "Video", minutes: 4, priority: "core", videoId: "1biZfFLPRSY", url: "https://www.youtube.com/watch?v=1biZfFLPRSY", note: "Watch 0:00-3:39. Self-attention alone does not preserve token order, so position information must be combined with token representations. Stop before the trigonometric construction, which is unnecessary for an application engineer." },
           { id: "llm-sampling", title: "Next-token decoding: selected 8 minutes", source: "AI Coffee Break (English fallback)", type: "Video", minutes: 8, priority: "core", videoId: "o-_SZ_itxeA", url: "https://www.youtube.com/watch?v=o-_SZ_itxeA", note: "Watch 0:57-8:11 for greedy decoding, random sampling, top-k, top-p and temperature. These settings reshape or filter the next-token distribution; a lower temperature reduces randomness but does not make an answer factually correct. Stop before min-p, penalties and beam search." },
-          { id: "llm-training-lifecycle", title: "How base models become assistants: selected 18 minutes", source: "Andrej Karpathy (English fallback)", type: "Video", minutes: 18, priority: "core", videoId: "7xTGNNLPyMI", url: "https://www.youtube.com/watch?v=7xTGNNLPyMI", note: "Watch 59:23-1:05:23, 2:07:28-2:10:28 and 2:48:26-2:57:26. Connect internet-scale pretraining to a base model, supervised conversation fine-tuning, human preference data, reward modeling and RLHF without entering model-training mathematics." },
-          { id: "transformer-flow", title: "Decoder-only transformer data flow: selected 14 minutes", source: "3Blue1Brown (English fallback)", type: "Video", minutes: 14, priority: "interview", videoId: "wjZofJX0v4M", url: "https://www.youtube.com/watch?v=wjZofJX0v4M", note: "Watch 3:03-6:36 and 12:27-22:22. Trace token embeddings and positional information through repeated attention and MLP blocks to contextual representations, unembedding and logits. Skip the general neural-network recap and later sampling overlap." },
-          { id: "transformer-attention", title: "Queries, keys, values and causal attention: selected 23 minutes", source: "3Blue1Brown (English fallback)", type: "Video", minutes: 23, priority: "interview", videoId: "eMlx5fFNoYc", url: "https://www.youtube.com/watch?v=eMlx5fFNoYc", note: "Watch 1:39-24:54 for the motivation behind attention, query-key similarity, value updates, scaled dot-product attention, causal masking and multiple attention heads. Detailed training mathematics and implementation remain outside this application-engineering route." }
+          { id: "transformer-attention", title: "Queries, keys, values and causal attention: selected 18 minutes", source: "3Blue1Brown (English fallback)", type: "Video", minutes: 18, priority: "interview", videoId: "eMlx5fFNoYc", url: "https://www.youtube.com/watch?v=eMlx5fFNoYc", note: "Watch 1:39-15:44 and 19:19-23:19 for attention motivation, query-key similarity, value updates, scaled dot-product attention, causal masking, multiple heads and the output projection. Skip parameter counting, cross-attention and detailed training mathematics." }
         ]
       },
       {
@@ -1256,8 +1348,8 @@
         code: "04",
         title: "Model APIs and LangChain",
         outcome: "Build reliable model calls directly first, then use a framework only where it removes real orchestration work.",
-        topics: ["Provider SDKs", "Messages and roles", "Conversation state", "Prompt structure", "Zero-shot and few-shot", "Constraints and delimiters", "Prompt templates", "Prompt versioning", "Streaming", "Structured output", "Pydantic", "Tool calling", "Timeouts", "Retries", "Rate limits", "LangChain", "Hugging Face", "Open versus hosted models", "Quantization", "LoRA and QLoRA"],
-        checkpoint: "Create a raw Python model client with versioned prompts, zero-shot and few-shot variants, environment-based secrets, timeout, capped backoff for transient 429/5xx errors, streaming, schema validation and one complete tool-call loop; compare the prompt variants on a fixed test set, then rebuild only useful orchestration with LangChain.",
+        topics: ["Provider SDKs", "Messages and roles", "Conversation state", "Prompt structure", "Zero-shot and few-shot", "Constraints and delimiters", "Prompt templates", "Prompt versioning", "Streaming", "Structured output", "Pydantic", "Tool calling", "LangChain", "Hugging Face", "Open versus hosted models", "Quantization", "LoRA and QLoRA"],
+        checkpoint: "Create a raw Python model client with versioned prompts, zero-shot and few-shot variants, environment-based secrets, streaming, schema validation and one complete allowlisted tool-call loop; compare the prompt variants on a fixed test set, then rebuild only useful orchestration with LangChain. Production retries, timeouts and fallbacks are added after Module 08 rather than hidden inside the first API exercise.",
         resources: [
           { id: "model-api-python", title: "Responses API foundations in Python", source: "Lectiq AI (English fallback)", type: "Video", minutes: 6, priority: "core", videoId: "8dL2P_QiAt4", url: "https://www.youtube.com/watch?v=8dL2P_QiAt4", note: "Build six direct-SDK patterns before using a framework: environment-based secrets, a minimal Responses API call, messages and roles, streamed events, conversation continuation, Pydantic structured output and a complete allowlisted function-call loop. Use a currently available model ID from official provider documentation." },
           { id: "prompt-engineering", title: "Prompt engineering for application builders: selected 19 minutes", source: "Hello World", type: "Video", minutes: 19, priority: "core", videoId: "VcJnHtn8ohA", url: "https://www.youtube.com/watch?v=VcJnHtn8ohA", note: "Watch 0:43-8:41, 10:49-12:15, 14:46-18:01, 20:49-22:01 and 24:30-29:49 for role, task, context, constraints, format, few-shot examples and structured extraction. Skip hidden-chain-of-thought advice, copied prompt lists and project promotion." },
@@ -1281,7 +1373,7 @@
           { id: "rag-retrievers", title: "Retrievers, MMR, multi-query and compression: selected 40 minutes", source: "CampusX", type: "Video", minutes: 40, priority: "core", videoId: "pJdMxwXBsk0", url: "https://www.youtube.com/watch?v=pJdMxwXBsk0", note: "Watch 2:01-9:55 and 15:50-47:54 for retriever types, vector retrieval, MMR, multi-query and contextual compression. Skip the RAG recap and Wikipedia demo; compare methods by relevance, diversity, recall, latency and token cost." },
           { id: "rag-ragas", title: "Evaluate RAG at three system levels", source: "CampusX", type: "Video", minutes: 46, priority: "core", videoId: "4zn-gSckVTQ", url: "https://www.youtube.com/watch?v=4zn-gSckVTQ", note: "Build a three-level evaluation suite: test retriever and generator components, the connected RAG pipeline and end-user application behavior. Cover context precision and recall, faithfulness, relevance, citation accuracy, safety, latency, regression baselines and CI release gates using DeepEval." },
           { id: "rag-hybrid-rrf", title: "Hybrid search with BM25, vectors and RRF", source: "Yash Jain", type: "Video", minutes: 17, priority: "core", videoId: "F5TlaHXNAaI", url: "https://www.youtube.com/watch?v=F5TlaHXNAaI", note: "Retrieve a wider candidate list independently with BM25 and vector similarity, convert each rank to a reciprocal-rank contribution, sum contributions per document, deduplicate and keep the final top-k. RRF combines ranks, not incompatible raw BM25 and cosine scores." },
-          { id: "rag-reranking", title: "Query transformation and two-stage retrieval", source: "Understanding AIML", type: "Video", minutes: 8, priority: "core", videoId: "jxgdw6ztnwg", url: "https://www.youtube.com/watch?v=jxgdw6ztnwg", note: "Apply query rewriting, HyDE and multi-query expansion to close the formulation gap, then use a cross-encoder to rerank the wider first-stage candidate set." }
+          { id: "rag-reranking", title: "HyDE, multi-query expansion and reranking", source: "Understanding AIML", type: "Video", minutes: 8, priority: "core", videoId: "jxgdw6ztnwg", url: "https://www.youtube.com/watch?v=jxgdw6ztnwg", note: "Use HyDE or structured multi-query expansion to close the formulation gap, then apply a cross-encoder to rerank the wider first-stage candidate set. This lesson does not teach plain query rewriting; the CRAG lesson in Full coverage demonstrates rewriting when retrieved evidence is weak." }
         ]
       },
       {
@@ -1291,10 +1383,13 @@
         outcome: "Build controlled tool-using workflows, then understand how corrective retrieval can recover from weak evidence without turning every task into an agent.",
         topics: ["Workflow versus agent", "Agent loop", "Tools", "State", "Nodes and edges", "Conditional routing", "Memory", "Persistence", "Checkpoints", "Stop conditions", "Human approval", "Corrective RAG", "Retrieval evaluation", "Answer verification", "MCP"],
         checkpoint: "Implement a bounded graph with explicit state, validated and allowlisted tool arguments, timeout and maximum-step limits, clean termination, idempotent side effects and tool-failure handling. In Full coverage, persist thread state, pause a consequential action for approval, and add a retrieval evaluator that can refine, rewrite or use a controlled fallback when evidence is weak.",
+        roleCheckpoints: {
+          "llmops-engineer": "Package and operate a bounded LangGraph workflow with explicit state, validated tools, timeouts, maximum-step limits, clean termination, idempotent side effects and tool-failure handling. Persist thread state, trace every node and tool call, and verify that a failed run can resume without repeating a consequential side effect."
+        },
         resources: [
           { id: "agent-vs-genai", title: "Tool workflows versus agents: selected 23 minutes", source: "CampusX", type: "Video", minutes: 23, priority: "core", videoId: "xdA0pGDiUPE", url: "https://www.youtube.com/watch?v=xdA0pGDiUPE", note: "Watch 40:13-62:44 to compare a deterministic tool-augmented workflow with a goal-driven agent and their limitations. Skip the GenAI, plain-chatbot and RAG sections already covered in Modules 02 and 05." },
           { id: "langgraph-core", title: "LangGraph core concepts", source: "CampusX", type: "Video", minutes: 51, priority: "core", videoId: "D5KhiCDM9XQ", url: "https://www.youtube.com/watch?v=D5KhiCDM9XQ", note: "Learn state, reducers, nodes, edges, routing, parallel branches and the graph execution model." },
-          { id: "langgraph-tools", title: "Tools and ToolNode in LangGraph", source: "CampusX", type: "Video", minutes: 34, priority: "core", videoId: "_UuUigoM9MA", url: "https://www.youtube.com/watch?v=_UuUigoM9MA", note: "Connect model-generated tool calls to application execution and route tool results back into graph state." },
+          { id: "langgraph-tools", title: "Tools and ToolNode in LangGraph", source: "CampusX", type: "Video", minutes: 34, priority: "core", videoId: "_UuUigoM9MA", url: "https://www.youtube.com/watch?v=_UuUigoM9MA", note: "Connect model-generated tool calls to application execution and route tool results back into graph state. For the checkpoint, also validate tool arguments, allowlist operations, cap graph steps, apply per-tool timeouts and make side effects idempotent; the video teaches execution mechanics, not all production controls." },
           { id: "advanced-rag-crag", title: "Corrective RAG (CRAG): selected 47 minutes", source: "CampusX", type: "Video", minutes: 47, priority: "interview", videoId: "41XDn81nR5c", url: "https://www.youtube.com/watch?v=41XDn81nR5c", note: "Watch 0:00-23:02 and 51:29-1:15:09. Grade retrieved evidence, refine useful knowledge, and route incorrect or ambiguous retrieval toward query rewriting and a controlled web fallback. Skip repetitive middle implementation detail." },
           { id: "langgraph-persistence", title: "Persistence, checkpoints and human review: selected 48 minutes", source: "CampusX", type: "Video", minutes: 48, priority: "interview", videoId: "_IPP7_Bi8uA", url: "https://www.youtube.com/watch?v=_IPP7_Bi8uA", note: "Watch 0:00-47:36 for checkpointers, thread state, resume behavior, fault tolerance and human-in-the-loop pauses. Skip time-travel debugging, which is useful but not required for an entry-level application route." },
           { id: "mcp-architecture", title: "MCP architecture: selected 49 minutes", source: "CampusX", type: "Video", minutes: 49, priority: "interview", videoId: "nQa31xdXbGk", url: "https://www.youtube.com/watch?v=nQa31xdXbGk", note: "Watch 2:00-27:20 and 53:23-1:17:09 for host, client, server, tools, resources, prompts and local versus remote transports. Skip JSON-RPC wire-level detail; MCP standardizes integration, not agent reasoning." }
@@ -1311,10 +1406,12 @@
           { id: "fastapi-crash", title: "FastAPI setup and first route: selected 11 minutes", source: "CampusX", type: "Video", minutes: 11, priority: "core", videoId: "lXx-_1r0Uss", url: "https://www.youtube.com/watch?v=lXx-_1r0Uss", note: "Watch 31:53-42:06 to create a virtual environment, install FastAPI and Uvicorn, define the application and first route, then run the development server." },
           { id: "fastapi-request-models", title: "Request models and validation: selected 29 minutes", source: "CampusX", type: "Video", minutes: 29, priority: "core", videoId: "sw8V7mLl3OI", url: "https://www.youtube.com/watch?v=sw8V7mLl3OI", note: "Watch 6:50-35:42 for request bodies, Pydantic BaseModel schemas, typed and constrained fields, generated API documentation, POST routes, validation behavior and explicit status responses." },
           { id: "fastapi-production", title: "Improve a FastAPI project: selected 23 minutes", source: "CampusX", type: "Video", minutes: 23, priority: "core", videoId: "M17qwKnmG38", url: "https://www.youtube.com/watch?v=M17qwKnmG38", note: "Watch 14:20-37:05 for a home route, health endpoint and model version, separation of concerns, centralized model loading, exception-to-HTTP response mapping and typed response models." },
+          { id: "fastapi-lifespan", title: "FastAPI lifespan for shared AI clients", source: "Analytics Vidhya (English fallback)", type: "Video", minutes: 5, priority: "core", videoId: "v4yEJG2C48c", url: "https://www.youtube.com/watch?v=v4yEJG2C48c", note: "Create database, vector-store and model clients once before the lifespan yield, expose them through app.state and clean them up after yield. Correction: do not assume every SDK manages cleanup automatically; explicitly close or dispose each resource when its client contract provides that operation." },
           { id: "fastapi-depends", title: "FastAPI Depends and dependency injection", source: "Yash Jain", type: "Video", minutes: 9, priority: "core", videoId: "Rslj1IBkc9Q", url: "https://www.youtube.com/watch?v=Rslj1IBkc9Q", note: "Reuse authentication, clients and shared request logic while keeping routes testable." },
-          { id: "fastapi-async", title: "Async and await in FastAPI", source: "Mohit Decodes", type: "Video", minutes: 8, priority: "core", videoId: "uN13SnI_szY", url: "https://www.youtube.com/watch?v=uN13SnI_szY", note: "Use async endpoints for non-blocking I/O and avoid blocking the event loop with synchronous network or CPU-heavy work." },
-          { id: "fastapi-testing", title: "Test FastAPI endpoints with pytest", source: "Mohit Decodes", type: "Video", minutes: 9, priority: "core", videoId: "0WcavHYspn8", url: "https://www.youtube.com/watch?v=0WcavHYspn8", note: "Use TestClient, assertions and status-code checks, then add dependency overrides for model-provider failures." },
-          { id: "fastapi-llm-streaming", title: "Stream LLM output with LangChain and FastAPI", source: "Tech Jitendra Nadol", type: "Video", minutes: 11, priority: "core", videoId: "eE6Yh9lrRZI", url: "https://www.youtube.com/watch?v=eE6Yh9lrRZI", note: "Connect model astream output to StreamingResponse and verify token-by-token delivery to a client." }
+          { id: "fastapi-async", title: "How FastAPI handles async and sync routes", source: "Code Collider (English fallback)", type: "Video", minutes: 5, priority: "core", videoId: "tGD3653BrZ8", url: "https://www.youtube.com/watch?v=tGD3653BrZ8", note: "Compare blocking work inside async def, awaitable I/O inside async def and synchronous def routes executed in FastAPI's worker-thread pool. Use async def only with non-blocking clients, keep blocking libraries out of the event loop, and move CPU-heavy work to a process or external worker rather than expecting async to parallelize it." },
+          { id: "fastapi-testing", title: "Test FastAPI endpoints with pytest", source: "Mohit Decodes", type: "Video", minutes: 9, priority: "core", videoId: "0WcavHYspn8", url: "https://www.youtube.com/watch?v=0WcavHYspn8", note: "Use TestClient, assertions and status-code checks for successful and invalid requests. Provider isolation is covered by the next focused lesson, not this video." },
+          { id: "fastapi-test-overrides", title: "Isolate FastAPI tests with dependency overrides", source: "Analytics Vidhya (English fallback)", type: "Video", minutes: 5, priority: "core", videoId: "x5RD6C1Hsus", url: "https://www.youtube.com/watch?v=x5RD6C1Hsus", note: "Replace databases, vector stores and model clients through app.dependency_overrides; use fixtures, clear overrides after each test and use an async HTTPX client only when testing async-specific behavior. Add deterministic success, provider-timeout and provider-error fakes." },
+          { id: "fastapi-llm-streaming", title: "Stream LLM output with LangChain and FastAPI", source: "Tech Jitendra Nadol", type: "Video", minutes: 11, priority: "core", videoId: "eE6Yh9lrRZI", url: "https://www.youtube.com/watch?v=eE6Yh9lrRZI", note: "The video connects model astream output to StreamingResponse and verifies token-by-token browser delivery. Checkpoint extension not taught in the video: stop upstream work when the client leaves, propagate cancellation, handle CancelledError without turning it into a 500, and release resources in finally. A closed browser connection does not guarantee provider cancellation." }
         ]
       },
       {
@@ -1322,7 +1419,7 @@
         code: "08",
         title: "Evaluation, observability and reliability",
         outcome: "Make model behavior measurable and failures diagnosable instead of judging an app by a few demos.",
-        topics: ["Success criteria", "Golden datasets", "Deterministic checks", "Retrieval metrics", "Human review", "LLM-as-judge", "Evaluation regression in CI", "Tracing", "Latency", "Tokens and cost", "Prompt caching", "Semantic caching", "Model routing", "Retries", "Rate limits", "Fallbacks", "Versioning"],
+        topics: ["Success criteria", "Golden datasets", "Deterministic checks", "Retrieval metrics", "Human review", "LLM-as-judge", "Evaluation regression in CI", "Tracing", "Latency", "Tokens and cost", "Prompt caching", "Semantic caching", "Model routing", "Timeouts", "Cancellation", "Retries", "Exponential backoff", "Jitter", "Rate limits", "Fallbacks", "Circuit breakers", "Idempotency", "Versioning"],
         checkpoint: "Create a versioned 20-case eval set, run deterministic and rubric checks as a CI regression gate, and trace model, retrieval and tool spans with quality, latency, tokens, cost and failure labels. Compare exact-response, semantic and provider prompt-prefix caching, define one measured model-routing rule, and test timeout, cancellation, rate-limit and transient 5xx paths with capped exponential backoff and jitter. Never retry permanent 4xx errors blindly.",
         resources: [
           { id: "llm-eval-workflow", title: "Complete LLM application evaluation workflow", source: "CampusX", type: "Video", minutes: 17, priority: "core", videoId: "Pv4mkG2K_s8", url: "https://www.youtube.com/watch?v=Pv4mkG2K_s8", note: "Define success, build a representative dataset, run checks, analyze failures, iterate and monitor after release." },
@@ -1330,12 +1427,32 @@
           { id: "langfuse-observability", title: "Langfuse tracing and observability", source: "Loop Kaka", type: "Video", minutes: 20, priority: "core", videoId: "pN9sF1KgiAI", url: "https://www.youtube.com/watch?v=pN9sF1KgiAI", note: "Learn why LLM traces matter, compare Langfuse with LangSmith, integrate Langfuse and inspect a live run for debugging and visibility." },
           { id: "llm-prompt-cache", title: "Exact-response and semantic caching", source: "Gaurav Sen (English fallback)", type: "Video", minutes: 7, priority: "core", videoId: "tGqvoEuoU5M", url: "https://www.youtube.com/watch?v=tGqvoEuoU5M", note: "Compare exact-key response caching with embedding-based semantic caching, then reason about TTL, staleness, similarity thresholds, false matches, latency and cost. This is application-response caching, not a provider's prompt-prefix cache." },
           { id: "llm-semantic-cache", title: "Implement RAG semantic caching: selected 19 minutes", source: "Krish Naik", type: "Video", minutes: 19, priority: "core", videoId: "Wh3k3CelSbQ", url: "https://www.youtube.com/watch?v=Wh3k3CelSbQ", note: "Watch 17:00-35:20 to implement embedding and cosine-similarity lookup with Redis/Valkey, configure TTL, exercise cache hits and inspect cache behavior. Skip repeated architecture, setup and vendor walkthroughs." },
-          { id: "llm-cost-optimization", title: "Cost controls beyond semantic caching: selected 7 minutes", source: "Pyronix TechLab (English fallback)", type: "Video", minutes: 7, priority: "core", videoId: "SR8ftc7VL90", url: "https://www.youtube.com/watch?v=SR8ftc7VL90", note: "Watch 0:55-1:50 and 2:53-8:48 for cost drivers, model routing, cascading, provider prompt-prefix caching, context compaction, batching, token-efficient prompts and cost observability. Skip repeated semantic caching and promotional conclusions." }
+          { id: "llm-cost-optimization", title: "Cost controls beyond semantic caching: selected 7 minutes", source: "Pyronix TechLab (English fallback)", type: "Video", minutes: 7, priority: "core", videoId: "SR8ftc7VL90", url: "https://www.youtube.com/watch?v=SR8ftc7VL90", note: "Watch 0:55-1:50 and 2:53-8:48 for cost drivers, model routing, cascading, provider prompt-prefix caching, context compaction, batching, token-efficient prompts and cost observability. Skip repeated semantic caching and promotional conclusions." },
+          { id: "llm-reliability", title: "Retries, fallbacks and circuit breakers for AI APIs", source: "Learning With Chetna", type: "Video", minutes: 8, priority: "core", videoId: "jh1plS6bfz8", url: "https://www.youtube.com/watch?v=jh1plS6bfz8", note: "Handle transient timeouts, network failures, 429s and 5xx responses with capped exponential backoff and jitter; add request deadlines, idempotency, fallbacks, circuit breakers, queue retries and a dead-letter path where appropriate. Correction: classify errors before retrying, honor provider retry hints, never retry permanent 4xx responses blindly, and propagate cancellation instead of starting more work after the caller leaves." }
+        ]
+      },
+      {
+        id: "llmops",
+        code: "09",
+        title: "LLMOps foundations and model serving",
+        outcome: "Turn a working AI application into a versioned, repeatable and observable release, then understand the extra serving path for open models.",
+        topics: ["MLOps and LLMOps lifecycle", "Artifact and prompt versioning", "MLflow", "Tracing", "Prompt registry", "Evaluation runs", "Model gateways", "CI and CD", "GitHub Actions", "Immutable containers", "Cloud deployment", "Short-lived cloud identity", "Smoke tests", "Rollback", "Hosted versus self-hosted models", "vLLM", "KV cache", "PagedAttention", "Continuous batching", "Latency and throughput", "Production monitoring"],
+        checkpoint: "Productionize one earlier AI service. Track a fixed prompt and evaluation dataset, compare at least two runs, register the chosen prompt, trace token usage, latency and failures, run tests in CI, build an immutable container and deploy it through a repeatable workflow. Use short-lived cloud identity instead of committed or long-lived keys, run a post-deploy smoke test and document rollback. In Full coverage, also serve a small open model through vLLM's OpenAI-compatible API, load-test concurrent requests and compare latency, throughput and memory with naive Hugging Face inference.",
+        roleCheckpoints: {
+          "agentic-ai-engineer": "Productionize the bounded agent service from Module 06. Version its prompt and evaluation set, trace model, graph and tool spans, run tests in CI, build an immutable container and deploy it through a repeatable workflow. Use short-lived cloud identity, run a post-deploy smoke test, document rollback and verify recovery from an interrupted agent run. Self-hosted model serving is outside this role focus."
+        },
+        resources: [
+          { id: "mlops-lifecycle", title: "MLOps lifecycle from development to monitoring", source: "CampusX", type: "Video", minutes: 61, priority: "core", videoId: "6SRifO6dmuE", url: "https://www.youtube.com/watch?v=6SRifO6dmuE", note: "Use the complete lifecycle lesson, not a short definition. Follow collaboration, experiment and artifact tracking, version control, CI/CD, deployment, monitoring, drift and retraining. The long software-team analogy is intentional because it connects each practice to the failure it prevents." },
+          { id: "llmops-lifecycle", title: "Map the lifecycle to LLM applications", source: "Krish Naik (English fallback)", type: "Video", minutes: 15, priority: "core", videoId: "eVRLh08jDoo", url: "https://www.youtube.com/watch?v=eVRLh08jDoo", note: "Translate the generic MLOps lifecycle into LLM data collection, prompting or fine-tuning, evaluation, deployment, monitoring, security and compliance. Use this as a bridge; the implementation details come from the remaining lessons and earlier evaluation module." },
+          { id: "llmops-mlflow-genai", title: "MLflow for GenAI: tracing, prompts, evaluation and gateways", source: "Aritra Sen (English fallback)", type: "Video", minutes: 28, priority: "core", videoId: "AoRGeoHzgJ8", url: "https://www.youtube.com/watch?v=AoRGeoHzgJ8", note: "Run the complete hands-on workflow: trace raw OpenAI and LangChain calls, inspect tokens, latency and errors, evaluate a dataset, store and version prompts, compare prompt optimization runs, and configure weighted routing plus fallback through a model gateway. This is application lifecycle management, not infrastructure deployment." },
+          { id: "llmops-ci", title: "GitHub Actions CI with a real test workflow", source: "Krish Naik (English fallback)", type: "Video", minutes: 69, priority: "core", videoId: "ciqWMIf7Pz0", url: "https://www.youtube.com/watch?v=ciqWMIf7Pz0", note: "Watch the complete lesson for workflow triggers, jobs, runners, YAML, repository events and an implemented unit-test workflow. Despite the title, this video teaches CI and testing rather than a complete production deployment; the next Full-coverage lesson supplies the CD path." },
+          { id: "llmops-cloud-cd", title: "Container CI/CD to AWS ECR and compute", source: "Krish Naik (English fallback)", type: "Video", minutes: 46, priority: "interview", videoId: "Xniji2m85LY", url: "https://www.youtube.com/watch?v=Xniji2m85LY", note: "Follow the full Docker, GitHub Actions, ECR and EC2/App Runner deployment flow, then modernize it in the checkpoint: use a least-privilege GitHub OIDC role instead of long-lived IAM keys, add tests before image publication, deploy immutable image digests, run a health smoke test and keep a known-good digest for rollback. Those production controls are required extensions, not claims about the video." },
+          { id: "llmops-vllm", title: "Serve and load-test an open model with vLLM", source: "KodeKloud (English fallback)", type: "Video", minutes: 15, priority: "interview", videoId: "qdPkA5mxLhg", url: "https://www.youtube.com/watch?v=qdPkA5mxLhg", note: "Complete the hands-on lab: compare naive Hugging Face inference with vLLM, inspect the KV-cache problem and PagedAttention, launch an OpenAI-compatible server, test concurrent throughput, tune production parameters and inspect a monitoring dashboard. Quantization, tensor parallelism and Kubernetes autoscaling are separate advanced topics, not covered by this lesson." }
         ]
       },
       {
         id: "security",
-        code: "09",
+        code: "10",
         title: "LLM security and graduation build",
         outcome: "Ship a product-facing AI service with bounded tools, protected data and tested unsafe paths.",
         topics: ["Prompt injection", "Untrusted retrieved text", "PII", "Input validation", "Output validation", "Authentication and authorization", "Least privilege", "Tool allowlists", "Human approval", "Tenant isolation", "Secret handling", "Rate and resource limits", "Adversarial tests"],
@@ -1350,17 +1467,58 @@
     const phases = [
       { number: "01", title: "Foundations", detail: "Python, ML and LLMs", moduleIds: ["python", "ai-foundations", "llm-foundations"] },
       { number: "02", title: "Build AI systems", detail: "APIs, RAG, agents and FastAPI", moduleIds: ["llm-apps", "rag", "agents", "fastapi"] },
-      { number: "03", title: "Ship and improve", detail: "Evaluation, reliability and security", moduleIds: ["evaluation", "security"] }
+      { number: "03", title: "Ship and improve", detail: "Evaluation, LLMOps and security", moduleIds: ["evaluation", "llmops", "security"] }
     ];
 
     const STORAGE_KEY = "ai-engineer-roadmap-state-v2";
     const allResources = modules.flatMap((module) => module.resources.map((resource) => ({ ...resource, moduleId: module.id })));
     const resourceById = new Map(allResources.map((resource) => [resource.id, resource]));
+    const roleProfiles = {
+      all: {
+        label: "Complete route",
+        description: "All shared foundations and specialization lessons for the four target role families.",
+        excluded: new Set(),
+        hiddenTopics: {}
+      },
+      "ai-engineer": {
+        label: "AI Engineer",
+        description: "Applied and product-facing AI: ML foundations, LLM applications, RAG, agents, APIs, evaluation and production. Research and foundation-model training remain outside scope.",
+        excluded: new Set(["mcp-architecture"]),
+        hiddenTopics: { agents: ["MCP"] }
+      },
+      "genai-engineer": {
+        label: "GenAI Engineer",
+        description: "LLM product development: model APIs, prompting, RAG, agent workflows, evaluation, security and deployment, with ML concepts but no classical-model implementation exercise.",
+        excluded: new Set(["sklearn-workflow"]),
+        hiddenTopics: { "ai-foundations": ["scikit-learn", "fit and predict"] }
+      },
+      "llmops-engineer": {
+        label: "LLMOps Engineer",
+        description: "LLM lifecycle operations: RAG context, prompt and artifact versioning, CI/CD, serving, observability, reliability, performance and governance.",
+        excluded: new Set(["sklearn-workflow", "advanced-rag-crag", "mcp-architecture"]),
+        hiddenTopics: {
+          "ai-foundations": ["scikit-learn", "fit and predict"],
+          agents: ["Corrective RAG", "Answer verification", "MCP"]
+        }
+      },
+      "agentic-ai-engineer": {
+        label: "Agentic AI Engineer",
+        description: "Agent systems: tool calling, LangGraph state and persistence, corrective RAG, MCP, evaluation, guardrails, production APIs and deployment.",
+        excluded: new Set(["sklearn-workflow", "lora-qlora", "llmops-vllm"]),
+        hiddenTopics: {
+          "ai-foundations": ["scikit-learn", "fit and predict"],
+          "llm-apps": ["LoRA and QLoRA"],
+          llmops: ["vLLM", "KV cache", "PagedAttention", "Continuous batching"]
+        }
+      }
+    };
+    const hasRoleProfile = (roleId) => Object.prototype.hasOwnProperty.call(roleProfiles, roleId);
 
     const defaultState = {
       completed: [],
       checkpoints: [],
       filter: "interview",
+      role: "all",
       search: "",
       hideCompleted: false
     };
@@ -1373,6 +1531,7 @@
           completed: Array.isArray(parsed.completed) ? parsed.completed.filter((id) => resourceById.has(id)) : [],
           checkpoints: Array.isArray(parsed.checkpoints) ? parsed.checkpoints.filter((id) => modules.some((module) => module.id === id)) : [],
           filter: ["core", "interview"].includes(parsed.filter) ? parsed.filter : "interview",
+          role: hasRoleProfile(parsed.role) ? parsed.role : "all",
           search: typeof parsed.search === "string" ? parsed.search : "",
           hideCompleted: parsed.hideCompleted === true
         };
@@ -1391,6 +1550,10 @@
     const moduleList = document.getElementById("module-list");
     const emptyState = document.getElementById("empty-state");
     const searchInput = document.getElementById("search-input");
+    const roleFilter = document.getElementById("role-filter");
+    const roleContextTitle = document.getElementById("role-context-title");
+    const roleContextCopy = document.getElementById("role-context-copy");
+    const roleContextMeta = document.getElementById("role-context-meta");
     const toolbar = document.querySelector(".toolbar");
     const themeButton = document.getElementById("theme-button");
     const continueButton = document.getElementById("continue-button");
@@ -1405,6 +1568,7 @@
           completed: [...completed],
           checkpoints: [...completedCheckpoints],
           filter: state.filter,
+          role: state.role,
           search: state.search,
           hideCompleted: state.hideCompleted
         }));
@@ -1427,10 +1591,27 @@
       return true;
     }
 
+    function isAllowedByRole(resource) {
+      return !roleProfiles[state.role].excluded.has(resource.id);
+    }
+
+    function isAllowedByRoute(resource) {
+      return isAllowedByDepth(resource) && isAllowedByRole(resource);
+    }
+
+    function checkpointFor(module) {
+      return module.roleCheckpoints?.[state.role] || module.checkpoint;
+    }
+
+    function topicsFor(module) {
+      const hidden = roleProfiles[state.role].hiddenTopics[module.id] || [];
+      return module.topics.filter((topic) => !hidden.includes(topic));
+    }
+
     function isSearchMatch(module, resource) {
       const query = state.search.trim().toLowerCase();
       if (!query) return true;
-      const haystack = [module.title, module.outcome, module.checkpoint, ...module.topics, resource.title, resource.source, resource.type, resource.note]
+      const haystack = [module.title, module.outcome, checkpointFor(module), ...topicsFor(module), resource.title, resource.source, resource.type, resource.note]
         .join(" ")
         .toLowerCase();
       return haystack.includes(query);
@@ -1438,14 +1619,14 @@
 
     function visibleResourcesFor(module) {
       return module.resources.filter((resource) =>
-        isAllowedByDepth(resource) &&
+        isAllowedByRoute(resource) &&
         isSearchMatch(module, resource) &&
         (!state.hideCompleted || !completed.has(resource.id))
       );
     }
 
     function getNextRouteTask({ respectSearch = true } = {}) {
-      const routeResources = allResources.filter(isAllowedByDepth);
+      const routeResources = allResources.filter(isAllowedByRoute);
       const hasSearch = respectSearch && state.search.trim().length > 0;
 
       if (hasSearch) {
@@ -1457,7 +1638,7 @@
       }
 
       for (const module of modules) {
-        const resource = module.resources.find((item) => isAllowedByDepth(item) && !completed.has(item.id));
+        const resource = module.resources.find((item) => isAllowedByRoute(item) && !completed.has(item.id));
         if (resource) return { type: "video", resource: { ...resource, moduleId: module.id }, moduleId: module.id };
         if (!completedCheckpoints.has(module.id)) return { type: "checkpoint", moduleId: module.id };
       }
@@ -1504,13 +1685,13 @@
 
     function renderModules() {
       let visibleTotal = 0;
-      const routeResources = allResources.filter(isAllowedByDepth);
+      const routeResources = allResources.filter(isAllowedByRoute);
       const orderById = new Map(routeResources.map((resource, index) => [resource.id, index + 1]));
       const nextTask = getNextRouteTask();
       const currentVideoId = nextTask?.type === "video" ? nextTask.resource.id : null;
       const html = modules.map((module, moduleIndex) => {
         const visibleResources = visibleResourcesFor(module);
-        const allowedResources = module.resources.filter(isAllowedByDepth);
+        const allowedResources = module.resources.filter(isAllowedByRoute);
         const doneCount = allowedResources.filter((resource) => completed.has(resource.id)).length;
         const checkpointDone = completedCheckpoints.has(module.id);
         const checkpointUnlocked = doneCount === allowedResources.length;
@@ -1529,11 +1710,11 @@
             <span class="module-time">${formatMinutes(moduleMinutes)}</span>
             <span class="module-progress">${doneCount}/${allowedResources.length}</span>
           </header>
-          <ul class="topic-list">${module.topics.map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
+          <ul class="topic-list">${topicsFor(module).map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
           ${visibleResources.length ? `<div class="resource-list">${visibleResources.map((resource) => renderResource(resource, orderById.get(resource.id), routeResources.length, currentVideoId)).join("")}</div>` : ""}
           <div class="module-checkpoint${checkpointDone ? " complete" : ""}${nextTask?.type === "checkpoint" && nextTask.moduleId === module.id ? " current" : ""}" data-checkpoint-card="${module.id}">
             <strong>Module checkpoint</strong>
-            <p>${escapeHtml(module.checkpoint)}</p>
+            <p>${escapeHtml(checkpointFor(module))}</p>
             <button class="checkpoint-button" type="button" data-checkpoint-id="${module.id}" aria-pressed="${checkpointDone}"${!checkpointDone && !checkpointUnlocked ? ' disabled title="Complete this module\'s lessons first"' : ""}>${checkpointDone ? "Completed" : checkpointUnlocked ? "Mark complete" : "Finish lessons first"}</button>
           </div>
         </section>`;
@@ -1560,7 +1741,7 @@
     }
 
     function renderPhases() {
-      const routeResources = allResources.filter(isAllowedByDepth);
+      const routeResources = allResources.filter(isAllowedByRoute);
       const nextTask = getNextRouteTask({ respectSearch: false });
       const currentModuleId = nextTask?.moduleId;
 
@@ -1592,7 +1773,7 @@
 
     function renderNavigation() {
       const navHtml = modules.map((module) => {
-        const allowed = module.resources.filter(isAllowedByDepth);
+        const allowed = module.resources.filter(isAllowedByRoute);
         const done = allowed.filter((resource) => completed.has(resource.id)).length;
         return `<button class="module-link" type="button" data-module-target="${module.id}">
           <span class="module-code">${module.code}</span>
@@ -1612,7 +1793,7 @@
     }
 
     function renderProgress() {
-      const allowedResources = allResources.filter(isAllowedByDepth);
+      const allowedResources = allResources.filter(isAllowedByRoute);
       const doneResources = allowedResources.filter((resource) => completed.has(resource.id));
       const doneCount = doneResources.length + completedCheckpoints.size;
       const taskCount = allowedResources.length + modules.length;
@@ -1653,7 +1834,7 @@
       }
 
       const next = nextTask.resource;
-      const routeResources = allResources.filter(isAllowedByDepth);
+      const routeResources = allResources.filter(isAllowedByRoute);
       const lessonNumber = routeResources.findIndex((resource) => resource.id === next.id) + 1;
       nextTitle.textContent = next.title;
       nextMeta.textContent = `Lesson ${lessonNumber} of ${routeResources.length} / Module ${module.code} / ${formatMinutes(next.minutes)}`;
@@ -1670,12 +1851,23 @@
       });
     }
 
+    function renderRoleContext() {
+      const profile = roleProfiles[state.role];
+      const resources = allResources.filter(isAllowedByRoute);
+      const minutes = resources.reduce((total, resource) => total + resource.minutes, 0);
+      roleFilter.value = state.role;
+      roleContextTitle.textContent = profile.label;
+      roleContextCopy.textContent = profile.description;
+      roleContextMeta.textContent = `${resources.length} lessons / ${formatMinutes(minutes)}`;
+    }
+
     function render() {
       renderPhases();
       renderNavigation();
       renderModules();
       renderProgress();
       renderNext();
+      renderRoleContext();
       updateFilterButtons();
       updateThemeLabel();
       hideCompletedInput.checked = state.hideCompleted;
@@ -1697,7 +1889,7 @@
     function toggleCheckpoint(moduleId) {
       const module = modules.find((candidate) => candidate.id === moduleId);
       if (!module) return;
-      const checkpointUnlocked = module.resources.filter(isAllowedByDepth).every((resource) => completed.has(resource.id));
+      const checkpointUnlocked = module.resources.filter(isAllowedByRoute).every((resource) => completed.has(resource.id));
       if (!checkpointUnlocked && !completedCheckpoints.has(moduleId)) return;
       if (completedCheckpoints.has(moduleId)) completedCheckpoints.delete(moduleId);
       else completedCheckpoints.add(moduleId);
@@ -1783,6 +1975,13 @@
       if (event.key !== "Escape") return;
       searchInput.value = "";
       state.search = "";
+      saveState();
+      render();
+    });
+
+    roleFilter.addEventListener("change", () => {
+      if (!hasRoleProfile(roleFilter.value)) return;
+      state.role = roleFilter.value;
       saveState();
       render();
     });
