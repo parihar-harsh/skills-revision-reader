@@ -9,12 +9,12 @@ The roadmap contains 42 focused video assignments across 10 build modules:
 - 32 essential assignments: 1,765 minutes (29 hours 25 minutes)
 - 10 optional depth assignments: 391 minutes (6 hours 31 minutes)
 - Complete route: 2,156 minutes (35 hours 56 minutes)
-- 27 CampusX playlist assignments: 1,911 minutes
+- 27 curated CampusX assignments containing 69 direct video links: 1,911 minutes
 - 15 focused production supplements: 245 minutes
-- Every assignment links directly to its selected video or the first selected item in a CampusX playlist.
+- Every retained lecture has an explicit `youtube.com/watch?v=` link; no learner-facing watch link contains playlist navigation.
 - Resource IDs and thumbnail video IDs are unique.
 
-CampusX remains the primary source. Supplements are limited to capabilities that current AI and GenAI application roles expect but the audited CampusX playlists do not adequately teach. The source boundary is visible on every card.
+CampusX remains the primary source. Supplements are limited to capabilities that current AI and GenAI application roles expect but the audited CampusX playlists do not adequately teach. The source boundary is visible on every card. Multi-video assignments remain grouped only for progress tracking; their ordered menus expose each exact lecture and selected starting timestamp directly.
 
 ## CampusX channel audit
 
@@ -117,6 +117,6 @@ The following remain outside the route because they belong to MLOps specializati
 4. Compared candidate supplement titles, descriptions, chapters, available captions and implementation scope.
 5. Rejected duplicate long courses, obsolete provider examples and videos that only named a topic.
 6. Added exact checkpoint behavior where a source teaches the concept but not the complete production boundary.
-7. Verified assignment IDs, video IDs, URLs, role/depth combinations, browser persistence and desktop/mobile rendering.
+7. Verified assignment IDs, all 84 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
 
 No captions, transcripts or downloaded media are committed.
