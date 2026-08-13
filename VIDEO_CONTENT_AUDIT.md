@@ -4,8 +4,8 @@ Audit date: 2026-08-13
 
 ## Method
 
-- Audited all 75 video IDs currently used by `roadmap.html`.
-- Downloaded YouTube caption tracks only, not audio or video: 74 original-language tracks and one available English track.
+- Audited all 74 video IDs currently used by `roadmap.html`.
+- Downloaded YouTube caption tracks only, not audio or video: 73 original-language tracks and one available English track.
 - Removed rolling-caption overlap before analysis and checked the complete lesson or the exact recommended watch range.
 - Compared each title, note, timestamp range and checkpoint dependency with the spoken content in its selected range.
 - Marked route-level exercises, production controls and current corrections explicitly instead of presenting them as claims about a video.
@@ -13,7 +13,8 @@ Audit date: 2026-08-13
 - Runtime was considered only after content sufficiency. A short lesson remains only when it covers a narrow topic completely.
 - CampusX was checked first for every newly added topic. It supplied all three deep-learning additions. Its only public multimodal result was a paid-course announcement, and no sufficient public managed-cloud AI lesson was found, so a current specialist tutorial and an official AWS lesson were used for those two gaps.
 - For the LLM-foundations revision, Hindi/Hinglish candidates were checked before English fallbacks. Two focused Hindi lessons were retained. Candidates that misstated architecture families, depended on an unlisted RNN/sequence-to-sequence course, or spent most of their runtime on model-training mathematics were rejected rather than included for language alone.
-- A role-scope audit compared the route with current AI Engineer, GenAI Engineer and MLOps postings and with the route's declared prerequisites. Generic MLOps lifecycle, GitHub Actions and container-to-AWS deployment lessons remain available in Complete route and MLOps views, but are excluded from AI Engineer and GenAI Engineer views because the learner already has AWS, Docker/Kubernetes, Git and DevOps foundations. Their AI-specific release work remains in the module checkpoints.
+- A role-scope audit compared the route with current AI Engineer, GenAI Engineer and MLOps postings and with the route's declared prerequisites. It found that the MLOps label had inherited an LLMOps-oriented filter: hands-on model training was hidden while most RAG and LangGraph implementation remained. The corrected MLOps view now includes model training context, MLflow, DVC, registry and promotion, CI/CD, serving and drift monitoring, while application-specific multimodal, advanced RAG and LangGraph implementation is excluded. AI and GenAI views continue to apply the learner's existing AWS, Docker/Kubernetes, Git and DevOps foundations without replaying generic deployment tutorials.
+- Representative primary role evidence included current postings from [Quadrivia](https://jobs.ashbyhq.com/quadrivia/3b40be91-27fc-4148-a1a3-565d8211dd5c/), [Fundamental](https://jobs.ashbyhq.com/fundamental/f66822a3-fd9f-438b-8532-e996e3932e3c), [Sarvam](https://jobs.ashbyhq.com/sarvam/e7f783e8-6378-4158-97d5-48a397a91698) and [Gen Digital/MoneyLion](https://jobs.ashbyhq.com/gen-digital/66ad3973-3d0d-467d-a5ed-35d867457b11/). The MLOps postings consistently emphasize model-training and inference pipelines, registries or experiment tracking, CI/CD, serving, monitoring/drift, rollback and container/cloud infrastructure rather than RAG and LangGraph implementation.
 
 Status meanings:
 
@@ -91,7 +92,7 @@ The architecture and training claims were also cross-checked against primary ref
 | `rag-retrievers` | Scoped | Covers vector retrieval, MMR, multi-query and contextual compression; quality/latency/token comparison is now labeled as route work. |
 | `rag-ragas` | Verified | Covers component, pipeline and application evaluation, context metrics, faithfulness, relevance, citations, safety, operations, baselines and CI gates with DeepEval. |
 | `rag-hybrid-rrf` | Verified | Demonstrates BM25 and vector result lists, reciprocal-rank contributions, document-ID deduplication, score summation and final top-k. |
-| `rag-reranking` | Verified | Covers HyDE, structured multi-query expansion, bi-encoder first-stage retrieval and cross-encoder reranking of a wider candidate set. |
+| `rag-reranking` | Corrected | Covers HyDE, structured multi-query expansion and cross-encoder reranking of a wider first-stage candidate set. The route now identifies multi-query as review because the preceding retriever lesson already teaches it, leaving HyDE and reranking as the new material. |
 
 ## 06 Agents, LangGraph and advanced RAG
 
@@ -132,16 +133,15 @@ The MCP transport correction follows the current official specification: <https:
 | `llm-cost-optimization` | Verified | Selected ranges cover routing, cascading, provider prompt caching, compaction, batching, prompt tokens and cost observability. |
 | `llm-reliability` | Scoped | Covers capped retries, backoff, jitter, fallbacks, circuit breakers, timeouts, idempotency, queues and DLQ; error classification and cancellation are explicit corrections. |
 
-## 09 LLMOps foundations and model serving
+## 09 MLOps, LLMOps and model serving
 
 | Lesson | Status | Audit result |
 | --- | --- | --- |
-| `mlops-lifecycle` | Verified | Covers collaboration, experiment/artifact tracking, version control, CI/CD, deployment, monitoring, drift and retraining. |
+| `mlops-project` | Added | Selected CampusX ranges cover the ML workflow, data, MLflow experiment tracking, a DVC pipeline, model registry, testing and promotion, deployment strategies and a working GitHub Actions CI/CD flow. Flask/frontend, Docker and EC2 repetition is deliberately skipped because those are declared prerequisites. |
+| `ml-monitoring` | Added | Implements Evidently reports over reference and current datasets for model performance, data drift and target drift. Production thresholds and alerts are correctly labeled as route work rather than video content. |
 | `llmops-lifecycle` | Verified | Maps lifecycle concerns to LLM data, prompting/fine-tuning, evaluation, deployment, monitoring, security and compliance. |
 | `managed-cloud-ai` | Added | Selected official AWS range covers Bedrock model selection and cost, playgrounds, the current Converse API, direct `boto3` calls, roles and multi-turn messages. Least-privilege IAM is correctly labeled as required route work rather than video content. |
 | `llmops-mlflow-genai` | Verified | Demonstrates OpenAI/LangChain traces, tokens/latency/errors, dataset evaluation, prompt versions/optimization and gateway routing/fallback. |
-| `llmops-ci` | Verified | Covers triggers, events, jobs, runners, YAML and an implemented unit-test workflow; correctly scoped to CI rather than full CD. |
-| `llmops-cloud-cd` | Scoped | Demonstrates Docker, GitHub Actions, ECR and AWS compute deployment; OIDC, immutable digests, smoke tests and rollback are labeled modern extensions. |
 | `llmops-vllm` | Verified | Demonstrates baseline comparison, KV-cache waste, PagedAttention, OpenAI-compatible serving, concurrent load, tuning and dashboard metrics. |
 
 ## 10 LLM security and graduation build
@@ -166,4 +166,7 @@ The MCP transport correction follows the current official specification: <https:
 11. Added transcript-verified multimodal text-and-image API work and file-validation requirements.
 12. Added a current official managed-cloud AI workflow with model-quality, latency, cost and least-privilege checkpoints.
 13. Added a focused CampusX PyTorch training-pipeline segment to Full coverage after verifying that the broader AI Engineer role can require either PyTorch or TensorFlow experience.
-14. Removed 176 minutes of generic MLOps/DevOps replay from the AI Engineer and GenAI Engineer role views without deleting that specialization content from Complete route or MLOps.
+14. Replaced 176 minutes of separate MLOps-lifecycle, generic GitHub Actions and container-to-AWS lessons with a 51-minute CampusX MLOps project that teaches the ML-specific experiment, pipeline, registry, promotion and CI/CD flow while skipping declared Docker/AWS prerequisites.
+15. Added a 30-minute hands-on model-monitoring lesson for model performance, data drift and target drift.
+16. Corrected the renamed MLOps role: restored scikit-learn, Keras and PyTorch model work; removed multimodal prompting, advanced RAG construction, LangGraph implementation and the duplicate GenAI-specific MLflow lesson; and added role-specific checkpoints for model APIs, RAG operations, agents, MLOps and security.
+17. Removed duplicated multi-query emphasis from the HyDE/reranking lesson title and guidance.
