@@ -4,12 +4,12 @@ Audit date: 2026-08-13
 
 ## Result
 
-The roadmap contains 84 independently trackable video cards across 10 build modules, curated from 42 focused learning assignments:
+The roadmap contains 86 independently trackable video cards across 10 build modules, curated from 42 focused learning assignments:
 
-- 71 essential video cards: 1,765 minutes (29 hours 25 minutes)
+- 73 essential video cards: 1,878 minutes (31 hours 18 minutes)
 - 13 optional-depth video cards: 391 minutes (6 hours 31 minutes)
-- Complete route: 2,156 minutes (35 hours 56 minutes)
-- 69 CampusX video cards: 1,911 minutes
+- Complete route: 2,269 minutes (37 hours 49 minutes)
+- 71 CampusX video cards: 2,024 minutes
 - 15 focused production-supplement video cards: 245 minutes
 - Every retained lecture has an explicit `youtube.com/watch?v=` link; no learner-facing watch link contains playlist navigation.
 - Resource IDs and thumbnail video IDs are unique.
@@ -91,9 +91,9 @@ The checkpoints intentionally state conditions videos may only introduce. Comple
 
 | Position | Full videos | Full time | Fast videos | Fast time |
 | --- | ---: | ---: | ---: | ---: |
-| Complete | 84 | 35h 56m | 71 | 29h 25m |
-| AI Engineer | 81 | 34h 19m | 71 | 29h 25m |
-| GenAI Engineer | 68 | 31h 23m | 57 | 25h 39m |
+| Complete | 86 | 37h 49m | 73 | 31h 18m |
+| AI Engineer | 83 | 36h 12m | 73 | 31h 18m |
+| GenAI Engineer | 70 | 33h 16m | 59 | 27h 32m |
 | MLOps Engineer | 47 | 14h 34m | 44 | 13h 21m |
 
 The GenAI view removes Pandas, classification metrics and model-training projects. The MLOps view removes LLM-specific SDK, transformer, RAG, agent, evaluation, cache and guardrail videos. The AI Engineer view retains the broad applied route and removes optional MCP.
@@ -117,6 +117,6 @@ The following remain outside the route because they belong to MLOps specializati
 4. Compared candidate supplement titles, descriptions, chapters, available captions and implementation scope.
 5. Rejected duplicate long courses, obsolete provider examples and videos that only named a topic.
 6. Added exact checkpoint behavior where a source teaches the concept but not the complete production boundary.
-7. Verified assignment IDs, all 84 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
+7. Verified assignment IDs, all 86 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
 
 No captions, transcripts or downloaded media are committed.

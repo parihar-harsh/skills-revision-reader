@@ -1326,11 +1326,11 @@
         code: "03",
         title: "LLM and transformer foundations",
         outcome: "Connect pretraining and transfer learning to transformer attention, decoder-only LLMs and autoregressive token generation.",
-        topics: ["Pretraining", "Fine-tuning", "Language models", "Decoder-only LLMs", "Token representations", "Positional encoding", "Self-attention", "Queries, keys and values", "Multi-head attention", "Autoregressive generation", "Causal masking", "Decoder architecture"],
-        checkpoint: "Explain how pretraining and fine-tuning produced reusable language models, distinguish encoder-only BERT from decoder-only GPT, then trace token representations through position information, attention and causal masking. Explain how inference generates one token at a time and why the CampusX decoder lecture includes cross-attention while a decoder-only LLM does not.",
+        topics: ["Pretraining", "Fine-tuning", "Language models", "Decoder-only LLMs", "Token representations", "Positional encoding", "Self-attention", "Queries, keys and values", "Scaled dot-product attention", "Softmax", "Multi-head attention", "Autoregressive generation", "Causal masking", "Decoder architecture"],
+        checkpoint: "Explain how pretraining and fine-tuning produced reusable language models, distinguish encoder-only BERT from decoder-only GPT, then trace token representations through position information, Q/K/V projection, scaled dot-product attention, softmax, multiple attention heads and causal masking. Write Attention(Q,K,V) = softmax(QK^T/sqrt(d_k))V and explain every term. Explain how inference generates one token at a time and why the CampusX decoder lecture includes cross-attention while a decoder-only LLM does not.",
         resources: [
           { id: "llm-evolution", title: "From transfer learning to decoder-only LLMs", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 29, priority: "core", note: "Watch 47:08-1:16:10 for transfer learning, pretraining, fine-tuning, BERT versus GPT, decoder-only language models and why scale changes a language model into an LLM. Skip the LSTM, encoder-decoder and attention history because the next assignment teaches the needed mechanics directly." },
-          { id: "transformer-core", title: "Transformer attention and autoregressive decoding", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 131, priority: "core", note: "Watch Self Attention in full; Multi-head Attention at 6:33-27:37; Positional Encoding at 1:18-7:58 and 34:26-55:25; Masked Self Attention at 5:25-17:57 and 35:25-60:15; Decoder Architecture at 0:00-10:10; and Transformer Inference at 0:00-11:32. Skip recaps and the detailed encoder-decoder inference calculation. The decoder lecture is a translation decoder with cross-attention; use it for decoder mechanics, not as an exact GPT architecture." }
+          { id: "transformer-core", title: "Transformer attention and autoregressive decoding", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 244, priority: "core", note: "Complete the three-part self-attention sequence: intuition in full, computation and Q/K/V at 7:00-1:22:45, and scaled dot-product attention at 5:00-42:32. Then watch Multi-head Attention at 6:33-27:37; Positional Encoding at 1:18-7:58 and 34:26-55:25; Masked Self Attention at 5:25-17:57 and 35:25-60:15; Decoder Architecture at 0:00-10:10; and Transformer Inference at 0:00-11:32. Skip recaps and the detailed encoder-decoder inference calculation. The decoder lecture is a translation decoder with cross-attention; use it for decoder mechanics, not as an exact GPT architecture." }
         ]
       },
       {
@@ -1480,7 +1480,9 @@
       "pytorch-training-pipeline": [["MKxEbbKpL5Q", "PyTorch training pipeline", 345, "5:45-28:04"]],
       "llm-evolution": [["8fX3rOjTloc", "Transfer learning to decoder-only LLMs", 2828, "47:08-1:16:10"]],
       "transformer-core": [
-        ["XnGGmvpDLA0", "Self-attention"],
+        ["XnGGmvpDLA0", "Self-attention intuition (1/3)"],
+        ["-tCKPl_8Xb8", "Self-attention computation and Q/K/V (2/3)", 420, "7:00-1:22:45"],
+        ["r7mAt0iVqwo", "Scaled dot-product attention (3/3)", 300, "5:00-42:32"],
         ["bX2QwpjsmuA", "Multi-head attention", 393, "6:33-27:37"],
         ["GeoQBNNqIbM", "Positional encoding", 78, "1:18-7:58 and 34:26-55:25"],
         ["m6onaKFzF94", "Masked self-attention", 325, "5:25-17:57 and 35:25-60:15"],
@@ -1563,8 +1565,8 @@
             url: directVideoUrl(video),
             range,
             note: range
-              ? `Watch ${range}. Part of ${resource.title}.`
-              : `Watch in full. Part of ${resource.title}.`
+              ? `Watch this linked video at ${range}. Part of ${resource.title}.`
+              : `Watch this linked video in full. Part of ${resource.title}.`
           };
         });
         legacyGroupChildren.set(resource.id, videos.map((video) => video.id));
@@ -1775,7 +1777,7 @@
       const isCurrent = resource.id === currentId;
       const watchLabel = resource.parentId === resource.id
         ? formatMinutes(resource.minutes)
-        : resource.range ? "Selected range" : "Full video";
+        : resource.range ? "Watch selected range" : "Watch linked video in full";
       return `<article class="resource-card${isDone ? " completed" : ""}${isCurrent ? " current" : ""}" data-resource-id="${resource.id}" data-parent-id="${resource.parentId}">
         ${renderMedia(resource)}
         <div class="resource-copy">
