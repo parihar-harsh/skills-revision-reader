@@ -1226,7 +1226,7 @@
       <main class="content-shell">
         <header class="overview">
           <div>
-            <p class="eyebrow">Hindi/Hinglish fresher video route</p>
+            <p class="eyebrow">Hindi/Hinglish-first fresher video route</p>
             <h2>AI, GenAI and MLOps route</h2>
             <p class="overview-copy">Starts from zero Python and AI, then branches into product-facing AI and GenAI applications or an MLOps production foundation.</p>
           </div>
@@ -1249,7 +1249,7 @@
             <strong id="role-context-title">Complete route</strong>
           </div>
           <p id="role-context-copy">All shared foundations and specialization assignments for the three target role families.</p>
-          <span id="role-context-meta" class="role-context-meta">27 playlist assignments</span>
+          <span id="role-context-meta" class="role-context-meta">Loading assignments</span>
         </section>
 
         <section class="summary-strip" aria-label="Roadmap summary">
@@ -1272,10 +1272,10 @@
 
         <aside class="scope-note">
           <strong>Scope</strong>
-          <span>Assumes your existing DSA/OOP, JavaScript/TypeScript, React/Next.js, Node/Express/REST API, SQL/NoSQL, AWS/Cloudflare, Docker/Kubernetes and Git skills, but no Python or AI knowledge. Every learning link opens an official CampusX playlist assignment. Repeated introductions and mixed-provider fallbacks were removed. Fast track keeps the essential assignments; Full coverage adds PyTorch, Self-RAG, memory, MCP, online evaluation and MLOps data management. Because this is a strict CampusX-only route, specialist subjects without a sufficient CampusX playlist lesson are not claimed as taught coverage: Python asyncio and pytest, raw multimodal SDKs, hybrid search and RRF, application caching and circuit breakers, managed cloud AI, implemented drift monitoring and vLLM serving.</span>
+          <span>Assumes your existing DSA/OOP, JavaScript/TypeScript, React/Next.js, Node/Express/REST API, SQL/NoSQL, AWS/Cloudflare, Docker/Kubernetes and Git skills, but no Python or AI knowledge. CampusX remains the primary source. Focused video supplements are used only for production topics its public playlists do not adequately teach: Python typing, asyncio and testing; provider-native APIs; hybrid retrieval; production FastAPI; reliability, caching and guardrails. Fast track keeps the essential assignments; Full coverage adds framework-independent provider patterns, Pytest depth, HyDE, Self-RAG, memory, MCP, cache observability, online evaluation and MLOps data management. Research, foundation-model training, managed cloud AI platforms, drift infrastructure and self-hosted vLLM serving remain outside scope.</span>
         </aside>
 
-        <footer class="page-footer">Progress, filters and theme stay in this browser. No account or database is used. Every assignment opens an official CampusX YouTube playlist.</footer>
+        <footer class="page-footer">Progress, filters and theme stay in this browser. No account or database is used. Each assignment opens the exact selected video or CampusX playlist.</footer>
       </main>
     </div>
   </div>
@@ -1286,12 +1286,15 @@
         id: "python",
         code: "01",
         title: "Python bridge for AI applications",
-        outcome: "Translate existing programming and OOP knowledge into the Python collections, functions, classes, modules and data tools used later in the route.",
-        topics: ["Collections", "Functions", "Classes and objects", "References and mutability", "Modules", "Files and JSON", "Exceptions", "NumPy arrays", "Broadcasting", "Pandas DataFrames"],
-        checkpoint: "Build a small Python package with one class and two modules. Load JSON and CSV files, handle invalid input, clean missing and duplicate rows with Pandas, and perform one vector-style NumPy calculation.",
+        outcome: "Translate existing programming and OOP knowledge into typed, testable Python that can perform concurrent AI API calls without blocking.",
+        topics: ["Collections", "Functions", "Classes and objects", "References and mutability", "Modules", "Files and JSON", "Exceptions", "Type hints", "Static checking", "Asyncio", "Coroutines", "Tasks", "Pytest", "Mocks", "NumPy arrays", "Broadcasting", "Pandas DataFrames"],
+        checkpoint: "Build a typed Python package with one class and two modules. Load JSON and CSV files, handle invalid input, clean missing and duplicate rows with Pandas, and perform one vector-style NumPy calculation. Add an async function that runs three simulated provider calls concurrently with bounded concurrency, then test success, validation failure and provider failure without making a real network call.",
         resources: [
           { id: "python-core", title: "Python language bridge for an existing programmer", source: "CampusX | 100 Days of Python Programming", type: "Playlist assignment", minutes: 189, priority: "core", videoId: "l0rgITwCXKg", url: "https://www.youtube.com/watch?v=l0rgITwCXKg&list=PLKnIA16_Rmvb1RYR-iTA_hzckhdONtSW4&index=24", note: "Watch Built-in Modules, Lists, Tuples, Sets and Dictionaries in full; Mutability at 0:30-9:25 and 34:00-51:29; Functions at 0:21-15:00; and Complete OOP at 10:30-1:06:18. Skip beginner variables, loops, recursion, GUI projects and advanced OOP because those repeat your existing programming background." },
           { id: "python-files-errors", title: "Files, JSON, exceptions and package boundaries", source: "CampusX | Data Science Mentorship Program", type: "Playlist assignment", minutes: 65, priority: "core", videoId: "o-TAYRMQzIQ", url: "https://www.youtube.com/watch?v=o-TAYRMQzIQ&list=PLKnIA16_RmvbAlyx4_rdtR66B7EHX5k3z&index=27", note: "In Session 10 watch 14:50-24:42, 33:30-50:10 and 1:23:11-1:32:40 for text files, context managers and JSON. In Session 11 watch 23:50-51:24 for specific exceptions, else and finally. Skip binary files, pickle, custom exceptions and repeated error taxonomy." },
+          { id: "python-type-hints", title: "Python type hints and static checking", source: "Learn Code With Durgesh | Hindi", type: "Focused video", minutes: 18, priority: "core", videoId: "T-iih8-Of0M", url: "https://www.youtube.com/watch?v=T-iih8-Of0M", note: "Watch in full for variable, parameter, return, list and dictionary annotations plus static checking with mypy. Type hints improve tooling and maintainability; they do not enforce types at Python runtime unless a validation library is used." },
+          { id: "python-asyncio", title: "Asyncio for concurrent provider calls", source: "Tech With Tim | English with Hindi captions", type: "Focused video", minutes: 25, priority: "core", videoId: "Qb9s3UiMSTA", url: "https://www.youtube.com/watch?v=Qb9s3UiMSTA", note: "Watch in full for the event loop, coroutines, await, tasks, futures and synchronization. Apply it only to I/O-bound work such as LLM or database calls; move CPU-heavy work to a process or dedicated worker." },
+          { id: "python-pytest", title: "Pytest fixtures, parameterization and provider mocks", source: "Tech With Tim | English with Hindi captions", type: "Focused video", minutes: 26, priority: "interview", videoId: "EgpLj86ZHFQ", url: "https://www.youtube.com/watch?v=EgpLj86ZHFQ", note: "Watch 1:45-5:50 and 9:35-30:24 for assertions, expected exceptions, fixtures, teardown, parameterization and mocks. Skip the sponsor section. Use mocks to make AI tests deterministic, fast and independent of provider availability." },
           { id: "numpy-core", title: "NumPy arrays and broadcasting", source: "CampusX | NumPy", type: "Playlist assignment", minutes: 54, priority: "core", videoId: "9TKpRnoEb5s", url: "https://www.youtube.com/watch?v=9TKpRnoEb5s&list=PLKnIA16_Rmvb-ToL3RQ_bwxG4_ND-0-DT&index=3", note: "Watch playlist lessons 3, 4, 6, 7 and 12 for array creation, shape and dimensions, indexing, vectorized operations and broadcasting. The remaining plotting and convenience-function lessons are not prerequisites for this route." },
           { id: "pandas-core", title: "Pandas essentials for model input data", source: "CampusX | Pandas", type: "Playlist assignment", minutes: 76, priority: "core", videoId: "kq9Vmg5d7Sk", url: "https://www.youtube.com/watch?v=kq9Vmg5d7Sk&list=PLKnIA16_RmvbR85fgbfVRKOiMokUKVupy&index=1", note: "Watch lessons 1-5, 10-11 and 20-21 for DataFrames, CSV import, row and column selection, filtering, duplicate handling, GroupBy and missing values. Skip plotting, IPL-specific repetition, pivot tables and correlation." }
         ]
@@ -1330,11 +1333,13 @@
       {
         id: "llm-apps",
         code: "04",
-        title: "LangChain application layer",
-        outcome: "Use one consistent CampusX sequence for model calls, prompts, structured output and chains before moving to RAG and agents.",
-        topics: ["Hosted models", "Open-source models", "Prompt templates", "Messages", "Pydantic structured output", "JSON output", "Simple chains", "Sequential chains", "Parallel chains", "Conditional chains"],
-        checkpoint: "Build a small LangChain service that loads secrets from the environment, sends a dynamic chat prompt, validates a Pydantic response and routes the result through a two-step chain. Compare hosted and local model choices by privacy, control, latency and cost.",
+        title: "Provider-native and LangChain application layer",
+        outcome: "Call a hosted model directly before using LangChain, then add streaming, multimodal input, validated output and chains without becoming dependent on one abstraction.",
+        topics: ["Provider SDKs", "Environment secrets", "Streaming", "Multimodal input", "Function calling", "Hosted models", "Open-source models", "Prompt templates", "Messages", "Pydantic structured output", "JSON output", "Simple chains", "Sequential chains", "Parallel chains", "Conditional chains"],
+        checkpoint: "Build one provider-native client that loads secrets from the environment, streams text, accepts one image and validates one structured response. Define one tool schema, execute only an allowlisted local function and return its result to the model. Then implement the same prompt and response contract through LangChain and use a two-step chain. Compare direct SDK and framework choices by control, portability, latency and maintenance cost.",
         resources: [
+          { id: "provider-sdk-gemini", title: "Direct model calls, streaming and multimodal input", source: "Patrick Loeber | Google Gen AI Python SDK", type: "Focused video", minutes: 12, priority: "core", videoId: "qfWpPEgea2A", url: "https://www.youtube.com/watch?v=qfWpPEgea2A", note: "Watch in full for the current google-genai client, environment-based API keys, direct content generation, streaming, chat state and image input by file upload or bytes. Provider model names change; keep them in configuration rather than business logic." },
+          { id: "provider-sdk-responses", title: "Native tools and structured response contracts", source: "Dave Ebbelaar | OpenAI Responses API", type: "Focused video", minutes: 15, priority: "interview", videoId: "0pGxoubWI6s", url: "https://www.youtube.com/watch?v=0pGxoubWI6s", note: "Watch 4:24-19:20 for direct Responses API calls, streaming, conversation state, built-in tools, function calling and Pydantic structured output. Skip the migration overview and closing demos. Treat API syntax as provider-specific; retain the request-tool-result-response pattern." },
           { id: "langchain-core", title: "Models, prompts, structured output and chains", source: "CampusX | Generative AI using LangChain", type: "Playlist assignment", minutes: 196, priority: "core", videoId: "HdcLE8JuMrA", url: "https://www.youtube.com/watch?v=HdcLE8JuMrA&list=PLKnIA16_RmvaTbihpo4MtzVm4XOQa0ER0&index=5", note: "Watch Models at 20:37-52:59 and 53:26-78:05; Prompts at 6:17-66:37; Structured Output at 2:09-14:08 and 36:07-64:53; and Chains at 2:42-41:00. Skip repeated recaps, embedding models, output parsers, runnables, RAG and LangChain tools because later modules cover retrieval and tool execution once." }
         ]
       },
@@ -1343,11 +1348,13 @@
         code: "05",
         title: "Production RAG and retrieval",
         outcome: "Build and evaluate a retrieval pipeline that returns grounded answers with traceable evidence.",
-        topics: ["RAG architecture", "Indexing path", "Query path", "Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "MMR", "Multi-query retrieval", "Contextual compression", "Citations", "RAG versus fine-tuning", "Self-RAG"],
-        checkpoint: "Build a multi-document RAG service with parsed metadata, compared chunking strategies, a vector store and tenant-scoped filters. Compare similarity retrieval, MMR, multi-query retrieval and contextual compression, return citations, and evaluate answers in Module 08. In Full coverage, add a Self-RAG path that decides whether retrieval is needed, filters weak evidence, checks grounding and rewrites an unhelpful answer or query.",
+        topics: ["RAG architecture", "Indexing path", "Query path", "Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "BM25", "Hybrid search", "Reciprocal Rank Fusion", "HyDE", "MMR", "Multi-query retrieval", "Contextual compression", "Citations", "RAG versus fine-tuning", "Self-RAG"],
+        checkpoint: "Build a multi-document RAG service with parsed metadata, compared chunking strategies, a vector store and tenant-scoped filters. Retrieve a wider candidate set independently with BM25 and vector search, fuse ranks with RRF, deduplicate by stable chunk ID and return the final top-k with citations. Compare dense-only and hybrid retrieval on the same golden queries. In Full coverage, test HyDE against the baseline and retain it only if measured retrieval improves, then add a Self-RAG path that decides whether retrieval is needed, filters weak evidence and checks grounding.",
         resources: [
           { id: "rag-architecture", title: "RAG architecture and trade-offs", source: "CampusX | RAG Playlist", type: "Playlist assignment", minutes: 44, priority: "core", videoId: "X0btK9X0Xnk", url: "https://www.youtube.com/watch?v=X0btK9X0Xnk&list=PLKnIA16_Rmva0dRLWEHLznSHKbFD_RJfX&index=1", note: "Watch 3:05-23:25, 34:07-55:50 and 57:08-59:04 for private or recent knowledge, hallucination, indexing and query paths, limitations and RAG versus fine-tuning. Skip the long in-context-learning detour and repeated component recap." },
           { id: "rag-core", title: "RAG ingestion, indexing and retrieval", source: "CampusX | RAG Playlist", type: "Playlist assignment", minutes: 195, priority: "core", videoId: "bL92ALSZ2Cg", url: "https://www.youtube.com/watch?v=bL92ALSZ2Cg&list=PLKnIA16_Rmva0dRLWEHLznSHKbFD_RJfX&index=2", note: "Watch Document Loaders at 10:56-56:44, Text Splitters in full, Vector Stores in full, and Retrievers at 2:01-9:55 plus 15:50-47:54. This covers each pipeline stage once and skips every RAG recap and demo repeated by the next lesson." },
+          { id: "hybrid-search-rrf", title: "BM25, vector retrieval and reciprocal rank fusion", source: "Yash Jain | Hinglish", type: "Focused video", minutes: 17, priority: "core", videoId: "F5TlaHXNAaI", url: "https://www.youtube.com/watch?v=F5TlaHXNAaI", note: "Watch in full for BM25 lexical retrieval, dense vector retrieval, over-fetching candidates, the RRF formula, stable document IDs, deduplication and final top-k selection. The demonstrated RRF constant and candidate counts are tunable parameters, not universal defaults." },
+          { id: "hyde-retrieval", title: "HyDE as an evaluated query transformation", source: "Dev The Dev | English", type: "Focused video", minutes: 2, priority: "interview", videoId: "7yWV7vskwXw", url: "https://www.youtube.com/watch?v=7yWV7vskwXw", note: "Use this concise explanation to understand HyDE: generate a hypothetical answer, embed that answer and retrieve real evidence near it. Never present the hypothetical text as evidence. Implement it as an optional retrieval branch and keep it only when the Module 08 evaluation beats the rewritten-query baseline." },
           { id: "rag-advanced", title: "Self-RAG retrieval and answer checks", source: "CampusX | RAG Playlist", type: "Playlist assignment", minutes: 36, priority: "interview", videoId: "BbO_XaEjzaA", url: "https://www.youtube.com/watch?v=BbO_XaEjzaA&list=PLKnIA16_Rmva0dRLWEHLznSHKbFD_RJfX&index=9", note: "Watch 1:48-15:05 and 45:56-1:08:13 for retrieval decisions, evidence filtering, hallucination checks, revised-answer loops and query rewriting. Skip the repeated node-by-node implementation. This replaces CRAG because watching both repeats evidence grading and query rewriting." }
         ]
       },
@@ -1367,21 +1374,23 @@
       {
         id: "fastapi",
         code: "07",
-        title: "FastAPI service layer",
-        outcome: "Expose a validated model endpoint with clear request, response, health and error behavior.",
-        topics: ["FastAPI", "Uvicorn", "Routes", "Request bodies", "Pydantic", "Validation", "Status codes", "Response models", "Health endpoints", "Exception mapping", "Model serving", "Separation of concerns"],
-        checkpoint: "Expose the earlier model or RAG build through FastAPI. Validate request and response models, centralize model loading, map domain errors to HTTP status codes, add a health endpoint and manually test successful and invalid requests. Do not claim dependency injection, async internals or automated API testing from this CampusX-only assignment.",
+        title: "Production FastAPI service layer",
+        outcome: "Expose a validated AI endpoint with correct async behavior, managed resources, dependency boundaries, streaming cancellation and automated API tests.",
+        topics: ["FastAPI", "Uvicorn", "Routes", "Request bodies", "Pydantic", "Validation", "Status codes", "Response models", "Health endpoints", "Exception mapping", "Async routes", "Blocking work", "Dependency injection", "Lifespan", "Connection pools", "Streaming", "Client disconnects", "TestClient", "Structured logging", "Separation of concerns"],
+        checkpoint: "Expose the earlier model or RAG build through FastAPI. Validate request and response models, inject provider and repository dependencies, initialize shared clients once with lifespan, map domain errors to HTTP status codes and add liveness plus readiness endpoints. Stream one response from an async generator; detect cancellation or client disconnect, stop upstream generation and clean up resources. Use Pytest and TestClient with dependency overrides or mocks to cover success, invalid input, provider timeout, rate limit and disconnect behavior.",
         resources: [
-          { id: "fastapi-core", title: "FastAPI setup, validation and model serving", source: "CampusX | FastAPI for Machine Learning", type: "Playlist assignment", minutes: 105, priority: "core", videoId: "lXx-_1r0Uss", url: "https://www.youtube.com/watch?v=lXx-_1r0Uss&list=PLKnIA16_RmvZ41tjbKB2ZnwchfniNsMuQ&index=2", note: "Watch Setup at 31:53-42:06, Post Request at 6:50-35:42, Serving ML Models at 4:17-46:00, and Improving the API at 14:20-37:05. Skip API introductions, repeated HTTP-method lessons, Docker and AWS deployment because those repeat your existing backend and DevOps knowledge." }
+          { id: "fastapi-core", title: "FastAPI setup, validation and model serving", source: "CampusX | FastAPI for Machine Learning", type: "Playlist assignment", minutes: 105, priority: "core", videoId: "lXx-_1r0Uss", url: "https://www.youtube.com/watch?v=lXx-_1r0Uss&list=PLKnIA16_RmvZ41tjbKB2ZnwchfniNsMuQ&index=2", note: "Watch Setup at 31:53-42:06, Post Request at 6:50-35:42, Serving ML Models at 4:17-46:00, and Improving the API at 14:20-37:05. Skip API introductions, repeated HTTP-method lessons, Docker and AWS deployment because those repeat your existing backend and DevOps knowledge." },
+          { id: "fastapi-production", title: "Async rules, dependencies, lifespan and production logging", source: "Code Collider | English with Hindi captions", type: "Focused video", minutes: 12, priority: "core", videoId: "kmJz8w5ij8Y", url: "https://www.youtube.com/watch?v=kmJz8w5ij8Y", note: "Watch in full for blocking versus async endpoints, queue boundaries, dependency rules, connection pooling, lifespan setup and cleanup, validated settings and structured request logging. Treat the worker-count formula as a starting hypothesis and load-test it instead of copying it blindly." },
+          { id: "fastapi-testing", title: "Test FastAPI endpoints with Pytest and TestClient", source: "Mohit Decodes | Hindi", type: "Focused video", minutes: 9, priority: "core", videoId: "0WcavHYspn8", url: "https://www.youtube.com/watch?v=0WcavHYspn8", note: "Watch in full for Pytest setup, FastAPI TestClient, status-code assertions and response validation. Extend the demonstrated happy-path tests by overriding the provider dependency and simulating timeout, malformed output and rate-limit failures in the checkpoint." }
         ]
       },
       {
         id: "evaluation",
         code: "08",
         title: "Evaluation and observability",
-        outcome: "Evaluate model and RAG behavior with explicit methods, then trace graph execution instead of judging the app from a few demos.",
-        topics: ["Deterministic checks", "Human review", "LLM-as-judge", "Reference-based evaluation", "Reference-free evaluation", "Golden datasets", "Contextual recall", "Contextual precision", "Retriever optimization", "Offline evaluation", "Online evaluation", "Tracing", "Latency", "Tokens", "Errors"],
-        checkpoint: "Create a versioned 20-case evaluation set. Apply deterministic and rubric-based checks, implement contextual recall and rank-aware precision for the retriever, compare one retrieval change against a baseline, and trace one LangGraph run with latency, token and error labels. In Full coverage, define an online sampling and feedback loop that sends production failures back into the offline set.",
+        outcome: "Evaluate model and RAG behavior with release gates and production signals, then detect quality, safety, latency or cost regressions instead of judging the app from a few demos.",
+        topics: ["Deterministic checks", "Human review", "LLM-as-judge", "Reference-based evaluation", "Reference-free evaluation", "Golden datasets", "Contextual recall", "Contextual precision", "Retriever optimization", "Offline evaluation", "Online evaluation", "Tracing", "Latency", "Tokens", "Cost", "Safety", "Errors", "Release baselines", "Regression alerts"],
+        checkpoint: "Create a versioned 20-case evaluation set. Apply deterministic and rubric-based checks, implement contextual recall and rank-aware precision for the retriever, and compare dense-only, hybrid and optional HyDE retrieval against one fixed baseline. Record per-version quality, safety-pass rate, p50/p95 latency, token cost and error rate. Fail a release when an agreed threshold regresses. Trace one LangGraph run with the same labels and, in Full coverage, sample production failures back into the offline set without storing raw PII.",
         resources: [
           { id: "llm-eval-methods", title: "LLM evaluation methods", source: "CampusX | LLM Evaluation", type: "Playlist assignment", minutes: 53, priority: "core", videoId: "uQFLY8rQVYA", url: "https://www.youtube.com/watch?v=uQFLY8rQVYA&list=PLEneLIDJFpcA&index=5", note: "Watch the evaluation-methods lesson once for deterministic, human and model-graded evaluation, rubrics, LLM-as-judge and reference-based versus reference-free checks. The separate 17-minute workflow overview was removed because it repeats the same process at a higher level." },
           { id: "rag-evaluation", title: "Hands-on RAG retriever evaluation", source: "CampusX | LLM Evaluation", type: "Playlist assignment", minutes: 72, priority: "core", videoId: "9Dkz3ckRj8c", url: "https://www.youtube.com/watch?v=9Dkz3ckRj8c&list=PLEneLIDJFpcA&index=13", note: "Watch 21:01-1:08:47 and 1:21:40-1:46:15 for retriever failure modes, contextual recall, rank-aware precision, robust golden datasets, DeepEval, baseline trials, cross-encoder reranking and embedding-model comparison. Skip project setup and repeated RAG ingestion code." },
@@ -1395,7 +1404,7 @@
         title: "MLOps delivery workflow",
         outcome: "Make one trained-model release reproducible with tracked experiments, a data pipeline, registry promotion and CI/CD.",
         topics: ["MLOps lifecycle", "Data management", "ETL pipelines", "Data storage", "Experiment tracking", "MLflow", "DVC pipelines", "Model registry", "Model promotion", "Testing", "Deployment strategies", "GitHub Actions", "CI and CD"],
-        checkpoint: "Productionize the model from Module 02. Identify the ingestion, transformation and storage boundaries of its data pipeline, track experiments in MLflow, automate the pipeline with DVC, register and promote the selected model, and gate deployment with tests and GitHub Actions. Apply your existing Docker and cloud skills to the release. Do not claim implemented drift monitoring, managed model gateways or vLLM from this CampusX-only module.",
+        checkpoint: "Productionize the model from Module 02. Identify the ingestion, transformation and storage boundaries of its data pipeline, track experiments in MLflow, automate the pipeline with DVC, register and promote the selected model, and gate deployment with tests and GitHub Actions. Apply your existing Docker and cloud skills to the release. Do not claim implemented drift monitoring, managed model gateways or vLLM from this focused MLOps module.",
         resources: [
           { id: "mlops-project", title: "MLflow, DVC, registry and CI/CD in one project", source: "CampusX | 100 Days of MLOps", type: "Playlist assignment", minutes: 51, priority: "core", videoId: "eCjuoqUy8Is", url: "https://www.youtube.com/watch?v=eCjuoqUy8Is&list=PLKnIA16_RmvaKHYjy5v0dJh8edeaEWb-b&index=3", note: "Watch 10:30-45:27 for experiment tracking, a DVC pipeline, model registry, tests and promotion; then 1:00:43-1:16:20 for deployment strategies and GitHub Actions. Skip Flask, Docker and EC2 repetition." },
           { id: "mlops-data-management", title: "MLOps data and ETL boundaries", source: "CampusX | 100 Days of MLOps", type: "Playlist assignment", minutes: 24, priority: "interview", videoId: "D_-qy1A76EM", url: "https://www.youtube.com/watch?v=D_-qy1A76EM&list=PLKnIA16_RmvaKHYjy5v0dJh8edeaEWb-b&index=4", note: "Watch 7:20-31:10 for why software-style CI/CD is insufficient for changing data, the ETL boundary, data storage choices and MLOps data-management tools. Skip the introduction, recap and closing task." }
@@ -1404,11 +1413,17 @@
       {
         id: "security",
         code: "10",
-        title: "Bounded tools and graduation build",
-        outcome: "Connect model-selected tools to application code, require approval for consequential actions and apply existing backend security skills to the final build.",
-        topics: ["Tool schemas", "ToolNode", "Argument validation", "Allowlists", "Step limits", "Timeouts", "Idempotent side effects", "Human approval", "Authentication", "Authorization", "Tenant isolation", "Secret handling"],
-        checkpoint: "Deploy one Dockerized capstone with environment-based secrets, authenticated routes, authorization before tenant-scoped retrieval, request limits, citations, one allowlisted tool and human approval before a side effect. Validate tool arguments, cap graph steps, add timeouts and make the side effect idempotent. Test cross-tenant access, malformed input, tool abuse and provider failure. The playlist teaches tools and approval; apply authentication, authorization and isolation from your existing backend knowledge.",
+        title: "AI reliability, guardrails and graduation build",
+        outcome: "Keep the final AI service responsive and bounded when providers, users, retrieved content or model-selected tools behave unexpectedly.",
+        topics: ["Timeouts", "Transient retries", "Exponential backoff", "Jitter", "Circuit breakers", "Provider fallback", "Rate limiting", "Exact response cache", "Semantic cache", "TTL", "Cache safety", "Prompt injection", "PII masking", "Input guardrails", "Output guardrails", "Tool schemas", "Argument validation", "Allowlists", "Step limits", "Idempotent side effects", "Human approval", "Authentication", "Authorization", "Tenant isolation", "Secret handling"],
+        checkpoint: "Deploy one Dockerized capstone with environment-based secrets, authenticated routes and authorization before tenant-scoped retrieval. Add per-user and global request limits, provider timeouts, bounded retries with exponential backoff plus jitter, and a circuit breaker with an explicit degraded response. Cache only deterministic, non-user-sensitive operations with a TTL and include model, prompt and tenant scope in the key; measure cache correctness before enabling semantic reuse. Add input, output and retrieval-content guardrails, PII masking, citations, one allowlisted tool and human approval before a side effect. Validate tool arguments, cap graph steps and make side effects idempotent. Test cross-tenant access, malformed input, prompt injection, cached-data leakage, tool abuse, duplicate side effects, provider failure and retry exhaustion.",
         resources: [
+          { id: "provider-failure-patterns", title: "Timeouts, retries, exponential backoff and jitter", source: "SoftwareDude | Hinglish", type: "Focused video", minutes: 16, priority: "core", videoId: "m28VAy2yZsE", url: "https://www.youtube.com/watch?v=m28VAy2yZsE", note: "Watch 1:29-end for timeout boundaries, bounded retries, fixed versus exponential backoff, jitter and a practical decision sequence. Retry only transient and idempotent operations, honor Retry-After when available and never multiply retries independently at every system layer." },
+          { id: "ai-fallback-circuit", title: "AI fallbacks, circuit breakers and retry side effects", source: "Learning With Chetna | English", type: "Focused video", minutes: 6, priority: "core", videoId: "jh1plS6bfz8", url: "https://www.youtube.com/watch?v=jh1plS6bfz8", note: "Start at the fallback section around 2:20 and continue through circuit breakers, timeout handling, idempotency, cache fallback, queue retries, dead-letter handling and retry metrics. Skip the repeated retry introduction. A fallback must preserve product safety: return an explicit unavailable state rather than an ungrounded generic answer when RAG evidence is missing." },
+          { id: "api-rate-limiting", title: "Rate limiting, throttling and bucket algorithms", source: "ByteMonk | Hinglish", type: "Focused video", minutes: 7, priority: "core", videoId: "_qNHROq0pGk", url: "https://www.youtube.com/watch?v=_qNHROq0pGk", note: "Watch in full for rate limiting versus throttling, token bucket and leaky bucket behavior. Apply limits by authenticated user or tenant plus a global provider budget; do not rely only on IP addresses or one process's memory when the API is horizontally scaled." },
+          { id: "llm-cache-design", title: "Exact and semantic LLM cache trade-offs", source: "Gaurav Sen | English", type: "Focused video", minutes: 6, priority: "core", videoId: "tGqvoEuoU5M", url: "https://www.youtube.com/watch?v=tGqvoEuoU5M", note: "Watch in full for exact-key caching, TTL and eviction, semantic-vector caching, similarity thresholds, stale-answer risk, latency and cost. Never share personalized or authorization-dependent responses across tenants, and include model plus prompt versions in cache invalidation." },
+          { id: "rag-cache-observability", title: "Implement semantic caching and inspect Redis behavior", source: "Krish Naik | Hinglish", type: "Focused video", minutes: 36, priority: "interview", videoId: "Wh3k3CelSbQ", url: "https://www.youtube.com/watch?v=Wh3k3CelSbQ", note: "Build the demonstrated Redis or Valkey-backed semantic cache, set TTLs and inspect hit behavior, latency and cache health through observability. BetterDB is only the video's example vendor; the transferable capability is measuring cache correctness and operations rather than adopting that product." },
+          { id: "ai-guardrails", title: "Layered input, output, PII and tool guardrails", source: "Krish Naik | Hinglish", type: "Focused video", minutes: 38, priority: "core", videoId: "ruiLq0OzjkI", url: "https://www.youtube.com/watch?v=ruiLq0OzjkI", note: "Watch in full for deterministic versus model-based checks, PII middleware, prompt-injection filtering, before-agent and after-agent hooks, layered guardrails and human approval. Add authorization and retrieval-content checks separately: a guardrail library is not a security boundary by itself." },
           { id: "bounded-tools", title: "LangGraph tools and human approval", source: "CampusX | Agentic AI using LangGraph", type: "Playlist assignment", minutes: 74, priority: "core", videoId: "_UuUigoM9MA", url: "https://www.youtube.com/watch?v=_UuUigoM9MA&list=PLKnIA16_RmvYsvB8qkUQuJmJNuiCUJFPL&index=18", note: "Watch Tools in LangGraph and Human in the Loop in full. Connect model-generated calls to ToolNode, return results to graph state and pause before consequential actions. Add argument validation, allowlists, timeouts, step caps and idempotency in the checkpoint; the videos teach execution and approval mechanics, not complete application security." }
         ]
       }
@@ -1426,13 +1441,13 @@
     const roleProfiles = {
       all: {
         label: "Complete route",
-        description: "All CampusX playlist assignments across the shared foundations and three role-focused views.",
+        description: "CampusX-first foundations plus focused production supplements across the three role views.",
         excluded: new Set(),
         hiddenTopics: {}
       },
       "ai-engineer": {
         label: "AI Engineer",
-        description: "Applied AI using classical ML, Keras, optional PyTorch, LangChain, RAG, LangGraph, FastAPI, evaluation and a focused MLOps project. Research and foundation-model training remain outside scope.",
+        description: "Applied AI using Python, classical ML, provider SDKs, LangChain, production RAG, LangGraph, FastAPI, evaluation, reliability, guardrails and a focused MLOps project. Research and foundation-model training remain outside scope.",
         excluded: new Set(["mcp-architecture"]),
         hiddenTopics: {
           agents: ["MCP"]
@@ -1440,7 +1455,7 @@
       },
       "genai-engineer": {
         label: "GenAI Engineer",
-        description: "LLM application development using LangChain, RAG, LangGraph, memory, FastAPI, offline and online evaluation, and bounded tools, with ML concepts but no model-training or classical MLOps assignment.",
+        description: "Production LLM applications using provider SDKs, LangChain, hybrid RAG, LangGraph, memory, FastAPI, evaluation, reliability and guardrails, with ML concepts but no classical model-training or MLOps project.",
         excluded: new Set(["pandas-core", "ml-metrics", "sklearn-workflow", "keras-ann-project", "pytorch-training-pipeline", "mlops-project", "mlops-data-management"]),
         hiddenTopics: {
           "ai-foundations": ["Keras", "PyTorch", "scikit-learn"]
@@ -1448,10 +1463,11 @@
       },
       "mlops-engineer": {
         label: "MLOps Engineer",
-        description: "Model delivery using Python, ML and neural-network training context, FastAPI serving, data management, MLflow, DVC, registry promotion and CI/CD. LLM-specific foundations, evaluation, LangChain, RAG and agent implementation are removed.",
-        excluded: new Set(["llm-evolution", "transformer-core", "langchain-core", "rag-architecture", "rag-core", "rag-advanced", "agent-core", "agent-memory", "mcp-architecture", "llm-eval-methods", "rag-evaluation", "langsmith-observability", "online-evaluation", "bounded-tools"]),
+        description: "Model delivery using typed and tested Python, ML training context, production FastAPI, service resilience, data management, MLflow, DVC, registry promotion and CI/CD. LLM-specific SDK, RAG, agent, evaluation, caching and guardrail assignments are removed.",
+        excluded: new Set(["llm-evolution", "transformer-core", "provider-sdk-gemini", "provider-sdk-responses", "langchain-core", "rag-architecture", "rag-core", "hybrid-search-rrf", "hyde-retrieval", "rag-advanced", "agent-core", "agent-memory", "mcp-architecture", "llm-eval-methods", "rag-evaluation", "langsmith-observability", "online-evaluation", "llm-cache-design", "rag-cache-observability", "ai-guardrails", "bounded-tools"]),
         hiddenTopics: {
-          rag: ["Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "MMR", "Multi-query retrieval", "Contextual compression", "Self-RAG"]
+          rag: ["Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "BM25", "Hybrid search", "Reciprocal Rank Fusion", "HyDE", "MMR", "Multi-query retrieval", "Contextual compression", "Self-RAG"],
+          security: ["Exact response cache", "Semantic cache", "TTL", "Cache safety", "Prompt injection", "PII masking", "Input guardrails", "Output guardrails", "Tool schemas", "Argument validation", "Allowlists", "Step limits", "Idempotent side effects", "Human approval", "Authentication", "Authorization", "Tenant isolation"]
         }
       }
     };
@@ -1604,14 +1620,16 @@
     function renderMedia(resource) {
       if (resource.videoId) {
         const src = `https://i.ytimg.com/vi/${encodeURIComponent(resource.videoId)}/mqdefault.jpg`;
-        return `<a class="resource-media" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(resource.title)}"><img src="${src}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="sr-only">Playlist thumbnail</span></a>`;
+        const fallbackLabel = resource.type === "Playlist assignment" ? "PLAYLIST" : "VIDEO";
+        return `<a class="resource-media" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(resource.title)}" data-fallback-label="${fallbackLabel}"><img src="${src}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="sr-only">Video thumbnail</span></a>`;
       }
-      return `<div class="resource-media" aria-hidden="true">PLAYLIST</div>`;
+      return `<div class="resource-media" aria-hidden="true">VIDEO</div>`;
     }
 
     function renderResource(resource, order, routeTotal, currentId) {
       const isDone = completed.has(resource.id);
       const isCurrent = resource.id === currentId;
+      const openLabel = resource.type === "Playlist assignment" ? "Open playlist" : "Open video";
       return `<article class="resource-card${isDone ? " completed" : ""}${isCurrent ? " current" : ""}" data-resource-id="${resource.id}">
         ${renderMedia(resource)}
         <div class="resource-copy">
@@ -1625,7 +1643,7 @@
           <p class="resource-note">${escapeHtml(resource.note)}</p>
         </div>
         <div class="resource-actions">
-          <a class="open-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">Open playlist</a>
+          <a class="open-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">${openLabel}</a>
           <button class="done-button" type="button" data-complete-id="${resource.id}" aria-pressed="${isDone}">${isDone ? "Done" : "Mark done"}</button>
         </div>
       </article>`;
@@ -1684,7 +1702,7 @@
       moduleList.querySelectorAll("img").forEach((image) => {
         image.addEventListener("error", () => {
           image.style.display = "none";
-          image.parentElement.append("PLAYLIST");
+          image.parentElement.append(image.parentElement.dataset.fallbackLabel || "VIDEO");
         }, { once: true });
       });
     }
@@ -1708,7 +1726,7 @@
         return `<button class="phase-step${isComplete ? " complete" : ""}${isCurrent ? " current" : ""}" type="button" data-module-target="${targetModuleId}"${isCurrent ? ' aria-current="step"' : ""}>
           <span class="phase-number">${phase.number}</span>
           <span class="phase-copy"><strong>${escapeHtml(phase.title)}</strong><span>${escapeHtml(phase.detail)}</span></span>
-          <span class="phase-count" title="Playlist assignments and module checkpoints">A ${done}/${resources.length} / G ${doneGates}/${moduleIds.length}</span>
+          <span class="phase-count" title="Video assignments and module checkpoints">A ${done}/${resources.length} / G ${doneGates}/${moduleIds.length}</span>
         </button>`;
       }).join("");
 
