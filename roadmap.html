@@ -506,27 +506,12 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .eyebrow {
-      margin: 0 0 5px;
-      color: var(--teal);
-      font-size: 11px;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
     .overview h2 {
       margin: 0;
       max-width: 760px;
       font-size: 30px;
       line-height: 1.12;
       letter-spacing: 0;
-    }
-
-    .overview-copy {
-      max-width: 780px;
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 14px;
     }
 
     .next-panel {
@@ -601,44 +586,6 @@
       background: var(--surface);
     }
 
-    .role-context {
-      display: grid;
-      grid-template-columns: 178px minmax(0, 1fr) auto;
-      gap: 16px;
-      align-items: center;
-      margin-top: 16px;
-      padding: 11px 14px;
-      border-left: 3px solid var(--teal);
-      background: var(--surface);
-    }
-
-    .role-context-heading {
-      display: grid;
-      gap: 1px;
-    }
-
-    .role-context-label {
-      color: var(--teal);
-      font-size: 9px;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
-    .role-context-heading strong { font-size: 12px; }
-
-    .role-context p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .role-context-meta {
-      color: var(--teal);
-      font-size: 10px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
     .summary-item {
       min-width: 0;
       padding: 14px 16px;
@@ -694,11 +641,6 @@
     .sequence-heading strong {
       font-size: 12px;
       text-transform: uppercase;
-    }
-
-    .sequence-heading span {
-      color: var(--muted);
-      font-size: 10px;
     }
 
     .phase-track {
@@ -774,6 +716,49 @@
       font-variant-numeric: tabular-nums;
     }
 
+    .module-display-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .module-display-label {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .module-display-actions {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface);
+    }
+
+    .module-display-button {
+      min-height: 34px;
+      padding: 0 10px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .module-display-button + .module-display-button { border-left: 1px solid var(--border); }
+    .module-display-button:not(:disabled):hover { background: var(--surface-hover); color: var(--text); }
+
+    .module-display-button:disabled {
+      color: color-mix(in srgb, var(--muted) 55%, transparent);
+      cursor: not-allowed;
+    }
+
     .module-section {
       margin-top: 28px;
       scroll-margin-top: 84px;
@@ -781,11 +766,18 @@
 
     .module-heading {
       display: grid;
-      grid-template-columns: 50px minmax(0, 1fr) auto auto;
+      grid-template-columns: 50px minmax(0, 1fr) auto;
       gap: 13px;
       align-items: center;
       padding-bottom: 12px;
       border-bottom: 2px solid color-mix(in srgb, var(--blue) 28%, var(--border));
+    }
+
+    .module-heading-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 9px;
     }
 
     .section-code {
@@ -815,12 +807,6 @@
       text-transform: uppercase;
     }
 
-    .module-heading p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
     .module-time {
       padding: 6px 9px;
       border: 1px solid var(--border);
@@ -838,6 +824,37 @@
       font-weight: 800;
       font-variant-numeric: tabular-nums;
     }
+
+    .module-toggle {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .module-toggle:not(:disabled):hover { background: var(--surface-hover); color: var(--text); }
+    .module-toggle:disabled { cursor: not-allowed; opacity: 0.5; }
+
+    .module-toggle-icon {
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 150ms ease;
+    }
+
+    .module-toggle[aria-expanded="false"] .module-toggle-icon {
+      transform: translateX(-2px) rotate(-45deg);
+    }
+
+    .module-body[hidden] { display: none; }
 
     .topic-list {
       display: flex;
@@ -929,7 +946,7 @@
       gap: 8px 12px;
       align-items: start;
       min-width: 0;
-      min-height: 178px;
+      min-height: 132px;
       padding: 11px;
       border: 1px solid var(--border);
       border-radius: 6px;
@@ -1071,19 +1088,11 @@
       text-align: center;
     }
 
-    .page-footer {
-      margin-top: 42px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 11px;
-    }
-
     @media (max-width: 1040px) {
       .app-shell { grid-template-columns: 238px minmax(0, 1fr); }
       .role-control { width: 156px; }
       .filter-button { min-width: 68px; }
-      .resource-card { min-height: 142px; }
+      .resource-card { min-height: 132px; }
     }
 
     @media (max-width: 840px) {
@@ -1124,12 +1133,9 @@
       .role-control { width: 152px; min-width: 152px; flex: 0 0 152px; }
       .filter-control { flex: 0 0 176px; }
       .overview h2 { font-size: 25px; }
-      .role-context { grid-template-columns: 1fr; gap: 4px; }
-      .role-context-meta { white-space: normal; }
       .summary-strip { grid-template-columns: 1fr 1fr; }
       .summary-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--border); }
       .summary-item:nth-child(4) { border-top: 1px solid var(--border); }
-      .sequence-heading { align-items: flex-start; flex-direction: column; gap: 2px; }
       .phase-track {
         display: flex;
         overflow-x: auto;
@@ -1140,13 +1146,13 @@
       .phase-step { flex: 0 0 82%; scroll-snap-align: start; }
       .phase-step + .phase-step { border-left: 1px solid var(--border); }
       .resource-list { grid-template-columns: 1fr; }
-      .module-heading { grid-template-columns: 44px minmax(0, 1fr) auto; }
+      .module-display-bar { justify-content: space-between; }
+      .module-heading { grid-template-columns: 44px minmax(0, 1fr); align-items: start; }
+      .module-heading-actions { grid-column: 2; justify-content: flex-start; flex-wrap: wrap; }
       .module-checkpoint { grid-template-columns: 1fr; gap: 4px; }
       .checkpoint-button { width: 100%; margin-top: 4px; }
       .section-code { width: 44px; height: 40px; }
-      .module-time { grid-column: 2; justify-self: start; }
-      .module-progress { grid-column: 3; grid-row: 1; }
-      .resource-card { grid-template-columns: 96px minmax(0, 1fr); gap: 8px 10px; min-height: 150px; }
+      .resource-card { grid-template-columns: 96px minmax(0, 1fr); gap: 8px 10px; min-height: 132px; }
       .resource-media { width: 96px; }
       .resource-actions { grid-column: 2; }
     }
@@ -1229,9 +1235,7 @@
       <main class="content-shell">
         <header class="overview">
           <div>
-            <p class="eyebrow">Hindi/Hinglish-first fresher video route</p>
             <h2>AI, GenAI and MLOps route</h2>
-            <p class="overview-copy">Starts from zero Python and AI, then branches into product-facing AI and GenAI applications or an MLOps production foundation.</p>
           </div>
           <div id="next-panel" class="next-panel">
             <div class="next-copy">
@@ -1246,15 +1250,6 @@
           </div>
         </header>
 
-        <section class="role-context" aria-live="polite" aria-atomic="true">
-          <div class="role-context-heading">
-            <span class="role-context-label">Role focus</span>
-            <strong id="role-context-title">Complete route</strong>
-          </div>
-          <p id="role-context-copy">All shared foundations and specialization videos for the three target role families.</p>
-          <span id="role-context-meta" class="role-context-meta">Loading videos</span>
-        </section>
-
         <section class="summary-strip" aria-label="Roadmap summary">
           <div class="summary-item"><span id="summary-progress" class="summary-value">0%</span><span class="summary-label">completed</span></div>
           <div class="summary-item"><span id="summary-resources" class="summary-value">0</span><span class="summary-label">visible videos</span></div>
@@ -1265,20 +1260,25 @@
         <section class="sequence-panel" aria-label="Learning sequence">
           <div class="sequence-heading">
             <strong>Learning sequence</strong>
-            <span>V = videos, G = checkpoints. Complete each phase from left to right.</span>
           </div>
           <div id="phase-track" class="phase-track"></div>
         </section>
+
+        <div class="module-display-bar" aria-label="Module display controls">
+          <span class="module-display-label">Module sections</span>
+          <div class="module-display-actions">
+            <button id="collapse-all" class="module-display-button" type="button">Collapse all</button>
+            <button id="expand-all" class="module-display-button" type="button">Expand all</button>
+          </div>
+        </div>
 
         <div id="module-list"></div>
         <div id="empty-state" class="empty-state" hidden>No resources match the current search and depth filter.</div>
 
         <aside class="scope-note">
           <strong>Scope</strong>
-          <span>Assumes your existing DSA/OOP, JavaScript/TypeScript, React/Next.js, Node/Express/REST API, SQL/NoSQL, AWS/Cloudflare, Docker/Kubernetes and Git skills, but no Python or AI knowledge. CampusX remains the primary source. Focused video supplements are used only for production topics its public playlists do not adequately teach: Python packages, typing, asyncio and testing; provider-native APIs; hybrid retrieval; production FastAPI and streaming; reliability, caching and guardrails. Fast track keeps the essential videos; Full coverage adds framework-independent provider patterns, Pytest depth, HyDE, Self-RAG, memory, MCP, cache observability, online evaluation and MLOps data management. Research, foundation-model training, managed cloud AI platforms, drift infrastructure and self-hosted vLLM serving remain outside scope.</span>
+          <span>Starts from zero Python and AI while assuming your existing software-development skills. Research, foundation-model training and advanced platform specialization are outside this route.</span>
         </aside>
-
-        <footer class="page-footer">Progress, filters and theme stay in this browser. No account or database is used. Every watch link opens an exact selected video directly.</footer>
       </main>
     </div>
   </div>
@@ -1570,9 +1570,7 @@
             videoId,
             url: directVideoUrl(video),
             range,
-            note: range
-              ? `Watch this linked video at ${range}. Part of ${resource.title}.`
-              : `Watch this linked video in full. Part of ${resource.title}.`
+            note: range ? `Selected range: ${range}.` : ""
           };
         });
         legacyGroupChildren.set(resource.id, videos.map((video) => video.id));
@@ -1630,7 +1628,8 @@
       filter: "interview",
       role: "all",
       search: "",
-      hideCompleted: false
+      hideCompleted: false,
+      collapsedModules: []
     };
 
     function readState() {
@@ -1646,7 +1645,10 @@
           filter: ["core", "interview"].includes(parsed.filter) ? parsed.filter : "interview",
           role: hasRoleProfile(savedRole) ? savedRole : "all",
           search: typeof parsed.search === "string" ? parsed.search : "",
-          hideCompleted: parsed.hideCompleted === true
+          hideCompleted: parsed.hideCompleted === true,
+          collapsedModules: Array.isArray(parsed.collapsedModules)
+            ? [...new Set(parsed.collapsedModules.filter((id) => modules.some((module) => module.id === id)))]
+            : []
         };
       } catch (error) {
         return { ...defaultState };
@@ -1656,6 +1658,7 @@
     let state = readState();
     const completed = new Set(state.completed);
     const completedCheckpoints = new Set(state.checkpoints);
+    const collapsedModules = new Set(state.collapsedModules);
 
     const moduleNav = document.getElementById("module-nav");
     const mobileModuleNav = document.getElementById("mobile-module-nav");
@@ -1664,13 +1667,12 @@
     const emptyState = document.getElementById("empty-state");
     const searchInput = document.getElementById("search-input");
     const roleFilter = document.getElementById("role-filter");
-    const roleContextTitle = document.getElementById("role-context-title");
-    const roleContextCopy = document.getElementById("role-context-copy");
-    const roleContextMeta = document.getElementById("role-context-meta");
     const toolbar = document.querySelector(".toolbar");
     const themeButton = document.getElementById("theme-button");
     const continueButton = document.getElementById("continue-button");
     const hideCompletedInput = document.getElementById("hide-completed");
+    const collapseAllButton = document.getElementById("collapse-all");
+    const expandAllButton = document.getElementById("expand-all");
     const nextTitle = document.getElementById("next-title");
     const nextMeta = document.getElementById("next-meta");
     const nextLink = document.getElementById("next-link");
@@ -1683,7 +1685,8 @@
           filter: state.filter,
           role: state.role,
           search: state.search,
-          hideCompleted: state.hideCompleted
+          hideCompleted: state.hideCompleted,
+          collapsedModules: [...collapsedModules]
         }));
       } catch (error) {
         // The page remains usable when browser storage is unavailable.
@@ -1794,7 +1797,7 @@
             <span>${escapeHtml(watchLabel)}</span>
           </div>
           <h4 class="resource-title"><a class="resource-title-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(resource.title)}</a></h4>
-          <p class="resource-note">${escapeHtml(resource.note)}</p>
+          ${resource.note ? `<p class="resource-note">${escapeHtml(resource.note)}</p>` : ""}
         </div>
         <div class="resource-actions">
           <a class="open-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">Open video</a>
@@ -1813,6 +1816,8 @@
       const html = routeModules.map((module, moduleIndex) => {
         const visibleResources = visibleResourcesFor(module);
         const allowedResources = module.resources.filter(isAllowedByRoute);
+        const searchActive = state.search.trim().length > 0;
+        const isCollapsed = collapsedModules.has(module.id) && !searchActive;
         const doneCount = allowedResources.filter((resource) => completed.has(resource.id)).length;
         const checkpointDone = completedCheckpoints.has(module.id);
         const checkpointUnlocked = doneCount === allowedResources.length;
@@ -1820,23 +1825,27 @@
         const moduleMinutes = allowedResources.reduce((total, resource) => total + resource.minutes, 0);
         visibleTotal += visibleResources.length;
         if (!visibleResources.length && !checkpointOnly) return "";
-        return `<section id="module-${module.id}" class="module-section" data-module-section="${module.id}">
+        return `<section id="module-${module.id}" class="module-section${isCollapsed ? " collapsed" : ""}" data-module-section="${module.id}">
           <header class="module-heading">
             <div class="section-code">${module.code}</div>
             <div>
               <span class="module-kicker">${escapeHtml(phases.find((phase) => phase.moduleIds.includes(module.id)).title)} / Module ${moduleIndex + 1} of ${routeModules.length}</span>
               <h3>${escapeHtml(module.title)}</h3>
-              <p>${escapeHtml(module.outcome)}</p>
             </div>
-            <span class="module-time">${formatMinutes(moduleMinutes)}</span>
-            <span class="module-progress">${doneCount}/${allowedResources.length}</span>
+            <div class="module-heading-actions">
+              <span class="module-time">${formatMinutes(moduleMinutes)}</span>
+              <span class="module-progress">${doneCount}/${allowedResources.length}</span>
+              <button class="module-toggle" type="button" data-module-toggle="${module.id}" aria-expanded="${!isCollapsed}" aria-controls="module-body-${module.id}" aria-label="${isCollapsed ? "Expand" : "Collapse"} ${escapeHtml(module.title)}" title="${searchActive ? "Modules stay expanded while searching" : isCollapsed ? "Expand module" : "Collapse module"}"${searchActive ? " disabled" : ""}><span class="module-toggle-icon" aria-hidden="true"></span></button>
+            </div>
           </header>
-          <ul class="topic-list">${topicsFor(module).map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
-          ${visibleResources.length ? `<div class="resource-list">${visibleResources.map((resource) => renderResource(resource, orderById.get(resource.id), routeResources.length, currentVideoId)).join("")}</div>` : ""}
-          <div class="module-checkpoint${checkpointDone ? " complete" : ""}${nextTask?.type === "checkpoint" && nextTask.moduleId === module.id ? " current" : ""}" data-checkpoint-card="${module.id}">
-            <strong>Module checkpoint</strong>
-            <p>${escapeHtml(checkpointFor(module))}</p>
-            <button class="checkpoint-button" type="button" data-checkpoint-id="${module.id}" aria-pressed="${checkpointDone}"${!checkpointDone && !checkpointUnlocked ? ' disabled title="Complete this module\'s videos first"' : ""}>${checkpointDone ? "Completed" : checkpointUnlocked ? "Mark complete" : "Finish videos first"}</button>
+          <div id="module-body-${module.id}" class="module-body"${isCollapsed ? " hidden" : ""}>
+            <ul class="topic-list">${topicsFor(module).map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
+            ${visibleResources.length ? `<div class="resource-list">${visibleResources.map((resource) => renderResource(resource, orderById.get(resource.id), routeResources.length, currentVideoId)).join("")}</div>` : ""}
+            <div class="module-checkpoint${checkpointDone ? " complete" : ""}${nextTask?.type === "checkpoint" && nextTask.moduleId === module.id ? " current" : ""}" data-checkpoint-card="${module.id}">
+              <strong>Module checkpoint</strong>
+              <p>${escapeHtml(checkpointFor(module))}</p>
+              <button class="checkpoint-button" type="button" data-checkpoint-id="${module.id}" aria-pressed="${checkpointDone}"${!checkpointDone && !checkpointUnlocked ? ' disabled title="Complete this module\'s videos first"' : ""}>${checkpointDone ? "Completed" : checkpointUnlocked ? "Mark complete" : "Finish videos first"}</button>
+            </div>
           </div>
         </section>`;
       }).join("");
@@ -1851,6 +1860,10 @@
 
       moduleList.querySelectorAll("[data-checkpoint-id]").forEach((button) => {
         button.addEventListener("click", () => toggleCheckpoint(button.dataset.checkpointId));
+      });
+
+      moduleList.querySelectorAll("[data-module-toggle]").forEach((button) => {
+        button.addEventListener("click", () => toggleModule(button.dataset.moduleToggle));
       });
 
       moduleList.querySelectorAll("img").forEach((image) => {
@@ -1976,14 +1989,14 @@
       });
     }
 
-    function renderRoleContext() {
-      const profile = roleProfiles[state.role];
-      const resources = allResources.filter(isAllowedByRoute);
-      const minutes = resources.reduce((total, resource) => total + resource.minutes, 0);
-      roleFilter.value = state.role;
-      roleContextTitle.textContent = profile.label;
-      roleContextCopy.textContent = profile.description;
-      roleContextMeta.textContent = `${resources.length} videos / ${formatMinutes(minutes)}`;
+    function updateCollapseControls() {
+      const routeModules = activeModules();
+      const searchActive = state.search.trim().length > 0;
+      collapseAllButton.disabled = searchActive || routeModules.every((module) => collapsedModules.has(module.id));
+      expandAllButton.disabled = searchActive || routeModules.every((module) => !collapsedModules.has(module.id));
+      const searchTitle = "Modules stay expanded while searching";
+      collapseAllButton.title = searchActive ? searchTitle : "Collapse every module in this route";
+      expandAllButton.title = searchActive ? searchTitle : "Expand every module in this route";
     }
 
     function render() {
@@ -1992,8 +2005,9 @@
       renderModules();
       renderProgress();
       renderNext();
-      renderRoleContext();
+      roleFilter.value = state.role;
       updateFilterButtons();
+      updateCollapseControls();
       updateThemeLabel();
       hideCompletedInput.checked = state.hideCompleted;
       observeSections();
@@ -2024,30 +2038,53 @@
       if (checkpoint) checkpoint.scrollIntoView({ block: "nearest" });
     }
 
+    function toggleModule(moduleId) {
+      if (state.search.trim() || !modules.some((module) => module.id === moduleId)) return;
+      if (collapsedModules.has(moduleId)) collapsedModules.delete(moduleId);
+      else collapsedModules.add(moduleId);
+      saveState();
+      render();
+      const heading = document.querySelector(`[data-module-toggle="${CSS.escape(moduleId)}"]`);
+      if (heading) heading.focus({ preventScroll: true });
+    }
+
+    function revealModule(moduleId) {
+      if (state.search.trim() || !collapsedModules.has(moduleId)) return;
+      collapsedModules.delete(moduleId);
+      saveState();
+      render();
+    }
+
     function scrollToModule(moduleId) {
-      const target = document.getElementById(`module-${moduleId}`);
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      revealModule(moduleId);
+      window.requestAnimationFrame(() => {
+        const target = document.getElementById(`module-${moduleId}`);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     }
 
     function continueNext() {
       const nextTask = getNextRouteTask();
       if (!nextTask) return;
-      if (nextTask.type === "checkpoint") {
-        const checkpoint = document.querySelector(`[data-checkpoint-card="${CSS.escape(nextTask.moduleId)}"]`);
-        if (checkpoint) {
-          checkpoint.scrollIntoView({ behavior: "smooth", block: "center" });
-          const button = checkpoint.querySelector(".checkpoint-button");
-          if (button) window.setTimeout(() => button.focus({ preventScroll: true }), 350);
+      revealModule(nextTask.moduleId);
+      window.requestAnimationFrame(() => {
+        if (nextTask.type === "checkpoint") {
+          const checkpoint = document.querySelector(`[data-checkpoint-card="${CSS.escape(nextTask.moduleId)}"]`);
+          if (checkpoint) {
+            checkpoint.scrollIntoView({ behavior: "smooth", block: "center" });
+            const button = checkpoint.querySelector(".checkpoint-button");
+            if (button) window.setTimeout(() => button.focus({ preventScroll: true }), 350);
+          }
+          return;
         }
-        return;
-      }
 
-      const card = document.querySelector(`[data-resource-id="${CSS.escape(nextTask.resource.id)}"]`);
-      if (card) {
-        card.scrollIntoView({ behavior: "smooth", block: "center" });
-        const link = card.querySelector(".open-link");
-        if (link) window.setTimeout(() => link.focus({ preventScroll: true }), 350);
-      }
+        const card = document.querySelector(`[data-resource-id="${CSS.escape(nextTask.resource.id)}"]`);
+        if (card) {
+          card.scrollIntoView({ behavior: "smooth", block: "center" });
+          const link = card.querySelector(".open-link");
+          if (link) window.setTimeout(() => link.focus({ preventScroll: true }), 350);
+        }
+      });
     }
 
     let sectionObserver;
@@ -2121,6 +2158,20 @@
 
     hideCompletedInput.addEventListener("change", () => {
       state.hideCompleted = hideCompletedInput.checked;
+      saveState();
+      render();
+    });
+
+    collapseAllButton.addEventListener("click", () => {
+      if (state.search.trim()) return;
+      activeModules().forEach((module) => collapsedModules.add(module.id));
+      saveState();
+      render();
+    });
+
+    expandAllButton.addEventListener("click", () => {
+      if (state.search.trim()) return;
+      activeModules().forEach((module) => collapsedModules.delete(module.id));
       saveState();
       render();
     });
