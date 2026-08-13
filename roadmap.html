@@ -1275,7 +1275,7 @@
 
         <aside class="scope-note">
           <strong>Scope</strong>
-          <span>Assumes your existing DSA/OOP, JavaScript/TypeScript, React/Next.js, Node/Express/REST API, SQL/NoSQL, AWS/Cloudflare, Docker/Kubernetes and Git skills, but no Python or AI knowledge. CampusX remains the primary source. Focused video supplements are used only for production topics its public playlists do not adequately teach: Python typing, asyncio and testing; provider-native APIs; hybrid retrieval; production FastAPI; reliability, caching and guardrails. Fast track keeps the essential videos; Full coverage adds framework-independent provider patterns, Pytest depth, HyDE, Self-RAG, memory, MCP, cache observability, online evaluation and MLOps data management. Research, foundation-model training, managed cloud AI platforms, drift infrastructure and self-hosted vLLM serving remain outside scope.</span>
+          <span>Assumes your existing DSA/OOP, JavaScript/TypeScript, React/Next.js, Node/Express/REST API, SQL/NoSQL, AWS/Cloudflare, Docker/Kubernetes and Git skills, but no Python or AI knowledge. CampusX remains the primary source. Focused video supplements are used only for production topics its public playlists do not adequately teach: Python packages, typing, asyncio and testing; provider-native APIs; hybrid retrieval; production FastAPI and streaming; reliability, caching and guardrails. Fast track keeps the essential videos; Full coverage adds framework-independent provider patterns, Pytest depth, HyDE, Self-RAG, memory, MCP, cache observability, online evaluation and MLOps data management. Research, foundation-model training, managed cloud AI platforms, drift infrastructure and self-hosted vLLM serving remain outside scope.</span>
         </aside>
 
         <footer class="page-footer">Progress, filters and theme stay in this browser. No account or database is used. Every watch link opens an exact selected video directly.</footer>
@@ -1293,13 +1293,14 @@
         topics: ["Collections", "Functions", "Classes and objects", "References and mutability", "Modules", "Files and JSON", "Exceptions", "Type hints", "Static checking", "Asyncio", "Coroutines", "Tasks", "Pytest", "Mocks", "NumPy arrays", "Broadcasting", "Pandas DataFrames"],
         checkpoint: "Build a typed Python package with one class and two modules. Load JSON and CSV files, handle invalid input, clean missing and duplicate rows with Pandas, and perform one vector-style NumPy calculation. Add an async function that runs three simulated provider calls concurrently with bounded concurrency, then test success, validation failure and provider failure without making a real network call.",
         resources: [
-          { id: "python-core", title: "Python language bridge for an existing programmer", source: "CampusX | 100 Days of Python Programming", type: "Curated direct videos", minutes: 189, priority: "core", note: "Watch Built-in Modules, Lists, Tuples, Sets and Dictionaries in full; Mutability at 0:30-9:25 and 34:00-51:29; Functions at 0:21-15:00; and Complete OOP at 10:30-1:06:18. Skip beginner variables, loops, recursion, GUI projects and advanced OOP because those repeat your existing programming background." },
-          { id: "python-files-errors", title: "Files, JSON, exceptions and package boundaries", source: "CampusX | Data Science Mentorship Program", type: "Curated direct videos", minutes: 65, priority: "core", note: "In Session 10 watch 14:50-24:42, 33:30-50:10 and 1:23:11-1:32:40 for text files, context managers and JSON. In Session 11 watch 23:50-51:24 for specific exceptions, else and finally. Skip binary files, pickle, custom exceptions and repeated error taxonomy." },
+          { id: "python-core", title: "Python language bridge for an existing programmer", source: "CampusX | 100 Days of Python Programming", type: "Curated direct videos", minutes: 188, priority: "core", note: "Watch Built-in Modules, Lists, Tuples, Sets and Dictionaries in full; Mutability at 0:30-9:25 and 34:00-51:29; Functions at 0:21-15:00; and Complete OOP at 10:30-1:06:18. Skip beginner variables, loops, recursion, GUI projects and advanced OOP because those repeat your existing programming background." },
+          { id: "python-files-errors", title: "Files, JSON and exceptions", source: "CampusX | Data Science Mentorship Program", type: "Curated direct videos", minutes: 64, priority: "core", note: "In Session 10 watch 14:50-24:42, 33:30-50:10 and 1:23:11-1:32:40 for text files, context managers and JSON. In Session 11 watch 23:50-51:24 for specific exceptions, else and finally. Skip binary files, pickle, custom exceptions and repeated error taxonomy." },
+          { id: "python-modules-packages", title: "Python modules and package structure", source: "Rishabh Mishra | Hindi", type: "Focused video", minutes: 12, priority: "core", videoId: "6mw_lWlHCYk", url: "https://www.youtube.com/watch?v=6mw_lWlHCYk", note: "Watch 0:00-11:50 for creating modules and packages, importing code and organizing package boundaries. Stop before the library, pip and installation sections; dependency installation is already familiar from JavaScript package managers." },
           { id: "python-type-hints", title: "Python type hints and static checking", source: "Learn Code With Durgesh | Hindi", type: "Focused video", minutes: 18, priority: "core", videoId: "T-iih8-Of0M", url: "https://www.youtube.com/watch?v=T-iih8-Of0M", note: "Watch in full for variable, parameter, return, list and dictionary annotations plus static checking with mypy. Type hints improve tooling and maintainability; they do not enforce types at Python runtime unless a validation library is used." },
           { id: "python-asyncio", title: "Asyncio for concurrent provider calls", source: "Tech With Tim | English with Hindi captions", type: "Focused video", minutes: 25, priority: "core", videoId: "Qb9s3UiMSTA", url: "https://www.youtube.com/watch?v=Qb9s3UiMSTA", note: "Watch in full for the event loop, coroutines, await, tasks, futures and synchronization. Apply it only to I/O-bound work such as LLM or database calls; move CPU-heavy work to a process or dedicated worker." },
           { id: "python-pytest", title: "Pytest fixtures, parameterization and provider mocks", source: "Tech With Tim | English with Hindi captions", type: "Focused video", minutes: 26, priority: "interview", videoId: "EgpLj86ZHFQ", url: "https://www.youtube.com/watch?v=EgpLj86ZHFQ", note: "Watch 1:45-5:50 and 9:35-30:24 for assertions, expected exceptions, fixtures, teardown, parameterization and mocks. Skip the sponsor section. Use mocks to make AI tests deterministic, fast and independent of provider availability." },
           { id: "numpy-core", title: "NumPy arrays and broadcasting", source: "CampusX | NumPy", type: "Curated direct videos", minutes: 54, priority: "core", note: "Watch the five selected videos for array creation, shape and dimensions, indexing, vectorized operations and broadcasting. The remaining plotting and convenience-function lessons are not prerequisites for this route." },
-          { id: "pandas-core", title: "Pandas essentials for model input data", source: "CampusX | Pandas", type: "Curated direct videos", minutes: 76, priority: "core", note: "Watch lessons 1-5, 10-11 and 20-21 for DataFrames, CSV import, row and column selection, filtering, duplicate handling, GroupBy and missing values. Skip plotting, IPL-specific repetition, pivot tables and correlation." }
+          { id: "pandas-core", title: "Pandas essentials for model input data", source: "CampusX | Pandas", type: "Curated direct videos", minutes: 75, priority: "core", note: "Watch lessons 1-5, 10-11 and 20-21 for DataFrames, CSV import, row and column selection, filtering, duplicate handling, GroupBy and missing values. Skip plotting, IPL-specific repetition, pivot tables and correlation." }
         ]
       },
       {
@@ -1316,9 +1317,9 @@
           { id: "ml-concepts", title: "AI, ML and model-behavior essentials", source: "CampusX | 100 Days of Machine Learning", type: "Curated direct videos", minutes: 52, priority: "core", note: "Watch lessons 2 and 3, then lesson 62. They establish AI versus ML versus deep learning, supervised and unsupervised problem types, and the bias-variance view of overfitting. Skip role-roadmap, installation and algorithm-survey lessons." },
           { id: "ml-metrics", title: "Classification metrics without repeated code demos", source: "CampusX | Machine Learning Metrics", type: "Curated direct videos", minutes: 39, priority: "core", note: "In Accuracy and Confusion Matrix watch 0:46-6:25, 13:16-25:53 and 30:03-end. In Precision, Recall and F1 watch 2:44-19:40. Skip repeated sklearn and MNIST code because the next assignment applies the metrics in a project." },
           { id: "sklearn-workflow", title: "One end-to-end scikit-learn classifier", source: "CampusX | 100 Days of Machine Learning", type: "Curated direct videos", minutes: 31, priority: "core", note: "Complete lesson 13 once: inspect and preprocess data, split features and target, fit scaling only on training data, train logistic regression, predict and evaluate. This is the only classical-ML implementation assignment." },
-          { id: "neural-network-training", title: "Forward pass, loss and backpropagation", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 17, priority: "core", note: "Watch 2:55-20:10 to trace weights and biases through forward prediction, loss and backward parameter updates. Stop before the derivative-heavy continuation." },
+          { id: "neural-network-training", title: "Backpropagation intuition: Part 1 only", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 51, priority: "core", note: "Watch Part 1 at 2:40-53:53 for the complete conceptual walkthrough: forward prediction, loss, backward error flow and repeated weight and bias updates. Parts 2 and 3 derive and code the mathematics in greater depth; they are deliberately outside this non-research route." },
           { id: "keras-ann-project", title: "Train and evaluate one Keras network", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 29, priority: "core", note: "Build the MNIST workflow with normalized inputs, a Sequential network, loss, optimizer, epochs, validation, predictions and learning curves. Do not add another neural-network project." },
-          { id: "pytorch-training-pipeline", title: "Translate the training loop to PyTorch", source: "CampusX | Practical Deep Learning using PyTorch", type: "Curated direct videos", minutes: 23, priority: "interview", note: "Watch 5:45-28:04 for tensors, model definition, forward pass, loss, backward pass, parameter updates and evaluation. This is an optional framework translation, not a second deep-learning course." }
+          { id: "pytorch-training-pipeline", title: "Translate the training loop to PyTorch", source: "CampusX | Practical Deep Learning using PyTorch", type: "Curated direct videos", minutes: 22, priority: "interview", note: "Watch 5:45-28:04 for tensors, model definition, forward pass, loss, backward pass, parameter updates and evaluation. This is an optional framework translation, not a second deep-learning course." }
         ]
       },
       {
@@ -1326,11 +1327,11 @@
         code: "03",
         title: "LLM and transformer foundations",
         outcome: "Connect pretraining and transfer learning to transformer attention, decoder-only LLMs and autoregressive token generation.",
-        topics: ["Pretraining", "Fine-tuning", "Language models", "Decoder-only LLMs", "Token representations", "Positional encoding", "Self-attention", "Queries, keys and values", "Scaled dot-product attention", "Softmax", "Multi-head attention", "Autoregressive generation", "Causal masking", "Decoder architecture"],
-        checkpoint: "Explain how pretraining and fine-tuning produced reusable language models, distinguish encoder-only BERT from decoder-only GPT, then trace token representations through position information, Q/K/V projection, scaled dot-product attention, softmax, multiple attention heads and causal masking. Write Attention(Q,K,V) = softmax(QK^T/sqrt(d_k))V and explain every term. Explain how inference generates one token at a time and why the CampusX decoder lecture includes cross-attention while a decoder-only LLM does not.",
+        topics: ["Pretraining", "Fine-tuning", "Language models", "Decoder-only LLMs", "Token representations", "Positional encoding", "Self-attention", "Queries, keys and values", "Scaled dot-product attention", "Softmax", "Multi-head attention", "Residual connections", "Layer normalization", "Feed-forward networks", "Cross-attention", "Autoregressive generation", "Causal masking", "Decoder architecture"],
+        checkpoint: "Explain how pretraining and fine-tuning produced reusable language models, distinguish encoder-only BERT from decoder-only GPT, then trace token representations through position information, Q/K/V projection, scaled dot-product attention, softmax and multiple attention heads. Explain residual connections, layer normalization and the position-wise feed-forward network. Write Attention(Q,K,V) = softmax(QK^T/sqrt(d_k))V and explain every term. Trace causal masking and one-token-at-a-time inference, then explain why the CampusX translation decoder uses encoder-decoder cross-attention while a decoder-only LLM does not.",
         resources: [
           { id: "llm-evolution", title: "From transfer learning to decoder-only LLMs", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 29, priority: "core", note: "Watch 47:08-1:16:10 for transfer learning, pretraining, fine-tuning, BERT versus GPT, decoder-only language models and why scale changes a language model into an LLM. Skip the LSTM, encoder-decoder and attention history because the next assignment teaches the needed mechanics directly." },
-          { id: "transformer-core", title: "Transformer attention and autoregressive decoding", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 244, priority: "core", note: "Complete the three-part self-attention sequence: intuition in full, computation and Q/K/V at 7:00-1:22:45, and scaled dot-product attention at 5:00-42:32. Then watch Multi-head Attention at 6:33-27:37; Positional Encoding at 1:18-7:58 and 34:26-55:25; Masked Self Attention at 5:25-17:57 and 35:25-60:15; Decoder Architecture at 0:00-10:10; and Transformer Inference at 0:00-11:32. Skip recaps and the detailed encoder-decoder inference calculation. The decoder lecture is a translation decoder with cross-attention; use it for decoder mechanics, not as an exact GPT architecture." }
+          { id: "transformer-core", title: "Transformer attention, blocks and autoregressive decoding", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 367, priority: "core", note: "Follow the visible cards in order. Complete the three-part self-attention sequence, then Multi-head Attention, Positional Encoding, Layer Normalization, Encoder Architecture, Masked Self Attention, Cross Attention, Decoder Architecture and the selected Transformer Inference overview. The separate transformer introduction, geometric self-attention and why-it-is-called-self lectures repeat concepts already covered here. The encoder and cross-attention cards are retained to make the original decoder understandable; GPT-style decoder-only models omit that cross-attention path." }
         ]
       },
       {
@@ -1343,7 +1344,7 @@
         resources: [
           { id: "provider-sdk-gemini", title: "Direct model calls, streaming and multimodal input", source: "Patrick Loeber | Google Gen AI Python SDK", type: "Focused video", minutes: 12, priority: "core", videoId: "qfWpPEgea2A", url: "https://www.youtube.com/watch?v=qfWpPEgea2A", note: "Watch in full for the current google-genai client, environment-based API keys, direct content generation, streaming, chat state and image input by file upload or bytes. Provider model names change; keep them in configuration rather than business logic." },
           { id: "provider-sdk-responses", title: "Native tools and structured response contracts", source: "Dave Ebbelaar | OpenAI Responses API", type: "Focused video", minutes: 15, priority: "interview", videoId: "0pGxoubWI6s", url: "https://www.youtube.com/watch?v=0pGxoubWI6s", note: "Watch 4:24-19:20 for direct Responses API calls, streaming, conversation state, built-in tools, function calling and Pydantic structured output. Skip the migration overview and closing demos. Treat API syntax as provider-specific; retain the request-tool-result-response pattern." },
-          { id: "langchain-core", title: "Models, prompts, structured output and chains", source: "CampusX | Generative AI using LangChain", type: "Curated direct videos", minutes: 196, priority: "core", note: "Watch Models at 20:37-52:59 and 53:26-78:05; Prompts at 6:17-66:37; Structured Output at 2:09-14:08 and 36:07-64:53; and Chains at 2:42-41:00. Skip repeated recaps, embedding models, output parsers, runnables, RAG and LangChain tools because later modules cover retrieval and tool execution once." }
+          { id: "langchain-core", title: "Models, prompts, structured output and chains", source: "CampusX | Generative AI using LangChain", type: "Curated direct videos", minutes: 209, priority: "core", note: "Watch Models at 20:37-52:59 and 53:26-78:05; Prompts at 6:17-66:37; Structured Output at 2:09-14:08 and 36:07-64:53; and Chains at 2:42-end so the simple, sequential, parallel and conditional implementations all finish. Skip repeated recaps, embedding models, output parsers, standalone runnable deep dives, RAG and LangChain tools because later modules cover retrieval and tool execution once." }
         ]
       },
       {
@@ -1355,7 +1356,7 @@
         checkpoint: "Build a multi-document RAG service with parsed metadata, compared chunking strategies, a vector store and tenant-scoped filters. Retrieve a wider candidate set independently with BM25 and vector search, fuse ranks with RRF, deduplicate by stable chunk ID and return the final top-k with citations. Compare dense-only and hybrid retrieval on the same golden queries. In Full coverage, test HyDE against the baseline and retain it only if measured retrieval improves, then add a Self-RAG path that decides whether retrieval is needed, filters weak evidence and checks grounding.",
         resources: [
           { id: "rag-architecture", title: "RAG architecture and trade-offs", source: "CampusX | RAG Playlist", type: "Curated direct videos", minutes: 44, priority: "core", note: "Watch 3:05-23:25, 34:07-55:50 and 57:08-59:04 for private or recent knowledge, hallucination, indexing and query paths, limitations and RAG versus fine-tuning. Skip the long in-context-learning detour and repeated component recap." },
-          { id: "rag-core", title: "RAG ingestion, indexing and retrieval", source: "CampusX | RAG Playlist", type: "Curated direct videos", minutes: 195, priority: "core", note: "Watch Document Loaders at 10:56-56:44, Text Splitters in full, Vector Stores in full, and Retrievers at 2:01-9:55 plus 15:50-47:54. This covers each pipeline stage once and skips every RAG recap and demo repeated by the next lesson." },
+          { id: "rag-core", title: "RAG ingestion, indexing and retrieval", source: "CampusX | RAG Playlist", type: "Curated direct videos", minutes: 196, priority: "core", note: "Watch Document Loaders at 10:56-56:44, Text Splitters in full, Vector Stores in full, and Retrievers at 2:01-9:55 plus 15:50-47:54. This covers each pipeline stage once and skips every RAG recap and demo repeated by the next lesson." },
           { id: "hybrid-search-rrf", title: "BM25, vector retrieval and reciprocal rank fusion", source: "Yash Jain | Hinglish", type: "Focused video", minutes: 17, priority: "core", videoId: "F5TlaHXNAaI", url: "https://www.youtube.com/watch?v=F5TlaHXNAaI", note: "Watch in full for BM25 lexical retrieval, dense vector retrieval, over-fetching candidates, the RRF formula, stable document IDs, deduplication and final top-k selection. The demonstrated RRF constant and candidate counts are tunable parameters, not universal defaults." },
           { id: "hyde-retrieval", title: "HyDE as an evaluated query transformation", source: "Dev The Dev | English", type: "Focused video", minutes: 2, priority: "interview", videoId: "7yWV7vskwXw", url: "https://www.youtube.com/watch?v=7yWV7vskwXw", note: "Use this concise explanation to understand HyDE: generate a hypothetical answer, embed that answer and retrieve real evidence near it. Never present the hypothetical text as evidence. Implement it as an optional retrieval branch and keep it only when the Module 08 evaluation beats the rewritten-query baseline." },
           { id: "rag-advanced", title: "Self-RAG retrieval and answer checks", source: "CampusX | RAG Playlist", type: "Curated direct videos", minutes: 36, priority: "interview", note: "Watch 1:48-15:05 and 45:56-1:08:13 for retrieval decisions, evidence filtering, hallucination checks, revised-answer loops and query rewriting. Skip the repeated node-by-node implementation. This replaces CRAG because watching both repeats evidence grading and query rewriting." }
@@ -1369,7 +1370,7 @@
         topics: ["Workflows versus agents", "State", "Reducers", "Nodes and edges", "Conditional routing", "Parallel branches", "Short-term memory", "Long-term memory", "Context trimming", "Summarization", "Persistence", "MCP"],
         checkpoint: "Build a LangGraph workflow with explicit state and conditional routing. In Full coverage, persist conversation state, control context growth with trimming or summarization, explain long-term memory storage, and connect one MCP server while keeping authorization and reasoning in the host application. Tool execution and approval are implemented once in Module 10.",
         resources: [
-          { id: "agent-core", title: "Agent decisions and LangGraph core concepts", source: "CampusX | Agentic AI using LangGraph", type: "Curated direct videos", minutes: 75, priority: "core", note: "Watch Generative AI vs Agentic AI at 40:13-62:44, then LangGraph Core Concepts in full. The first segment explains when an agent is justified; the second teaches state, reducers, nodes, edges and routing. Skip introductions and separate workflow videos that repeat these primitives." },
+          { id: "agent-core", title: "Agent decisions, LangGraph concepts and conditional routing", source: "CampusX | Agentic AI using LangGraph", type: "Curated direct videos", minutes: 118, priority: "core", note: "Watch Generative AI vs Agentic AI at 40:13-62:44, LangGraph Core Concepts in full, then Conditional Workflows at 4:38-end. The first segment explains when an agent is justified, the second establishes state, reducers, nodes and edges, and the final card implements branching in code. Separate sequential, parallel and iterative workflow videos are optional variants rather than prerequisites for this checkpoint." },
           { id: "agent-memory", title: "LLM memory, persistence and context control", source: "CampusX | Memory in LLMs", type: "Curated direct videos", minutes: 69, priority: "interview", note: "In lesson 3 watch 12:28-18:51 and 40:06-53:36 for context windows and long-term memory types and architecture. Then open lesson 2 and watch 3:33-52:08 for checkpointers, thread IDs, PostgreSQL persistence, trimming, deletion and summarization. Skip the repeated stateless-LLM explanation and in-memory demo recap." },
           { id: "mcp-architecture", title: "MCP architecture, server and client", source: "CampusX | Model Context Protocol", type: "Curated direct videos", minutes: 97, priority: "interview", note: "Watch Architecture at 2:00-27:20 and 53:23-1:17:09; Local MCP Server at 26:00-35:34 and 40:30-58:36; and MCP Client at 9:23-29:29. This covers host/client/server boundaries, transports, FastMCP tools, inspection, persistent tools, tool discovery, LLM binding and the tool-result loop without repeating demos or UI work. Use stdio locally and Streamable HTTP remotely; treat HTTP plus SSE as legacy compatibility." }
         ]
@@ -1382,8 +1383,9 @@
         topics: ["FastAPI", "Uvicorn", "Routes", "Request bodies", "Pydantic", "Validation", "Status codes", "Response models", "Health endpoints", "Exception mapping", "Async routes", "Blocking work", "Dependency injection", "Lifespan", "Connection pools", "Streaming", "Client disconnects", "TestClient", "Structured logging", "Separation of concerns"],
         checkpoint: "Expose the earlier model or RAG build through FastAPI. Validate request and response models, inject provider and repository dependencies, initialize shared clients once with lifespan, map domain errors to HTTP status codes and add liveness plus readiness endpoints. Stream one response from an async generator; detect cancellation or client disconnect, stop upstream generation and clean up resources. Use Pytest and TestClient with dependency overrides or mocks to cover success, invalid input, provider timeout, rate limit and disconnect behavior.",
         resources: [
-          { id: "fastapi-core", title: "FastAPI setup, validation and model serving", source: "CampusX | FastAPI for Machine Learning", type: "Curated direct videos", minutes: 105, priority: "core", note: "Watch Setup at 31:53-42:06, Post Request at 6:50-35:42, Serving ML Models at 4:17-46:00, and Improving the API at 14:20-37:05. Skip API introductions, repeated HTTP-method lessons, Docker and AWS deployment because those repeat your existing backend and DevOps knowledge." },
+          { id: "fastapi-core", title: "FastAPI setup, validation and model serving", source: "CampusX | FastAPI for Machine Learning", type: "Curated direct videos", minutes: 104, priority: "core", note: "Watch Setup at 31:53-42:06, Post Request at 6:50-35:42, Serving ML Models at 4:17-46:00, and Improving the API at 14:20-37:05. Skip API introductions, repeated HTTP-method lessons, Docker and AWS deployment because those repeat your existing backend and DevOps knowledge." },
           { id: "fastapi-production", title: "Async rules, dependencies, lifespan and production logging", source: "Code Collider | English with Hindi captions", type: "Focused video", minutes: 12, priority: "core", videoId: "kmJz8w5ij8Y", url: "https://www.youtube.com/watch?v=kmJz8w5ij8Y", note: "Watch in full for blocking versus async endpoints, queue boundaries, dependency rules, connection pooling, lifespan setup and cleanup, validated settings and structured request logging. Treat the worker-count formula as a starting hypothesis and load-test it instead of copying it blindly." },
+          { id: "fastapi-streaming", title: "FastAPI streaming, backpressure and disconnect cancellation", source: "TheCodeForge | English with Hindi captions", type: "Focused video", minutes: 8, priority: "core", videoId: "jqnYcc-5Row", url: "https://www.youtube.com/watch?v=jqnYcc-5Row", note: "Watch in full for StreamingResponse, sync versus async generators, safe generator error handling, producer-consumer backpressure and what happens when the client disconnects. Apply the cancellation path to close the upstream model stream and release resources in try/finally." },
           { id: "fastapi-testing", title: "Test FastAPI endpoints with Pytest and TestClient", source: "Mohit Decodes | Hindi", type: "Focused video", minutes: 9, priority: "core", videoId: "0WcavHYspn8", url: "https://www.youtube.com/watch?v=0WcavHYspn8", note: "Watch in full for Pytest setup, FastAPI TestClient, status-code assertions and response validation. Extend the demonstrated happy-path tests by overriding the provider dependency and simulating timeout, malformed output and rate-limit failures in the checkpoint." }
         ]
       },
@@ -1434,103 +1436,107 @@
 
     const directVideoGroups = {
       "python-core": [
-        ["sM5-_9bJgdw", "Built-in modules"],
-        ["l0rgITwCXKg", "Lists"],
-        ["-ePqwviZx4I", "Tuples"],
-        ["XPDzwN1aXAQ", "Sets"],
-        ["39FONNQb-vc", "Dictionaries"],
-        ["GaJ_LmHd0E8", "Mutability, garbage collection and references", 30, "0:30-9:25 and 34:00-51:29"],
-        ["XTVP2gS6ftk", "Functions", 21, "0:21-15:00"],
-        ["Mf2RdpEiXjU", "Object-oriented programming", 630, "10:30-1:06:18"]
+        ["sM5-_9bJgdw", "Built-in modules", 0, "", 10],
+        ["l0rgITwCXKg", "Lists", 0, "", 34],
+        ["-ePqwviZx4I", "Tuples", 0, "", 12],
+        ["XPDzwN1aXAQ", "Sets", 0, "", 18],
+        ["39FONNQb-vc", "Dictionaries", 0, "", 17],
+        ["GaJ_LmHd0E8", "Mutability, garbage collection and references", 30, "0:30-9:25 and 34:00-51:29", 26],
+        ["XTVP2gS6ftk", "Functions", 21, "0:21-15:00", 15],
+        ["Mf2RdpEiXjU", "Object-oriented programming", 630, "10:30-1:06:18", 56]
       ],
       "python-files-errors": [
-        ["o-TAYRMQzIQ", "Files, context managers and JSON", 890, "14:50-24:42, 33:30-50:10 and 1:23:11-1:32:40"],
-        ["rvKR6tciJ2Q", "Exceptions, modules and packages", 1430, "23:50-51:24"]
+        ["o-TAYRMQzIQ", "Files, context managers and JSON", 890, "14:50-24:42, 33:30-50:10 and 1:23:11-1:32:40", 36],
+        ["rvKR6tciJ2Q", "Exception handling", 1430, "23:50-51:24", 28]
       ],
       "numpy-core": [
-        ["9TKpRnoEb5s", "Creating N-dimensional arrays"],
-        ["ikx70DFC2T8", "Shape, dimensions and attributes"],
-        ["WUcwaevTlAk", "Indexing, slicing and iteration"],
-        ["7VVZIkCcTHU", "Vectorized NumPy operations"],
-        ["LaKAA7Z84so", "Broadcasting"]
+        ["9TKpRnoEb5s", "Creating N-dimensional arrays", 0, "", 10],
+        ["ikx70DFC2T8", "Shape, dimensions and attributes", 0, "", 9],
+        ["WUcwaevTlAk", "Indexing, slicing and iteration", 0, "", 13],
+        ["7VVZIkCcTHU", "Vectorized NumPy operations", 0, "", 13],
+        ["LaKAA7Z84so", "Broadcasting", 0, "", 9]
       ],
       "pandas-core": [
-        ["kq9Vmg5d7Sk", "Pandas and DataFrames"],
-        ["8ZUfMoVTQWk", "Importing CSV data"],
-        ["VZppgndl37A", "Important functions and attributes"],
-        ["gGaZCSvuMGA", "Selecting rows and columns"],
-        ["jldb3d-_WIw", "Filtering DataFrames"],
-        ["YfOsU9xqCqY", "Removing duplicate rows"],
-        ["OoKUc6VD5dU", "GroupBy"],
-        ["CZJT4_B73x0", "Dropping missing values"],
-        ["T-x9IYMr1jM", "Filling missing values"]
+        ["kq9Vmg5d7Sk", "Pandas and DataFrames", 0, "", 6],
+        ["8ZUfMoVTQWk", "Importing CSV data", 0, "", 5],
+        ["VZppgndl37A", "Important functions and attributes", 0, "", 10],
+        ["gGaZCSvuMGA", "Selecting rows and columns", 0, "", 10],
+        ["jldb3d-_WIw", "Filtering DataFrames", 0, "", 10],
+        ["YfOsU9xqCqY", "Removing duplicate rows", 0, "", 10],
+        ["OoKUc6VD5dU", "GroupBy", 0, "", 13],
+        ["CZJT4_B73x0", "Dropping missing values", 0, "", 7],
+        ["T-x9IYMr1jM", "Filling missing values", 0, "", 4]
       ],
       "ml-concepts": [
-        ["1v3_AQ26jZ0", "AI versus ML versus deep learning"],
-        ["81ymPYEtFOw", "Types of machine learning"],
-        ["74DU02Fyrhk", "Bias, variance, overfitting and underfitting"]
+        ["1v3_AQ26jZ0", "AI versus ML versus deep learning", 0, "", 16],
+        ["81ymPYEtFOw", "Types of machine learning", 0, "", 28],
+        ["74DU02Fyrhk", "Bias, variance, overfitting and underfitting", 0, "", 8]
       ],
       "ml-metrics": [
-        ["c09drtuCS3c", "Accuracy and confusion matrix", 46, "0:46-6:25, 13:16-25:53 and 30:03-end"],
-        ["iK-kdhJ-7yI", "Precision, recall and F1", 164, "2:44-19:40"]
+        ["c09drtuCS3c", "Accuracy and confusion matrix", 46, "0:46-6:25, 13:16-25:53 and 30:03-end", 22],
+        ["iK-kdhJ-7yI", "Precision, recall and F1", 164, "2:44-19:40", 17]
       ],
-      "sklearn-workflow": [["dr7z7a_8lQw", "End-to-end scikit-learn project"]],
-      "neural-network-training": [["6M1wWQmcUjQ", "Forward pass, loss and backpropagation", 175, "2:55-20:10"]],
-      "keras-ann-project": [["3xPT2Pk0Jds", "MNIST classification with Keras"]],
-      "pytorch-training-pipeline": [["MKxEbbKpL5Q", "PyTorch training pipeline", 345, "5:45-28:04"]],
-      "llm-evolution": [["8fX3rOjTloc", "Transfer learning to decoder-only LLMs", 2828, "47:08-1:16:10"]],
+      "sklearn-workflow": [["dr7z7a_8lQw", "End-to-end scikit-learn project", 0, "", 31]],
+      "neural-network-training": [["6M1wWQmcUjQ", "Complete backpropagation intuition (Part 1 only)", 160, "2:40-53:53", 51]],
+      "keras-ann-project": [["3xPT2Pk0Jds", "MNIST classification with Keras", 0, "", 29]],
+      "pytorch-training-pipeline": [["MKxEbbKpL5Q", "PyTorch training pipeline", 345, "5:45-28:04", 22]],
+      "llm-evolution": [["8fX3rOjTloc", "Transfer learning to decoder-only LLMs", 2828, "47:08-1:16:10", 29]],
       "transformer-core": [
-        ["XnGGmvpDLA0", "Self-attention intuition (1/3)"],
-        ["-tCKPl_8Xb8", "Self-attention computation and Q/K/V (2/3)", 420, "7:00-1:22:45"],
-        ["r7mAt0iVqwo", "Scaled dot-product attention (3/3)", 300, "5:00-42:32"],
-        ["bX2QwpjsmuA", "Multi-head attention", 393, "6:33-27:37"],
-        ["GeoQBNNqIbM", "Positional encoding", 78, "1:18-7:58 and 34:26-55:25"],
-        ["m6onaKFzF94", "Masked self-attention", 325, "5:25-17:57 and 35:25-60:15"],
-        ["DI2_hrAulYo", "Transformer decoder architecture", 0, "0:00-10:10"],
-        ["FtsMOzlwxws", "Autoregressive transformer inference", 0, "0:00-11:32"]
+        ["XnGGmvpDLA0", "Self-attention intuition (1/3)", 0, "", 23],
+        ["-tCKPl_8Xb8", "Self-attention computation and Q/K/V (2/3)", 420, "7:00-1:22:45", 76],
+        ["r7mAt0iVqwo", "Scaled dot-product attention (3/3)", 300, "5:00-42:32", 38],
+        ["bX2QwpjsmuA", "Multi-head attention", 393, "6:33-27:37", 21],
+        ["GeoQBNNqIbM", "Positional encoding", 78, "1:18-7:58 and 34:26-55:25", 28],
+        ["qti0QPdaelg", "Layer normalization in transformers", 1376, "22:56-end", 24],
+        ["Vs87qcdm8l0", "Transformer encoder block", 310, "5:10-41:39", 36],
+        ["m6onaKFzF94", "Masked self-attention", 325, "5:25-17:57 and 35:25-60:15", 37],
+        ["smOnJtCevoU", "Cross-attention", 191, "3:11-29:01", 26],
+        ["DI2_hrAulYo", "Transformer decoder architecture", 142, "2:22-end", 46],
+        ["FtsMOzlwxws", "Autoregressive transformer inference", 0, "0:00-11:32", 12]
       ],
       "langchain-core": [
-        ["HdcLE8JuMrA", "LangChain models", 1237, "20:37-52:59 and 53:26-1:18:05"],
-        ["3TGqlQxpuU0", "Prompt templates and messages", 377, "6:17-1:06:37"],
-        ["y5EmRr1O1h4", "Structured output", 129, "2:09-14:08 and 36:07-1:04:53"],
-        ["5hjrPILA3-8", "Chains", 162, "2:42-41:00"]
+        ["HdcLE8JuMrA", "LangChain models", 1237, "20:37-52:59 and 53:26-1:18:05", 57],
+        ["3TGqlQxpuU0", "Prompt templates and messages", 377, "6:17-1:06:37", 60],
+        ["y5EmRr1O1h4", "Structured output", 129, "2:09-14:08 and 36:07-1:04:53", 41],
+        ["5hjrPILA3-8", "Simple, sequential, parallel and conditional chains", 162, "2:42-end", 51]
       ],
-      "rag-architecture": [["X0btK9X0Xnk", "RAG architecture and trade-offs", 185, "3:05-23:25, 34:07-55:50 and 57:08-59:04"]],
+      "rag-architecture": [["X0btK9X0Xnk", "RAG architecture and trade-offs", 185, "3:05-23:25, 34:07-55:50 and 57:08-59:04", 44]],
       "rag-core": [
-        ["bL92ALSZ2Cg", "Document loaders", 656, "10:56-56:44"],
-        ["SEWS9P4ODmc", "Text splitters"],
-        ["k13WK0bxQP0", "Vector stores"],
-        ["pJdMxwXBsk0", "Retrievers", 121, "2:01-9:55 and 15:50-47:54"]
+        ["bL92ALSZ2Cg", "Document loaders", 656, "10:56-56:44", 46],
+        ["SEWS9P4ODmc", "Text splitters", 0, "", 59],
+        ["k13WK0bxQP0", "Vector stores", 0, "", 51],
+        ["pJdMxwXBsk0", "Retrievers", 121, "2:01-9:55 and 15:50-47:54", 40]
       ],
-      "rag-advanced": [["BbO_XaEjzaA", "Self-RAG retrieval and answer checks", 108, "1:48-15:05 and 45:56-1:08:13"]],
+      "rag-advanced": [["BbO_XaEjzaA", "Self-RAG retrieval and answer checks", 108, "1:48-15:05 and 45:56-1:08:13", 36]],
       "agent-core": [
-        ["xdA0pGDiUPE", "Generative AI versus agentic AI", 2413, "40:13-1:02:44"],
-        ["D5KhiCDM9XQ", "LangGraph core concepts"]
+        ["xdA0pGDiUPE", "Generative AI versus agentic AI", 2413, "40:13-1:02:44", 23],
+        ["D5KhiCDM9XQ", "LangGraph core concepts", 0, "", 52],
+        ["I-dvZqTz-Wc", "Conditional workflow implementation", 278, "4:38-end", 43]
       ],
       "agent-memory": [
-        ["DcPKJrOF9Wo", "Memory concepts and long-term memory", 748, "12:28-18:51 and 40:06-53:36"],
-        ["FSBkTI1QuvY", "Short-term memory and context control", 213, "3:33-52:08"]
+        ["DcPKJrOF9Wo", "Memory concepts and long-term memory", 748, "12:28-18:51 and 40:06-53:36", 20],
+        ["FSBkTI1QuvY", "Short-term memory and context control", 213, "3:33-52:08", 49]
       ],
       "mcp-architecture": [
-        ["nQa31xdXbGk", "MCP architecture", 120, "2:00-27:20 and 53:23-1:17:09"],
-        ["tc2oOznpdE0", "Build a local MCP server", 1560, "26:00-35:34 and 40:30-58:36"],
-        ["o4ajsc-tSBc", "Build an MCP client", 563, "9:23-29:29"]
+        ["nQa31xdXbGk", "MCP architecture", 120, "2:00-27:20 and 53:23-1:17:09", 49],
+        ["tc2oOznpdE0", "Build a local MCP server", 1560, "26:00-35:34 and 40:30-58:36", 28],
+        ["o4ajsc-tSBc", "Build an MCP client", 563, "9:23-29:29", 20]
       ],
       "fastapi-core": [
-        ["lXx-_1r0Uss", "FastAPI setup", 1913, "31:53-42:06"],
-        ["sw8V7mLl3OI", "POST requests and request bodies", 410, "6:50-35:42"],
-        ["JdDoMi_vqbM", "Serving ML models", 257, "4:17-46:00"],
-        ["M17qwKnmG38", "Improving the API", 860, "14:20-37:05"]
+        ["lXx-_1r0Uss", "FastAPI setup", 1913, "31:53-42:06", 10],
+        ["sw8V7mLl3OI", "POST requests and request bodies", 410, "6:50-35:42", 29],
+        ["JdDoMi_vqbM", "Serving ML models", 257, "4:17-46:00", 42],
+        ["M17qwKnmG38", "Improving the API", 860, "14:20-37:05", 23]
       ],
-      "llm-eval-methods": [["uQFLY8rQVYA", "LLM evaluation methods"]],
-      "rag-evaluation": [["9Dkz3ckRj8c", "Hands-on RAG retriever evaluation", 1261, "21:01-1:08:47 and 1:21:40-1:46:15"]],
-      "langsmith-observability": [["ikzN6byFNWw", "LangSmith observability in LangGraph"]],
-      "online-evaluation": [["SahaDGzN-Bk", "Offline and online evaluation", 207, "3:27-26:49, 34:53-44:42 and 47:47-1:17:15"]],
-      "mlops-project": [["eCjuoqUy8Is", "MLOps project with MLflow, DVC and CI/CD", 630, "10:30-45:27 and 1:00:43-1:16:20"]],
-      "mlops-data-management": [["D_-qy1A76EM", "MLOps data management and ETL", 440, "7:20-31:10"]],
+      "llm-eval-methods": [["uQFLY8rQVYA", "LLM evaluation methods", 0, "", 53]],
+      "rag-evaluation": [["9Dkz3ckRj8c", "Hands-on RAG retriever evaluation", 1261, "21:01-1:08:47 and 1:21:40-1:46:15", 72]],
+      "langsmith-observability": [["ikzN6byFNWw", "LangSmith observability in LangGraph", 0, "", 22]],
+      "online-evaluation": [["SahaDGzN-Bk", "Offline and online evaluation", 207, "3:27-26:49, 34:53-44:42 and 47:47-1:17:15", 63]],
+      "mlops-project": [["eCjuoqUy8Is", "MLOps project with MLflow, DVC and CI/CD", 630, "10:30-45:27 and 1:00:43-1:16:20", 51]],
+      "mlops-data-management": [["D_-qy1A76EM", "MLOps data management and ETL", 440, "7:20-31:10", 24]],
       "bounded-tools": [
-        ["_UuUigoM9MA", "Tools in LangGraph"],
-        ["xxqZzVZ4gE0", "Human in the loop with LangGraph"]
+        ["_UuUigoM9MA", "Tools in LangGraph", 0, "", 34],
+        ["xxqZzVZ4gE0", "Human in the loop with LangGraph", 0, "", 40]
       ]
     };
 
@@ -1550,7 +1556,7 @@
 
         const baseMinutes = Math.floor(resource.minutes / group.length);
         const extraMinutes = resource.minutes % group.length;
-        const videos = group.map(([videoId, title, start = 0, range = ""], index) => {
+        const videos = group.map(([videoId, title, start = 0, range = "", selectedMinutes], index) => {
           const video = { videoId, start };
           return {
             id: `${resource.id}--${videoId}`,
@@ -1559,7 +1565,7 @@
             title,
             source: resource.source,
             type: "Direct video",
-            minutes: baseMinutes + (index < extraMinutes ? 1 : 0),
+            minutes: selectedMinutes ?? (baseMinutes + (index < extraMinutes ? 1 : 0)),
             priority: resource.priority,
             videoId,
             url: directVideoUrl(video),
@@ -1777,7 +1783,7 @@
       const isCurrent = resource.id === currentId;
       const watchLabel = resource.parentId === resource.id
         ? formatMinutes(resource.minutes)
-        : resource.range ? "Watch selected range" : "Watch linked video in full";
+        : resource.range ? `Selected ${formatMinutes(resource.minutes)}` : `Full video · ${formatMinutes(resource.minutes)}`;
       return `<article class="resource-card${isDone ? " completed" : ""}${isCurrent ? " current" : ""}" data-resource-id="${resource.id}" data-parent-id="${resource.parentId}">
         ${renderMedia(resource)}
         <div class="resource-copy">

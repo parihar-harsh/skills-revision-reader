@@ -4,13 +4,13 @@ Audit date: 2026-08-13
 
 ## Result
 
-The roadmap contains 86 independently trackable video cards across 10 build modules, curated from 42 focused learning assignments:
+The roadmap contains 92 independently trackable video cards across 10 build modules, curated from 44 focused learning assignments:
 
-- 73 essential video cards: 1,878 minutes (31 hours 18 minutes)
-- 13 optional-depth video cards: 391 minutes (6 hours 31 minutes)
-- Complete route: 2,269 minutes (37 hours 49 minutes)
-- 71 CampusX video cards: 2,024 minutes
-- 15 focused production-supplement video cards: 245 minutes
+- 79 essential video cards: 2,108 minutes (35 hours 8 minutes)
+- 13 optional-depth video cards: 390 minutes (6 hours 30 minutes)
+- Complete route: 2,498 minutes (41 hours 38 minutes)
+- 75 CampusX video cards: 2,233 minutes
+- 17 focused production-supplement video cards: 265 minutes
 - Every retained lecture has an explicit `youtube.com/watch?v=` link; no learner-facing watch link contains playlist navigation.
 - Resource IDs and thumbnail video IDs are unique.
 
@@ -53,6 +53,7 @@ Each supplement closes a specific audited gap rather than repeating a CampusX le
 
 | Module | Assignment | Source | Capability added |
 | --- | --- | --- | --- |
+| Python | python-modules-packages | Rishabh Mishra | Creating modules, packages and import boundaries |
 | Python | python-type-hints | Learn Code With Durgesh | Type annotations, collection types and static checking |
 | Python | python-asyncio | Tech With Tim | Event loop, coroutines, tasks, futures and synchronization |
 | Python | python-pytest | Tech With Tim | Assertions, fixtures, parameterization and provider mocks |
@@ -61,6 +62,7 @@ Each supplement closes a specific audited gap rather than repeating a CampusX le
 | RAG | hybrid-search-rrf | Yash Jain | BM25, vector retrieval, over-fetching, RRF and final top-k |
 | RAG | hyde-retrieval | Dev The Dev | HyDE retrieval concept and its evidence boundary |
 | FastAPI | fastapi-production | Code Collider | Async rules, dependencies, lifespan, pools and structured logs |
+| FastAPI | fastapi-streaming | TheCodeForge | StreamingResponse, async generators, backpressure and disconnect cancellation |
 | FastAPI | fastapi-testing | Mohit Decodes | Pytest, TestClient and API assertions |
 | Reliability | provider-failure-patterns | SoftwareDude | Timeouts, bounded retries, exponential backoff and jitter |
 | Reliability | ai-fallback-circuit | Learning With Chetna | Provider fallback, circuit breakers, idempotency, queues and DLQ |
@@ -70,6 +72,25 @@ Each supplement closes a specific audited gap rather than repeating a CampusX le
 | Security | ai-guardrails | Krish Naik | PII, prompt-injection checks, input/output hooks and layered guardrails |
 
 Hindi or Hinglish sources were retained when their content was sufficient. Focused English lessons are used where the available Hindi alternatives were incomplete, obsolete or much longer without adding required capability; YouTube Hindi captions are identified where available.
+
+## Series continuity decisions
+
+Every retained assignment was checked for numbered parts, prerequisites, continuation lectures and selected ranges that stopped before the card's claimed capability finished.
+
+| Module | Required sequence retained | Continuations deliberately omitted |
+| --- | --- | --- |
+| Python | Collections, Python-specific mutability, functions, class/object basics, files/JSON, exceptions and a separate package-structure lesson | Beginner syntax, recursion, advanced OOP and package-installation repetition |
+| ML foundation | Complete conceptual Backpropagation Part 1 plus one Keras and one optional PyTorch training loop | Backpropagation Parts 2 and 3 because they derive and code deeper mathematics outside this non-research route |
+| Transformers | Self-attention intuition, Q/K/V computation and scaling; multi-head attention; positions; layer normalization; encoder block; masking; cross-attention; decoder block; inference | Transformer overview and two additional self-attention intuition lectures because they repeat the retained sequence |
+| LangChain | Models, prompts, structured output and the complete chains lecture through conditional chains | Output-parser and standalone runnable deep dives; the retained chain lecture already introduces the runnable composition needed here |
+| RAG | Architecture, loaders, all splitter types, embeddings/vector stores, metadata filtering, similarity retrieval, MMR, multi-query, compression, hybrid RRF and Self-RAG | Repeated end-to-end chatbot ingestion and CRAG, whose grading and rewriting overlap the retained Self-RAG path |
+| Agents | Agent decision boundary, LangGraph primitives and a full conditional-workflow implementation; short/long-term memory; MCP architecture/server/client | Separate sequential, parallel and iterative workflow demos because they are variants after the same primitives, not prerequisites |
+| FastAPI | Setup, validation/model serving, production lifecycle rules, streaming/disconnect behavior and tests | Repeated HTTP basics, Docker and AWS deployment already covered by assumed backend/DevOps skills |
+| Evaluation | Evaluation methods, retriever evaluation, tracing and offline/online loops | Model-benchmark and leaderboard series for model selection rather than application evaluation |
+| MLOps | One complete MLflow/DVC/registry/CI-CD project and a separate data/ETL boundary lesson | Promotional overview and repeated generic lifecycle explanation |
+| Reliability and safety | Complete standalone failure, rate-limit, cache and guardrail lessons plus full LangGraph tools and human approval | Broader framework tours and vendor-specific platform setup |
+
+Grouped cards now store the actual rounded watch time of each full video or selected range. Parent-time averaging was removed because it made short and long cards display misleading durations.
 
 ## Checkpoint guarantees
 
@@ -91,10 +112,10 @@ The checkpoints intentionally state conditions videos may only introduce. Comple
 
 | Position | Full videos | Full time | Fast videos | Fast time |
 | --- | ---: | ---: | ---: | ---: |
-| Complete | 86 | 37h 49m | 73 | 31h 18m |
-| AI Engineer | 83 | 36h 12m | 73 | 31h 18m |
-| GenAI Engineer | 70 | 33h 16m | 59 | 27h 32m |
-| MLOps Engineer | 47 | 14h 34m | 44 | 13h 21m |
+| Complete | 92 | 41h 38m | 79 | 35h 8m |
+| AI Engineer | 89 | 40h 1m | 79 | 35h 8m |
+| GenAI Engineer | 76 | 37h 7m | 65 | 31h 23m |
+| MLOps Engineer | 49 | 15h 23m | 46 | 14h 11m |
 
 The GenAI view removes Pandas, classification metrics and model-training projects. The MLOps view removes LLM-specific SDK, transformer, RAG, agent, evaluation, cache and guardrail videos. The AI Engineer view retains the broad applied route and removes optional MCP.
 
@@ -117,6 +138,6 @@ The following remain outside the route because they belong to MLOps specializati
 4. Compared candidate supplement titles, descriptions, chapters, available captions and implementation scope.
 5. Rejected duplicate long courses, obsolete provider examples and videos that only named a topic.
 6. Added exact checkpoint behavior where a source teaches the concept but not the complete production boundary.
-7. Verified assignment IDs, all 86 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
+7. Verified assignment IDs, all 92 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
 
 No captions, transcripts or downloaded media are committed.
