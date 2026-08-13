@@ -1249,7 +1249,7 @@
             <strong id="role-context-title">Complete route</strong>
           </div>
           <p id="role-context-copy">All shared foundations and specialization assignments for the three target role families.</p>
-          <span id="role-context-meta" class="role-context-meta">24 playlist assignments</span>
+          <span id="role-context-meta" class="role-context-meta">27 playlist assignments</span>
         </section>
 
         <section class="summary-strip" aria-label="Roadmap summary">
@@ -1272,7 +1272,7 @@
 
         <aside class="scope-note">
           <strong>Scope</strong>
-          <span>Assumes your existing DSA/OOP, JavaScript/TypeScript, React/Next.js, Node/Express/REST API, SQL/NoSQL, AWS/Cloudflare, Docker/Kubernetes and Git skills, but no Python or AI knowledge. Every learning link now opens an official CampusX playlist assignment. Repeated introductions and all mixed-provider fallbacks were removed. Fast track keeps the essential assignments; Full coverage adds PyTorch, advanced RAG, persistence and MCP. Because this is a strict CampusX-only route, specialist subjects without a sufficient CampusX playlist lesson are not claimed as taught coverage: Python asyncio and pytest, raw multimodal SDKs, hybrid search and RRF, cross-encoder reranking, application caching and circuit breakers, managed cloud AI, drift monitoring and vLLM serving.</span>
+          <span>Assumes your existing DSA/OOP, JavaScript/TypeScript, React/Next.js, Node/Express/REST API, SQL/NoSQL, AWS/Cloudflare, Docker/Kubernetes and Git skills, but no Python or AI knowledge. Every learning link opens an official CampusX playlist assignment. Repeated introductions and mixed-provider fallbacks were removed. Fast track keeps the essential assignments; Full coverage adds PyTorch, Self-RAG, memory, MCP, online evaluation and MLOps data management. Because this is a strict CampusX-only route, specialist subjects without a sufficient CampusX playlist lesson are not claimed as taught coverage: Python asyncio and pytest, raw multimodal SDKs, hybrid search and RRF, application caching and circuit breakers, managed cloud AI, implemented drift monitoring and vLLM serving.</span>
         </aside>
 
         <footer class="page-footer">Progress, filters and theme stay in this browser. No account or database is used. Every assignment opens an official CampusX YouTube playlist.</footer>
@@ -1318,12 +1318,13 @@
       {
         id: "llm-foundations",
         code: "03",
-        title: "Transformer building blocks for LLM applications",
-        outcome: "Explain self-attention, positional information, causal masking and the decoder path used for autoregressive generation.",
-        topics: ["Token representations", "Positional encoding", "Self-attention", "Queries, keys and values", "Multi-head attention", "Autoregressive generation", "Causal masking", "Decoder architecture"],
-        checkpoint: "Trace token representations through position information, self-attention, multiple attention heads and a causally masked decoder. Explain why future tokens are hidden during training and how the same decoder generates output one token at a time.",
+        title: "LLM and transformer foundations",
+        outcome: "Connect pretraining and transfer learning to transformer attention, decoder-only LLMs and autoregressive token generation.",
+        topics: ["Pretraining", "Fine-tuning", "Language models", "Decoder-only LLMs", "Token representations", "Positional encoding", "Self-attention", "Queries, keys and values", "Multi-head attention", "Autoregressive generation", "Causal masking", "Decoder architecture"],
+        checkpoint: "Explain how pretraining and fine-tuning produced reusable language models, distinguish encoder-only BERT from decoder-only GPT, then trace token representations through position information, attention and causal masking. Explain how inference generates one token at a time and why the CampusX decoder lecture includes cross-attention while a decoder-only LLM does not.",
         resources: [
-          { id: "transformer-core", title: "Transformer and causal-decoder essentials", source: "CampusX | 100 Days of Deep Learning", type: "Playlist assignment", minutes: 119, priority: "core", videoId: "XnGGmvpDLA0", url: "https://www.youtube.com/watch?v=XnGGmvpDLA0&list=PLKnIA16_RmvYuZauWaPlRTC54KxSNLtNn&index=72", note: "Watch Self Attention in full; Multi-head Attention at 6:33-27:37; Positional Encoding at 1:18-7:58 and 34:26-55:25; Masked Self Attention at 5:25-17:57 and 35:25-60:15; and Decoder Architecture at 0:00-10:10. Skip every recap and the older encoder-decoder history sequence." }
+          { id: "llm-evolution", title: "From transfer learning to decoder-only LLMs", source: "CampusX | 100 Days of Deep Learning", type: "Playlist assignment", minutes: 29, priority: "core", videoId: "8fX3rOjTloc", url: "https://www.youtube.com/watch?v=8fX3rOjTloc&list=PLKnIA16_RmvYuZauWaPlRTC54KxSNLtNn&index=67", note: "Watch 47:08-1:16:10 for transfer learning, pretraining, fine-tuning, BERT versus GPT, decoder-only language models and why scale changes a language model into an LLM. Skip the LSTM, encoder-decoder and attention history because the next assignment teaches the needed mechanics directly." },
+          { id: "transformer-core", title: "Transformer attention and autoregressive decoding", source: "CampusX | 100 Days of Deep Learning", type: "Playlist assignment", minutes: 131, priority: "core", videoId: "XnGGmvpDLA0", url: "https://www.youtube.com/watch?v=XnGGmvpDLA0&list=PLKnIA16_RmvYuZauWaPlRTC54KxSNLtNn&index=72", note: "Watch Self Attention in full; Multi-head Attention at 6:33-27:37; Positional Encoding at 1:18-7:58 and 34:26-55:25; Masked Self Attention at 5:25-17:57 and 35:25-60:15; Decoder Architecture at 0:00-10:10; and Transformer Inference at 0:00-11:32. Skip recaps and the detailed encoder-decoder inference calculation. The decoder lecture is a translation decoder with cross-attention; use it for decoder mechanics, not as an exact GPT architecture." }
         ]
       },
       {
@@ -1342,12 +1343,12 @@
         code: "05",
         title: "Production RAG and retrieval",
         outcome: "Build and evaluate a retrieval pipeline that returns grounded answers with traceable evidence.",
-        topics: ["RAG architecture", "Indexing path", "Query path", "Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "MMR", "Multi-query retrieval", "Contextual compression", "Citations", "RAG versus fine-tuning", "Corrective RAG"],
-        checkpoint: "Build a multi-document RAG service with parsed metadata, compared chunking strategies, a vector store and tenant-scoped filters. Compare similarity retrieval, MMR, multi-query retrieval and contextual compression, return citations, and evaluate answers in Module 08. In Full coverage, add a corrective path that grades evidence and rewrites weak queries before a controlled fallback.",
+        topics: ["RAG architecture", "Indexing path", "Query path", "Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "MMR", "Multi-query retrieval", "Contextual compression", "Citations", "RAG versus fine-tuning", "Self-RAG"],
+        checkpoint: "Build a multi-document RAG service with parsed metadata, compared chunking strategies, a vector store and tenant-scoped filters. Compare similarity retrieval, MMR, multi-query retrieval and contextual compression, return citations, and evaluate answers in Module 08. In Full coverage, add a Self-RAG path that decides whether retrieval is needed, filters weak evidence, checks grounding and rewrites an unhelpful answer or query.",
         resources: [
           { id: "rag-architecture", title: "RAG architecture and trade-offs", source: "CampusX | RAG Playlist", type: "Playlist assignment", minutes: 44, priority: "core", videoId: "X0btK9X0Xnk", url: "https://www.youtube.com/watch?v=X0btK9X0Xnk&list=PLKnIA16_Rmva0dRLWEHLznSHKbFD_RJfX&index=1", note: "Watch 3:05-23:25, 34:07-55:50 and 57:08-59:04 for private or recent knowledge, hallucination, indexing and query paths, limitations and RAG versus fine-tuning. Skip the long in-context-learning detour and repeated component recap." },
           { id: "rag-core", title: "RAG ingestion, indexing and retrieval", source: "CampusX | RAG Playlist", type: "Playlist assignment", minutes: 195, priority: "core", videoId: "bL92ALSZ2Cg", url: "https://www.youtube.com/watch?v=bL92ALSZ2Cg&list=PLKnIA16_Rmva0dRLWEHLznSHKbFD_RJfX&index=2", note: "Watch Document Loaders at 10:56-56:44, Text Splitters in full, Vector Stores in full, and Retrievers at 2:01-9:55 plus 15:50-47:54. This covers each pipeline stage once and skips every RAG recap and demo repeated by the next lesson." },
-          { id: "rag-advanced", title: "Corrective RAG for weak evidence", source: "CampusX | RAG Playlist", type: "Playlist assignment", minutes: 47, priority: "interview", videoId: "41XDn81nR5c", url: "https://www.youtube.com/watch?v=41XDn81nR5c&list=PLKnIA16_Rmva0dRLWEHLznSHKbFD_RJfX&index=8", note: "Watch 0:00-23:02 and 51:29-1:15:09 to grade evidence, refine useful knowledge and rewrite weak queries before a controlled web fallback. Skip the repetitive middle implementation." }
+          { id: "rag-advanced", title: "Self-RAG retrieval and answer checks", source: "CampusX | RAG Playlist", type: "Playlist assignment", minutes: 36, priority: "interview", videoId: "BbO_XaEjzaA", url: "https://www.youtube.com/watch?v=BbO_XaEjzaA&list=PLKnIA16_Rmva0dRLWEHLznSHKbFD_RJfX&index=9", note: "Watch 1:48-15:05 and 45:56-1:08:13 for retrieval decisions, evidence filtering, hallucination checks, revised-answer loops and query rewriting. Skip the repeated node-by-node implementation. This replaces CRAG because watching both repeats evidence grading and query rewriting." }
         ]
       },
       {
@@ -1355,12 +1356,12 @@
         code: "06",
         title: "Bounded agent workflows",
         outcome: "Use LangGraph for stateful routing only when a fixed chain is insufficient.",
-        topics: ["Workflows versus agents", "State", "Reducers", "Nodes and edges", "Conditional routing", "Parallel branches", "Persistence", "Checkpoints", "MCP"],
-        checkpoint: "Build a LangGraph workflow with explicit state and conditional routing. In Full coverage, persist state, resume after a failure and connect one MCP server while keeping authorization and reasoning in the host application. Tool execution and approval are implemented once in Module 10.",
+        topics: ["Workflows versus agents", "State", "Reducers", "Nodes and edges", "Conditional routing", "Parallel branches", "Short-term memory", "Long-term memory", "Context trimming", "Summarization", "Persistence", "MCP"],
+        checkpoint: "Build a LangGraph workflow with explicit state and conditional routing. In Full coverage, persist conversation state, control context growth with trimming or summarization, explain long-term memory storage, and connect one MCP server while keeping authorization and reasoning in the host application. Tool execution and approval are implemented once in Module 10.",
         resources: [
           { id: "agent-core", title: "Agent decisions and LangGraph core concepts", source: "CampusX | Agentic AI using LangGraph", type: "Playlist assignment", minutes: 75, priority: "core", videoId: "xdA0pGDiUPE", url: "https://www.youtube.com/watch?v=xdA0pGDiUPE&list=PLKnIA16_RmvYsvB8qkUQuJmJNuiCUJFPL&index=2", note: "Watch Generative AI vs Agentic AI at 40:13-62:44, then LangGraph Core Concepts in full. The first segment explains when an agent is justified; the second teaches state, reducers, nodes, edges and routing. Skip playlist introductions and separate workflow videos that repeat these primitives." },
-          { id: "agent-persistence", title: "Persistence and resumable graph state", source: "CampusX | Agentic AI using LangGraph", type: "Playlist assignment", minutes: 48, priority: "interview", videoId: "_IPP7_Bi8uA", url: "https://www.youtube.com/watch?v=_IPP7_Bi8uA&list=PLKnIA16_RmvYsvB8qkUQuJmJNuiCUJFPL&index=11", note: "Watch 0:00-47:36 for checkpointers, thread state, resume behavior and fault tolerance. Skip time-travel debugging and human approval here; approval is covered with tools in Module 10." },
-          { id: "mcp-architecture", title: "MCP architecture and transports", source: "CampusX | Model Context Protocol", type: "Playlist assignment", minutes: 49, priority: "interview", videoId: "nQa31xdXbGk", url: "https://www.youtube.com/watch?v=nQa31xdXbGk&list=PLKnIA16_Rmva_oZ9F4ayUu9qcWgF7Fyc0&index=3", note: "Watch 2:00-27:20 and 53:23-1:17:09 for host, client, server, tools, resources, prompts and local versus remote transports. For current implementations use stdio locally and Streamable HTTP remotely; treat the separate HTTP plus SSE transport shown as legacy compatibility." }
+          { id: "agent-memory", title: "LLM memory, persistence and context control", source: "CampusX | Memory in LLMs", type: "Playlist assignment", minutes: 69, priority: "interview", videoId: "DcPKJrOF9Wo", url: "https://www.youtube.com/watch?v=DcPKJrOF9Wo&list=PLKnIA16_RmvbtL3dyYE7s-GFna48trwfK&index=3", note: "In lesson 3 watch 12:28-18:51 and 40:06-53:36 for context windows and long-term memory types and architecture. Then open lesson 2 and watch 3:33-52:08 for checkpointers, thread IDs, PostgreSQL persistence, trimming, deletion and summarization. Skip the repeated stateless-LLM explanation and in-memory demo recap." },
+          { id: "mcp-architecture", title: "MCP architecture, server and client", source: "CampusX | Model Context Protocol", type: "Playlist assignment", minutes: 97, priority: "interview", videoId: "nQa31xdXbGk", url: "https://www.youtube.com/watch?v=nQa31xdXbGk&list=PLKnIA16_Rmva_oZ9F4ayUu9qcWgF7Fyc0&index=3", note: "Watch Architecture at 2:00-27:20 and 53:23-1:17:09; Local MCP Server at 26:00-35:34 and 40:30-58:36; and MCP Client at 9:23-29:29. This covers host/client/server boundaries, transports, FastMCP tools, inspection, persistent tools, tool discovery, LLM binding and the tool-result loop without repeating demos or UI work. Use stdio locally and Streamable HTTP remotely; treat HTTP plus SSE as legacy compatibility." }
         ]
       },
       {
@@ -1379,12 +1380,13 @@
         code: "08",
         title: "Evaluation and observability",
         outcome: "Evaluate model and RAG behavior with explicit methods, then trace graph execution instead of judging the app from a few demos.",
-        topics: ["Deterministic checks", "Human review", "LLM-as-judge", "Reference-based evaluation", "Reference-free evaluation", "Retriever evaluation", "Faithfulness", "Answer relevance", "Tracing", "Latency", "Tokens", "Errors"],
-        checkpoint: "Create a versioned 20-case evaluation set. Apply deterministic and rubric-based checks, add RAG retrieval and grounded-answer metrics, and trace one LangGraph run with latency, token and error labels. Keep caching and reliability patterns outside the claimed CampusX coverage.",
+        topics: ["Deterministic checks", "Human review", "LLM-as-judge", "Reference-based evaluation", "Reference-free evaluation", "Golden datasets", "Contextual recall", "Contextual precision", "Retriever optimization", "Offline evaluation", "Online evaluation", "Tracing", "Latency", "Tokens", "Errors"],
+        checkpoint: "Create a versioned 20-case evaluation set. Apply deterministic and rubric-based checks, implement contextual recall and rank-aware precision for the retriever, compare one retrieval change against a baseline, and trace one LangGraph run with latency, token and error labels. In Full coverage, define an online sampling and feedback loop that sends production failures back into the offline set.",
         resources: [
           { id: "llm-eval-methods", title: "LLM evaluation methods", source: "CampusX | LLM Evaluation", type: "Playlist assignment", minutes: 53, priority: "core", videoId: "uQFLY8rQVYA", url: "https://www.youtube.com/watch?v=uQFLY8rQVYA&list=PLEneLIDJFpcA&index=5", note: "Watch the evaluation-methods lesson once for deterministic, human and model-graded evaluation, rubrics, LLM-as-judge and reference-based versus reference-free checks. The separate 17-minute workflow overview was removed because it repeats the same process at a higher level." },
-          { id: "rag-evaluation", title: "RAG-specific evaluation", source: "CampusX | LLM Evaluation", type: "Playlist assignment", minutes: 46, priority: "core", videoId: "4zn-gSckVTQ", url: "https://www.youtube.com/watch?v=4zn-gSckVTQ&list=PLEneLIDJFpcA&index=12", note: "Evaluate the retriever and generator components, the connected RAG pipeline and application behavior. This assignment adds context precision and recall, faithfulness, relevance and citation checks that the general LLM-evaluation lesson does not teach." },
-          { id: "langsmith-observability", title: "Observe one LangGraph run with LangSmith", source: "CampusX | Agentic AI using LangGraph", type: "Playlist assignment", minutes: 22, priority: "core", videoId: "ikzN6byFNWw", url: "https://www.youtube.com/watch?v=ikzN6byFNWw&list=PLKnIA16_RmvYsvB8qkUQuJmJNuiCUJFPL&index=17", note: "Integrate LangSmith with the graph and inspect execution traces, latency, token use and failures. Skip the separate two-hour LangSmith crash course; this focused lesson is enough for the route checkpoint." }
+          { id: "rag-evaluation", title: "Hands-on RAG retriever evaluation", source: "CampusX | LLM Evaluation", type: "Playlist assignment", minutes: 72, priority: "core", videoId: "9Dkz3ckRj8c", url: "https://www.youtube.com/watch?v=9Dkz3ckRj8c&list=PLEneLIDJFpcA&index=13", note: "Watch 21:01-1:08:47 and 1:21:40-1:46:15 for retriever failure modes, contextual recall, rank-aware precision, robust golden datasets, DeepEval, baseline trials, cross-encoder reranking and embedding-model comparison. Skip project setup and repeated RAG ingestion code." },
+          { id: "langsmith-observability", title: "Observe one LangGraph run with LangSmith", source: "CampusX | Agentic AI using LangGraph", type: "Playlist assignment", minutes: 22, priority: "core", videoId: "ikzN6byFNWw", url: "https://www.youtube.com/watch?v=ikzN6byFNWw&list=PLKnIA16_RmvYsvB8qkUQuJmJNuiCUJFPL&index=17", note: "Integrate LangSmith with the graph and inspect execution traces, latency, token use and failures. Skip the separate two-hour LangSmith crash course; this focused lesson is enough for the route checkpoint." },
+          { id: "online-evaluation", title: "Offline gates and online evaluation loops", source: "CampusX | LLM Evaluation", type: "Playlist assignment", minutes: 63, priority: "interview", videoId: "SahaDGzN-Bk", url: "https://www.youtube.com/watch?v=SahaDGzN-Bk&list=PLEneLIDJFpcA&index=6", note: "Watch 3:27-26:49, 34:53-44:42 and 47:47-1:17:15 for pre-release gates, production risks, live feedback, durable logging, PII masking, stratified sampling, LLM-as-judge and the loop from production failures back to offline tests. Skip recap, the long score-distribution example and repeated LangSmith UI demonstration." }
         ]
       },
       {
@@ -1392,10 +1394,11 @@
         code: "09",
         title: "MLOps delivery workflow",
         outcome: "Make one trained-model release reproducible with tracked experiments, a data pipeline, registry promotion and CI/CD.",
-        topics: ["MLOps lifecycle", "Experiment tracking", "MLflow", "DVC pipelines", "Model registry", "Model promotion", "Testing", "Deployment strategies", "GitHub Actions", "CI and CD"],
-        checkpoint: "Productionize the model from Module 02. Track experiments in MLflow, automate the pipeline with DVC, register and promote the selected model, and gate deployment with tests and GitHub Actions. Apply your existing Docker and cloud skills to the release. Do not claim drift monitoring, managed model gateways or vLLM from this CampusX-only module.",
+        topics: ["MLOps lifecycle", "Data management", "ETL pipelines", "Data storage", "Experiment tracking", "MLflow", "DVC pipelines", "Model registry", "Model promotion", "Testing", "Deployment strategies", "GitHub Actions", "CI and CD"],
+        checkpoint: "Productionize the model from Module 02. Identify the ingestion, transformation and storage boundaries of its data pipeline, track experiments in MLflow, automate the pipeline with DVC, register and promote the selected model, and gate deployment with tests and GitHub Actions. Apply your existing Docker and cloud skills to the release. Do not claim implemented drift monitoring, managed model gateways or vLLM from this CampusX-only module.",
         resources: [
-          { id: "mlops-project", title: "MLflow, DVC, registry and CI/CD in one project", source: "CampusX | 100 Days of MLOps", type: "Playlist assignment", minutes: 51, priority: "core", videoId: "eCjuoqUy8Is", url: "https://www.youtube.com/watch?v=eCjuoqUy8Is&list=PLKnIA16_RmvaKHYjy5v0dJh8edeaEWb-b&index=3", note: "Watch 10:30-45:27 for experiment tracking, a DVC pipeline, model registry, tests and promotion; then 1:00:43-1:16:20 for deployment strategies and GitHub Actions. Skip Flask, Docker and EC2 repetition." }
+          { id: "mlops-project", title: "MLflow, DVC, registry and CI/CD in one project", source: "CampusX | 100 Days of MLOps", type: "Playlist assignment", minutes: 51, priority: "core", videoId: "eCjuoqUy8Is", url: "https://www.youtube.com/watch?v=eCjuoqUy8Is&list=PLKnIA16_RmvaKHYjy5v0dJh8edeaEWb-b&index=3", note: "Watch 10:30-45:27 for experiment tracking, a DVC pipeline, model registry, tests and promotion; then 1:00:43-1:16:20 for deployment strategies and GitHub Actions. Skip Flask, Docker and EC2 repetition." },
+          { id: "mlops-data-management", title: "MLOps data and ETL boundaries", source: "CampusX | 100 Days of MLOps", type: "Playlist assignment", minutes: 24, priority: "interview", videoId: "D_-qy1A76EM", url: "https://www.youtube.com/watch?v=D_-qy1A76EM&list=PLKnIA16_RmvaKHYjy5v0dJh8edeaEWb-b&index=4", note: "Watch 7:20-31:10 for why software-style CI/CD is insufficient for changing data, the ETL boundary, data storage choices and MLOps data-management tools. Skip the introduction, recap and closing task." }
         ]
       },
       {
@@ -1437,18 +1440,18 @@
       },
       "genai-engineer": {
         label: "GenAI Engineer",
-        description: "LLM application development using LangChain, RAG, LangGraph, FastAPI, evaluation and bounded tools, with ML and neural-network concepts but no model-training or classical MLOps assignment.",
-        excluded: new Set(["pandas-core", "ml-metrics", "sklearn-workflow", "keras-ann-project", "pytorch-training-pipeline", "mlops-project"]),
+        description: "LLM application development using LangChain, RAG, LangGraph, memory, FastAPI, offline and online evaluation, and bounded tools, with ML concepts but no model-training or classical MLOps assignment.",
+        excluded: new Set(["pandas-core", "ml-metrics", "sklearn-workflow", "keras-ann-project", "pytorch-training-pipeline", "mlops-project", "mlops-data-management"]),
         hiddenTopics: {
           "ai-foundations": ["Keras", "PyTorch", "scikit-learn"]
         }
       },
       "mlops-engineer": {
         label: "MLOps Engineer",
-        description: "Model delivery using Python, ML and neural-network training context, FastAPI serving, evaluation, observability, MLflow, DVC, registry promotion and CI/CD. Application-specific LangChain, RAG construction and agent implementation are removed.",
-        excluded: new Set(["transformer-core", "langchain-core", "rag-architecture", "rag-core", "rag-advanced", "agent-core", "agent-persistence", "mcp-architecture", "llm-eval-methods", "rag-evaluation", "langsmith-observability", "bounded-tools"]),
+        description: "Model delivery using Python, ML and neural-network training context, FastAPI serving, data management, MLflow, DVC, registry promotion and CI/CD. LLM-specific foundations, evaluation, LangChain, RAG and agent implementation are removed.",
+        excluded: new Set(["llm-evolution", "transformer-core", "langchain-core", "rag-architecture", "rag-core", "rag-advanced", "agent-core", "agent-memory", "mcp-architecture", "llm-eval-methods", "rag-evaluation", "langsmith-observability", "online-evaluation", "bounded-tools"]),
         hiddenTopics: {
-          rag: ["Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "MMR", "Multi-query retrieval", "Contextual compression", "Corrective RAG"]
+          rag: ["Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "MMR", "Multi-query retrieval", "Contextual compression", "Self-RAG"]
         }
       }
     };
