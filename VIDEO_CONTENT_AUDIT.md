@@ -13,6 +13,7 @@ Audit date: 2026-08-13
 - Runtime was considered only after content sufficiency. A short lesson remains only when it covers a narrow topic completely.
 - CampusX was checked first for every newly added topic. It supplied all three deep-learning additions. Its only public multimodal result was a paid-course announcement, and no sufficient public managed-cloud AI lesson was found, so a current specialist tutorial and an official AWS lesson were used for those two gaps.
 - For the LLM-foundations revision, Hindi/Hinglish candidates were checked before English fallbacks. Two focused Hindi lessons were retained. Candidates that misstated architecture families, depended on an unlisted RNN/sequence-to-sequence course, or spent most of their runtime on model-training mathematics were rejected rather than included for language alone.
+- A role-scope audit compared the route with current AI Engineer, GenAI Engineer and MLOps postings and with the route's declared prerequisites. Generic MLOps lifecycle, GitHub Actions and container-to-AWS deployment lessons remain available in Complete route and MLOps views, but are excluded from AI Engineer and GenAI Engineer views because the learner already has AWS, Docker/Kubernetes, Git and DevOps foundations. Their AI-specific release work remains in the module checkpoints.
 
 Status meanings:
 
@@ -165,3 +166,4 @@ The MCP transport correction follows the current official specification: <https:
 11. Added transcript-verified multimodal text-and-image API work and file-validation requirements.
 12. Added a current official managed-cloud AI workflow with model-quality, latency, cost and least-privilege checkpoints.
 13. Added a focused CampusX PyTorch training-pipeline segment to Full coverage after verifying that the broader AI Engineer role can require either PyTorch or TensorFlow experience.
+14. Removed 176 minutes of generic MLOps/DevOps replay from the AI Engineer and GenAI Engineer role views without deleting that specialization content from Complete route or MLOps.

@@ -1118,7 +1118,7 @@
       .toolbar-primary, .toolbar-options { gap: 7px; }
       .mobile-page-link { min-width: 70px; padding: 0 7px; }
       .theme-button { width: 50px; min-width: 50px; }
-      .role-control { width: auto; min-width: 120px; flex: 1 1 120px; }
+      .role-control { width: 152px; min-width: 152px; flex: 0 0 152px; }
       .filter-control { flex: 0 0 176px; }
       .overview h2 { font-size: 25px; }
       .role-context { grid-template-columns: 1fr; gap: 4px; }
@@ -1440,7 +1440,7 @@
         code: "09",
         title: "LLMOps foundations and model serving",
         outcome: "Turn a working AI application into a versioned, repeatable and observable release, then understand the extra serving path for open models.",
-        topics: ["MLOps and LLMOps lifecycle", "Artifact and prompt versioning", "MLflow", "Tracing", "Prompt registry", "Evaluation runs", "Model gateways", "Managed cloud AI", "Model selection", "CI and CD", "GitHub Actions", "Immutable containers", "Cloud deployment", "Short-lived cloud identity", "Least-privilege IAM", "Smoke tests", "Rollback", "Hosted versus self-hosted models", "vLLM", "KV cache", "PagedAttention", "Continuous batching", "Latency and throughput", "Production monitoring"],
+        topics: ["MLOps lifecycle", "LLM application lifecycle", "Artifact and prompt versioning", "MLflow", "Tracing", "Prompt registry", "Evaluation runs", "Model gateways", "Managed cloud AI", "Model selection", "CI and CD", "GitHub Actions", "Immutable containers", "Cloud deployment", "Short-lived cloud identity", "Least-privilege IAM", "Smoke tests", "Rollback", "Hosted versus self-hosted models", "vLLM", "KV cache", "PagedAttention", "Continuous batching", "Latency and throughput", "Production monitoring"],
         checkpoint: "Productionize one earlier AI service. Track a fixed prompt and evaluation dataset, compare at least two model choices by quality, latency and cost, register the chosen prompt, trace token usage, latency and failures, and call one model through Amazon Bedrock using a least-privilege role or short-lived identity. Run tests in CI, build an immutable container and deploy it through a repeatable workflow; run a post-deploy smoke test and document rollback. In Full coverage, also serve a small open model through vLLM's OpenAI-compatible API, load-test concurrent requests and compare latency, throughput and memory with naive Hugging Face inference.",
         resources: [
           { id: "mlops-lifecycle", title: "MLOps lifecycle from development to monitoring", source: "CampusX", type: "Video", minutes: 61, priority: "core", videoId: "6SRifO6dmuE", url: "https://www.youtube.com/watch?v=6SRifO6dmuE", note: "Use the complete lifecycle lesson, not a short definition. Follow collaboration, experiment and artifact tracking, version control, CI/CD, deployment, monitoring, drift and retraining. The long software-team analogy is intentional because it connects each practice to the failure it prevents." },
@@ -1484,15 +1484,21 @@
       },
       "ai-engineer": {
         label: "AI Engineer",
-        description: "Applied and product-facing AI: classical ML, Keras and PyTorch foundations, multimodal LLM applications, RAG, agents, APIs, managed cloud AI, evaluation and production. Research and foundation-model training remain outside scope.",
-        excluded: new Set(["mcp-architecture"]),
-        hiddenTopics: { agents: ["MCP"] }
+        description: "Applied and product-facing AI: classical ML, Keras and PyTorch foundations, multimodal LLM applications, RAG, agents, APIs, managed cloud AI, evaluation and production. Existing cloud, container and DevOps knowledge is applied in checkpoints without replaying generic MLOps or CI/CD lessons. Research and foundation-model training remain outside scope.",
+        excluded: new Set(["mcp-architecture", "mlops-lifecycle", "llmops-ci", "llmops-cloud-cd"]),
+        hiddenTopics: {
+          agents: ["MCP"],
+          llmops: ["MLOps lifecycle", "CI and CD", "GitHub Actions", "Immutable containers", "Cloud deployment", "Smoke tests", "Rollback"]
+        }
       },
       "genai-engineer": {
         label: "GenAI Engineer",
-        description: "LLM product development: text and multimodal APIs, prompting, RAG, agent workflows, evaluation, managed cloud AI, security and deployment, with ML and neural-network concepts but no model-training exercise.",
-        excluded: new Set(["sklearn-workflow", "keras-ann-project", "pytorch-training-pipeline"]),
-        hiddenTopics: { "ai-foundations": ["TensorFlow and Keras", "PyTorch", "scikit-learn", "fit and predict"] }
+        description: "LLM product development: text and multimodal APIs, prompting, RAG, agent workflows, evaluation, managed cloud AI, security and deployment, with ML and neural-network concepts but no model-training exercise. Existing cloud, container and DevOps knowledge is applied in checkpoints without replaying generic MLOps or CI/CD lessons.",
+        excluded: new Set(["sklearn-workflow", "keras-ann-project", "pytorch-training-pipeline", "mlops-lifecycle", "llmops-ci", "llmops-cloud-cd"]),
+        hiddenTopics: {
+          "ai-foundations": ["TensorFlow and Keras", "PyTorch", "scikit-learn", "fit and predict"],
+          llmops: ["MLOps lifecycle", "CI and CD", "GitHub Actions", "Immutable containers", "Cloud deployment", "Smoke tests", "Rollback"]
+        }
       },
       "llmops-engineer": {
         label: "MLOps Engineer",
