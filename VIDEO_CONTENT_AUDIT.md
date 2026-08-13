@@ -4,17 +4,17 @@ Audit date: 2026-08-13
 
 ## Result
 
-The roadmap contains 42 focused video assignments across 10 build modules:
+The roadmap contains 84 independently trackable video cards across 10 build modules, curated from 42 focused learning assignments:
 
-- 32 essential assignments: 1,765 minutes (29 hours 25 minutes)
-- 10 optional depth assignments: 391 minutes (6 hours 31 minutes)
+- 71 essential video cards: 1,765 minutes (29 hours 25 minutes)
+- 13 optional-depth video cards: 391 minutes (6 hours 31 minutes)
 - Complete route: 2,156 minutes (35 hours 56 minutes)
-- 27 curated CampusX assignments containing 69 direct video links: 1,911 minutes
-- 15 focused production supplements: 245 minutes
+- 69 CampusX video cards: 1,911 minutes
+- 15 focused production-supplement video cards: 245 minutes
 - Every retained lecture has an explicit `youtube.com/watch?v=` link; no learner-facing watch link contains playlist navigation.
 - Resource IDs and thumbnail video IDs are unique.
 
-CampusX remains the primary source. Supplements are limited to capabilities that current AI and GenAI application roles expect but the audited CampusX playlists do not adequately teach. The source boundary is visible on every card. Multi-video assignments remain grouped only for progress tracking; every exact lecture and selected starting timestamp is displayed directly without a collapsed menu.
+CampusX remains the primary source. Supplements are limited to capabilities that current AI and GenAI application roles expect but the audited CampusX playlists do not adequately teach. The source boundary is visible on every card. Every retained video is a top-level card with independent progress tracking; no video is hidden inside an assignment container or collapsed menu.
 
 ## CampusX channel audit
 
@@ -89,14 +89,14 @@ The checkpoints intentionally state conditions videos may only introduce. Comple
 
 ## Position views
 
-| Position | Full assignments | Full time | Fast assignments | Fast time |
+| Position | Full videos | Full time | Fast videos | Fast time |
 | --- | ---: | ---: | ---: | ---: |
-| Complete | 42 | 35h 56m | 32 | 29h 25m |
-| AI Engineer | 41 | 34h 19m | 32 | 29h 25m |
-| GenAI Engineer | 35 | 31h 23m | 27 | 25h 39m |
-| MLOps Engineer | 21 | 14h 34m | 18 | 13h 21m |
+| Complete | 84 | 35h 56m | 71 | 29h 25m |
+| AI Engineer | 81 | 34h 19m | 71 | 29h 25m |
+| GenAI Engineer | 68 | 31h 23m | 57 | 25h 39m |
+| MLOps Engineer | 47 | 14h 34m | 44 | 13h 21m |
 
-The GenAI view removes Pandas, classification metrics and model-training projects. The MLOps view removes LLM-specific SDK, transformer, RAG, agent, evaluation, cache and guardrail assignments. The AI Engineer view retains the broad applied route and removes optional MCP.
+The GenAI view removes Pandas, classification metrics and model-training projects. The MLOps view removes LLM-specific SDK, transformer, RAG, agent, evaluation, cache and guardrail videos. The AI Engineer view retains the broad applied route and removes optional MCP.
 
 ## Deliberate exclusions
 
