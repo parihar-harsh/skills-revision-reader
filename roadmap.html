@@ -875,63 +875,6 @@
       font-weight: 700;
     }
 
-    .module-checkpoint {
-      display: grid;
-      grid-template-columns: 118px minmax(0, 1fr) auto;
-      gap: 12px;
-      align-items: center;
-      margin-top: 12px;
-      padding: 11px 13px;
-      border-left: 3px solid var(--green);
-      background: var(--green-soft);
-      color: color-mix(in srgb, var(--text) 88%, var(--green));
-      font-size: 11px;
-    }
-
-    .module-checkpoint strong {
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
-    .module-checkpoint p { margin: 0; }
-
-    .module-checkpoint.current {
-      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--blue) 58%, transparent);
-    }
-
-    .module-checkpoint.complete {
-      background: color-mix(in srgb, var(--green-soft) 72%, var(--surface));
-    }
-
-    .checkpoint-button {
-      min-width: 112px;
-      min-height: 34px;
-      padding: 6px 9px;
-      border: 1px solid var(--green);
-      border-radius: 5px;
-      background: var(--surface);
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .checkpoint-button:not(:disabled):hover { background: var(--surface-hover); }
-
-    .checkpoint-button:disabled {
-      border-color: var(--border-strong);
-      background: var(--surface-muted);
-      color: var(--muted);
-      cursor: not-allowed;
-    }
-
-    .checkpoint-button[aria-pressed="true"] {
-      background: var(--green);
-      color: #ffffff;
-    }
-
     .resource-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1149,8 +1092,6 @@
       .module-display-bar { justify-content: space-between; }
       .module-heading { grid-template-columns: 44px minmax(0, 1fr); align-items: start; }
       .module-heading-actions { grid-column: 2; justify-content: flex-start; flex-wrap: wrap; }
-      .module-checkpoint { grid-template-columns: 1fr; gap: 4px; }
-      .checkpoint-button { width: 100%; margin-top: 4px; }
       .section-code { width: 44px; height: 40px; }
       .resource-card { grid-template-columns: 96px minmax(0, 1fr); gap: 8px 10px; min-height: 132px; }
       .resource-media { width: 96px; }
@@ -1291,7 +1232,6 @@
         title: "Python bridge for AI applications",
         outcome: "Translate existing programming and OOP knowledge into typed, testable Python that can perform concurrent AI API calls without blocking.",
         topics: ["Collections", "Functions", "Classes and objects", "References and mutability", "Modules", "Files and JSON", "Exceptions", "Type hints", "Static checking", "Asyncio", "Coroutines", "Tasks", "Pytest", "Mocks", "NumPy arrays", "Broadcasting", "Pandas DataFrames"],
-        checkpoint: "Build a typed Python package with one class and two modules. Load JSON and CSV files, handle invalid input, clean missing and duplicate rows with Pandas, and perform one vector-style NumPy calculation. Add an async function that runs three simulated provider calls concurrently with bounded concurrency, then test success, validation failure and provider failure without making a real network call.",
         resources: [
           { id: "python-core", title: "Python language bridge for an existing programmer", source: "CampusX | 100 Days of Python Programming", type: "Curated direct videos", minutes: 188, priority: "core", note: "Watch Built-in Modules, Lists, Tuples, Sets and Dictionaries in full; Mutability at 0:30-9:25 and 34:00-51:29; Functions at 0:21-15:00; and Complete OOP at 10:30-1:06:18. Skip beginner variables, loops, recursion, GUI projects and advanced OOP because those repeat your existing programming background." },
           { id: "python-files-errors", title: "Files, JSON and exceptions", source: "CampusX | Data Science Mentorship Program", type: "Curated direct videos", minutes: 64, priority: "core", note: "In Session 10 watch 14:50-24:42, 33:30-50:10 and 1:23:11-1:32:40 for text files, context managers and JSON. In Session 11 watch 23:50-51:24 for specific exceptions, else and finally. Skip binary files, pickle, custom exceptions and repeated error taxonomy." },
@@ -1309,10 +1249,6 @@
         title: "Minimum ML and neural-network foundation",
         outcome: "Learn the concepts needed to choose, train and evaluate a small model without taking a data-science or research detour.",
         topics: ["AI vs ML vs DL", "Supervised and unsupervised learning", "Classification and regression", "Overfitting and underfitting", "Bias and variance", "Train and test split", "Confusion matrix", "Accuracy, precision, recall and F1", "Forward pass", "Loss", "Backpropagation", "Keras", "PyTorch", "scikit-learn"],
-        checkpoint: "Choose a rule, classical ML model, neural network or LLM for three product problems and explain why. Train one scikit-learn classifier and one small Keras network, evaluate unseen data and select a metric from the cost of false positives and false negatives. In Full coverage, reproduce the training loop in PyTorch.",
-        roleCheckpoints: {
-          "genai-engineer": "Choose a rule, classical ML model, neural network or LLM for three product problems. Explain overfitting, bias versus variance, train versus test data, forward pass, loss and backpropagation. Select accuracy, precision, recall or F1 from false-positive and false-negative costs; model implementation is not required in this role focus."
-        },
         resources: [
           { id: "ml-concepts", title: "AI, ML and model-behavior essentials", source: "CampusX | 100 Days of Machine Learning", type: "Curated direct videos", minutes: 52, priority: "core", note: "Watch lessons 2 and 3, then lesson 62. They establish AI versus ML versus deep learning, supervised and unsupervised problem types, and the bias-variance view of overfitting. Skip role-roadmap, installation and algorithm-survey lessons." },
           { id: "ml-metrics", title: "Classification metrics without repeated code demos", source: "CampusX | Machine Learning Metrics", type: "Curated direct videos", minutes: 39, priority: "core", note: "In Accuracy and Confusion Matrix watch 0:46-6:25, 13:16-25:53 and 30:03-end. In Precision, Recall and F1 watch 2:44-19:40. Skip repeated sklearn and MNIST code because the next assignment applies the metrics in a project." },
@@ -1328,7 +1264,6 @@
         title: "LLM and transformer foundations",
         outcome: "Connect pretraining and transfer learning to transformer attention, decoder-only LLMs and autoregressive token generation.",
         topics: ["Pretraining", "Fine-tuning", "Language models", "Decoder-only LLMs", "Token representations", "Positional encoding", "Self-attention", "Queries, keys and values", "Scaled dot-product attention", "Softmax", "Multi-head attention", "Residual connections", "Layer normalization", "Feed-forward networks", "Cross-attention", "Autoregressive generation", "Causal masking", "Decoder architecture"],
-        checkpoint: "Explain how pretraining and fine-tuning produced reusable language models, distinguish encoder-only BERT from decoder-only GPT, then trace token representations through position information, Q/K/V projection, scaled dot-product attention, softmax and multiple attention heads. Explain residual connections, layer normalization and the position-wise feed-forward network. Write Attention(Q,K,V) = softmax(QK^T/sqrt(d_k))V and explain every term. Trace causal masking and one-token-at-a-time inference, then explain why the CampusX translation decoder uses encoder-decoder cross-attention while a decoder-only LLM does not.",
         resources: [
           { id: "llm-evolution", title: "From transfer learning to decoder-only LLMs", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 29, priority: "core", note: "Watch 47:08-1:16:10 for transfer learning, pretraining, fine-tuning, BERT versus GPT, decoder-only language models and why scale changes a language model into an LLM. Skip the LSTM, encoder-decoder and attention history because the next assignment teaches the needed mechanics directly." },
           { id: "transformer-core", title: "Transformer attention, blocks and autoregressive decoding", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 367, priority: "core", note: "Follow the visible cards in order. Complete the three-part self-attention sequence, then Multi-head Attention, Positional Encoding, Layer Normalization, Encoder Architecture, Masked Self Attention, Cross Attention, Decoder Architecture and the selected Transformer Inference overview. The separate transformer introduction, geometric self-attention and why-it-is-called-self lectures repeat concepts already covered here. The encoder and cross-attention cards are retained to make the original decoder understandable; GPT-style decoder-only models omit that cross-attention path." }
@@ -1340,7 +1275,6 @@
         title: "Provider-native and LangChain application layer",
         outcome: "Call a hosted model directly before using LangChain, then add streaming, multimodal input, validated output and chains without becoming dependent on one abstraction.",
         topics: ["Provider SDKs", "Environment secrets", "Streaming", "Multimodal input", "Function calling", "Hosted models", "Open-source models", "Prompt templates", "Messages", "Pydantic structured output", "JSON output", "Simple chains", "Sequential chains", "Parallel chains", "Conditional chains"],
-        checkpoint: "Build one provider-native client that loads secrets from the environment, streams text, accepts one image and validates one structured response. Define one tool schema, execute only an allowlisted local function and return its result to the model. Then implement the same prompt and response contract through LangChain and use a two-step chain. Compare direct SDK and framework choices by control, portability, latency and maintenance cost.",
         resources: [
           { id: "provider-sdk-gemini", title: "Direct model calls, streaming and multimodal input", source: "Patrick Loeber | Google Gen AI Python SDK", type: "Focused video", minutes: 12, priority: "core", videoId: "qfWpPEgea2A", url: "https://www.youtube.com/watch?v=qfWpPEgea2A", note: "Watch in full for the current google-genai client, environment-based API keys, direct content generation, streaming, chat state and image input by file upload or bytes. Provider model names change; keep them in configuration rather than business logic." },
           { id: "provider-sdk-responses", title: "Native tools and structured response contracts", source: "Dave Ebbelaar | OpenAI Responses API", type: "Focused video", minutes: 15, priority: "interview", videoId: "0pGxoubWI6s", url: "https://www.youtube.com/watch?v=0pGxoubWI6s", note: "Watch 4:24-19:20 for direct Responses API calls, streaming, conversation state, built-in tools, function calling and Pydantic structured output. Skip the migration overview and closing demos. Treat API syntax as provider-specific; retain the request-tool-result-response pattern." },
@@ -1353,7 +1287,6 @@
         title: "Production RAG and retrieval",
         outcome: "Build and evaluate a retrieval pipeline that returns grounded answers with traceable evidence.",
         topics: ["RAG architecture", "Indexing path", "Query path", "Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "BM25", "Hybrid search", "Reciprocal Rank Fusion", "HyDE", "MMR", "Multi-query retrieval", "Contextual compression", "Citations", "RAG versus fine-tuning", "Self-RAG"],
-        checkpoint: "Build a multi-document RAG service with parsed metadata, compared chunking strategies, a vector store and tenant-scoped filters. Retrieve a wider candidate set independently with BM25 and vector search, fuse ranks with RRF, deduplicate by stable chunk ID and return the final top-k with citations. Compare dense-only and hybrid retrieval on the same golden queries. In Full coverage, test HyDE against the baseline and retain it only if measured retrieval improves, then add a Self-RAG path that decides whether retrieval is needed, filters weak evidence and checks grounding.",
         resources: [
           { id: "rag-architecture", title: "RAG architecture and trade-offs", source: "CampusX | RAG Playlist", type: "Curated direct videos", minutes: 44, priority: "core", note: "Watch 3:05-23:25, 34:07-55:50 and 57:08-59:04 for private or recent knowledge, hallucination, indexing and query paths, limitations and RAG versus fine-tuning. Skip the long in-context-learning detour and repeated component recap." },
           { id: "rag-core", title: "RAG ingestion, indexing and retrieval", source: "CampusX | RAG Playlist", type: "Curated direct videos", minutes: 196, priority: "core", note: "Watch Document Loaders at 10:56-56:44, Text Splitters in full, Vector Stores in full, and Retrievers at 2:01-9:55 plus 15:50-47:54. This covers each pipeline stage once and skips every RAG recap and demo repeated by the next lesson." },
@@ -1368,9 +1301,8 @@
         title: "Bounded agent workflows",
         outcome: "Use LangGraph for stateful routing only when a fixed chain is insufficient.",
         topics: ["Workflows versus agents", "State", "Reducers", "Nodes and edges", "Conditional routing", "Parallel branches", "Short-term memory", "Long-term memory", "Context trimming", "Summarization", "Persistence", "MCP"],
-        checkpoint: "Build a LangGraph workflow with explicit state and conditional routing. In Full coverage, persist conversation state, control context growth with trimming or summarization, explain long-term memory storage, and connect one MCP server while keeping authorization and reasoning in the host application. Tool execution and approval are implemented once in Module 10.",
         resources: [
-          { id: "agent-core", title: "Agent decisions, LangGraph concepts and conditional routing", source: "CampusX | Agentic AI using LangGraph", type: "Curated direct videos", minutes: 118, priority: "core", note: "Watch Generative AI vs Agentic AI at 40:13-62:44, LangGraph Core Concepts in full, then Conditional Workflows at 4:38-end. The first segment explains when an agent is justified, the second establishes state, reducers, nodes and edges, and the final card implements branching in code. Separate sequential, parallel and iterative workflow videos are optional variants rather than prerequisites for this checkpoint." },
+          { id: "agent-core", title: "Agent decisions, LangGraph concepts and conditional routing", source: "CampusX | Agentic AI using LangGraph", type: "Curated direct videos", minutes: 118, priority: "core", note: "Watch Generative AI vs Agentic AI at 40:13-62:44, LangGraph Core Concepts in full, then Conditional Workflows at 4:38-end. The first segment explains when an agent is justified, the second establishes state, reducers, nodes and edges, and the final card implements branching in code. Separate sequential, parallel and iterative workflow videos are optional variants rather than prerequisites for this route." },
           { id: "agent-memory", title: "LLM memory, persistence and context control", source: "CampusX | Memory in LLMs", type: "Curated direct videos", minutes: 69, priority: "interview", note: "In lesson 3 watch 12:28-18:51 and 40:06-53:36 for context windows and long-term memory types and architecture. Then open lesson 2 and watch 3:33-52:08 for checkpointers, thread IDs, PostgreSQL persistence, trimming, deletion and summarization. Skip the repeated stateless-LLM explanation and in-memory demo recap." },
           { id: "mcp-architecture", title: "MCP architecture, server and client", source: "CampusX | Model Context Protocol", type: "Curated direct videos", minutes: 97, priority: "interview", note: "Watch Architecture at 2:00-27:20 and 53:23-1:17:09; Local MCP Server at 26:00-35:34 and 40:30-58:36; and MCP Client at 9:23-29:29. This covers host/client/server boundaries, transports, FastMCP tools, inspection, persistent tools, tool discovery, LLM binding and the tool-result loop without repeating demos or UI work. Use stdio locally and Streamable HTTP remotely; treat HTTP plus SSE as legacy compatibility." }
         ]
@@ -1381,12 +1313,11 @@
         title: "Production FastAPI service layer",
         outcome: "Expose a validated AI endpoint with correct async behavior, managed resources, dependency boundaries, streaming cancellation and automated API tests.",
         topics: ["FastAPI", "Uvicorn", "Routes", "Request bodies", "Pydantic", "Validation", "Status codes", "Response models", "Health endpoints", "Exception mapping", "Async routes", "Blocking work", "Dependency injection", "Lifespan", "Connection pools", "Streaming", "Client disconnects", "TestClient", "Structured logging", "Separation of concerns"],
-        checkpoint: "Expose the earlier model or RAG build through FastAPI. Validate request and response models, inject provider and repository dependencies, initialize shared clients once with lifespan, map domain errors to HTTP status codes and add liveness plus readiness endpoints. Stream one response from an async generator; detect cancellation or client disconnect, stop upstream generation and clean up resources. Use Pytest and TestClient with dependency overrides or mocks to cover success, invalid input, provider timeout, rate limit and disconnect behavior.",
         resources: [
           { id: "fastapi-core", title: "FastAPI setup, validation and model serving", source: "CampusX | FastAPI for Machine Learning", type: "Curated direct videos", minutes: 104, priority: "core", note: "Watch Setup at 31:53-42:06, Post Request at 6:50-35:42, Serving ML Models at 4:17-46:00, and Improving the API at 14:20-37:05. Skip API introductions, repeated HTTP-method lessons, Docker and AWS deployment because those repeat your existing backend and DevOps knowledge." },
           { id: "fastapi-production", title: "Async rules, dependencies, lifespan and production logging", source: "Code Collider | English with Hindi captions", type: "Focused video", minutes: 12, priority: "core", videoId: "kmJz8w5ij8Y", url: "https://www.youtube.com/watch?v=kmJz8w5ij8Y", note: "Watch in full for blocking versus async endpoints, queue boundaries, dependency rules, connection pooling, lifespan setup and cleanup, validated settings and structured request logging. Treat the worker-count formula as a starting hypothesis and load-test it instead of copying it blindly." },
           { id: "fastapi-streaming", title: "FastAPI streaming, backpressure and disconnect cancellation", source: "TheCodeForge | English with Hindi captions", type: "Focused video", minutes: 8, priority: "core", videoId: "jqnYcc-5Row", url: "https://www.youtube.com/watch?v=jqnYcc-5Row", note: "Watch in full for StreamingResponse, sync versus async generators, safe generator error handling, producer-consumer backpressure and what happens when the client disconnects. Apply the cancellation path to close the upstream model stream and release resources in try/finally." },
-          { id: "fastapi-testing", title: "Test FastAPI endpoints with Pytest and TestClient", source: "Mohit Decodes | Hindi", type: "Focused video", minutes: 9, priority: "core", videoId: "0WcavHYspn8", url: "https://www.youtube.com/watch?v=0WcavHYspn8", note: "Watch in full for Pytest setup, FastAPI TestClient, status-code assertions and response validation. Extend the demonstrated happy-path tests by overriding the provider dependency and simulating timeout, malformed output and rate-limit failures in the checkpoint." }
+          { id: "fastapi-testing", title: "Test FastAPI endpoints with Pytest and TestClient", source: "Mohit Decodes | Hindi", type: "Focused video", minutes: 9, priority: "core", videoId: "0WcavHYspn8", url: "https://www.youtube.com/watch?v=0WcavHYspn8", note: "Watch in full for Pytest setup, FastAPI TestClient, status-code assertions and response validation. Extend the demonstrated happy-path tests by overriding the provider dependency and simulating timeout, malformed output and rate-limit failures." }
         ]
       },
       {
@@ -1395,11 +1326,10 @@
         title: "Evaluation and observability",
         outcome: "Evaluate model and RAG behavior with release gates and production signals, then detect quality, safety, latency or cost regressions instead of judging the app from a few demos.",
         topics: ["Deterministic checks", "Human review", "LLM-as-judge", "Reference-based evaluation", "Reference-free evaluation", "Golden datasets", "Contextual recall", "Contextual precision", "Retriever optimization", "Offline evaluation", "Online evaluation", "Tracing", "Latency", "Tokens", "Cost", "Safety", "Errors", "Release baselines", "Regression alerts"],
-        checkpoint: "Create a versioned 20-case evaluation set. Apply deterministic and rubric-based checks, implement contextual recall and rank-aware precision for the retriever, and compare dense-only, hybrid and optional HyDE retrieval against one fixed baseline. Record per-version quality, safety-pass rate, p50/p95 latency, token cost and error rate. Fail a release when an agreed threshold regresses. Trace one LangGraph run with the same labels and, in Full coverage, sample production failures back into the offline set without storing raw PII.",
         resources: [
           { id: "llm-eval-methods", title: "LLM evaluation methods", source: "CampusX | LLM Evaluation", type: "Curated direct videos", minutes: 53, priority: "core", note: "Watch the evaluation-methods lesson once for deterministic, human and model-graded evaluation, rubrics, LLM-as-judge and reference-based versus reference-free checks. The separate 17-minute workflow overview was removed because it repeats the same process at a higher level." },
           { id: "rag-evaluation", title: "Hands-on RAG retriever evaluation", source: "CampusX | LLM Evaluation", type: "Curated direct videos", minutes: 72, priority: "core", note: "Watch 21:01-1:08:47 and 1:21:40-1:46:15 for retriever failure modes, contextual recall, rank-aware precision, robust golden datasets, DeepEval, baseline trials, cross-encoder reranking and embedding-model comparison. Skip project setup and repeated RAG ingestion code." },
-          { id: "langsmith-observability", title: "Observe one LangGraph run with LangSmith", source: "CampusX | Agentic AI using LangGraph", type: "Curated direct videos", minutes: 22, priority: "core", note: "Integrate LangSmith with the graph and inspect execution traces, latency, token use and failures. Skip the separate two-hour LangSmith crash course; this focused lesson is enough for the route checkpoint." },
+          { id: "langsmith-observability", title: "Observe one LangGraph run with LangSmith", source: "CampusX | Agentic AI using LangGraph", type: "Curated direct videos", minutes: 22, priority: "core", note: "Integrate LangSmith with the graph and inspect execution traces, latency, token use and failures. Skip the separate two-hour LangSmith crash course; this focused lesson is enough for the route." },
           { id: "online-evaluation", title: "Offline gates and online evaluation loops", source: "CampusX | LLM Evaluation", type: "Curated direct videos", minutes: 63, priority: "interview", note: "Watch 3:27-26:49, 34:53-44:42 and 47:47-1:17:15 for pre-release gates, production risks, live feedback, durable logging, PII masking, stratified sampling, LLM-as-judge and the loop from production failures back to offline tests. Skip recap, the long score-distribution example and repeated LangSmith UI demonstration." }
         ]
       },
@@ -1409,7 +1339,6 @@
         title: "MLOps delivery workflow",
         outcome: "Make one trained-model release reproducible with tracked experiments, a data pipeline, registry promotion and CI/CD.",
         topics: ["MLOps lifecycle", "Data management", "ETL pipelines", "Data storage", "Experiment tracking", "MLflow", "DVC pipelines", "Model registry", "Model promotion", "Testing", "Deployment strategies", "GitHub Actions", "CI and CD"],
-        checkpoint: "Productionize the model from Module 02. Identify the ingestion, transformation and storage boundaries of its data pipeline, track experiments in MLflow, automate the pipeline with DVC, register and promote the selected model, and gate deployment with tests and GitHub Actions. Apply your existing Docker and cloud skills to the release. Do not claim implemented drift monitoring, managed model gateways or vLLM from this focused MLOps module.",
         resources: [
           { id: "mlops-project", title: "MLflow, DVC, registry and CI/CD in one project", source: "CampusX | 100 Days of MLOps", type: "Curated direct videos", minutes: 51, priority: "core", note: "Watch 10:30-45:27 for experiment tracking, a DVC pipeline, model registry, tests and promotion; then 1:00:43-1:16:20 for deployment strategies and GitHub Actions. Skip Flask, Docker and EC2 repetition." },
           { id: "mlops-data-management", title: "MLOps data and ETL boundaries", source: "CampusX | 100 Days of MLOps", type: "Curated direct videos", minutes: 24, priority: "interview", note: "Watch 7:20-31:10 for why software-style CI/CD is insufficient for changing data, the ETL boundary, data storage choices and MLOps data-management tools. Skip the introduction, recap and closing task." }
@@ -1421,7 +1350,6 @@
         title: "AI reliability, guardrails and graduation build",
         outcome: "Keep the final AI service responsive and bounded when providers, users, retrieved content or model-selected tools behave unexpectedly.",
         topics: ["Timeouts", "Transient retries", "Exponential backoff", "Jitter", "Circuit breakers", "Provider fallback", "Rate limiting", "Exact response cache", "Semantic cache", "TTL", "Cache safety", "Prompt injection", "PII masking", "Input guardrails", "Output guardrails", "Tool schemas", "Argument validation", "Allowlists", "Step limits", "Idempotent side effects", "Human approval", "Authentication", "Authorization", "Tenant isolation", "Secret handling"],
-        checkpoint: "Deploy one Dockerized capstone with environment-based secrets, authenticated routes and authorization before tenant-scoped retrieval. Add per-user and global request limits, provider timeouts, bounded retries with exponential backoff plus jitter, and a circuit breaker with an explicit degraded response. Cache only deterministic, non-user-sensitive operations with a TTL and include model, prompt and tenant scope in the key; measure cache correctness before enabling semantic reuse. Add input, output and retrieval-content guardrails, PII masking, citations, one allowlisted tool and human approval before a side effect. Validate tool arguments, cap graph steps and make side effects idempotent. Test cross-tenant access, malformed input, prompt injection, cached-data leakage, tool abuse, duplicate side effects, provider failure and retry exhaustion.",
         resources: [
           { id: "provider-failure-patterns", title: "Timeouts, retries, exponential backoff and jitter", source: "SoftwareDude | Hinglish", type: "Focused video", minutes: 16, priority: "core", videoId: "m28VAy2yZsE", url: "https://www.youtube.com/watch?v=m28VAy2yZsE", note: "Watch 1:29-end for timeout boundaries, bounded retries, fixed versus exponential backoff, jitter and a practical decision sequence. Retry only transient and idempotent operations, honor Retry-After when available and never multiply retries independently at every system layer." },
           { id: "ai-fallback-circuit", title: "AI fallbacks, circuit breakers and retry side effects", source: "Learning With Chetna | English", type: "Focused video", minutes: 6, priority: "core", videoId: "jh1plS6bfz8", url: "https://www.youtube.com/watch?v=jh1plS6bfz8", note: "Start at the fallback section around 2:20 and continue through circuit breakers, timeout handling, idempotency, cache fallback, queue retries, dead-letter handling and retry metrics. Skip the repeated retry introduction. A fallback must preserve product safety: return an explicit unavailable state rather than an ungrounded generic answer when RAG evidence is missing." },
@@ -1429,7 +1357,7 @@
           { id: "llm-cache-design", title: "Exact and semantic LLM cache trade-offs", source: "Gaurav Sen | English", type: "Focused video", minutes: 6, priority: "core", videoId: "tGqvoEuoU5M", url: "https://www.youtube.com/watch?v=tGqvoEuoU5M", note: "Watch in full for exact-key caching, TTL and eviction, semantic-vector caching, similarity thresholds, stale-answer risk, latency and cost. Never share personalized or authorization-dependent responses across tenants, and include model plus prompt versions in cache invalidation." },
           { id: "rag-cache-observability", title: "Implement semantic caching and inspect Redis behavior", source: "Krish Naik | Hinglish", type: "Focused video", minutes: 36, priority: "interview", videoId: "Wh3k3CelSbQ", url: "https://www.youtube.com/watch?v=Wh3k3CelSbQ", note: "Build the demonstrated Redis or Valkey-backed semantic cache, set TTLs and inspect hit behavior, latency and cache health through observability. BetterDB is only the video's example vendor; the transferable capability is measuring cache correctness and operations rather than adopting that product." },
           { id: "ai-guardrails", title: "Layered input, output, PII and tool guardrails", source: "Krish Naik | Hinglish", type: "Focused video", minutes: 38, priority: "core", videoId: "ruiLq0OzjkI", url: "https://www.youtube.com/watch?v=ruiLq0OzjkI", note: "Watch in full for deterministic versus model-based checks, PII middleware, prompt-injection filtering, before-agent and after-agent hooks, layered guardrails and human approval. Add authorization and retrieval-content checks separately: a guardrail library is not a security boundary by itself." },
-          { id: "bounded-tools", title: "LangGraph tools and human approval", source: "CampusX | Agentic AI using LangGraph", type: "Curated direct videos", minutes: 74, priority: "core", note: "Watch Tools in LangGraph and Human in the Loop in full. Connect model-generated calls to ToolNode, return results to graph state and pause before consequential actions. Add argument validation, allowlists, timeouts, step caps and idempotency in the checkpoint; the videos teach execution and approval mechanics, not complete application security." }
+          { id: "bounded-tools", title: "LangGraph tools and human approval", source: "CampusX | Agentic AI using LangGraph", type: "Curated direct videos", minutes: 74, priority: "core", note: "Watch Tools in LangGraph and Human in the Loop in full. Connect model-generated calls to ToolNode, return results to graph state and pause before consequential actions. Add argument validation, allowlists, timeouts, step caps and idempotency in your implementation; the videos teach execution and approval mechanics, not complete application security." }
         ]
       }
     ];
@@ -1624,7 +1552,6 @@
 
     const defaultState = {
       completed: [],
-      checkpoints: [],
       filter: "interview",
       role: "all",
       search: "",
@@ -1641,7 +1568,6 @@
           completed: Array.isArray(parsed.completed)
             ? [...new Set(parsed.completed.flatMap((id) => resourceById.has(id) ? [id] : (legacyGroupChildren.get(id) || [])))]
             : [],
-          checkpoints: Array.isArray(parsed.checkpoints) ? parsed.checkpoints.filter((id) => modules.some((module) => module.id === id)) : [],
           filter: ["core", "interview"].includes(parsed.filter) ? parsed.filter : "interview",
           role: hasRoleProfile(savedRole) ? savedRole : "all",
           search: typeof parsed.search === "string" ? parsed.search : "",
@@ -1657,7 +1583,6 @@
 
     let state = readState();
     const completed = new Set(state.completed);
-    const completedCheckpoints = new Set(state.checkpoints);
     const collapsedModules = new Set(state.collapsedModules);
 
     const moduleNav = document.getElementById("module-nav");
@@ -1681,7 +1606,6 @@
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
           completed: [...completed],
-          checkpoints: [...completedCheckpoints],
           filter: state.filter,
           role: state.role,
           search: state.search,
@@ -1719,10 +1643,6 @@
       return modules.filter((module) => module.resources.some(isAllowedByRoute));
     }
 
-    function checkpointFor(module) {
-      return module.roleCheckpoints?.[state.role] || module.checkpoint;
-    }
-
     function topicsFor(module) {
       const hidden = roleProfiles[state.role].hiddenTopics[module.id] || [];
       return module.topics.filter((topic) => !hidden.includes(topic));
@@ -1731,7 +1651,7 @@
     function isSearchMatch(module, resource) {
       const query = state.search.trim().toLowerCase();
       if (!query) return true;
-      const haystack = [module.title, module.outcome, checkpointFor(module), ...topicsFor(module), resource.parentTitle, resource.title, resource.source, resource.type, resource.note]
+      const haystack = [module.title, module.outcome, ...topicsFor(module), resource.parentTitle, resource.title, resource.source, resource.type, resource.note]
         .join(" ")
         .toLowerCase();
       return haystack.includes(query);
@@ -1760,7 +1680,6 @@
       for (const module of activeModules()) {
         const resource = module.resources.find((item) => isAllowedByRoute(item) && !completed.has(item.id));
         if (resource) return { type: "video", resource: { ...resource, moduleId: module.id }, moduleId: module.id };
-        if (!completedCheckpoints.has(module.id)) return { type: "checkpoint", moduleId: module.id };
       }
 
       return null;
@@ -1819,12 +1738,9 @@
         const searchActive = state.search.trim().length > 0;
         const isCollapsed = collapsedModules.has(module.id) && !searchActive;
         const doneCount = allowedResources.filter((resource) => completed.has(resource.id)).length;
-        const checkpointDone = completedCheckpoints.has(module.id);
-        const checkpointUnlocked = doneCount === allowedResources.length;
-        const checkpointOnly = !state.search.trim() && state.hideCompleted && !visibleResources.length && !checkpointDone && doneCount === allowedResources.length;
         const moduleMinutes = allowedResources.reduce((total, resource) => total + resource.minutes, 0);
         visibleTotal += visibleResources.length;
-        if (!visibleResources.length && !checkpointOnly) return "";
+        if (!visibleResources.length) return "";
         return `<section id="module-${module.id}" class="module-section${isCollapsed ? " collapsed" : ""}" data-module-section="${module.id}">
           <header class="module-heading">
             <div class="section-code">${module.code}</div>
@@ -1841,11 +1757,6 @@
           <div id="module-body-${module.id}" class="module-body"${isCollapsed ? " hidden" : ""}>
             <ul class="topic-list">${topicsFor(module).map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
             ${visibleResources.length ? `<div class="resource-list">${visibleResources.map((resource) => renderResource(resource, orderById.get(resource.id), routeResources.length, currentVideoId)).join("")}</div>` : ""}
-            <div class="module-checkpoint${checkpointDone ? " complete" : ""}${nextTask?.type === "checkpoint" && nextTask.moduleId === module.id ? " current" : ""}" data-checkpoint-card="${module.id}">
-              <strong>Module checkpoint</strong>
-              <p>${escapeHtml(checkpointFor(module))}</p>
-              <button class="checkpoint-button" type="button" data-checkpoint-id="${module.id}" aria-pressed="${checkpointDone}"${!checkpointDone && !checkpointUnlocked ? ' disabled title="Complete this module\'s videos first"' : ""}>${checkpointDone ? "Completed" : checkpointUnlocked ? "Mark complete" : "Finish videos first"}</button>
-            </div>
           </div>
         </section>`;
       }).join("");
@@ -1856,10 +1767,6 @@
 
       moduleList.querySelectorAll("[data-complete-id]").forEach((button) => {
         button.addEventListener("click", () => toggleComplete(button.dataset.completeId));
-      });
-
-      moduleList.querySelectorAll("[data-checkpoint-id]").forEach((button) => {
-        button.addEventListener("click", () => toggleCheckpoint(button.dataset.checkpointId));
       });
 
       moduleList.querySelectorAll("[data-module-toggle]").forEach((button) => {
@@ -1883,17 +1790,15 @@
         const moduleIds = phase.moduleIds.filter((moduleId) => routeResources.some((resource) => resource.moduleId === moduleId));
         const resources = routeResources.filter((resource) => phase.moduleIds.includes(resource.moduleId));
         const done = resources.filter((resource) => completed.has(resource.id)).length;
-        const doneGates = moduleIds.filter((moduleId) => completedCheckpoints.has(moduleId)).length;
-        const isComplete = resources.length > 0 && done === resources.length && doneGates === moduleIds.length;
+        const isComplete = resources.length > 0 && done === resources.length;
         const isCurrent = !isComplete && moduleIds.includes(currentModuleId);
         const targetModuleId = moduleIds.find((moduleId) => {
-          const hasIncompleteLesson = routeResources.some((resource) => resource.moduleId === moduleId && !completed.has(resource.id));
-          return hasIncompleteLesson || !completedCheckpoints.has(moduleId);
+          return routeResources.some((resource) => resource.moduleId === moduleId && !completed.has(resource.id));
         }) || moduleIds[0];
         return `<button class="phase-step${isComplete ? " complete" : ""}${isCurrent ? " current" : ""}" type="button" data-module-target="${targetModuleId}"${isCurrent ? ' aria-current="step"' : ""}>
           <span class="phase-number">${phase.number}</span>
           <span class="phase-copy"><strong>${escapeHtml(phase.title)}</strong><span>${escapeHtml(phase.detail)}</span></span>
-          <span class="phase-count" title="Videos and module checkpoints">V ${done}/${resources.length} / G ${doneGates}/${moduleIds.length}</span>
+          <span class="phase-count" title="Completed videos">${done}/${resources.length}</span>
         </button>`;
       }).join("");
 
@@ -1930,11 +1835,9 @@
 
     function renderProgress() {
       const allowedResources = allResources.filter(isAllowedByRoute);
-      const routeModules = activeModules();
       const doneResources = allowedResources.filter((resource) => completed.has(resource.id));
-      const doneCheckpoints = routeModules.filter((module) => completedCheckpoints.has(module.id)).length;
-      const doneCount = doneResources.length + doneCheckpoints;
-      const taskCount = allowedResources.length + routeModules.length;
+      const doneCount = doneResources.length;
+      const taskCount = allowedResources.length;
       const percentage = taskCount ? Math.round((doneCount / taskCount) * 100) : 0;
       const totalMinutes = allowedResources.reduce((total, resource) => total + resource.minutes, 0);
       const doneMinutes = doneResources.reduce((total, resource) => total + resource.minutes, 0);
@@ -1950,7 +1853,7 @@
 
       if (!nextTask) {
         nextTitle.textContent = state.search ? "No unfinished match" : "Route complete";
-        nextMeta.textContent = state.search ? "Clear search or change depth" : "All videos and module checkpoints are complete";
+        nextMeta.textContent = state.search ? "Clear search or change depth" : "All videos are complete";
         nextLink.textContent = "Completed";
         nextLink.removeAttribute("href");
         nextLink.removeAttribute("target");
@@ -1960,17 +1863,6 @@
       }
 
       const module = modules.find((item) => item.id === nextTask.moduleId);
-      if (nextTask.type === "checkpoint") {
-        nextTitle.textContent = `${module.title} checkpoint`;
-        nextMeta.textContent = `Module ${module.code} gate / complete before the next module`;
-        nextLink.textContent = "Checkpoint due";
-        nextLink.removeAttribute("href");
-        nextLink.removeAttribute("target");
-        nextLink.removeAttribute("rel");
-        nextLink.setAttribute("aria-disabled", "true");
-        return;
-      }
-
       const next = nextTask.resource;
       const routeResources = allResources.filter(isAllowedByRoute);
       const lessonNumber = routeResources.findIndex((resource) => resource.id === next.id) + 1;
@@ -2015,27 +1907,12 @@
 
     function toggleComplete(resourceId) {
       if (!resourceById.has(resourceId)) return;
-      if (completed.has(resourceId)) {
-        completed.delete(resourceId);
-        completedCheckpoints.delete(resourceById.get(resourceId).moduleId);
-      } else completed.add(resourceId);
+      if (completed.has(resourceId)) completed.delete(resourceId);
+      else completed.add(resourceId);
       saveState();
       render();
       const card = document.querySelector(`[data-resource-id="${CSS.escape(resourceId)}"]`);
       if (card) card.scrollIntoView({ block: "nearest" });
-    }
-
-    function toggleCheckpoint(moduleId) {
-      const module = modules.find((candidate) => candidate.id === moduleId);
-      if (!module || !module.resources.some(isAllowedByRoute)) return;
-      const checkpointUnlocked = module.resources.filter(isAllowedByRoute).every((resource) => completed.has(resource.id));
-      if (!checkpointUnlocked && !completedCheckpoints.has(moduleId)) return;
-      if (completedCheckpoints.has(moduleId)) completedCheckpoints.delete(moduleId);
-      else completedCheckpoints.add(moduleId);
-      saveState();
-      render();
-      const checkpoint = document.querySelector(`[data-checkpoint-card="${CSS.escape(moduleId)}"]`);
-      if (checkpoint) checkpoint.scrollIntoView({ block: "nearest" });
     }
 
     function toggleModule(moduleId) {
@@ -2068,16 +1945,6 @@
       if (!nextTask) return;
       revealModule(nextTask.moduleId);
       window.requestAnimationFrame(() => {
-        if (nextTask.type === "checkpoint") {
-          const checkpoint = document.querySelector(`[data-checkpoint-card="${CSS.escape(nextTask.moduleId)}"]`);
-          if (checkpoint) {
-            checkpoint.scrollIntoView({ behavior: "smooth", block: "center" });
-            const button = checkpoint.querySelector(".checkpoint-button");
-            if (button) window.setTimeout(() => button.focus({ preventScroll: true }), 350);
-          }
-          return;
-        }
-
         const card = document.querySelector(`[data-resource-id="${CSS.escape(nextTask.resource.id)}"]`);
         if (card) {
           card.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -2186,10 +2053,9 @@
     continueButton.addEventListener("click", continueNext);
 
     function resetProgress() {
-      if (!completed.size && !completedCheckpoints.size) return;
-      if (!window.confirm("Clear all completed video and checkpoint progress?")) return;
+      if (!completed.size) return;
+      if (!window.confirm("Clear all completed video progress?")) return;
       completed.clear();
-      completedCheckpoints.clear();
       saveState();
       render();
     }

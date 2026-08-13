@@ -92,9 +92,9 @@ Every retained assignment was checked for numbered parts, prerequisites, continu
 
 Grouped cards now store the actual rounded watch time of each full video or selected range. Parent-time averaging was removed because it made short and long cards display misleading durations.
 
-## Checkpoint guarantees
+## Suggested implementation outcomes
 
-Watching a video alone does not establish production skill. The module gates now require these observable builds:
+Watching a video alone does not establish production skill. Useful outcomes to build alongside the route include:
 
 - typed Python plus bounded asynchronous provider calls and mocked failure tests
 - one direct provider client with streaming, multimodal input, structured output and an allowlisted tool
@@ -106,7 +106,7 @@ Watching a video alone does not establish production skill. The module gates now
 - tenant-safe cache keys, TTLs and cache-correctness measurement
 - input, output and retrieved-content guardrails, PII handling and human approval for consequential tools
 
-The checkpoints intentionally state conditions videos may only introduce. Completion means implementing and testing the condition, not only watching the source.
+These are study recommendations, not completion gates in the roadmap interface.
 
 ## Position views
 
@@ -137,7 +137,7 @@ The following remain outside the route because they belong to MLOps specializati
 3. Mapped the remaining gaps to current AI/GenAI engineering responsibilities.
 4. Compared candidate supplement titles, descriptions, chapters, available captions and implementation scope.
 5. Rejected duplicate long courses, obsolete provider examples and videos that only named a topic.
-6. Added exact checkpoint behavior where a source teaches the concept but not the complete production boundary.
+6. Documented implementation outcomes where a source teaches the concept but not the complete production boundary.
 7. Verified assignment IDs, all 92 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
 
 No captions, transcripts or downloaded media are committed.
