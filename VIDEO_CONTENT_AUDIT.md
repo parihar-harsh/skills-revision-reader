@@ -14,7 +14,7 @@ The roadmap contains 42 focused video assignments across 10 build modules:
 - Every retained lecture has an explicit `youtube.com/watch?v=` link; no learner-facing watch link contains playlist navigation.
 - Resource IDs and thumbnail video IDs are unique.
 
-CampusX remains the primary source. Supplements are limited to capabilities that current AI and GenAI application roles expect but the audited CampusX playlists do not adequately teach. The source boundary is visible on every card. Multi-video assignments remain grouped only for progress tracking; their ordered menus expose each exact lecture and selected starting timestamp directly.
+CampusX remains the primary source. Supplements are limited to capabilities that current AI and GenAI application roles expect but the audited CampusX playlists do not adequately teach. The source boundary is visible on every card. Multi-video assignments remain grouped only for progress tracking; every exact lecture and selected starting timestamp is displayed directly without a collapsed menu.
 
 ## CampusX channel audit
 
