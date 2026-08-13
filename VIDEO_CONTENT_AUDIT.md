@@ -1,17 +1,18 @@
 # AI route video-content audit
 
-Audit date: 2026-08-12
+Audit date: 2026-08-13
 
 ## Method
 
-- Audited all 77 video IDs currently used by `roadmap.html`.
-- Downloaded YouTube caption tracks only, not audio or video: 76 original-language tracks and one available English track.
-- Removed rolling-caption overlap before analysis. The normalized corpus contains 485,185 words, with 320,786 words inside the route's recommended watch ranges.
+- Audited all 75 video IDs currently used by `roadmap.html`.
+- Downloaded YouTube caption tracks only, not audio or video: 74 original-language tracks and one available English track.
+- Removed rolling-caption overlap before analysis and checked the complete lesson or the exact recommended watch range.
 - Compared each title, note, timestamp range and checkpoint dependency with the spoken content in its selected range.
 - Marked route-level exercises, production controls and current corrections explicitly instead of presenting them as claims about a video.
 - Did not commit captions or transcript text. This is a transcript-level content audit, not a frame-by-frame validation of silent on-screen code.
 - Runtime was considered only after content sufficiency. A short lesson remains only when it covers a narrow topic completely.
 - CampusX was checked first for every newly added topic. It supplied all three deep-learning additions. Its only public multimodal result was a paid-course announcement, and no sufficient public managed-cloud AI lesson was found, so a current specialist tutorial and an official AWS lesson were used for those two gaps.
+- For the LLM-foundations revision, Hindi/Hinglish candidates were checked before English fallbacks. Two focused Hindi lessons were retained. Candidates that misstated architecture families, depended on an unlisted RNN/sequence-to-sequence course, or spent most of their runtime on model-training mathematics were rejected rather than included for language alone.
 
 Status meanings:
 
@@ -58,14 +59,14 @@ Status meanings:
 
 | Lesson | Status | Audit result |
 | --- | --- | --- |
-| `llm-training-lifecycle` | Scoped | Selected ranges cover pretraining, supervised post-training, preference data, reward modeling and RLHF; DPO is an explicit current caveat. |
+| `llm-overview` | Added | The complete visual overview connects next-token prediction, parameters, pretraining, post-training and transformer-based generation without requiring architecture details first. |
+| `llm-tokens-context` | Added | The Hindi lesson covers token splitting, vocabulary, token-dependent cost, context-window limits, compute trade-offs and imperfect long-context recall. |
 | `transformer-families` | Verified | Directly distinguishes encoder-only, decoder-only and encoder-decoder behavior and use cases. |
-| `llm-tokens` | Verified | Covers text-to-token splitting, token IDs, vocabulary and tokenizer-dependent counts/cost. |
-| `llm-context` | Scoped | Selected ranges cover bounded context, compute/recall limits and long-context risks; checking a provider's exact contract is route guidance. |
-| `transformer-flow` | Corrected | Covers embeddings, position, attention/MLP blocks, final vocabulary scores, softmax and output probabilities; wording no longer attributes the term `logits` to this range. |
-| `transformer-position` | Verified | Explains why orderless self-attention needs positional information. |
-| `llm-sampling` | Scoped | Covers greedy/random sampling, top-k, top-p, logits, softmax and temperature; factual-accuracy caution is an explicit correction. |
-| `transformer-attention` | Verified | Selected ranges cover Q/K/V, scaled similarity, value updates, causal masking, multiple heads and output projection. |
+| `decoder-only-transformer` | Added | One complete walkthrough covers embeddings, positional information, masked self-attention, Q/K/V, residual paths, next-token probabilities, autoregressive repetition and the difference from the original encoder-decoder design. |
+| `llm-training-lifecycle` | Replaced | One contiguous range covers next-token pretraining, supervised instruction tuning, preference tuning, RLHF and DPO; the route clarifies that providers do not all use one mandatory post-training recipe. |
+| `llm-sampling` | Replaced | The Hindi lesson compares temperature, top-k and top-p over a next-token distribution; the route explicitly separates repeatability from factual accuracy. |
+
+The architecture and training claims were also cross-checked against primary references: Hugging Face's [causal language modeling](https://huggingface.co/docs/transformers/tasks/language_modeling) and [transformer architecture](https://huggingface.co/docs/course/chapter1/6) documentation, the original [Transformer paper](https://arxiv.org/abs/1706.03762), the [InstructGPT paper](https://arxiv.org/abs/2203.02155) and the [DPO paper](https://arxiv.org/abs/2305.18290).
 
 ## 04 Model APIs and LangChain
 
