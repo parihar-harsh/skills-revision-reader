@@ -4,13 +4,13 @@ Audit date: 2026-08-15
 
 ## Result
 
-The roadmap contains 93 independently trackable video cards across 10 build modules, curated from 45 focused learning assignments:
+The roadmap contains 94 independently trackable video cards across 10 build modules, curated from 46 focused learning assignments:
 
-- 80 essential video cards: 2,126 minutes (35 hours 26 minutes)
-- 13 optional-depth video cards: 420 minutes (7 hours)
-- Complete route: 2,546 minutes (42 hours 26 minutes)
-- 76 CampusX video cards: 2,281 minutes
-- 17 focused production-supplement video cards: 265 minutes
+- 80 essential video cards: 2,133 minutes (35 hours 33 minutes)
+- 14 optional-depth video cards: 437 minutes (7 hours 17 minutes)
+- Complete route: 2,570 minutes (42 hours 50 minutes)
+- 77 CampusX video cards: 2,302 minutes
+- 17 focused production-supplement video cards: 268 minutes
 - Every retained lecture has an explicit `youtube.com/watch?v=` link; no learner-facing watch link contains playlist navigation.
 - Resource IDs and thumbnail video IDs are unique.
 
@@ -60,7 +60,7 @@ Each supplement closes a specific audited gap rather than repeating a CampusX le
 | LLM apps | provider-sdk-gemini | Patrick Loeber | Direct SDK calls, streaming, chat and multimodal input |
 | LLM apps | provider-sdk-responses | Dave Ebbelaar | Native function calls, tools and structured response contracts |
 | RAG | hybrid-search-rrf | Yash Jain | BM25, vector retrieval, over-fetching, RRF and final top-k |
-| RAG | hyde-retrieval | Dev The Dev | HyDE retrieval concept and its evidence boundary |
+| RAG | hyde-retrieval | LangChain | Canonical HyDE generation, embedding, retrieval and evidence boundary |
 | FastAPI | fastapi-production | Code Collider | Async rules, dependencies, lifespan, pools and structured logs |
 | FastAPI | fastapi-streaming | TheCodeForge | StreamingResponse, async generators, backpressure and disconnect cancellation |
 | FastAPI | fastapi-testing | Mohit Decodes | Pytest, TestClient and API assertions |
@@ -83,7 +83,7 @@ Every retained assignment was checked for numbered parts, prerequisites, continu
 | ML foundation | Complete conceptual Backpropagation Part 1 plus one Keras and one optional PyTorch training loop | Backpropagation Parts 2 and 3 because they derive and code deeper mathematics outside this non-research route |
 | Transformers | Self-attention intuition, Q/K/V computation and scaling; multi-head attention; positions; layer normalization; encoder block; masking; cross-attention; decoder block; inference | Transformer overview and two additional self-attention intuition lectures because they repeat the retained sequence |
 | LangChain | Models, prompts, structured output and the complete chains lecture through conditional chains | Output-parser and standalone runnable deep dives; the retained chain lecture already introduces the runnable composition needed here |
-| RAG | Architecture, loaders, all splitter types, embeddings/vector stores, metadata filtering, similarity retrieval, MMR, multi-query, compression, the retrieval-to-generation chain, augmented prompts, citations, hybrid RRF and the complete six-step Self-RAG implementation | The end-to-end chatbot's repeated ingestion and UI sections; the LangGraph RAG rebuild until agent prerequisites are complete; and CRAG, whose grading and rewriting overlap the retained Self-RAG path |
+| RAG | Architecture, loaders, all splitter types, embeddings/vector stores, metadata filtering, similarity retrieval, MMR, multi-query, compression, the retrieval-to-generation chain, augmented prompts, citations, hybrid RRF, canonical HyDE, CRAG grading/refinement and the complete six-step Self-RAG implementation | The end-to-end chatbot's repeated ingestion and UI sections; the LangGraph RAG rebuild until agent prerequisites are complete; and CRAG's repeated graph implementation after its distinct concept segment finishes |
 | Agents | Agent decision boundary, LangGraph primitives and a full conditional-workflow implementation; short/long-term memory; MCP architecture/server/client | Separate sequential, parallel and iterative workflow demos because they are variants after the same primitives, not prerequisites |
 | FastAPI | Setup, validation/model serving, production lifecycle rules, streaming/disconnect behavior and tests | Repeated HTTP basics, Docker and AWS deployment already covered by assumed backend/DevOps skills |
 | Evaluation | Evaluation methods, retriever evaluation, tracing and offline/online loops | Model-benchmark and leaderboard series for model selection rather than application evaluation |
@@ -112,9 +112,9 @@ These are study recommendations, not completion gates in the roadmap interface.
 
 | Position | Full videos | Full time | Fast videos | Fast time |
 | --- | ---: | ---: | ---: | ---: |
-| Complete | 93 | 42h 26m | 80 | 35h 26m |
-| AI Engineer | 90 | 40h 49m | 80 | 35h 26m |
-| GenAI Engineer | 77 | 37h 55m | 66 | 31h 41m |
+| Complete | 94 | 42h 50m | 80 | 35h 33m |
+| AI Engineer | 91 | 41h 13m | 80 | 35h 33m |
+| GenAI Engineer | 78 | 38h 19m | 66 | 31h 48m |
 | MLOps Engineer | 49 | 15h 23m | 46 | 14h 11m |
 
 The GenAI view removes Pandas, classification metrics and model-training projects. The MLOps view removes LLM-specific SDK, transformer, RAG, agent, evaluation, cache and guardrail videos. The AI Engineer view retains the broad applied route and removes optional MCP.
@@ -138,6 +138,6 @@ The following remain outside the route because they belong to MLOps specializati
 4. Compared candidate supplement titles, descriptions, chapters, available captions and implementation scope.
 5. Rejected duplicate long courses, obsolete provider examples and videos that only named a topic.
 6. Documented implementation outcomes where a source teaches the concept but not the complete production boundary.
-7. Verified assignment IDs, all 93 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
+7. Verified assignment IDs, all 94 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
 
 No captions, transcripts or downloaded media are committed.
