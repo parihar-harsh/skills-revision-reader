@@ -1,15 +1,15 @@
 # CampusX-first AI route audit
 
-Audit date: 2026-08-13
+Audit date: 2026-08-15
 
 ## Result
 
-The roadmap contains 92 independently trackable video cards across 10 build modules, curated from 44 focused learning assignments:
+The roadmap contains 93 independently trackable video cards across 10 build modules, curated from 45 focused learning assignments:
 
-- 79 essential video cards: 2,108 minutes (35 hours 8 minutes)
+- 80 essential video cards: 2,126 minutes (35 hours 26 minutes)
 - 13 optional-depth video cards: 390 minutes (6 hours 30 minutes)
-- Complete route: 2,498 minutes (41 hours 38 minutes)
-- 75 CampusX video cards: 2,233 minutes
+- Complete route: 2,516 minutes (41 hours 56 minutes)
+- 76 CampusX video cards: 2,251 minutes
 - 17 focused production-supplement video cards: 265 minutes
 - Every retained lecture has an explicit `youtube.com/watch?v=` link; no learner-facing watch link contains playlist navigation.
 - Resource IDs and thumbnail video IDs are unique.
@@ -83,7 +83,7 @@ Every retained assignment was checked for numbered parts, prerequisites, continu
 | ML foundation | Complete conceptual Backpropagation Part 1 plus one Keras and one optional PyTorch training loop | Backpropagation Parts 2 and 3 because they derive and code deeper mathematics outside this non-research route |
 | Transformers | Self-attention intuition, Q/K/V computation and scaling; multi-head attention; positions; layer normalization; encoder block; masking; cross-attention; decoder block; inference | Transformer overview and two additional self-attention intuition lectures because they repeat the retained sequence |
 | LangChain | Models, prompts, structured output and the complete chains lecture through conditional chains | Output-parser and standalone runnable deep dives; the retained chain lecture already introduces the runnable composition needed here |
-| RAG | Architecture, loaders, all splitter types, embeddings/vector stores, metadata filtering, similarity retrieval, MMR, multi-query, compression, hybrid RRF and Self-RAG | Repeated end-to-end chatbot ingestion and CRAG, whose grading and rewriting overlap the retained Self-RAG path |
+| RAG | Architecture, loaders, all splitter types, embeddings/vector stores, metadata filtering, similarity retrieval, MMR, multi-query, compression, the retrieval-to-generation chain, augmented prompts, citations, hybrid RRF and Self-RAG | The end-to-end chatbot's repeated ingestion and UI sections; the LangGraph RAG rebuild until agent prerequisites are complete; and CRAG, whose grading and rewriting overlap the retained Self-RAG path |
 | Agents | Agent decision boundary, LangGraph primitives and a full conditional-workflow implementation; short/long-term memory; MCP architecture/server/client | Separate sequential, parallel and iterative workflow demos because they are variants after the same primitives, not prerequisites |
 | FastAPI | Setup, validation/model serving, production lifecycle rules, streaming/disconnect behavior and tests | Repeated HTTP basics, Docker and AWS deployment already covered by assumed backend/DevOps skills |
 | Evaluation | Evaluation methods, retriever evaluation, tracing and offline/online loops | Model-benchmark and leaderboard series for model selection rather than application evaluation |
@@ -112,9 +112,9 @@ These are study recommendations, not completion gates in the roadmap interface.
 
 | Position | Full videos | Full time | Fast videos | Fast time |
 | --- | ---: | ---: | ---: | ---: |
-| Complete | 92 | 41h 38m | 79 | 35h 8m |
-| AI Engineer | 89 | 40h 1m | 79 | 35h 8m |
-| GenAI Engineer | 76 | 37h 7m | 65 | 31h 23m |
+| Complete | 93 | 41h 56m | 80 | 35h 26m |
+| AI Engineer | 90 | 40h 19m | 80 | 35h 26m |
+| GenAI Engineer | 77 | 37h 25m | 66 | 31h 41m |
 | MLOps Engineer | 49 | 15h 23m | 46 | 14h 11m |
 
 The GenAI view removes Pandas, classification metrics and model-training projects. The MLOps view removes LLM-specific SDK, transformer, RAG, agent, evaluation, cache and guardrail videos. The AI Engineer view retains the broad applied route and removes optional MCP.
@@ -138,6 +138,6 @@ The following remain outside the route because they belong to MLOps specializati
 4. Compared candidate supplement titles, descriptions, chapters, available captions and implementation scope.
 5. Rejected duplicate long courses, obsolete provider examples and videos that only named a topic.
 6. Documented implementation outcomes where a source teaches the concept but not the complete production boundary.
-7. Verified assignment IDs, all 92 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
+7. Verified assignment IDs, all 93 direct video links, role/depth combinations, browser persistence and desktop/mobile rendering.
 
 No captions, transcripts or downloaded media are committed.
