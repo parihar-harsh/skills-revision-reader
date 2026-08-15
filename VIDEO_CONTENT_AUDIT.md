@@ -7,9 +7,9 @@ Audit date: 2026-08-15
 The roadmap contains 96 independently trackable video cards across 10 build modules, curated from 48 focused learning assignments:
 
 - 81 essential video cards: 2,166 minutes (36 hours 6 minutes)
-- 15 optional-depth video cards: 502 minutes (8 hours 22 minutes)
-- Complete route: 2,668 minutes (44 hours 28 minutes)
-- 78 CampusX video cards: 2,380 minutes
+- 15 optional-depth video cards: 490 minutes (8 hours 10 minutes)
+- Complete route: 2,656 minutes (44 hours 16 minutes)
+- 78 CampusX video cards: 2,368 minutes
 - 18 focused production-supplement video cards: 288 minutes
 - Every retained lecture has an explicit `youtube.com/watch?v=` link; no learner-facing watch link contains playlist navigation.
 - Resource IDs and thumbnail video IDs are unique.
@@ -85,7 +85,7 @@ Every retained assignment was checked for numbered parts, prerequisites, continu
 | Transformers | Self-attention intuition, Q/K/V computation and scaling; multi-head attention; positions; layer normalization; encoder block; masking; cross-attention; decoder block; inference | Transformer overview and two additional self-attention intuition lectures because they repeat the retained sequence |
 | LangChain | Hosted and open-source chat models; prompt templates, messages and MessagePlaceholder; Pydantic/JSON structured output with capability caveats; and the complete chains lecture through conditional chains | Embedding models, output-parser and standalone runnable deep dives; later modules cover retrieval and tool execution, while the retained chain lecture already introduces the required runnable composition |
 | RAG | Architecture, loaders, all splitter types, embeddings/vector stores, metadata filtering, similarity retrieval, MMR, multi-query, compression, the retrieval-to-generation chain, augmented prompts, citations, hybrid RRF, canonical HyDE, CRAG grading/refinement and the complete six-step Self-RAG implementation | The end-to-end chatbot's repeated ingestion and UI sections; the LangGraph RAG rebuild until agent prerequisites are complete; and CRAG's repeated graph implementation after its distinct concept segment finishes |
-| Agents | Agent decision boundary, LangGraph primitives, conditional routing and the full LLM-ToolNode feedback loop; thread-scoped checkpoints; cross-thread stores, namespaces and semantic memory retrieval; MCP host/client/server boundaries, JSON-RPC, stdio, local server and client | Separate sequential, parallel and evaluator-loop workflow demos because they repeat the same graph primitives; the obsolete HTTP-plus-SSE segment from the older MCP lecture |
+| Agents | Agent decision boundary, LangGraph primitives, conditional routing and the full LLM-ToolNode feedback loop; thread-scoped checkpoints; cross-thread stores, namespaces and semantic memory retrieval; MCP host/client/server boundaries, JSON-RPC, stdio, local server and client | Separate sequential, parallel and evaluator-loop workflow demos because they repeat the same graph primitives; MCP v1 batching, initialize/ping, resource-subscription, legacy HTTP-plus-SSE and overclaimed stdio-security segments |
 | FastAPI | Setup, validation/model serving, production lifecycle rules, streaming/disconnect behavior and tests | Repeated HTTP basics, Docker and AWS deployment already covered by assumed backend/DevOps skills |
 | Evaluation | Evaluation methods, retriever evaluation, tracing and offline/online loops | Model-benchmark and leaderboard series for model selection rather than application evaluation |
 | MLOps | One complete MLflow/DVC/registry/CI-CD project and a separate data/ETL boundary lesson | Promotional overview and repeated generic lifecycle explanation |
@@ -113,9 +113,9 @@ These are study recommendations, not completion gates in the roadmap interface.
 
 | Position | Full videos | Full time | Fast videos | Fast time |
 | --- | ---: | ---: | ---: | ---: |
-| Complete | 96 | 44h 28m | 81 | 36h 6m |
+| Complete | 96 | 44h 16m | 81 | 36h 6m |
 | AI Engineer | 93 | 42h 41m | 81 | 36h 6m |
-| GenAI Engineer | 80 | 39h 57m | 67 | 32h 21m |
+| GenAI Engineer | 80 | 39h 45m | 67 | 32h 21m |
 | MLOps Engineer | 49 | 15h 23m | 46 | 14h 11m |
 
 The GenAI view removes Pandas, classification metrics and model-training projects. The MLOps view removes LLM-specific SDK, prompt engineering, transformer, RAG, agent, evaluation, cache and guardrail videos. The AI Engineer view retains the broad applied route and removes optional MCP.
