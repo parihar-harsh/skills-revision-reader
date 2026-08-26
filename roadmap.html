@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>AI, GenAI and MLOps Engineer Video Route</title>
-  <meta name="description" content="A focused Hindi and Hinglish video route from zero AI knowledge to product-facing AI, GenAI and MLOps engineering foundations.">
+  <title>NLP and GenAI Engineer Learning Route</title>
+  <meta name="description" content="A focused Hindi and Hinglish learning route from zero AI knowledge to fresher-ready NLP and GenAI application engineering.">
   <script>
     (function () {
       try {
@@ -514,6 +514,13 @@
       letter-spacing: 0;
     }
 
+    .overview-description {
+      max-width: 760px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
     .next-panel {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -932,6 +939,12 @@
       object-fit: cover;
     }
 
+    .resource-media.build {
+      background: var(--teal-soft);
+      color: var(--teal);
+      letter-spacing: 0;
+    }
+
     .resource-copy { min-width: 0; }
 
     .resource-meta {
@@ -1070,11 +1083,33 @@
     @media (max-width: 600px) {
       body { font-size: 14px; }
       .toolbar { gap: 7px; padding: 7px 8px; }
-      .toolbar-primary, .toolbar-options { gap: 7px; }
-      .mobile-page-link { min-width: 70px; padding: 0 7px; }
+      .toolbar-primary {
+        display: grid;
+        grid-template-columns: auto auto minmax(72px, 1fr) auto;
+        gap: 7px;
+      }
+      .toolbar-options {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: 7px;
+        overflow: visible;
+        padding-bottom: 0;
+      }
+      .mobile-page-link { min-width: 0; padding: 0 8px; }
       .theme-button { width: 50px; min-width: 50px; }
-      .role-control { width: 152px; min-width: 152px; flex: 0 0 152px; }
-      .filter-control { flex: 0 0 176px; }
+      .role-control {
+        grid-column: 1;
+        grid-row: 1;
+        width: auto;
+        min-width: 0;
+      }
+      .filter-control {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+      }
+      .hide-control { grid-column: 2; grid-row: 1; }
+      .toolbar-reset { grid-column: 3; grid-row: 1; }
       .overview h2 { font-size: 25px; }
       .summary-strip { grid-template-columns: 1fr 1fr; }
       .summary-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--border); }
@@ -1120,14 +1155,14 @@
       <header class="brand">
         <div class="brand-mark" aria-hidden="true">AI</div>
         <div>
-          <h1>AI / GenAI Route</h1>
-          <p>Zero AI to product engineering</p>
+          <h1>NLP / GenAI Route</h1>
+          <p>Zero AI to applied NLP engineering</p>
         </div>
       </header>
       <nav class="product-switcher" aria-label="Revision workspace">
         <a class="product-link" href="index.html">Questions</a>
         <a class="product-link" href="live-coding.html">Live coding</a>
-        <a class="product-link active" href="roadmap.html" aria-current="page">AI route</a>
+        <a class="product-link active" href="roadmap.html" aria-current="page">NLP route</a>
       </nav>
       <div class="side-progress">
         <div class="progress-copy"><span>Route progress</span><span id="side-progress-copy">0/0</span></div>
@@ -1156,17 +1191,17 @@
           <label class="role-control">
             <span class="sr-only">Filter roadmap by target position</span>
             <select id="role-filter" class="role-select" aria-label="Filter roadmap by target position">
-              <option value="all">Complete route</option>
-              <option value="ai-engineer">AI Engineer</option>
-              <option value="genai-engineer">GenAI Engineer</option>
-              <option value="mlops-engineer">MLOps Engineer</option>
+              <option value="ai-engineer">NLP / GenAI</option>
+              <option value="all">All tracks</option>
+              <option value="genai-engineer">GenAI</option>
+              <option value="mlops-engineer">MLOps</option>
             </select>
           </label>
           <div class="filter-control" aria-label="Roadmap depth">
             <button class="filter-button" type="button" data-filter="core" aria-pressed="false">Fast track</button>
             <button class="filter-button" type="button" data-filter="interview" aria-pressed="true">Full coverage</button>
           </div>
-          <label class="hide-control" title="Hide completed videos"><input id="hide-completed" type="checkbox"><span>Hide done</span></label>
+          <label class="hide-control" title="Hide completed steps"><input id="hide-completed" type="checkbox"><span>Hide done</span></label>
           <button id="toolbar-reset" class="control-button toolbar-reset" type="button">Reset</button>
         </div>
       </header>
@@ -1176,7 +1211,8 @@
       <main class="content-shell">
         <header class="overview">
           <div>
-            <h2>AI, GenAI and MLOps route</h2>
+            <h2>NLP and GenAI engineering route</h2>
+            <p id="route-description" class="overview-description"></p>
           </div>
           <div id="next-panel" class="next-panel">
             <div class="next-copy">
@@ -1193,8 +1229,8 @@
 
         <section class="summary-strip" aria-label="Roadmap summary">
           <div class="summary-item"><span id="summary-progress" class="summary-value">0%</span><span class="summary-label">completed</span></div>
-          <div class="summary-item"><span id="summary-resources" class="summary-value">0</span><span class="summary-label">visible videos</span></div>
-          <div class="summary-item"><span id="summary-hours" class="summary-value">0h</span><span class="summary-label">selected watch time</span></div>
+          <div class="summary-item"><span id="summary-resources" class="summary-value">0</span><span class="summary-label">visible steps</span></div>
+          <div class="summary-item"><span id="summary-hours" class="summary-value">0h</span><span class="summary-label">selected learning time</span></div>
           <div class="summary-item"><span id="summary-remaining" class="summary-value">0h</span><span class="summary-label">remaining</span></div>
         </section>
 
@@ -1218,7 +1254,7 @@
 
         <aside class="scope-note">
           <strong>Scope</strong>
-          <span>Starts from zero Python and AI while assuming your existing software-development skills. Research, foundation-model training and advanced platform specialization are outside this route.</span>
+          <span>Starts from zero Python and AI while assuming existing software-development skills. It targets applied NLP and GenAI roles; computer vision, foundation-model pretraining and research specialization remain outside scope.</span>
         </aside>
       </main>
     </div>
@@ -1246,10 +1282,11 @@
       {
         id: "ai-foundations",
         code: "02",
-        title: "Minimum ML and neural-network foundation",
-        outcome: "Learn the concepts needed to choose, train and evaluate a small model without taking a data-science or research detour.",
-        topics: ["AI vs ML vs DL", "Supervised and unsupervised learning", "Classification and regression", "Overfitting and underfitting", "Bias and variance", "Train and test split", "Confusion matrix", "Accuracy, precision, recall and F1", "Forward pass", "Loss", "Backpropagation", "Keras", "PyTorch", "scikit-learn"],
+        title: "ML and neural-network foundation",
+        outcome: "Complete one coherent ML foundation, including the mathematics, model evaluation, classical algorithms and neural-network training needed before NLP.",
+        topics: ["Probability and statistics", "Linear algebra", "Calculus", "Supervised and unsupervised learning", "Regression and classification", "Feature engineering", "Cross-validation", "Accuracy, precision, recall and F1", "PCA and clustering", "Forward pass", "Loss", "Backpropagation", "Keras", "scikit-learn"],
         resources: [
+          { id: "data-dissection-ml-foundation", title: "Complete machine-learning foundation", source: "Data Dissection | Machine Learning Full Course", type: "Curated course chapters", minutes: 1147, priority: "core", note: "Complete the four visible sections in order. The final neural-network section already covers the material repeated in Data Dissection's separate deep-learning course, so do not watch that course again." },
           { id: "ml-concepts", title: "AI, ML and model-behavior essentials", source: "CampusX | 100 Days of Machine Learning", type: "Curated direct videos", minutes: 52, priority: "core", note: "Watch lessons 2 and 3, then lesson 62. They establish AI versus ML versus deep learning, supervised and unsupervised problem types, and the bias-variance view of overfitting. Skip role-roadmap, installation and algorithm-survey lessons." },
           { id: "ml-metrics", title: "Classification metrics without repeated code demos", source: "CampusX | Machine Learning Metrics", type: "Curated direct videos", minutes: 39, priority: "core", note: "In Accuracy and Confusion Matrix watch 0:46-6:25, 13:16-25:53 and 30:03-end. In Precision, Recall and F1 watch 2:44-19:40. Skip repeated sklearn and MNIST code because the next assignment applies the metrics in a project." },
           { id: "sklearn-workflow", title: "One end-to-end scikit-learn classifier", source: "CampusX | 100 Days of Machine Learning", type: "Curated direct videos", minutes: 31, priority: "core", note: "Complete lesson 13 once: inspect and preprocess data, split features and target, fit scaling only on training data, train logistic regression, predict and evaluate. This is the only classical-ML implementation assignment." },
@@ -1261,12 +1298,18 @@
       {
         id: "llm-foundations",
         code: "03",
-        title: "LLM and transformer foundations",
-        outcome: "Connect pretraining and transfer learning to transformer attention, decoder-only LLMs and autoregressive token generation.",
-        topics: ["Pretraining", "Fine-tuning", "Language models", "Decoder-only LLMs", "Token representations", "Positional encoding", "Self-attention", "Queries, keys and values", "Scaled dot-product attention", "Softmax", "Multi-head attention", "Residual connections", "Layer normalization", "Feed-forward networks", "Cross-attention", "Autoregressive generation", "Causal masking", "Decoder architecture"],
+        title: "NLP, language models and transformers",
+        outcome: "Move from text preprocessing and classical representations to sequence models, transformer attention and a fine-tuned text classifier.",
+        topics: ["Text preprocessing", "Bag of Words", "TF-IDF", "N-grams", "Word2Vec", "Text classification", "POS tagging", "Named entity recognition", "RNN", "LSTM", "Attention", "Multi-head attention", "Transformer architecture", "Pretraining", "Fine-tuning", "Token classification", "Decoder-only LLMs", "Autoregressive generation"],
         resources: [
+          { id: "data-dissection-nlp", title: "NLP foundations from text preprocessing to transformers", source: "Data Dissection | Natural Language Processing", type: "Complete playlist", minutes: 215, priority: "core", note: "Watch the complete 13-video playlist in order. It covers preprocessing, TF-IDF, Word2Vec, perplexity, RNNs, LSTMs, NER, attention, multi-head attention, transformers and the high-level ChatGPT training story." },
+          { id: "nlp-practical-core", title: "Practical text classification and one end-to-end NLP project", source: "CampusX | Complete NLP Playlist", type: "Gap-only direct videos", minutes: 137, priority: "core", note: "Use CampusX only for the implementation gaps left by the shorter Data Dissection playlist: a Word2Vec text classifier and the complete duplicate-question-pairs project." },
+          { id: "nlp-classical-depth", title: "Classical NLP interview depth", source: "CampusX | Complete NLP Playlist", type: "Gap-only direct videos", minutes: 246, priority: "interview", note: "Add the end-to-end NLP pipeline, richer Bag-of-Words/TF-IDF/n-gram treatment and POS tagging with HMM/Viterbi. Intro, preprocessing and Word2Vec lectures are omitted here because Data Dissection already covers them." },
+          { id: "nlp-classical-build", title: "Build and compare a classical NLP baseline", source: "scikit-learn | Official example", type: "Build checkpoint", kind: "build", minutes: 0, priority: "core", url: "https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html", note: "Implement a TF-IDF text classifier, use a held-out split, report precision, recall and F1, inspect the confusion matrix and write down recurring error cases. Mark this complete only after the code and evaluation results exist." },
           { id: "llm-evolution", title: "From transfer learning to decoder-only LLMs", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 29, priority: "core", note: "Watch 47:08-1:16:10 for transfer learning, pretraining, fine-tuning, BERT versus GPT, decoder-only language models and why scale changes a language model into an LLM. Skip the LSTM, encoder-decoder and attention history because the next assignment teaches the needed mechanics directly." },
-          { id: "transformer-core", title: "Transformer attention, blocks and autoregressive decoding", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 367, priority: "core", note: "Follow the visible cards in order. Complete the three-part self-attention sequence, then Multi-head Attention, Positional Encoding, Layer Normalization, Encoder Architecture, Masked Self Attention, Cross Attention, Decoder Architecture and the selected Transformer Inference overview. The separate transformer introduction, geometric self-attention and why-it-is-called-self lectures repeat concepts already covered here. The encoder and cross-attention cards are retained to make the original decoder understandable; GPT-style decoder-only models omit that cross-attention path." }
+          { id: "transformer-core", title: "Transformer attention, blocks and autoregressive decoding", source: "CampusX | 100 Days of Deep Learning", type: "Curated direct videos", minutes: 367, priority: "interview", note: "Use this detailed sequence after the Data Dissection overview when you need interview-depth mechanics. Complete self-attention, Q/K/V, scaling, multi-head attention, positional encoding, layer normalization, encoder, masking, cross-attention, decoder and inference. It is intentionally outside the Fast track because the shorter NLP course already establishes the architecture." },
+          { id: "transformer-classification-build", title: "Fine-tune a Transformer for text classification", source: "Hugging Face Transformers | Official guide", type: "Build checkpoint", kind: "build", minutes: 0, priority: "core", url: "https://huggingface.co/docs/transformers/main/tasks/sequence_classification", note: "Fine-tune a pretrained model on a labeled dataset, evaluate it with task-appropriate metrics and run inference through a pipeline. Keep the training configuration and failure examples with the project." },
+          { id: "token-classification-build", title: "Fine-tune token classification for NER", source: "Hugging Face Transformers | Official guide", type: "Build checkpoint", kind: "build", minutes: 0, priority: "interview", url: "https://huggingface.co/docs/transformers/main/tasks/token_classification", note: "Implement subword-label alignment, fine-tune a token-classification model and evaluate entity-level precision, recall and F1. This extends the LSTM NER overview into a current transformer workflow." }
         ]
       },
       {
@@ -1399,6 +1442,12 @@
         ["CZJT4_B73x0", "Dropping missing values", 0, "", 7],
         ["T-x9IYMr1jM", "Filling missing values", 0, "", 4]
       ],
+      "data-dissection-ml-foundation": [
+        ["Xi2qcKt25bY", "Mathematics for machine learning", 72, "0:01:12-8:20:25", 499, "Cover the probability, statistics, linear algebra and calculus sections needed to understand the later models.", "math-foundation"],
+        ["Xi2qcKt25bY", "Supervised learning, model evaluation and classical algorithms", 30025, "8:20:25-14:32:50", 372, "Cover gradient descent, regression, classification, preprocessing, feature engineering, cross-validation, metrics, trees, ensembles, SVM and Naive Bayes.", "supervised-ml"],
+        ["Xi2qcKt25bY", "PCA, clustering and unsupervised learning", 52370, "14:32:50-16:06:39", 94, "Cover principal-component analysis, clustering and the unsupervised-learning workflow.", "unsupervised-ml"],
+        ["Xi2qcKt25bY", "Neural networks, backpropagation and Keras project", 57999, "16:06:39-19:08:37", 182, "Complete the neural-network section and project. This is the same foundation repeated by Data Dissection's separate deep-learning course, so watching both is unnecessary.", "neural-networks"]
+      ],
       "ml-concepts": [
         ["1v3_AQ26jZ0", "AI versus ML versus deep learning", 0, "", 16],
         ["81ymPYEtFOw", "Types of machine learning", 0, "", 28],
@@ -1412,6 +1461,30 @@
       "neural-network-training": [["6M1wWQmcUjQ", "Complete backpropagation intuition (Part 1 only)", 160, "2:40-53:53", 51]],
       "keras-ann-project": [["3xPT2Pk0Jds", "MNIST classification with Keras", 0, "", 29]],
       "pytorch-training-pipeline": [["MKxEbbKpL5Q", "PyTorch training pipeline", 345, "5:45-28:04", 22]],
+      "data-dissection-nlp": [
+        ["wMOzdJunPnM", "Natural language and speech", 0, "", 14],
+        ["TCk6oBttXYE", "Text preprocessing", 0, "", 13],
+        ["iYlkYsPCnzY", "Word embeddings and TF-IDF", 0, "", 24],
+        ["nEOClJ0_qq0", "Word2Vec", 0, "", 10],
+        ["m1A4pjlSk-I", "Perplexity and language-model evaluation", 0, "", 12],
+        ["Y-KhuIfqVT0", "Recurrent neural networks", 0, "", 11],
+        ["USJY3Lnb3YQ", "How recurrent neural networks learn", 0, "", 23],
+        ["ZK1QPTqang0", "Long short-term memory networks", 0, "", 21],
+        ["u88fMiNb6Qo", "Named entity recognition with LSTM", 0, "", 13],
+        ["t_slKpIF6PU", "Attention mechanism", 0, "", 28],
+        ["FDaSKReeYas", "Multi-head attention", 0, "", 8],
+        ["Ip66GBBsrYc", "Transformer architecture", 0, "", 25],
+        ["1C63-1lTbHY", "How ChatGPT was trained", 0, "", 13]
+      ],
+      "nlp-practical-core": [
+        ["Qbd7U9F0QQ8", "Text classification with Average Word2Vec", 0, "", 52],
+        ["1fvQU5yPjFs", "Duplicate Question Pairs: end-to-end NLP project", 0, "", 85]
+      ],
+      "nlp-classical-depth": [
+        ["29qyNyNkLHs", "End-to-end NLP pipeline", 0, "", 79],
+        ["vo6gQz5lYRI", "Bag of Words, TF-IDF and n-grams in depth", 0, "", 105],
+        ["269IGagoJfs", "POS tagging with HMM and Viterbi", 0, "", 62]
+      ],
       "llm-evolution": [["8fX3rOjTloc", "Transfer learning to decoder-only LLMs", 2828, "47:08-1:16:10", 29]],
       "transformer-core": [
         ["XnGGmvpDLA0", "Self-attention intuition (1/3)", 0, "", 23],
@@ -1489,11 +1562,11 @@
 
         const baseMinutes = Math.floor(resource.minutes / group.length);
         const extraMinutes = resource.minutes % group.length;
-        const videos = group.map(([videoId, title, start = 0, range = "", selectedMinutes, videoNote], index) => {
+        const videos = group.map(([videoId, title, start = 0, range = "", selectedMinutes, videoNote, childKey], index) => {
           const video = { videoId, start };
           const rangeNote = range ? `Selected range: ${range}.` : "";
           return {
-            id: `${resource.id}--${videoId}`,
+            id: `${resource.id}--${childKey || videoId}`,
             parentId: resource.id,
             parentTitle: resource.title,
             title,
@@ -1513,12 +1586,13 @@
     });
 
     const phases = [
-      { number: "01", title: "Foundations", detail: "Python, ML and LLMs", moduleIds: ["python", "ai-foundations", "llm-foundations"] },
+      { number: "01", title: "Foundations", detail: "Python, ML, NLP and transformers", moduleIds: ["python", "ai-foundations", "llm-foundations"] },
       { number: "02", title: "Build AI systems", detail: "APIs, RAG, agents and FastAPI", moduleIds: ["llm-apps", "rag", "agents", "fastapi"] },
       { number: "03", title: "Ship and improve", detail: "Evaluation, MLOps and bounded tools", moduleIds: ["evaluation", "llmops", "security"] }
     ];
 
     const STORAGE_KEY = "ai-engineer-roadmap-state-v3";
+    const STATE_VERSION = 4;
     const migratedResourceIds = new Map([
       ["bounded-tools--_UuUigoM9MA", "agent-tools--_UuUigoM9MA"]
     ]);
@@ -1526,31 +1600,31 @@
     const resourceById = new Map(allResources.map((resource) => [resource.id, resource]));
     const roleProfiles = {
       all: {
-        label: "Complete route",
-        description: "CampusX-first foundations plus focused production supplements across the three role views.",
+        label: "All tracks",
+        description: "Every retained learning resource across NLP, GenAI and MLOps views, including overlapping foundation alternatives.",
         excluded: new Set(),
         hiddenTopics: {}
       },
       "ai-engineer": {
-        label: "AI Engineer",
-        description: "Applied AI using Python, classical ML, provider SDKs, LangChain, production RAG, LangGraph, FastAPI, evaluation, reliability, guardrails and a focused MLOps project. Research and foundation-model training remain outside scope.",
-        excluded: new Set(["mcp-architecture"]),
+        label: "NLP / GenAI Engineer",
+        description: "The focused fresher route: Python, one complete ML foundation, classical and neural NLP, transformer fine-tuning, provider SDKs, RAG, agents, FastAPI, evaluation, reliability and guardrails. Research and foundation-model training remain outside scope.",
+        excluded: new Set(["ml-concepts", "ml-metrics", "sklearn-workflow", "neural-network-training", "keras-ann-project", "pytorch-training-pipeline", "mcp-architecture"]),
         hiddenTopics: {
           agents: ["MCP"]
         }
       },
       "genai-engineer": {
         label: "GenAI Engineer",
-        description: "Production LLM applications using provider SDKs, LangChain, hybrid RAG, LangGraph, memory, FastAPI, evaluation, reliability and guardrails, with ML concepts but no classical model-training or MLOps project.",
-        excluded: new Set(["pandas-core", "ml-metrics", "sklearn-workflow", "keras-ann-project", "pytorch-training-pipeline", "mlops-project", "mlops-data-management"]),
+        description: "Production LLM applications using provider SDKs, LangChain, hybrid RAG, LangGraph, memory, FastAPI, evaluation, reliability and guardrails, with NLP foundations but without the complete ML course or MLOps project.",
+        excluded: new Set(["pandas-core", "data-dissection-ml-foundation", "ml-metrics", "sklearn-workflow", "keras-ann-project", "pytorch-training-pipeline", "nlp-classical-depth", "nlp-classical-build", "token-classification-build", "mlops-project", "mlops-data-management"]),
         hiddenTopics: {
-          "ai-foundations": ["Keras", "PyTorch", "scikit-learn"]
+          "ai-foundations": ["Probability and statistics", "Linear algebra", "Calculus", "Feature engineering", "Cross-validation", "PCA and clustering", "Keras", "scikit-learn"]
         }
       },
       "mlops-engineer": {
         label: "MLOps Engineer",
         description: "Model delivery using typed and tested Python, ML training context, production FastAPI, service resilience, data management, MLflow, DVC, registry promotion and CI/CD. LLM-specific SDK, prompt design, RAG, agent, evaluation, caching and guardrail videos are removed.",
-        excluded: new Set(["llm-evolution", "transformer-core", "provider-sdk-gemini", "prompt-engineering", "provider-sdk-responses", "langchain-core", "rag-architecture", "rag-core", "rag-generation-chain", "hybrid-search-rrf", "hyde-retrieval", "rag-corrective", "rag-advanced", "agent-core", "agent-tools", "agent-memory", "mcp-architecture", "llm-eval-methods", "rag-evaluation", "langsmith-observability", "online-evaluation", "llm-cache-design", "rag-cache-observability", "ai-guardrails", "bounded-tools"]),
+        excluded: new Set(["data-dissection-ml-foundation", "data-dissection-nlp", "nlp-practical-core", "nlp-classical-depth", "nlp-classical-build", "llm-evolution", "transformer-core", "transformer-classification-build", "token-classification-build", "provider-sdk-gemini", "prompt-engineering", "provider-sdk-responses", "langchain-core", "rag-architecture", "rag-core", "rag-generation-chain", "hybrid-search-rrf", "hyde-retrieval", "rag-corrective", "rag-advanced", "agent-core", "agent-tools", "agent-memory", "mcp-architecture", "llm-eval-methods", "rag-evaluation", "langsmith-observability", "online-evaluation", "llm-cache-design", "rag-cache-observability", "ai-guardrails", "bounded-tools"]),
         hiddenTopics: {
           rag: ["Document loaders", "Chunking", "Embeddings", "Vector stores", "Metadata filters", "Similarity search", "BM25", "Hybrid search", "Reciprocal Rank Fusion", "HyDE", "MMR", "Multi-query retrieval", "Contextual compression", "Self-RAG"],
           security: ["Exact response cache", "Semantic cache", "TTL", "Cache safety", "Prompt injection", "PII masking", "Input guardrails", "Output guardrails", "Tool schemas", "Argument validation", "Allowlists", "Step limits", "Idempotent side effects", "Human approval", "Authentication", "Authorization", "Tenant isolation"]
@@ -1561,8 +1635,8 @@
 
     const defaultState = {
       completed: [],
-      filter: "interview",
-      role: "all",
+      filter: "core",
+      role: "ai-engineer",
       search: "",
       hideCompleted: false,
       collapsedModules: []
@@ -1573,18 +1647,20 @@
         const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
         if (!parsed || typeof parsed !== "object") return { ...defaultState };
         const savedRole = parsed.role === "llmops-engineer" ? "mlops-engineer" : parsed.role;
+        const useNlpDefaults = parsed.routeVersion !== STATE_VERSION;
         return {
+          needsMigration: useNlpDefaults,
           completed: Array.isArray(parsed.completed)
             ? [...new Set(parsed.completed.flatMap((id) => {
                 const migratedId = migratedResourceIds.get(id) || id;
                 return resourceById.has(migratedId) ? [migratedId] : (legacyGroupChildren.get(migratedId) || []);
               }))]
             : [],
-          filter: ["core", "interview"].includes(parsed.filter) ? parsed.filter : "interview",
-          role: hasRoleProfile(savedRole) ? savedRole : "all",
-          search: typeof parsed.search === "string" ? parsed.search : "",
-          hideCompleted: parsed.hideCompleted === true,
-          collapsedModules: Array.isArray(parsed.collapsedModules)
+          filter: !useNlpDefaults && ["core", "interview"].includes(parsed.filter) ? parsed.filter : defaultState.filter,
+          role: !useNlpDefaults && hasRoleProfile(savedRole) ? savedRole : defaultState.role,
+          search: !useNlpDefaults && typeof parsed.search === "string" ? parsed.search : "",
+          hideCompleted: !useNlpDefaults && parsed.hideCompleted === true,
+          collapsedModules: !useNlpDefaults && Array.isArray(parsed.collapsedModules)
             ? [...new Set(parsed.collapsedModules.filter((id) => modules.some((module) => module.id === id)))]
             : []
         };
@@ -1613,10 +1689,12 @@
     const nextTitle = document.getElementById("next-title");
     const nextMeta = document.getElementById("next-meta");
     const nextLink = document.getElementById("next-link");
+    const routeDescription = document.getElementById("route-description");
 
     function saveState() {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          routeVersion: STATE_VERSION,
           completed: [...completed],
           filter: state.filter,
           role: state.role,
@@ -1627,6 +1705,11 @@
       } catch (error) {
         // The page remains usable when browser storage is unavailable.
       }
+    }
+
+    if (state.needsMigration) {
+      delete state.needsMigration;
+      saveState();
     }
 
     function escapeHtml(value) {
@@ -1663,7 +1746,7 @@
     function isSearchMatch(module, resource) {
       const query = state.search.trim().toLowerCase();
       if (!query) return true;
-      const haystack = [module.title, module.outcome, ...topicsFor(module), resource.parentTitle, resource.title, resource.source, resource.type, resource.note]
+      const haystack = [module.title, resource.parentTitle, resource.title, resource.source, resource.type, resource.note]
         .join(" ")
         .toLowerCase();
       return haystack.includes(query);
@@ -1686,12 +1769,12 @@
           const module = modules.find((candidate) => candidate.id === item.moduleId);
           return !completed.has(item.id) && isSearchMatch(module, item);
         });
-        return resource ? { type: "video", resource, moduleId: resource.moduleId } : null;
+        return resource ? { type: "step", resource, moduleId: resource.moduleId } : null;
       }
 
       for (const module of activeModules()) {
         const resource = module.resources.find((item) => isAllowedByRoute(item) && !completed.has(item.id));
-        if (resource) return { type: "video", resource: { ...resource, moduleId: module.id }, moduleId: module.id };
+        if (resource) return { type: "step", resource: { ...resource, moduleId: module.id }, moduleId: module.id };
       }
 
       return null;
@@ -1709,30 +1792,39 @@
         const src = `https://i.ytimg.com/vi/${encodeURIComponent(resource.videoId)}/mqdefault.jpg`;
         return `<a class="resource-media" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(resource.title)}" data-fallback-label="VIDEO"><img src="${src}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="sr-only">Video thumbnail</span></a>`;
       }
-      return `<div class="resource-media" aria-hidden="true">VIDEO</div>`;
+      if (resource.kind === "build") return `<div class="resource-media build" aria-hidden="true">BUILD</div>`;
+      return `<div class="resource-media" aria-hidden="true">GUIDE</div>`;
     }
 
     function renderResource(resource, order, routeTotal, currentId) {
       const isDone = completed.has(resource.id);
       const isCurrent = resource.id === currentId;
-      const watchLabel = resource.parentId === resource.id
+      const watchLabel = resource.kind === "build"
+        ? "Build checkpoint"
+        : resource.parentId === resource.id
         ? formatMinutes(resource.minutes)
         : resource.range ? `Selected ${formatMinutes(resource.minutes)}` : `Full video · ${formatMinutes(resource.minutes)}`;
+      const title = resource.url
+        ? `<a class="resource-title-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(resource.title)}</a>`
+        : escapeHtml(resource.title);
+      const openAction = resource.url
+        ? `<a class="open-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">${resource.kind === "build" ? "Open guide" : "Open video"}</a>`
+        : "";
       return `<article class="resource-card${isDone ? " completed" : ""}${isCurrent ? " current" : ""}" data-resource-id="${resource.id}" data-parent-id="${resource.parentId}">
         ${renderMedia(resource)}
         <div class="resource-copy">
           <div class="resource-meta">
-            <span class="lesson-order">Video ${String(order).padStart(2, "0")}/${routeTotal}</span>
+            <span class="lesson-order">Step ${String(order).padStart(2, "0")}/${routeTotal}</span>
             <span class="priority-badge ${resource.priority}">${resource.priority === "core" ? "Essential" : "Interview depth"}</span>
             <span>${escapeHtml(resource.source)}</span>
             <span>${escapeHtml(watchLabel)}</span>
           </div>
-          <h4 class="resource-title"><a class="resource-title-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(resource.title)}</a></h4>
+          <h4 class="resource-title">${title}</h4>
           ${resource.note ? `<p class="resource-note">${escapeHtml(resource.note)}</p>` : ""}
         </div>
         <div class="resource-actions">
-          <a class="open-link" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">Open video</a>
-          <button class="done-button" type="button" data-complete-id="${resource.id}" aria-pressed="${isDone}">${isDone ? "Done" : "Mark done"}</button>
+          ${openAction}
+          <button class="done-button" type="button" data-complete-id="${resource.id}" aria-pressed="${isDone}">${isDone ? "Done" : resource.kind === "build" ? "Mark built" : "Mark done"}</button>
         </div>
       </article>`;
     }
@@ -1743,7 +1835,7 @@
       const routeModules = activeModules();
       const orderById = new Map(routeResources.map((resource, index) => [resource.id, index + 1]));
       const nextTask = getNextRouteTask();
-      const currentVideoId = nextTask?.type === "video" ? nextTask.resource.id : null;
+      const currentResourceId = nextTask?.type === "step" ? nextTask.resource.id : null;
       const html = routeModules.map((module, moduleIndex) => {
         const visibleResources = visibleResourcesFor(module);
         const allowedResources = module.resources.filter(isAllowedByRoute);
@@ -1768,7 +1860,7 @@
           </header>
           <div id="module-body-${module.id}" class="module-body"${isCollapsed ? " hidden" : ""}>
             <ul class="topic-list">${topicsFor(module).map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}</ul>
-            ${visibleResources.length ? `<div class="resource-list">${visibleResources.map((resource) => renderResource(resource, orderById.get(resource.id), routeResources.length, currentVideoId)).join("")}</div>` : ""}
+            ${visibleResources.length ? `<div class="resource-list">${visibleResources.map((resource) => renderResource(resource, orderById.get(resource.id), routeResources.length, currentResourceId)).join("")}</div>` : ""}
           </div>
         </section>`;
       }).join("");
@@ -1810,7 +1902,7 @@
         return `<button class="phase-step${isComplete ? " complete" : ""}${isCurrent ? " current" : ""}" type="button" data-module-target="${targetModuleId}"${isCurrent ? ' aria-current="step"' : ""}>
           <span class="phase-number">${phase.number}</span>
           <span class="phase-copy"><strong>${escapeHtml(phase.title)}</strong><span>${escapeHtml(phase.detail)}</span></span>
-          <span class="phase-count" title="Completed videos">${done}/${resources.length}</span>
+          <span class="phase-count" title="Completed steps">${done}/${resources.length}</span>
         </button>`;
       }).join("");
 
@@ -1865,7 +1957,7 @@
 
       if (!nextTask) {
         nextTitle.textContent = state.search ? "No unfinished match" : "Route complete";
-        nextMeta.textContent = state.search ? "Clear search or change depth" : "All videos are complete";
+        nextMeta.textContent = state.search ? "Clear search or change depth" : "All steps are complete";
         nextLink.textContent = "Completed";
         nextLink.removeAttribute("href");
         nextLink.removeAttribute("target");
@@ -1879,7 +1971,7 @@
       const routeResources = allResources.filter(isAllowedByRoute);
       const lessonNumber = routeResources.findIndex((resource) => resource.id === next.id) + 1;
       nextTitle.textContent = next.title;
-      nextMeta.textContent = `Video ${lessonNumber} of ${routeResources.length} / Module ${module.code}`;
+      nextMeta.textContent = `Step ${lessonNumber} of ${routeResources.length} / Module ${module.code}`;
       nextLink.textContent = "Open next";
       nextLink.href = next.url;
       nextLink.target = "_blank";
@@ -1910,6 +2002,7 @@
       renderProgress();
       renderNext();
       roleFilter.value = state.role;
+      routeDescription.textContent = roleProfiles[state.role].description;
       updateFilterButtons();
       updateCollapseControls();
       updateThemeLabel();
@@ -2066,7 +2159,7 @@
 
     function resetProgress() {
       if (!completed.size) return;
-      if (!window.confirm("Clear all completed video progress?")) return;
+      if (!window.confirm("Clear all completed roadmap progress?")) return;
       completed.clear();
       saveState();
       render();
