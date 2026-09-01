@@ -248,13 +248,13 @@ window.GFG_DEVOPS_QUESTIONS = [
   {
     sourceNumber: 43,
     question: "How do you create a backup and copy files in Jenkins?",
-    answer: "Back up Jenkins configuration, job definitions, credentials, plugin information, and build metadata from JENKINS_HOME using a controlled snapshot or backup plugin. Protect secrets, test restoration, and prefer storing pipeline definitions in source control.",
+    answer: "I back up Jenkins configuration, job definitions, credentials, plugin information, and build metadata from JENKINS_HOME with a controlled snapshot or backup plugin. I protect secrets, test the restoration process, and keep pipeline definitions in source control when possible.",
     example: "Take an encrypted volume snapshot of JENKINS_HOME, export plugin versions, and restore the backup in an isolated environment to verify it."
   },
   {
     sourceNumber: 44,
     question: "Explain how you can set up a Jenkins job?",
-    answer: "Create a pipeline job, connect its repository and credentials, configure a webhook or schedule, point it to a Jenkinsfile, assign suitable agents, and set permissions, parameters, artifacts, and notifications. Run and inspect the first build before enabling production actions.",
+    answer: "I create a pipeline job, connect the repository and credentials, configure a webhook or schedule, point the job to a Jenkinsfile, assign suitable agents, and set permissions, parameters, artifacts, and notifications. I inspect the first build before enabling production actions.",
     example: "A multibranch pipeline automatically discovers branches and pull requests and executes the Jenkinsfile stored with each branch."
   },
   {
@@ -308,7 +308,7 @@ window.GFG_DEVOPS_QUESTIONS = [
   {
     sourceNumber: 53,
     question: "How do you ensure security and compliance in a CI/CD pipeline, particularly when integrating with multiple cloud providers and third-party services?",
-    answer: "Use short-lived workload identities, least privilege, isolated runners, signed artifacts, protected branches, secret managers, dependency and image scanning, policy as code, approval gates, audit logs, and controlled third-party access. Apply equivalent controls through a common policy layer across providers.",
+    answer: "I secure the pipeline with short-lived workload identities, least privilege, isolated runners, signed artifacts, protected branches, secret managers, security scanning, policy as code, approval gates, audit logs, and controlled third-party access. I apply equivalent controls across providers through a common policy layer.",
     example: "The pipeline exchanges an OIDC token for temporary cloud credentials, signs the image, verifies policy, records approvals, and never stores permanent cloud keys."
   },
   {
@@ -338,19 +338,19 @@ window.GFG_DEVOPS_QUESTIONS = [
   {
     sourceNumber: 58,
     question: "How do you optimize a Docker container for performance?",
-    answer: "Use a minimal trusted base image, multi-stage builds, a strict .dockerignore, cached dependency layers, only production dependencies, one main process, non-root execution, resource limits, and efficient application startup. Measure image size and runtime behavior instead of optimizing blindly.",
+    answer: "I optimize a Docker container with a minimal trusted base image, multi-stage builds, a strict .dockerignore, cached dependency layers, production-only dependencies, one main process, non-root execution, resource limits, and efficient startup. I measure image size and runtime behavior instead of optimizing blindly.",
     example: "Compile in a builder stage and copy only the binary and required runtime files into a small final image."
   },
   {
     sourceNumber: 59,
     question: "How do you handle rollbacks in Kubernetes?",
-    answer: "Deploy immutable versioned images through a Deployment, monitor rollout status and health probes, and use rollout undo or redeploy a known-good manifest when checks fail. Database changes must remain backward compatible because Kubernetes cannot automatically reverse external state.",
+    answer: "I deploy immutable, versioned images through a Deployment and monitor rollout status and health probes. If checks fail, I use rollout undo or redeploy a known-good manifest. I keep database changes backward compatible because Kubernetes cannot automatically reverse external state.",
     example: "kubectl rollout undo restores the previous ReplicaSet after error-rate checks fail, while an expand-contract migration keeps both versions compatible."
   },
   {
     sourceNumber: 60,
     question: "How do you optimize a CI/CD pipeline for faster deployments?",
-    answer: "Profile stage duration, cache dependencies safely, run independent checks in parallel, use incremental builds, reuse one verified artifact, right-size runners, separate fast pull-request checks from slower suites, and avoid repeating unchanged work. Never trade away critical quality gates without measuring risk.",
+    answer: "I first profile each stage, then cache dependencies safely, parallelize independent checks, use incremental builds, reuse one verified artifact, right-size runners, and avoid repeating unchanged work. I keep fast pull-request checks separate from slower suites without removing critical quality gates.",
     example: "Parallelize unit and security tests, cache package downloads by lockfile hash, and promote the same scanned image instead of rebuilding per environment."
   },
   {
