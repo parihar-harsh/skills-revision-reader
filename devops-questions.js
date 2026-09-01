@@ -92,7 +92,7 @@ window.GFG_DEVOPS_QUESTIONS = [
   {
     sourceNumber: 16,
     question: "Name three important DevOps KPIs",
-    answer: "Three common delivery KPIs are deployment frequency, change failure rate, and mean time to restore service. Lead time for changes is another core DORA metric.",
+    answer: "Three current DORA delivery metrics are deployment frequency, change lead time, and change fail rate. DORA also tracks failed deployment recovery time and deployment rework rate, grouping the five measures into software-delivery throughput and instability.",
     example: "Track how often releases occur, what percentage cause incidents, and how quickly service is restored after a failed change."
   },
   {
@@ -284,7 +284,7 @@ window.GFG_DEVOPS_QUESTIONS = [
   {
     sourceNumber: 49,
     question: "What are the 7Cs of DevOps?",
-    answer: "The 7 Cs listed here are Continuous Integration, Continuous Testing, Continuous Delivery, Continuous Deployment, Continuous Monitoring, Continuous Feedback, and Continuous Operations. Together they form an automated feedback loop across delivery and production operation.",
+    answer: "The 7 Cs are not a universal DevOps standard. A common interview list is Continuous Development, Integration, Testing, Deployment, Monitoring, Feedback, and Operations, but some sources substitute Delivery or separate Delivery and Deployment, so I would clarify the convention being used.",
     example: "A code change is integrated and tested, kept ready for delivery, deployed, monitored in production, and converted into feedback while operations maintain service reliability."
   },
   {
@@ -314,7 +314,7 @@ window.GFG_DEVOPS_QUESTIONS = [
   {
     sourceNumber: 54,
     question: "Discuss the importance of monitoring and logging in a DevOps environment. What tools and practices do you recommend for effective observability and incident management?",
-    answer: "Observability uses metrics, logs, traces, and events to understand system behavior and diagnose failures. Define service-level indicators, correlate telemetry, alert on user impact, keep runbooks, assign incident roles, and conduct blameless reviews.",
+    answer: "Observability combines metrics, logs, traces, and profiles. I would instrument with OpenTelemetry, visualize and alert with tools such as Prometheus and Grafana, centralize logs and traces, alert on SLO or user impact, and support incidents with correlation IDs, runbooks, clear roles, and blameless reviews.",
     example: "Prometheus detects rising error rate, Grafana shows the affected service, centralized logs expose the exception, and a trace identifies the slow dependency."
   },
   {

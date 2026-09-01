@@ -6,7 +6,7 @@ window.GFG_GENAI_QUESTIONS = [
   },
   {
     question: "What is the difference between Traditional AI and Generative AI?",
-    answer: "Traditional AI usually predicts a label, score, or action from existing data. Generative AI creates new content that follows patterns learned from its training data and the current prompt.",
+    answer: "Predictive or discriminative AI maps inputs to labels, scores, or actions, while generative AI models a data distribution to produce new content. Generative models also make predictions, such as next-token prediction, so the distinction is the training objective and output, not simply old AI versus new AI.",
     example: "A fraud model assigns a transaction a risk score; a generative model writes a plain-English explanation of why the transaction was flagged."
   },
   {
@@ -56,7 +56,7 @@ window.GFG_GENAI_QUESTIONS = [
   },
   {
     question: "Explain the concept of Context Window in LLMs.",
-    answer: "The context window is the maximum token budget shared by instructions, user input, conversation history, retrieved context, tool results, and generated output. Content beyond that limit must be removed, summarized, or handled in another request.",
+    answer: "The context window is the token sequence a model can attend to in one request, including instructions, input, history, retrieved context, tool results, and generated tokens. Providers may also impose a separate output limit; excess content must be truncated, summarized, or handled in another request.",
     example: "If a 32,000-token model receives 29,000 input tokens, the application cannot safely request a 5,000-token answer without reducing the input."
   },
   {
@@ -125,8 +125,8 @@ window.GFG_GENAI_QUESTIONS = [
     example: "Before using a model, check its model card for license and limitations, then load its linked dataset through the Datasets library for evaluation."
   },
   {
-    question: "Compare Pipeline, Extraction and Inference API.",
-    answer: "A pipeline is a high-level local wrapper that handles model preprocessing, inference, and postprocessing for a known task. An extraction service converts unstructured input into requested structured fields, while an inference API sends input to a remotely hosted model and returns its output.",
+    question: "Compare Pipeline, Feature Extraction and Inference API.",
+    answer: "A Transformers pipeline is a high-level local interface that handles preprocessing, model execution, and postprocessing for a task. Feature extraction returns hidden-state vectors or embeddings for downstream use, while a hosted Inference API runs a selected model remotely and returns its task output.",
     example: "Use a local sentiment pipeline for a prototype, an extraction endpoint for invoice fields, or a hosted inference API when you do not want to operate model-serving infrastructure."
   },
   {
@@ -151,7 +151,7 @@ window.GFG_GENAI_QUESTIONS = [
   },
   {
     question: "What are Multimodal Agents and give examples of their applications.",
-    answer: "A multimodal agent can reason over more than one data type and may use tools to act on the result. It can combine text, images, audio, video, or sensor input within one goal-oriented workflow.",
+    answer: "A multimodal agent combines inputs such as text, images, audio, video, or sensor data and can call tools based on the result. Typical applications include visual quality inspection, document understanding, screen-aware assistants, and voice agents that listen, reason, and take an authorized action.",
     example: "An insurance agent reads a claim form, inspects damage photos, asks for a missing document, and sends the verified case to a human reviewer."
   },
   {

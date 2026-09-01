@@ -1598,7 +1598,7 @@ typeof | &quot;object&quot; due to a legacy rule | &quot;undefined&quot;</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">A closure is an inner function that remembers variables from its outer function even after the outer function has finished.</div>
+          <div class="part-body prose">A closure is a function together with references to its surrounding lexical environment. It lets the function access outer-scope variables later, even after the scope that created them has finished executing.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -1679,7 +1679,7 @@ typeof | &quot;object&quot; due to a legacy rule | &quot;undefined&quot;</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">this refers to the context used to call a normal function. An arrow function does not create its own this; it uses this from the surrounding code.</div>
+          <div class="part-body prose">For a normal function, this is determined by how the function is called: as a method, with new, through call, apply, or bind, or as a standalone function. An arrow function captures this from its surrounding lexical scope.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -2037,7 +2037,7 @@ bind | No | Returns a reusable function</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">JavaScript has seven primitive types: string, number, bigint, boolean, undefined, symbol, and null. Objects, arrays, and functions are reference values built on the object type.</div>
+          <div class="part-body prose">JavaScript has seven primitive types: string, number, bigint, boolean, undefined, symbol, and null. Everything else is an object; arrays are objects, and functions are callable objects.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -2946,7 +2946,7 @@ bind | No | Returns a reusable function</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">Specificity decides which CSS selector wins when matching rules have the same importance. IDs are stronger than classes, and classes are stronger than element selectors.</div>
+          <div class="part-body prose">After cascade origin, importance, and layer are resolved, specificity compares matching selectors by ID, class or attribute or pseudo-class, and type or pseudo-element columns. If specificity ties, the later declaration wins.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -3581,7 +3581,7 @@ Rendered box | None | Exists but invisible</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">z-index controls the stacking order of positioned elements within a stacking context. A larger value only wins against elements in a comparable stacking context.</div>
+          <div class="part-body prose">z-index sets an element&#39;s stack level and can also create a stacking context. It applies to positioned elements and flex or grid items, but a larger value only wins against elements in the same stacking context.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -4137,7 +4137,7 @@ Purpose | Input/configuration | Changing component data</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">The dependency array tells React when an effect or memoized value must run again. Every changing value used inside should normally be included.</div>
+          <div class="part-body prose">React compares every listed dependency with its previous value using Object.is. An Effect reruns, or a memoized calculation or callback is replaced, when a dependency changes; every reactive value used inside must be listed.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -4306,7 +4306,7 @@ Logic location | Near event/effect | Central reducer function</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">useMemo stores a calculated value and recalculates it only when its dependencies change. It is mainly a performance optimization.</div>
+          <div class="part-body prose">useMemo caches the result of a pure calculation between renders while its dependencies remain equal by Object.is. It is only a performance optimization, so correctness must not depend on React preserving that cache.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -4333,7 +4333,7 @@ Logic location | Near event/effect | Central reducer function</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">useCallback stores a function reference and creates a new function only when its dependencies change.</div>
+          <div class="part-body prose">useCallback returns the same cached function definition while its dependencies remain equal by Object.is; otherwise it returns the function from the current render. It is a performance optimization, commonly used with memoized children or Hook dependencies.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -4882,7 +4882,7 @@ Logic location | Near event/effect | Central reducer function</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">Server-side rendering creates the page HTML on the server for each request and sends that HTML to the browser.</div>
+          <div class="part-body prose">Server-side rendering generates a route&#39;s HTML on the server in response to a request and sends it to the browser for hydration. The result may still be cached; unlike static generation, rendering is request-time rather than build-time.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -4999,7 +4999,7 @@ Logic location | Near event/effect | Central reducer function</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">Tailwind speeds up styling by using a shared set of utility classes directly in markup. It also removes unused classes from production output.</div>
+          <div class="part-body prose">Tailwind speeds up styling by composing single-purpose utility classes directly in markup. During compilation it detects complete class tokens in configured sources and generates the required CSS instead of shipping the entire utility set.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -5359,7 +5359,7 @@ Logic location | Near event/effect | Central reducer function</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">Node.js runs JavaScript callbacks on the main thread and moves through event-loop phases for timers, I/O callbacks, polling, checks, and close callbacks. Promise callbacks and other microtasks run at defined checkpoints between work.</div>
+          <div class="part-body prose">Node.js runs JavaScript callbacks one at a time while libuv moves through timers, pending callbacks, poll, check, and close phases. Operating-system facilities or the worker pool complete asynchronous work, and nextTick and Promise microtasks run at defined checkpoints.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -5936,7 +5936,7 @@ Credential | Random session ID | Signed token</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">CORS is a browser security rule that lets a server state which other origins may read its responses.</div>
+          <div class="part-body prose">CORS is an HTTP-header mechanism through which a server tells browsers which other origins may access a response. It relaxes the browser&#39;s same-origin policy and may require a preflight request; it is not authentication or server-side access control.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -6404,7 +6404,7 @@ Credential | Random session ID | Signed token</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">DDL changes database structure, DML reads or changes data, DCL controls permissions, and TCL controls transactions.</div>
+          <div class="part-body prose">DDL defines or changes schema objects, DML inserts, updates, or deletes data, DCL controls permissions, and TCL controls transactions. SELECT is often called DQL, although some classifications include it under DML.</div>
         </section>
             <section class="answer-part comparison">
           <div class="part-label">COMPARISON</div>
@@ -6950,7 +6950,7 @@ Padding | Commonly space padded | No fixed padding</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">A foreign key links tables by requiring a value to match a key in another table. It helps maintain valid relationships.</div>
+          <div class="part-body prose">A foreign key requires its non-null values to match a referenced candidate key, usually a primary or unique key in the same or another table. This enforces referential integrity between related rows.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -7507,7 +7507,7 @@ Durability | Committed changes survive crashes</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">A MongoDB transaction groups operations into one commit or abort decision, so either all of them succeed or all of them roll back.</div>
+          <div class="part-body prose">A single-document MongoDB write is atomic. When one atomic unit must span multiple operations or documents, a transaction groups them under one commit or abort decision so all changes become visible together or are rolled back.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -8767,7 +8767,7 @@ Durability | Committed changes survive crashes</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">public members can be accessed wherever the object is available. private members are limited to the class, while protected members are also available to child classes.</div>
+          <div class="part-body prose">In the common model, public members are available to callers, private members only inside the declaring class, and protected members inside the class and its subclasses. Exact visibility rules, especially package access, depend on the language.</div>
         </section>
             <section class="answer-part comparison">
           <div class="part-label">COMPARISON</div>
@@ -9365,7 +9365,7 @@ Failure isolation | Stronger | Weaker</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">Virtual memory gives each process its own address space and maps its virtual pages to physical memory or storage.</div>
+          <div class="part-body prose">Virtual memory gives each process an isolated address space. Page tables map resident virtual pages to physical frames, while nonresident contents may be loaded from an executable, mapped file, or swap-backed storage when accessed.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -9554,7 +9554,7 @@ Failure isolation | Stronger | Weaker</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">Demand paging loads a page into RAM only when the process first accesses it, reducing initial memory use and startup work.</div>
+          <div class="part-body prose">Demand paging loads a nonresident page only when it is accessed. That access causes a page fault, after which the operating system loads the page into a frame; this can happen on first use or after eviction.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -9779,7 +9779,7 @@ Failure isolation | Stronger | Weaker</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">The browser reads the URL, checks caches, finds the server through DNS, opens a secure connection, sends an HTTP request, receives resources, and renders the page.</div>
+          <div class="part-body prose">The browser parses the URL, checks relevant caches and policies, resolves the host through DNS, opens a transport connection, performs TLS only for HTTPS, sends the HTTP request, processes the response and subresources, and builds and renders the page.</div>
         </section>
           </div>
           <footer class="question-footer">
@@ -9929,7 +9929,7 @@ Example | HTTPS | Real-time media/DNS</pre>
           <div class="answer-content">
             <section class="answer-part answer">
           <div class="part-label">INTERVIEW ANSWER</div>
-          <div class="part-body prose">The TCP three-way handshake is SYN from the client, SYN-ACK from the server, and ACK from the client.</div>
+          <div class="part-body prose">The TCP three-way handshake is SYN from the client, SYN-ACK from the server, and ACK from the client. It confirms both directions are reachable and synchronizes the initial sequence numbers before application data is exchanged.</div>
         </section>
           </div>
           <footer class="question-footer">
