@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>NLP and GenAI Engineer Learning Route</title>
   <meta name="description" content="A focused Hindi and Hinglish learning route from zero AI knowledge to fresher-ready NLP and GenAI application engineering.">
   <script>
@@ -11,7 +12,9 @@
       try {
         var saved = localStorage.getItem("ai-engineer-roadmap-theme");
         var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.dataset.theme = saved || (dark ? "dark" : "light");
+        document.documentElement.dataset.theme = saved === "dark" || saved === "light"
+          ? saved
+          : (dark ? "dark" : "light");
       } catch (error) {
         document.documentElement.dataset.theme = "light";
       }
@@ -575,6 +578,8 @@
       color: #ffffff;
     }
 
+    :root[data-theme="dark"] .control-button.primary { color: #111827; }
+
     .control-button.primary:hover {
       background: color-mix(in srgb, var(--blue) 86%, #000000);
     }
@@ -676,6 +681,9 @@
     .phase-step.current {
       background: var(--blue-soft);
     }
+
+    .phase-step.current .phase-copy span,
+    .phase-step.current .phase-count { color: var(--text); }
 
     .phase-step.complete {
       background: color-mix(in srgb, var(--green-soft) 48%, var(--surface));
@@ -1187,7 +1195,7 @@
           </label>
           <button id="theme-button" class="control-button theme-button" type="button">Theme</button>
         </div>
-        <div class="toolbar-options" aria-label="Roadmap controls">
+        <div class="toolbar-options" role="group" aria-label="Roadmap controls">
           <label class="role-control">
             <span class="sr-only">Filter roadmap by target position</span>
             <select id="role-filter" class="role-select" aria-label="Filter roadmap by target position">
@@ -1197,7 +1205,7 @@
               <option value="mlops-engineer">MLOps</option>
             </select>
           </label>
-          <div class="filter-control" aria-label="Roadmap depth">
+          <div class="filter-control" role="group" aria-label="Roadmap depth">
             <button class="filter-button" type="button" data-filter="core" aria-pressed="false">Fast track</button>
             <button class="filter-button" type="button" data-filter="interview" aria-pressed="true">Full coverage</button>
           </div>
@@ -1241,7 +1249,7 @@
           <div id="phase-track" class="phase-track"></div>
         </section>
 
-        <div class="module-display-bar" aria-label="Module display controls">
+        <div class="module-display-bar" role="group" aria-label="Module display controls">
           <span class="module-display-label">Module sections</span>
           <div class="module-display-actions">
             <button id="collapse-all" class="module-display-button" type="button">Collapse all</button>
@@ -1593,6 +1601,9 @@
 
     const STORAGE_KEY = "ai-engineer-roadmap-state-v3";
     const STATE_VERSION = 4;
+    const preferredScrollBehavior = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "auto"
+      : "smooth";
     const migratedResourceIds = new Map([
       ["bounded-tools--_UuUigoM9MA", "agent-tools--_UuUigoM9MA"]
     ]);
@@ -1746,7 +1757,7 @@
     function isSearchMatch(module, resource) {
       const query = state.search.trim().toLowerCase();
       if (!query) return true;
-      const haystack = [module.title, resource.parentTitle, resource.title, resource.source, resource.type, resource.note]
+      const haystack = [module.title, ...topicsFor(module), resource.parentTitle, resource.title, resource.source, resource.type, resource.note]
         .join(" ")
         .toLowerCase();
       return haystack.includes(query);
@@ -1910,7 +1921,7 @@
       if (activePhase && typeof phaseTrack.scrollTo === "function") {
         window.requestAnimationFrame(() => {
           const left = activePhase.offsetLeft - (phaseTrack.clientWidth - activePhase.offsetWidth) / 2;
-          phaseTrack.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+          phaseTrack.scrollTo({ left: Math.max(0, left), behavior: preferredScrollBehavior() });
         });
       }
     }
@@ -2041,7 +2052,7 @@
       revealModule(moduleId);
       window.requestAnimationFrame(() => {
         const target = document.getElementById(`module-${moduleId}`);
-        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (target) target.scrollIntoView({ behavior: preferredScrollBehavior(), block: "start" });
       });
     }
 
@@ -2052,7 +2063,7 @@
       window.requestAnimationFrame(() => {
         const card = document.querySelector(`[data-resource-id="${CSS.escape(nextTask.resource.id)}"]`);
         if (card) {
-          card.scrollIntoView({ behavior: "smooth", block: "center" });
+          card.scrollIntoView({ behavior: preferredScrollBehavior(), block: "center" });
           const link = card.querySelector(".open-link");
           if (link) window.setTimeout(() => link.focus({ preventScroll: true }), 350);
         }
@@ -2076,7 +2087,7 @@
         const activeMobile = mobileModuleNav.querySelector(`[data-module-target="${CSS.escape(id)}"]`);
         if (activeMobile && typeof mobileModuleNav.scrollTo === "function") {
           const left = activeMobile.offsetLeft - (mobileModuleNav.clientWidth - activeMobile.offsetWidth) / 2;
-          mobileModuleNav.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+          mobileModuleNav.scrollTo({ left: Math.max(0, left), behavior: preferredScrollBehavior() });
         }
       }, { rootMargin: "-18% 0px -65% 0px", threshold: [0.01, 0.2, 0.5] });
       sections.forEach((section) => sectionObserver.observe(section));

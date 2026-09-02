@@ -1,6 +1,6 @@
 # Skills Revision Reader
 
-A static, navigable revision interface for 408 questions represented in relevant GeeksforGeeks interview-question collections, organized into 17 resume-technology categories. It includes all 50 numbered questions from the linked GFG GenAI collection and all 61 numbered headings currently present in the GFG DevOps collection, with original concise answers and examples. The DevOps source itself skips number 28, so the reader preserves that source numbering instead of inventing a question.
+A static, navigable revision interface for 408 questions represented in relevant GeeksforGeeks interview-question collections, organized into 17 resume-technology categories. It includes all 50 numbered questions from the linked GFG GenAI collection and all 61 numbered headings currently present in the GFG DevOps collection, with original concise answers. The DevOps source itself skips number 28, so the reader preserves that source numbering instead of inventing a question.
 
 The deployment also includes `roadmap.html`, a focused NLP and GenAI engineering route for a fresher who already knows DSA/OOP and software development but is starting Python and AI from zero. It uses the verified 19-hour Data Dissection machine-learning course, Data Dissection's complete 13-video NLP playlist, CampusX only for identified NLP implementation and interview-depth gaps, and focused production lessons for LLM application engineering. The roadmap contains 121 independently trackable steps: 118 videos plus three implementation checkpoints.
 
@@ -12,7 +12,7 @@ The first visit defaults to `NLP / GenAI Engineer` and `Fast track` instead of e
 
 `live-coding.html` adds a searchable, role-filtered set of 20 broad practical patterns derived from candidate-reported live coding, machine coding, and timed interview tasks in frontend, backend, databases, DevOps, and CS fundamentals. It opens with the 15 recurring patterns; five plausible but role-specific exercises stay behind the `All verified` filter instead of inflating the default study path. `Learn` mode explains only the concepts required for each implementation with inline examples, while `Quick` mode keeps a compact recall checklist and working reference. The page also includes a reusable six-step interview execution method. Interview-experience and GeeksforGeeks sources remain recorded in `live-coding-data.js`; take-home assignments, broad theory dumps, speculative tasks, and DSA problems are excluded.
 
-The reader defaults to 356 high-frequency questions and can switch to the complete question bank. It runs entirely in the browser. Reviewed progress, theme, mode, frequency, position, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
+The reader defaults to a curated 356-question priority set and can switch to the complete question bank. The priority set is a revision scope carried forward from the source-bank markers, not a measured interview-occurrence statistic. The reader runs entirely in the browser. Reviewed progress, theme, mode, question scope, position, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
 
 Resume-aligned role filters group the same verified questions for SDE I, frontend/React, backend/Node.js, full-stack JavaScript, MERN, and DevOps positions. Selecting a role does not duplicate or invent questions.
 
@@ -42,4 +42,4 @@ Resume-aligned role filters group the same verified questions for SDE I, fronten
 
 Questions from the role-based collections are included only when they match the resume technologies. Questions about unrelated stacks such as Angular, Vue, Django, PHP, Spring, and Redux are excluded.
 
-Question wording is normalized for quick revision, while answers and examples are concise original explanations of the GFG-listed concepts.
+Question wording is normalized for quick revision, while answers are concise original explanations of the GFG-listed concepts.
