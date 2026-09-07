@@ -1088,7 +1088,7 @@
         <div class="brand-mark" aria-hidden="true">SR</div>
         <div>
           <h1>Skills Revision</h1>
-          <p>408 total / 356 priority</p>
+          <p id="question-bank-count">419 total / 367 priority</p>
         </div>
       </header>
       <nav class="product-switcher" aria-label="Revision workspace">
@@ -1097,7 +1097,7 @@
         <a class="product-link" href="roadmap.html">AI route</a>
       </nav>
       <div class="sidebar-progress">
-        <div class="progress-copy"><span>Reviewed</span><span id="overall-progress">0/408</span></div>
+        <div class="progress-copy"><span>Reviewed</span><span id="overall-progress">0/419</span></div>
         <span class="progress-track" aria-hidden="true"><span id="overall-progress-bar"></span></span>
       </div>
       <nav class="section-nav" aria-label="Skill categories">
@@ -1106,7 +1106,7 @@
           <span class="section-nav-code">ALL</span>
           <span class="section-nav-copy">
             <span class="section-nav-title">All questions</span>
-            <span class="section-nav-meta"><span id="all-progress">0/408</span><span>17 sections</span></span>
+            <span class="section-nav-meta"><span id="all-progress">0/419</span><span>17 sections</span></span>
             <span class="section-progress-track" aria-hidden="true"><span id="all-progress-bar"></span></span>
           </span>
         </button>
@@ -1293,7 +1293,7 @@
           </label>
           <div class="jump-control">
             <label class="sr-only" for="jump-input">Question number</label>
-            <input id="jump-input" class="jump-input" type="number" min="1" max="408" inputmode="numeric" placeholder="Q no.">
+            <input id="jump-input" class="jump-input" type="number" min="1" max="419" inputmode="numeric" placeholder="Q no.">
             <button id="jump-button" class="jump-button" type="button">Go</button>
           </div>
         </div>
@@ -9708,6 +9708,7 @@ Example | HTTPS | Real-time media/DNS</pre>
 
   <script src="genai-questions.js?v=gfg-genai-50-devops-61"></script>
   <script src="devops-questions.js?v=gfg-genai-50-devops-61"></script>
+  <script src="core-interview-questions.js?v=20260907-1"></script>
   <script>
     (() => {
     const genAIQuestions = Array.isArray(window.GFG_GENAI_QUESTIONS)
@@ -9718,7 +9719,11 @@ Example | HTTPS | Real-time media/DNS</pre>
       ? window.GFG_DEVOPS_QUESTIONS
       : [];
 
-    if (genAIQuestions.length !== 50 || devOpsQuestions.length !== 61) {
+    const coreQuestions = Array.isArray(window.CORE_INTERVIEW_QUESTIONS)
+      ? window.CORE_INTERVIEW_QUESTIONS
+      : [];
+
+    if (genAIQuestions.length !== 50 || devOpsQuestions.length !== 61 || coreQuestions.length !== 11) {
       document.getElementById("question-load-error").hidden = false;
       return;
     }
@@ -9737,13 +9742,16 @@ Example | HTTPS | Real-time media/DNS</pre>
       const sourceNumber = Number.isInteger(question.sourceNumber)
         ? question.sourceNumber
         : index + 1;
+      const sourceBadge = options.showSourceNumber === false
+        ? ""
+        : `<span class="source-badge">GFG #${sourceNumber}</span>`;
       return `
         <article class="question-block" id="q-${number}" data-number="${number}" data-section="${sectionId}" data-frequency="high">
           <details>
             <summary>
               <span class="question-number">Q${number}</span>
               <span class="question-copy">
-                <span class="question-title">${escapeHTML(question.question)}</span><span class="frequency-badge">Priority</span><span class="source-badge">GFG #${sourceNumber}</span>
+                <span class="question-title">${escapeHTML(question.question)}</span><span class="frequency-badge">Priority</span>${sourceBadge}
               </span>
               <span class="review-indicator" aria-hidden="true"></span>
             </summary>
@@ -9824,6 +9832,19 @@ Example | HTTPS | Real-time media/DNS</pre>
       numbers: [...devOpsQuestionNumbers],
     });
 
+    for (const question of coreQuestions) {
+      document.querySelector(`[data-section-group='${question.sectionId}']`)
+        .insertAdjacentHTML("beforeend", renderQuestion(question, 0, {
+          startNumber: question.number,
+          sectionId: question.sectionId,
+          showSourceNumber: false,
+        }));
+      const section = sectionData.find((item) => item.id === question.sectionId);
+      section.numbers.push(question.number);
+      section.count += 1;
+      section.highCount += 1;
+    }
+
     const highQuestionNumbers = new Set(
       [...document.querySelectorAll(".question-block[data-frequency='high']")]
         .map((question) => Number(question.dataset.number)),
@@ -9836,6 +9857,9 @@ Example | HTTPS | Real-time media/DNS</pre>
       role.numbers = role.id === "genai-app"
         ? [...new Set([...existingNumbers, ...genAIQuestionNumbers])].sort((a, b) => a - b)
         : existingNumbers;
+      role.numbers.push(...coreQuestions
+        .filter((question) => question.roles.includes(role.id))
+        .map((question) => question.number));
       role.count = role.numbers.length;
       role.highCount = role.numbers.filter((number) => highQuestionNumbers.has(number)).length;
     }
@@ -9856,8 +9880,11 @@ Example | HTTPS | Real-time media/DNS</pre>
     const roleQuestionSets = new Map(
       roleData.map((role) => [role.id, new Set(role.numbers)]),
     );
-    const totalQuestions = 408;
     const questions = [...document.querySelectorAll(".question-block")];
+    const totalQuestions = questions.length;
+    document.getElementById("question-bank-count").textContent =
+      `${totalQuestions} total / ${highQuestionNumbers.size} priority`;
+    document.getElementById("jump-input").max = String(totalQuestions);
     const sectionTitleById = new Map(sectionData.map((section) => [section.id, section.title]));
     for (const question of questions) {
       const number = question.dataset.number;
