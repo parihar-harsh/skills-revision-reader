@@ -9850,6 +9850,13 @@ Example | HTTPS | Real-time media/DNS</pre>
         .map((question) => Number(question.dataset.number)),
     );
 
+    // Curated SDE fundamentals, not an interview-frequency measurement.
+    // Match source IDs because the DevOps source skips number 28.
+    const sdeDeliverySourceNumbers = new Set([5, 13, 14, 15, 20, 29, 45, 47]);
+    const sdeDeliveryNumbers = devOpsQuestions.flatMap((question, index) =>
+      sdeDeliverySourceNumbers.has(question.sourceNumber) ? [348 + index] : [],
+    );
+
     for (const role of roleData) {
       const existingNumbers = role.numbers
         .filter((number) => number < 238 || number > 253)
@@ -9860,6 +9867,7 @@ Example | HTTPS | Real-time media/DNS</pre>
       role.numbers.push(...coreQuestions
         .filter((question) => question.roles.includes(role.id))
         .map((question) => question.number));
+      if (role.id === "sde-1") role.numbers.push(...sdeDeliveryNumbers);
       role.count = role.numbers.length;
       role.highCount = role.numbers.filter((number) => highQuestionNumbers.has(number)).length;
     }
@@ -9934,7 +9942,7 @@ Example | HTTPS | Real-time media/DNS</pre>
     const frequencyKey = "skills-reader-frequency-v1";
     const readerStateKey = "skills-reader-view-state-v1";
     let activeSection = sectionData[0].id;
-    let activeRole = null;
+    let activeRole = "sde-1";
     let activeFrequency = "high";
     let hideReviewed = false;
     let reviewed = new Set();
@@ -10496,6 +10504,7 @@ Example | HTTPS | Real-time media/DNS</pre>
     activeFrequency = readStorage(frequencyKey, "high") === "all" ? "all" : "high";
     const validSectionIds = new Set(["all", ...sectionData.map((section) => section.id)]);
     const validRoleIds = new Set(roleData.map((role) => role.id));
+    if (savedReaderState.activeRole === null) activeRole = null;
     if (validRoleIds.has(savedReaderState.activeRole)) activeRole = savedReaderState.activeRole;
     if (validSectionIds.has(savedReaderState.activeSection)) {
       activeSection = savedReaderState.activeSection;
