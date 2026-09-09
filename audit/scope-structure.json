@@ -1,0 +1,64 @@
+{
+  "captured": "2026-09-09T05:46:03.749Z",
+  "syntax": [
+    "core-interview-questions.js",
+    "devops-questions.js",
+    "genai-questions.js",
+    "live-coding-data.js",
+    "live-coding-guides.js",
+    "question-retirements.js",
+    "audit/browser.mjs",
+    "audit/build-ledger.mjs",
+    "audit/regression.mjs",
+    "audit/scope-inventory.mjs",
+    "audit/scope-regression.mjs",
+    "audit/scope-structure.mjs",
+    "audit/scope-visual.mjs",
+    "audit/structure.mjs",
+    "audit/visual-check.mjs"
+  ],
+  "checks": [
+    "358 active plus 61 archived entries account for exactly the original 419 IDs",
+    "No active duplicate ID/title, empty answer or separate example section",
+    "Every retained title, answer, priority and ID matches the pre-pruning snapshot",
+    "Only Q388 changes section; roles lose retired entries/DevOps and SDE gains Q388",
+    "Every archived record preserves all original fields; reserved runtime IDs match",
+    "All root JS and audit MJS syntax, inline scripts and git diff --check pass"
+  ],
+  "inlineScripts": 2,
+  "active": 358,
+  "retired": 61,
+  "priority": 306,
+  "retainedAnswersChangedByPruning": 0,
+  "roles": {
+    "all": {
+      "total": 358,
+      "priority": 306
+    },
+    "sde-1": {
+      "total": 164,
+      "priority": 143
+    },
+    "frontend-react": {
+      "total": 160,
+      "priority": 130
+    },
+    "backend-node": {
+      "total": 163,
+      "priority": 132
+    },
+    "full-stack-js": {
+      "total": 244,
+      "priority": 198
+    },
+    "mern-stack": {
+      "total": 202,
+      "priority": 161
+    },
+    "genai-app": {
+      "total": 232,
+      "priority": 191
+    }
+  },
+  "gitDiffCheck": "pass"
+}

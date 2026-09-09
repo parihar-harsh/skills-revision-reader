@@ -1,0 +1,43 @@
+{
+  "captured": "2026-09-08T14:56:20.356Z",
+  "checks": [
+    "419 nonempty questions and one primary answer each, both local and live",
+    "Unique IDs and exact titles; sequential 1-419 numeric set",
+    "No example-labelled section; IDs, DOM order, titles, roles, sections and priority preserved",
+    "17 documented answer changes only; live unchanged from baseline",
+    "JavaScript syntax and git diff --check"
+  ],
+  "syntax": [
+    "core-interview-questions.js",
+    "devops-questions.js",
+    "genai-questions.js",
+    "live-coding-data.js",
+    "live-coding-guides.js",
+    "audit/browser.mjs",
+    "audit/build-ledger.mjs",
+    "audit/regression.mjs",
+    "audit/structure.mjs",
+    "audit/visual-check.mjs"
+  ],
+  "inlineScripts": 2,
+  "changedAnswers": [
+    2,
+    6,
+    17,
+    19,
+    57,
+    70,
+    84,
+    100,
+    127,
+    141,
+    154,
+    160,
+    161,
+    168,
+    219,
+    235,
+    241
+  ],
+  "gitDiffCheck": "pass"
+}

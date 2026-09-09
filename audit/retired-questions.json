@@ -1,0 +1,1228 @@
+{
+  "created": "2026-09-08",
+  "before": 419,
+  "after": 358,
+  "reason": "User-authorized reduction to fresher web-SDE scope. These entries exist in GFG specialist interview banks; they are not claimed to be never asked.",
+  "questions": [
+    {
+      "number": 240,
+      "id": "q-240",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What is the Encoder-Decoder Model in AI?",
+      "answer": "An encoder converts the input into contextual representations. A decoder uses those representations and previously generated tokens to produce the output sequence one step at a time.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "240 q240 generative ai, llm and rag what is the encoder-decoder model in ai? an encoder converts the input into contextual representations. a decoder uses those representations and previously generated tokens to produce the output sequence one step at a time.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 241,
+      "id": "q-241",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What are Autoencoders and how do they work?",
+      "answer": "An autoencoder learns to reconstruct its input: an encoder produces a latent representation and a decoder reconstructs the input from it. Training minimizes reconstruction error, often with additional regularization. A bottleneck is one way to learn useful features, but the latent representation need not be lower-dimensional.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "241 q241 generative ai, llm and rag what are autoencoders and how do they work? an autoencoder learns to reconstruct its input: an encoder produces a latent representation and a decoder reconstructs the input from it. training minimizes reconstruction error, often with additional regularization. a bottleneck is one way to learn useful features, but the latent representation need not be lower-dimensional.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 242,
+      "id": "q-242",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What is a Variational Autoencoder (VAE)? How does it differ from a standard autoencoder?",
+      "answer": "A standard autoencoder maps an input to a fixed latent vector. A VAE learns a probability distribution, usually a mean and variance, and samples from it; its loss combines reconstruction quality with regularization of the latent space.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "242 q242 generative ai, llm and rag what is a variational autoencoder (vae)? how does it differ from a standard autoencoder? a standard autoencoder maps an input to a fixed latent vector. a vae learns a probability distribution, usually a mean and variance, and samples from it; its loss combines reconstruction quality with regularization of the latent space.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 243,
+      "id": "q-243",
+      "section": "section-13",
+      "priority": "high",
+      "title": "Explain GANs (Generative Adversarial Networks) and how the generator and discriminator interact.",
+      "answer": "A GAN trains two neural networks against each other. The generator turns random noise into synthetic samples, while the discriminator tries to distinguish real training samples from generated ones; feedback from the discriminator improves the generator.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "243 q243 generative ai, llm and rag explain gans (generative adversarial networks) and how the generator and discriminator interact. a gan trains two neural networks against each other. the generator turns random noise into synthetic samples, while the discriminator tries to distinguish real training samples from generated ones; feedback from the discriminator improves the generator.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 244,
+      "id": "q-244",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What are Diffusion Models and how do they generate data?",
+      "answer": "A diffusion model learns to reverse a gradual noising process. At generation time it starts from random noise and repeatedly predicts and removes noise until a structured sample appears.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "244 q244 generative ai, llm and rag what are diffusion models and how do they generate data? a diffusion model learns to reverse a gradual noising process. at generation time it starts from random noise and repeatedly predicts and removes noise until a structured sample appears.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 245,
+      "id": "q-245",
+      "section": "section-13",
+      "priority": "high",
+      "title": "Compare GANs and Diffusion Models",
+      "answer": "GANs use adversarial training and usually generate a sample in one forward pass, so inference can be fast but training may be unstable or suffer mode collapse. Diffusion models train more steadily and often produce diverse, high-quality samples, but generation needs many denoising steps and is slower.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "245 q245 generative ai, llm and rag compare gans and diffusion models gans use adversarial training and usually generate a sample in one forward pass, so inference can be fast but training may be unstable or suffer mode collapse. diffusion models train more steadily and often produce diverse, high-quality samples, but generation needs many denoising steps and is slower.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 247,
+      "id": "q-247",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What is Self-Attention and how does it differ from Cross-Attention?",
+      "answer": "Self-attention creates queries, keys, and values from the same sequence, so tokens exchange information with one another. Cross-attention takes queries from one sequence and keys and values from another, connecting two sources.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "247 q247 generative ai, llm and rag what is self-attention and how does it differ from cross-attention? self-attention creates queries, keys, and values from the same sequence, so tokens exchange information with one another. cross-attention takes queries from one sequence and keys and values from another, connecting two sources.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 248,
+      "id": "q-248",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What is the role of Positional Encoding in Transformers?",
+      "answer": "Attention alone does not know token order. Positional encodings add position information to token representations so the model can learn sequence order and relative distance.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "248 q248 generative ai, llm and rag what is the role of positional encoding in transformers? attention alone does not know token order. positional encodings add position information to token representations so the model can learn sequence order and relative distance.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 254,
+      "id": "q-254",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What is the difference between Fine-tuning and Transfer Learning?",
+      "answer": "Transfer learning means reusing knowledge from a model trained on one broad task or dataset for another task. Fine-tuning is one transfer-learning method that continues training some or all pretrained weights on task-specific data.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "254 q254 generative ai, llm and rag what is the difference between fine-tuning and transfer learning? transfer learning means reusing knowledge from a model trained on one broad task or dataset for another task. fine-tuning is one transfer-learning method that continues training some or all pretrained weights on task-specific data.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 255,
+      "id": "q-255",
+      "section": "section-13",
+      "priority": "high",
+      "title": "Explain LoRA (Low-Rank Adaptation) and how it helps in fine-tuning.",
+      "answer": "LoRA, or Low-Rank Adaptation, freezes the original model and trains small low-rank matrices added to selected layers. It greatly reduces trainable parameters, memory use, and the size of task-specific checkpoints.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "255 q255 generative ai, llm and rag explain lora (low-rank adaptation) and how it helps in fine-tuning. lora, or low-rank adaptation, freezes the original model and trains small low-rank matrices added to selected layers. it greatly reduces trainable parameters, memory use, and the size of task-specific checkpoints.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 256,
+      "id": "q-256",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What is QLoRA and how is it different from LoRA?",
+      "answer": "QLoRA combines LoRA adapters with a quantized, usually 4-bit, frozen base model. LoRA reduces trainable parameters; QLoRA additionally reduces the memory used to store the base model during fine-tuning.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "256 q256 generative ai, llm and rag what is qlora and how is it different from lora? qlora combines lora adapters with a quantized, usually 4-bit, frozen base model. lora reduces trainable parameters; qlora additionally reduces the memory used to store the base model during fine-tuning.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 257,
+      "id": "q-257",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What is PEFT (Parameter-Efficient Fine-Tuning)?",
+      "answer": "PEFT is a family of methods that adapt a pretrained model while training only a small number of new or selected parameters. LoRA, adapters, and prompt or prefix tuning are common PEFT approaches.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "257 q257 generative ai, llm and rag what is peft (parameter-efficient fine-tuning)? peft is a family of methods that adapt a pretrained model while training only a small number of new or selected parameters. lora, adapters, and prompt or prefix tuning are common peft approaches.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 258,
+      "id": "q-258",
+      "section": "section-13",
+      "priority": "high",
+      "title": "Explain RLHF (Reinforcement Learning from Human Feedback).",
+      "answer": "RLHF aligns a model with human preferences. A common pipeline starts with supervised instruction tuning, collects human comparisons between outputs, learns a reward signal, and optimizes the model toward preferred behavior.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "258 q258 generative ai, llm and rag explain rlhf (reinforcement learning from human feedback). rlhf aligns a model with human preferences. a common pipeline starts with supervised instruction tuning, collects human comparisons between outputs, learns a reward signal, and optimizes the model toward preferred behavior.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 259,
+      "id": "q-259",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What is LLM Distillation and why is it used?",
+      "answer": "Distillation trains a smaller student model to imitate outputs, probabilities, or intermediate behavior from a larger teacher model. It is used to reduce latency, memory, serving cost, and hardware requirements while keeping much of the teacher's capability.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "259 q259 generative ai, llm and rag what is llm distillation and why is it used? distillation trains a smaller student model to imitate outputs, probabilities, or intermediate behavior from a larger teacher model. it is used to reduce latency, memory, serving cost, and hardware requirements while keeping much of the teacher's capability.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 260,
+      "id": "q-260",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What is Constitutional AI and how does it differ from RLHF?",
+      "answer": "Constitutional AI guides behavior using an explicit set of written principles and model-generated critiques or revisions. RLHF mainly learns from human preference labels; Constitutional AI reduces some labeling work by applying the stated rules during feedback and alignment.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "260 q260 generative ai, llm and rag what is constitutional ai and how does it differ from rlhf? constitutional ai guides behavior using an explicit set of written principles and model-generated critiques or revisions. rlhf mainly learns from human preference labels; constitutional ai reduces some labeling work by applying the stated rules during feedback and alignment.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 268,
+      "id": "q-268",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What are Multimodal Agents and give examples of their applications.",
+      "answer": "A multimodal agent combines inputs such as text, images, audio, video, or sensor data and can call tools based on the result. Typical applications include visual quality inspection, document understanding, screen-aware assistants, and voice agents that listen, reason, and take an authorized action.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "268 q268 generative ai, llm and rag what are multimodal agents and give examples of their applications. a multimodal agent combines inputs such as text, images, audio, video, or sensor data and can call tools based on the result. typical applications include visual quality inspection, document understanding, screen-aware assistants, and voice agents that listen, reason, and take an authorized action.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 281,
+      "id": "q-281",
+      "section": "section-13",
+      "priority": "high",
+      "title": "Explain BLEU (Bilingual Evaluation Understudy) and where it is used.",
+      "answer": "BLEU, or Bilingual Evaluation Understudy, measures modified n-gram precision between generated text and one or more references and applies a brevity penalty. It is mainly used for machine translation and is weak at judging factuality or equally valid paraphrases.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "281 q281 generative ai, llm and rag explain bleu (bilingual evaluation understudy) and where it is used. bleu, or bilingual evaluation understudy, measures modified n-gram precision between generated text and one or more references and applies a brevity penalty. it is mainly used for machine translation and is weak at judging factuality or equally valid paraphrases.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 282,
+      "id": "q-282",
+      "section": "section-13",
+      "priority": "high",
+      "title": "Explain FID (Fréchet Inception Distance) and how it measures generative quality. Also compare it with BLEU.",
+      "answer": "FID, or Frechet Inception Distance, compares the mean and covariance of feature representations from real and generated image sets; lower is better. BLEU measures text n-gram overlap and higher is better, so they evaluate different modalities and neither fully captures human quality.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "282 q282 generative ai, llm and rag explain fid (fréchet inception distance) and how it measures generative quality. also compare it with bleu. fid, or frechet inception distance, compares the mean and covariance of feature representations from real and generated image sets; lower is better. bleu measures text n-gram overlap and higher is better, so they evaluate different modalities and neither fully captures human quality.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 283,
+      "id": "q-283",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What are the different types of LLMs?",
+      "answer": "By transformer architecture, common types are encoder-only models for understanding, decoder-only models for autoregressive generation, and encoder-decoder models for sequence-to-sequence tasks. Models may also be general-purpose, domain-specific, instruction-tuned, code-focused, or multimodal.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "283 q283 generative ai, llm and rag what are the different types of llms? by transformer architecture, common types are encoder-only models for understanding, decoder-only models for autoregressive generation, and encoder-decoder models for sequence-to-sequence tasks. models may also be general-purpose, domain-specific, instruction-tuned, code-focused, or multimodal.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 287,
+      "id": "q-287",
+      "section": "section-13",
+      "priority": "high",
+      "title": "What are multimodal LLMs and how do they process text, image and audio simultaneously?",
+      "answer": "Multimodal models use modality-specific encoders or tokenizers, project their representations into a compatible space, and use attention to connect information across modalities. A decoder or task head then produces text, audio, images, or another requested output.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "287 q287 generative ai, llm and rag what are multimodal llms and how do they process text, image and audio simultaneously? multimodal models use modality-specific encoders or tokenizers, project their representations into a compatible space, and use attention to connect information across modalities. a decoder or task head then produces text, audio, images, or another requested output.",
+      "roles": [
+        "genai-app"
+      ],
+      "reason": "Specialist AI model architecture/training or modality-specific evaluation, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/artificial-intelligence/generative-ai-interview-question-with-answer/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 349,
+      "id": "q-349",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is a DevOps Engineer?",
+      "answer": "A DevOps engineer improves the path from source code to reliable production operation. The work commonly includes CI/CD, cloud infrastructure, automation, containers, monitoring, security controls, and incident support.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "349 q349 devops what is a devops engineer? a devops engineer improves the path from source code to reliable production operation. the work commonly includes ci/cd, cloud infrastructure, automation, containers, monitoring, security controls, and incident support.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 350,
+      "id": "q-350",
+      "section": "section-17",
+      "priority": "high",
+      "title": "Which programming and scripting languages are important for a DevOps engineer?",
+      "answer": "Bash and Python are common for automation, while PowerShell is useful in Windows environments. Go, Java, Ruby, or Groovy may matter depending on the platform and tools, but understanding operating systems and APIs is more important than collecting languages.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "350 q350 devops which programming and scripting languages are important for a devops engineer? bash and python are common for automation, while powershell is useful in windows environments. go, java, ruby, or groovy may matter depending on the platform and tools, but understanding operating systems and apis is more important than collecting languages.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 354,
+      "id": "q-354",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is the Blue/Green Deployment Pattern?",
+      "answer": "Blue/Green deployment maintains two equivalent environments. One serves production while the new version is validated in the other; traffic switches only after checks pass, and rollback switches traffic back.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "354 q354 devops what is the blue/green deployment pattern? blue/green deployment maintains two equivalent environments. one serves production while the new version is validated in the other; traffic switches only after checks pass, and rollback switches traffic back.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 355,
+      "id": "q-355",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What's the difference between DevOps & Agile?",
+      "answer": "Agile organizes iterative product development and feedback. DevOps extends fast feedback across development, release, infrastructure, and production operations; the approaches complement each other.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "355 q355 devops what's the difference between devops & agile? agile organizes iterative product development and feedback. devops extends fast feedback across development, release, infrastructure, and production operations; the approaches complement each other.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 356,
+      "id": "q-356",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is the continuous testing process?",
+      "answer": "Continuous testing runs automated checks throughout the delivery pipeline instead of waiting for one late testing phase. Tests are layered by speed and risk, and a failure stops promotion.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "356 q356 devops what is the continuous testing process? continuous testing runs automated checks throughout the delivery pipeline instead of waiting for one late testing phase. tests are layered by speed and risk, and a failure stops promotion.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 357,
+      "id": "q-357",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is the role of AWS in DevOps?",
+      "answer": "AWS supplies programmable infrastructure and managed services for compute, storage, networking, containers, CI/CD, security, and observability. DevOps teams automate these services through APIs and infrastructure as code.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "357 q357 devops what is the role of aws in devops? aws supplies programmable infrastructure and managed services for compute, storage, networking, containers, ci/cd, security, and observability. devops teams automate these services through apis and infrastructure as code.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 358,
+      "id": "q-358",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What do you mean by Configuration Management?",
+      "answer": "Configuration management defines and enforces the desired state of servers, applications, and settings in a repeatable way. It reduces configuration drift and makes changes reviewable and reproducible.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "358 q358 devops what do you mean by configuration management? configuration management defines and enforces the desired state of servers, applications, and settings in a repeatable way. it reduces configuration drift and makes changes reviewable and reproducible.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 363,
+      "id": "q-363",
+      "section": "section-17",
+      "priority": "high",
+      "title": "Name three important DevOps KPIs",
+      "answer": "Three current DORA delivery metrics are deployment frequency, change lead time, and change fail rate. DORA also tracks failed deployment recovery time and deployment rework rate, grouping the five measures into software-delivery throughput and instability.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "363 q363 devops name three important devops kpis three current dora delivery metrics are deployment frequency, change lead time, and change fail rate. dora also tracks failed deployment recovery time and deployment rework rate, grouping the five measures into software-delivery throughput and instability.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 364,
+      "id": "q-364",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What Is Jenkins?",
+      "answer": "Jenkins is an open-source automation server commonly used to implement build, test, and deployment pipelines. Its Pipeline as Code model stores workflow logic in a Jenkinsfile.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "364 q364 devops what is jenkins? jenkins is an open-source automation server commonly used to implement build, test, and deployment pipelines. its pipeline as code model stores workflow logic in a jenkinsfile.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 368,
+      "id": "q-368",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What are the components of Selenium?",
+      "answer": "The main Selenium components are WebDriver for browser automation, Grid for distributed and parallel execution, and IDE for recording and replaying simple browser flows.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "368 q368 devops what are the components of selenium? the main selenium components are webdriver for browser automation, grid for distributed and parallel execution, and ide for recording and replaying simple browser flows.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 369,
+      "id": "q-369",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is a Puppet in DevOps?",
+      "answer": "Puppet is a configuration-management tool that declares the desired state of infrastructure and enforces it repeatedly. It commonly uses a server-agent architecture, though agentless options also exist.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "369 q369 devops what is a puppet in devops? puppet is a configuration-management tool that declares the desired state of infrastructure and enforces it repeatedly. it commonly uses a server-agent architecture, though agentless options also exist.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 370,
+      "id": "q-370",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is Ansible?",
+      "answer": "Ansible is an automation and configuration-management tool that commonly connects over SSH and describes tasks in YAML playbooks. It is agentless for typical Linux management.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "370 q370 devops what is ansible? ansible is an automation and configuration-management tool that commonly connects over ssh and describes tasks in yaml playbooks. it is agentless for typical linux management.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 372,
+      "id": "q-372",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is the importance of continuous feedback in DevOps?",
+      "answer": "Continuous feedback uses test results, deployment signals, user behavior, incidents, and operational metrics to improve both the product and delivery process. Fast feedback reduces the cost of detecting and correcting mistakes.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "372 q372 devops what is the importance of continuous feedback in devops? continuous feedback uses test results, deployment signals, user behavior, incidents, and operational metrics to improve both the product and delivery process. fast feedback reduces the cost of detecting and correcting mistakes.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 373,
+      "id": "q-373",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is Git Bash?",
+      "answer": "Git Bash provides Git commands and a Bash-like shell environment on Windows. It lets Windows users run many familiar Unix-style commands and shell scripts.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "373 q373 devops what is git bash? git bash provides git commands and a bash-like shell environment on windows. it lets windows users run many familiar unix-style commands and shell scripts.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 376,
+      "id": "q-376",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is Git prune?",
+      "answer": "git prune removes unreachable Git objects that are no longer referenced and have passed the expiry rules. It is normally invoked through git gc rather than run directly during everyday work.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "376 q376 devops what is git prune? git prune removes unreachable git objects that are no longer referenced and have passed the expiry rules. it is normally invoked through git gc rather than run directly during everyday work.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 377,
+      "id": "q-377",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What's the difference between HTTP and HTTPS?",
+      "answer": "HTTPS is HTTP carried over TLS. It encrypts traffic, verifies server identity through certificates, and protects message integrity; plain HTTP provides none of those protections.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "377 q377 devops what's the difference between http and https? https is http carried over tls. it encrypts traffic, verifies server identity through certificates, and protects message integrity; plain http provides none of those protections.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Duplicate HTTP/HTTPS topic retained as Q338 in Computer Networks.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 380,
+      "id": "q-380",
+      "section": "section-17",
+      "priority": "high",
+      "title": "Explain the different phases in DevOps methodology.",
+      "answer": "A common DevOps lifecycle includes planning, coding, building, testing, releasing, deploying, operating, monitoring, and feeding results back into planning. Automation and collaboration connect the phases into a loop.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "380 q380 devops explain the different phases in devops methodology. a common devops lifecycle includes planning, coding, building, testing, releasing, deploying, operating, monitoring, and feeding results back into planning. automation and collaboration connect the phases into a loop.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 381,
+      "id": "q-381",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What are antipatterns in devops and how to avoid them?",
+      "answer": "DevOps antipatterns include isolated DevOps teams, manual production changes, tool adoption without process change, shared administrator access, weak testing, and ignored feedback. Avoid them with shared ownership, automation, version control, least privilege, measurable outcomes, and blameless learning.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "381 q381 devops what are antipatterns in devops and how to avoid them? devops antipatterns include isolated devops teams, manual production changes, tool adoption without process change, shared administrator access, weak testing, and ignored feedback. avoid them with shared ownership, automation, version control, least privilege, measurable outcomes, and blameless learning.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 382,
+      "id": "q-382",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is Component-Based Model (CBM) in DevOps?",
+      "answer": "A component-based model builds a system from independently developed and reusable components with clear interfaces. In delivery, components can be built, tested, versioned, and deployed through repeatable pipelines.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "382 q382 devops what is component-based model (cbm) in devops? a component-based model builds a system from independently developed and reusable components with clear interfaces. in delivery, components can be built, tested, versioned, and deployed through repeatable pipelines.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 383,
+      "id": "q-383",
+      "section": "section-17",
+      "priority": "high",
+      "title": "How to Make a CI-CD Pipeline in Jenkins?",
+      "answer": "Connect Jenkins to source control, store stages in a Jenkinsfile, configure credentials securely, and define build, test, scan, package, deploy, and verification steps. Add approvals, artifact promotion, notifications, and rollback based on release risk.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "383 q383 devops how to make a ci-cd pipeline in jenkins? connect jenkins to source control, store stages in a jenkinsfile, configure credentials securely, and define build, test, scan, package, deploy, and verification steps. add approvals, artifact promotion, notifications, and rollback based on release risk.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 384,
+      "id": "q-384",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What's the difference between Chef and Puppet?",
+      "answer": "Both automate configuration management by converging resources toward a desired state. Chef recipes use a Ruby-based DSL and can express ordered control logic, while Puppet manifests use a declarative DSL compiled into catalogs; their server models, ecosystems, and workflows also differ.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "384 q384 devops what's the difference between chef and puppet? both automate configuration management by converging resources toward a desired state. chef recipes use a ruby-based dsl and can express ordered control logic, while puppet manifests use a declarative dsl compiled into catalogs; their server models, ecosystems, and workflows also differ.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 385,
+      "id": "q-385",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is Git Rebase?",
+      "answer": "Git rebase reapplies commits onto a new base, producing a linear-looking history with new commit identities. Avoid rebasing shared published history unless the team coordinates the rewrite.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "385 q385 devops what is git rebase? git rebase reapplies commits onto a new base, producing a linear-looking history with new commit identities. avoid rebasing shared published history unless the team coordinates the rewrite.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Rebase is retained in the merge-versus-rebase comparison Q393.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 386,
+      "id": "q-386",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is Selenium Tool Suite?",
+      "answer": "The Selenium suite is a collection of browser-automation tools, mainly WebDriver, Grid, and IDE. Together they support scripted, recorded, local, remote, and parallel web testing.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "386 q386 devops what is selenium tool suite? the selenium suite is a collection of browser-automation tools, mainly webdriver, grid, and ide. together they support scripted, recorded, local, remote, and parallel web testing.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 387,
+      "id": "q-387",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is Selenium IDE?",
+      "answer": "Selenium IDE is a browser extension for recording, editing, and replaying browser interactions. It is useful for prototypes and simple tests but is less maintainable than a structured WebDriver test suite for complex systems.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "387 q387 devops what is selenium ide? selenium ide is a browser extension for recording, editing, and replaying browser interactions. it is useful for prototypes and simple tests but is less maintainable than a structured webdriver test suite for complex systems.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 389,
+      "id": "q-389",
+      "section": "section-17",
+      "priority": "high",
+      "title": "How do you create a backup and copy files in Jenkins?",
+      "answer": "For controller recovery, I back up the required JENKINS_HOME configuration, jobs, secrets, plugin versions, and retained build records with a consistent snapshot, then test restoration and keep pipeline definitions in source control. For build files, I use stash and unstash within one Pipeline run, archiveArtifacts for retained outputs, or copyArtifacts for artifacts from another build or job.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "389 q389 devops how do you create a backup and copy files in jenkins? for controller recovery, i back up the required jenkins_home configuration, jobs, secrets, plugin versions, and retained build records with a consistent snapshot, then test restoration and keep pipeline definitions in source control. for build files, i use stash and unstash within one pipeline run, archiveartifacts for retained outputs, or copyartifacts for artifacts from another build or job.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 390,
+      "id": "q-390",
+      "section": "section-17",
+      "priority": "high",
+      "title": "Explain how you can set up a Jenkins job?",
+      "answer": "I create a pipeline job, connect the repository and credentials, configure a webhook or schedule, point the job to a Jenkinsfile, assign suitable agents, and set permissions, parameters, artifacts, and notifications. I inspect the first build before enabling production actions.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "390 q390 devops explain how you can set up a jenkins job? i create a pipeline job, connect the repository and credentials, configure a webhook or schedule, point the job to a jenkinsfile, assign suitable agents, and set permissions, parameters, artifacts, and notifications. i inspect the first build before enabling production actions.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 392,
+      "id": "q-392",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What is the DevOps life cycle?",
+      "answer": "The DevOps lifecycle is a continuous loop of planning, development, integration, testing, delivery, deployment, operation, monitoring, and feedback. Each phase supplies information that improves the next change.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "392 q392 devops what is the devops life cycle? the devops lifecycle is a continuous loop of planning, development, integration, testing, delivery, deployment, operation, monitoring, and feedback. each phase supplies information that improves the next change.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 394,
+      "id": "q-394",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What's the difference between DataOps and DevOps?",
+      "answer": "DevOps improves software delivery and operation. DataOps applies similar automation, collaboration, quality, versioning, and observability principles to data pipelines, transformations, schemas, and analytics products.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "394 q394 devops what's the difference between dataops and devops? devops improves software delivery and operation. dataops applies similar automation, collaboration, quality, versioning, and observability principles to data pipelines, transformations, schemas, and analytics products.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 395,
+      "id": "q-395",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What are the 7Cs of DevOps?",
+      "answer": "The 7 Cs are not a universal DevOps standard. A common interview list is Continuous Development, Integration, Testing, Deployment, Monitoring, Feedback, and Operations, but some sources substitute Delivery or separate Delivery and Deployment, so I would clarify the convention being used.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "395 q395 devops what are the 7cs of devops? the 7 cs are not a universal devops standard. a common interview list is continuous development, integration, testing, deployment, monitoring, feedback, and operations, but some sources substitute delivery or separate delivery and deployment, so i would clarify the convention being used.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 396,
+      "id": "q-396",
+      "section": "section-17",
+      "priority": "high",
+      "title": "Explain the “Shift left to reduce failure” concept in DevOps?",
+      "answer": "Shift left moves quality, security, operability, and architecture checks earlier in development. Earlier feedback makes defects cheaper to fix and reduces risky discoveries during deployment.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "396 q396 devops explain the “shift left to reduce failure” concept in devops? shift left moves quality, security, operability, and architecture checks earlier in development. earlier feedback makes defects cheaper to fix and reduces risky discoveries during deployment.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 397,
+      "id": "q-397",
+      "section": "section-17",
+      "priority": "high",
+      "title": "Explain the concept of Infrastructure as Code (IaC) and discuss the benefits and challenges of implementing IaC in a large-scale production environment.",
+      "answer": "IaC represents infrastructure in version-controlled definitions. It improves repeatability, review, auditability, disaster recovery, and environment consistency; large-scale challenges include state management, module governance, secrets, drift, provider changes, testing, and safe rollout.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "397 q397 devops explain the concept of infrastructure as code (iac) and discuss the benefits and challenges of implementing iac in a large-scale production environment. iac represents infrastructure in version-controlled definitions. it improves repeatability, review, auditability, disaster recovery, and environment consistency; large-scale challenges include state management, module governance, secrets, drift, provider changes, testing, and safe rollout.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 398,
+      "id": "q-398",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What strategies can be employed to achieve zero-downtime deployments, and how does the Blue/Green Deployment pattern fit into these strategies?",
+      "answer": "Zero-downtime strategies include rolling updates, Blue/Green, canary releases, readiness checks, connection draining, backward-compatible APIs, and expand-contract database migrations. Blue/Green validates a complete parallel environment before switching traffic and enables fast traffic rollback.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "398 q398 devops what strategies can be employed to achieve zero-downtime deployments, and how does the blue/green deployment pattern fit into these strategies? zero-downtime strategies include rolling updates, blue/green, canary releases, readiness checks, connection draining, backward-compatible apis, and expand-contract database migrations. blue/green validates a complete parallel environment before switching traffic and enables fast traffic rollback.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 399,
+      "id": "q-399",
+      "section": "section-17",
+      "priority": "high",
+      "title": "How do you ensure security and compliance in a CI/CD pipeline, particularly when integrating with multiple cloud providers and third-party services?",
+      "answer": "I secure the pipeline with short-lived workload identities, least privilege, isolated runners, signed artifacts, protected branches, secret managers, security scanning, policy as code, approval gates, audit logs, and controlled third-party access. I apply equivalent controls across providers through a common policy layer.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "399 q399 devops how do you ensure security and compliance in a ci/cd pipeline, particularly when integrating with multiple cloud providers and third-party services? i secure the pipeline with short-lived workload identities, least privilege, isolated runners, signed artifacts, protected branches, secret managers, security scanning, policy as code, approval gates, audit logs, and controlled third-party access. i apply equivalent controls across providers through a common policy layer.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 400,
+      "id": "q-400",
+      "section": "section-17",
+      "priority": "high",
+      "title": "Discuss the importance of monitoring and logging in a DevOps environment. What tools and practices do you recommend for effective observability and incident management?",
+      "answer": "Observability combines metrics, logs, traces, and profiles. I would instrument with OpenTelemetry, visualize and alert with tools such as Prometheus and Grafana, centralize logs and traces, alert on SLO or user impact, and support incidents with correlation IDs, runbooks, clear roles, and blameless reviews.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "400 q400 devops discuss the importance of monitoring and logging in a devops environment. what tools and practices do you recommend for effective observability and incident management? observability combines metrics, logs, traces, and profiles. i would instrument with opentelemetry, visualize and alert with tools such as prometheus and grafana, centralize logs and traces, alert on slo or user impact, and support incidents with correlation ids, runbooks, clear roles, and blameless reviews.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 401,
+      "id": "q-401",
+      "section": "section-17",
+      "priority": "high",
+      "title": "Explain the concept of immutable infrastructure and how it contrasts with traditional infrastructure management. What are the benefits and potential drawbacks of adopting immutable infrastructure in a DevOps workflow?",
+      "answer": "Immutable infrastructure replaces deployed instances or images instead of modifying them in place. It reduces drift and improves reproducibility and rollback, but requires image pipelines, externalized state, deployment capacity, and careful handling of long-running workloads.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "401 q401 devops explain the concept of immutable infrastructure and how it contrasts with traditional infrastructure management. what are the benefits and potential drawbacks of adopting immutable infrastructure in a devops workflow? immutable infrastructure replaces deployed instances or images instead of modifying them in place. it reduces drift and improves reproducibility and rollback, but requires image pipelines, externalized state, deployment capacity, and careful handling of long-running workloads.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 402,
+      "id": "q-402",
+      "section": "section-17",
+      "priority": "high",
+      "title": "Explain the concept of serverless computing and its implications for DevOps practices.",
+      "answer": "Serverless computing lets a provider manage servers and scaling while teams deploy functions or managed application units and pay largely by usage. DevOps work shifts toward event design, permissions, observability, deployment packaging, limits, cold starts, and vendor-managed reliability boundaries.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "402 q402 devops explain the concept of serverless computing and its implications for devops practices. serverless computing lets a provider manage servers and scaling while teams deploy functions or managed application units and pay largely by usage. devops work shifts toward event design, permissions, observability, deployment packaging, limits, cold starts, and vendor-managed reliability boundaries.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 403,
+      "id": "q-403",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What are Blue-Green and Canary Deployments in DevOps?",
+      "answer": "Blue-Green switches traffic between two complete environments. Canary deployment sends a small percentage of traffic to the new version first and increases exposure only when health metrics remain acceptable.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "403 q403 devops what are blue-green and canary deployments in devops? blue-green switches traffic between two complete environments. canary deployment sends a small percentage of traffic to the new version first and increases exposure only when health metrics remain acceptable.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 404,
+      "id": "q-404",
+      "section": "section-17",
+      "priority": "high",
+      "title": "How do you optimize a Docker container for performance?",
+      "answer": "I optimize a Docker container with a minimal trusted base image, multi-stage builds, a strict .dockerignore, cached dependency layers, production-only dependencies, one main process, non-root execution, resource limits, and efficient startup. I measure image size and runtime behavior instead of optimizing blindly.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "404 q404 devops how do you optimize a docker container for performance? i optimize a docker container with a minimal trusted base image, multi-stage builds, a strict .dockerignore, cached dependency layers, production-only dependencies, one main process, non-root execution, resource limits, and efficient startup. i measure image size and runtime behavior instead of optimizing blindly.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 405,
+      "id": "q-405",
+      "section": "section-17",
+      "priority": "high",
+      "title": "How do you handle rollbacks in Kubernetes?",
+      "answer": "I deploy immutable, versioned images through a Deployment and monitor rollout status and health probes. If checks fail, I use rollout undo or redeploy a known-good manifest. I keep database changes backward compatible because Kubernetes cannot automatically reverse external state.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "405 q405 devops how do you handle rollbacks in kubernetes? i deploy immutable, versioned images through a deployment and monitor rollout status and health probes. if checks fail, i use rollout undo or redeploy a known-good manifest. i keep database changes backward compatible because kubernetes cannot automatically reverse external state.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 406,
+      "id": "q-406",
+      "section": "section-17",
+      "priority": "high",
+      "title": "How do you optimize a CI/CD pipeline for faster deployments?",
+      "answer": "I first profile each stage, then cache dependencies safely, parallelize independent checks, use incremental builds, reuse one verified artifact, right-size runners, and avoid repeating unchanged work. I keep fast pull-request checks separate from slower suites without removing critical quality gates.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "406 q406 devops how do you optimize a ci/cd pipeline for faster deployments? i first profile each stage, then cache dependencies safely, parallelize independent checks, use incremental builds, reuse one verified artifact, right-size runners, and avoid repeating unchanged work. i keep fast pull-request checks separate from slower suites without removing critical quality gates.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    },
+    {
+      "number": 407,
+      "id": "q-407",
+      "section": "section-17",
+      "priority": "high",
+      "title": "What are Sidecar Containers in Kubernetes?",
+      "answer": "A sidecar is a helper container that runs in the same Pod as the main application and shares its network and selected volumes. It provides supporting behavior without embedding that behavior in the application process.",
+      "answerParts": 1,
+      "labels": [
+        "INTERVIEW ANSWER"
+      ],
+      "search": "407 q407 devops what are sidecar containers in kubernetes? a sidecar is a helper container that runs in the same pod as the main application and shares its network and selected volumes. it provides supporting behavior without embedding that behavior in the application process.",
+      "roles": [
+        "devops-engineer"
+      ],
+      "reason": "Specialist DevOps/QA operations, tool administration or process trivia, outside this fresher web-SDE revision scope.",
+      "sourcePresent": true,
+      "source": "https://www.geeksforgeeks.org/devops/devops-interview-questions/",
+      "evidenceLimit": "Removal is a role-scope curation decision, not evidence that this is never asked."
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+1|Variable bindings versus runtime value types; suitable introductory definition.
+2|Corrected binding scope and const mutation distinction; removed orphaned outputs.
+3|Declaration instantiation distinguished from execution; TDZ preserved.
+4|Scope entry through initialization correctly describes TDZ.
+5|Coercing versus noncoercing equality distinguished; object identity is a follow-up.
+6|Corrected exhaustive falsy list's browser exception.
+7|Intentional absence versus missing value; legacy typeof behavior retained.
+8|Captures references to lexical environment, not frozen values.
+9|Useful closure applications, not claims that closures are always required.
+10|Definition-site scope distinguished from caller-site scope.
+11|Call-site this versus lexical arrow this distinguished.
+12|Accepting or returning functions correctly defines higher-order functions.
+13|New filtered array correctly described; sparse-array holes are skipped.
+14|Binding extraction from objects and iterables appropriately introduced.
+15|Nested references remain shared after shallow copying.
+16|Deep-copy independence described; supported object types depend on implementation.
+17|Corrected missing this binding and array-like argument distinction.
+18|Import/export describes explicit reusable module boundaries.
+19|Corrected universal engine-strategy claim.
+20|Strict mode and implicit module/class strictness correctly identified.
+21|Host asynchronous work distinguished from single-thread callback execution.
+22|Pending, fulfilled and rejected states correctly distinguished.
+23|Browser and server uses adequately define the language.
+24|Seven primitive types and callable-object distinction correct.
+25|DOM object representation and mutation responsibilities correct.
+26|Shallow own-property freezing versus binding reassignment correct at introductory depth.
+27|Immediate invocation and historic private-scope purpose correct.
+28|Side-effect iteration versus returned mapped array correctly distinguished.
+29|Lexical this, arguments and constructor restrictions correctly covered.
+30|Implicit coercion versus explicit conversion correctly separated.
+31|Promise return, suspended continuation and rejection propagation covered.
+32|Nested asynchronous control flow and error-handling difficulty addressed.
+33|Propagation phases described; nonbubbling events are follow-up material.
+34|Trailing-edge debounce accurately described; leading-edge variants are possible.
+35|Storage lifetimes and automatic cookie transmission distinguished.
+36|Missing binding distinguished from undefined; normal-read qualifier covers typeof exception.
+37|Global lifetime, naming and coupling risks supported by language behavior.
+38|Worker isolation, messaging and lack of direct DOM access correct.
+39|Untrusted markup execution and replacing child handlers correctly identified.
+40|Compile-time checking benefits; runtime validation remains separate.
+41|Explicit annotations versus inferred static types correctly distinguished.
+42|Union permits members of alternative types.
+43|any suppresses checking without supplying runtime safety.
+44|Runtime JS values and TS type-system features explicitly separated.
+45|Enums and literal-union alternative correctly presented.
+46|Aliases support more than object shapes.
+47|Readonly described through the type, not as runtime deep freezing.
+48|Project compilation and checking configuration correctly identified.
+49|JSX parsing distinction between ts and tsx correct.
+50|Declarations describe runtime interfaces without implementing them.
+51|Implicit any diagnostic correctly described; explicit any remains permitted.
+52|Decorator behavior explicitly depends on standard and configuration.
+53|Native semantics improve meaning and accessibility.
+54|Programmatic control naming and label activation covered.
+55|Purpose-based alternatives and empty decorative alt distinguished.
+56|Content, padding, border and margin; border-box inclusion correct.
+57|Corrected scope proximity before final source-order tie-break.
+58|One-axis versus two-axis layout distinction appropriate.
+59|Flexible layouts and conditional styles describe responsiveness.
+60|Layout removal versus retained space and accessibility effects qualified.
+61|State selector examples are valid; structural pseudo-classes covered in Q82.
+62|ARIA supplements native semantics, not replacing behavior.
+63|Tags versus document element distinguished; void elements covered separately.
+64|Historical HTML5 additions summarized without requiring version trivia.
+65|Normal display defaults qualified; CSS can change them.
+66|Unique IDs versus reusable class memberships correct.
+67|Document metadata and browser/search-engine consumers correct.
+68|Generic containers and default display differ; semantic alternative preferred.
+69|Inline, embedded and external stylesheet forms correct.
+70|Corrected fixed containing-block exception and sticky flow behavior.
+71|Selector families correctly summarized.
+72|HTML structure versus behavior correctly defined.
+73|Stylesheet presentation and layout role correct.
+74|Standards-mode doctype distinguished from an element.
+75|List structures and their permitted item elements correct.
+76|Embedding and restrictive sandbox/permission guidance appropriate.
+77|Visual attention versus semantic importance distinguished.
+78|Void-element contents and end-tag prohibition correct.
+79|Constraint-validation attributes valid; server validation retained.
+80|Stacking context scope prevents universal high-z-index claim.
+81|Float wrapping role distinguished from modern application layout.
+82|State/structural selection versus generated or selected parts correct.
+83|Viewport, input and user-preference queries distinguished.
+84|Corrected parent-relative em font-size behavior.
+85|Route CSS, critical styles and caching are conditional optimizations.
+86|Descendant, child and sibling combinator meanings correct.
+87|Overflow values valid; clip versus hidden is a possible follow-up.
+88|Value-change transitions versus keyframed stages correctly distinguished.
+89|Reusable UI library definition appropriate; render does not always change DOM.
+90|Reusable component inputs and output appropriately introduced.
+91|Props treated as immutable inputs.
+92|State retained across renders; updates request another render.
+93|Input ownership versus component-owned state correctly distinguished.
+94|JSX transformation into element-creation JavaScript correctly described.
+95|In-memory UI representation distinguished from actual DOM.
+96|Reconciliation concept correct; identity/state preservation is follow-up depth.
+97|Stable keys support identity across insertion/deletion/reordering.
+98|State value and updater pair correctly described.
+99|Effects after commit synchronize external systems; not server-render effects.
+100|Corrected dependency omission/empty-array behavior and Strict Mode caveat.
+101|Mutable retained ref does not itself trigger rendering.
+102|Action/reducer state transitions appropriately described.
+103|Reducer recommendation is contextual, not a correctness requirement.
+104|Hook naming and reusable stateful logic correct; instances do not share state automatically.
+105|Provider-to-descendant delivery avoids intermediate props.
+106|Pure calculation caching and nonsemantic cache guarantee explicit.
+107|Function identity caching and unchanged dependency condition explicit.
+108|Memo is an optimization, not an absolute no-render guarantee.
+109|React-controlled input value and change handler correctly paired.
+110|DOM-controlled input accessed through ref correctly distinguished.
+111|Descendant rendering errors and boundary limitations distinguished.
+112|Typical dynamic-import code splitting described; depends on bundling setup.
+113|Grouping without an extra DOM node correct.
+114|URL-based routing and client navigation supported.
+115|Path parameter example correctly identified.
+116|Query component syntax correct; optional depends on application contract.
+117|Top-level hook rules and documented use exception retained.
+118|Mount/update/unmount and effect cleanup described.
+119|React event abstraction and delegation broadly correct.
+120|Component-to-component transformation versus hook reuse correct.
+121|Hook-based functions versus class state/lifecycle correct.
+122|Browser executes transformed JS rather than raw JSX.
+123|Built-in features and reusable custom hooks correctly described.
+124|Unneeded intermediary props and contextual alternatives correct.
+125|JavaScript conditional expressions and null rendering correct.
+126|Framework routing, rendering and server features accurately introduced.
+127|Corrected build-time-only static-generation contrast.
+128|Browser-created initial UI versus server HTML distinguished.
+129|Dynamic path segments overlap Q115; framework context retained.
+130|Pages API routes and App Router handlers correctly recognized.
+131|Utility composition and source detection appropriate; overlaps Q132.
+132|Dynamic class-token detection limitation and safelist strategy correct.
+133|Event-loop-thread blocking defined; worker blocking differs.
+134|I/O completion separated from continuing JavaScript work.
+135|Concurrency not equated with simultaneous callback execution.
+136|Scheduling context affects immediate/timer order; no universal ordering claimed.
+137|Runtime outside browser correctly defined.
+138|I/O-bound backend suitability correctly qualified.
+139|Configuration outside code appropriate; environment secrets still require protection.
+140|Manifest metadata, dependencies and scripts correctly identified.
+141|Corrected synchronous EventEmitter callback semantics.
+142|Incremental processing and four stream categories correct.
+143|Binary bytes distinguished from JS strings, not from all JS memory.
+144|libuv phases and microtask checkpoints covered without fixed universal order.
+145|Worker pool examples appropriate; DNS lookup differs from network resolve APIs.
+146|Measurement-oriented I/O and CPU work separation appropriate.
+147|Separate process memory and IPC correct.
+148|Middleware may terminate or forward a request.
+149|Modular mountable router correctly defined.
+150|Normal continuation versus error propagation distinguished.
+151|Four-argument error middleware signature correct.
+152|Middleware mounting versus GET routing distinguished; app.get also has settings overload.
+153|Static file middleware role correct.
+154|Corrected middleware ownership of body and authenticated context.
+155|Listed middleware exists; parsers depend on matching content types.
+156|Express builds routing and middleware on Node HTTP.
+157|Practical HTTP REST introduction; complete architectural constraints in Q166.
+158|HTTP safety/idempotency not confused with response identity.
+159|Replacement versus patch changes correct; patch idempotency conditional.
+160|Corrected 403 authentication implication in comparison table.
+161|Corrected authorization prerequisite for anonymous callers.
+162|Typical stateful session versus signed-token trade-offs correctly qualified.
+163|CORS not represented as authentication or universal server protection.
+164|Bounded request count and common 429 response correct.
+165|Repeated intended effect, not identical response, defines idempotency.
+166|Six REST constraints, including optional code-on-demand, covered.
+167|Versioning guidance conditional on incompatible contracts.
+168|Corrected preference headers versus Content-Type distinction.
+169|Server-side proxy role and optional functions correctly described.
+170|JWT format variants and verification requirements explicitly qualified.
+171|Client interface versus trusted server enforcement distinguished.
+172|Persistent duplex channel contrasted with request/response and streaming.
+173|Layered API controls avoid reliance on one security mechanism.
+174|Valid caching directives named; no-cache/no-store distinction is follow-up depth.
+175|Boundary-delimited form and file parts correctly described.
+176|Static serving, proxying and application execution distinguished.
+177|URI identification and URL access subtype correctly described.
+178|Client-known PUT URI and idempotency distinguished from POST.
+179|Reproduction and cross-layer request tracing are practical debugging steps.
+180|SELECT terminology explicitly acknowledges classification differences.
+181|Grouping keys and aggregate output correctly described.
+182|Row filtering versus aggregate-group filtering correct.
+183|Join matching and outer preservation semantics correct.
+184|Compatible result union removes duplicate rows.
+185|UNION ALL retains duplicates; speed appropriately qualified.
+186|Nested query definition adequate.
+187|Ordinary view storage distinguished from materialized results.
+188|Many-row summaries and named functions correct.
+189|Index purpose and common B-tree structure correct; write cost in Q414.
+190|Fixed/variable text semantics qualified for engine differences.
+191|Automatic database-event logic and hidden-side-effect trade-off correct.
+192|Logical per-row correlation does not claim physical per-row execution.
+193|Existence versus membership; NOT IN null pitfall retained.
+194|Statement-scoped CTE and possible recursion correct; not necessarily materialized.
+195|Window results preserve individual rows.
+196|Unique row numbers versus ranks with/without gaps correct.
+197|Relational tables, constraints and transactions correctly introduced.
+198|Selected unique non-null row identifier correct.
+199|Referenced candidate key need not be the primary key.
+200|Uniqueness null behavior explicitly engine-dependent.
+201|Minimal identifying column set correctly defined.
+202|Database-enforced integrity rules correctly named.
+203|Commit/rollback unit and application error responsibility retained.
+204|ACID expansion correct; concrete isolation guarantees are in Q415.
+205|Practical normalization summary; formal prime-attribute/candidate-key exceptions need follow-up, not universal shorthand.
+206|Read/write consistency cost of intentional redundancy correct.
+207|Superkey distinguished from minimal candidate key.
+208|Foreign-key integrity and permitted nulls correct.
+209|Compatible shared access versus conflicting write locks appropriately described.
+210|Cyclic lock waits and victim abort correctly described.
+211|Standard mandatory-parent one-to-many form; optional relations also exist.
+212|Junction table is a usual relational implementation, not sole representation.
+213|Atlas managed-service scope appropriate; feature availability depends on tier.
+214|Flexible documents in collections accurately contrasted with tables.
+215|BSON field-value document structure correct.
+216|BSON extensions beyond JSON types correct.
+217|Index avoids whole-collection scans when applicable.
+218|Pipeline stage ordering and transformations correct.
+219|Corrected outside-read visibility across shards.
+220|Document modeling versus relational keys appropriate; MongoDB also supports lookups.
+221|BSON type names valid.
+222|WiredTiger described as normal engine, not universal across deployments.
+223|Primary/secondary replication introduction; arbiters do not store data.
+224|Shard-key distribution and horizontal scaling correct.
+225|Write-ahead recovery role correctly introduced.
+226|Access-pattern-led embedding, references and indexes appropriate.
+227|Change-stream deployment requirements correct; majority-commit guarantee is follow-up.
+228|Explain, projections and equality-sort-range reasoning appropriate.
+229|Managed versus self-hosted operational responsibility correctly distinguished.
+230|Bounded co-accessed data versus independent/unbounded references correct.
+231|Multikey entries and compound-index restrictions acknowledged.
+232|12-byte ObjectId and probabilistic uniqueness correctly qualified.
+233|Index-only filter/projection requirement correct.
+234|CAP introductory trade-off reasonable; formal consistency means linearizability, not general ACID consistency.
+235|Corrected data-bearing acknowledgement and timeout distinction.
+236|TTL deletion is background, not an exact scheduled deadline.
+237|Classic text index versus managed search capability distinguished; product naming can evolve.
+238|No single generative architecture asserted.
+239|Training objective, not old-versus-new chronology, distinguishes models.
+240|Standard autoregressive sequence-to-sequence encoder/decoder described; other decoder types exist.
+241|Corrected compulsory compression claim.
+242|Deterministic code versus variational posterior and regularization correct at introductory depth.
+243|Adversarial generator/discriminator training correctly introduced.
+244|Standard diffusion forward-noise/reverse-generation mechanism correct.
+245|Typical iterative diffusion trade-off; distilled few-step variants limit the generalization.
+246|Query/key/value attention and lack of recurrence correctly introduced.
+247|Same-source versus cross-source attention distinguished.
+248|Position information role correct; rotary methods need not add vectors directly.
+249|Context budget and separate output limits qualified by provider.
+250|Token IDs and tokenization effects correctly described.
+251|Learned semantic geometry appropriate; not all embedding objectives guarantee similarity.
+252|Library, self-hosted and managed-service distinction useful; not universal cost ranking.
+253|Dense retrieval and optional filters/hybrid search correctly described.
+254|Fine-tuning identified as one transfer-learning method.
+255|Frozen weights and low-rank trainable updates correct.
+256|Quantized frozen base plus adapters correctly distinguished from LoRA alone.
+257|PEFT umbrella and named adaptation approaches correct.
+258|RLHF described as a common pipeline, not mandatory SFT sequence.
+259|Teacher/student imitation and efficiency motivation correctly introduced.
+260|Principle-based AI feedback versus human preference labels distinguished.
+261|Hugging Face ecosystem and library roles appropriate.
+262|Versioned repositories and documentation cards correctly distinguished.
+263|Local pipeline, representation task and remote service correctly separated; HF naming checked.
+264|Spaces SDK availability and deprecated built-in Streamlit require version-aware documentation.
+265|Integration abstractions not claimed to replace application security.
+266|Stateful graph execution, persistence and control flow appropriate.
+267|External-data integration, indexing and retrieval responsibilities correct.
+268|Applications plausible; not claimed as observed interview examples.
+269|Typical dense RAG pipeline; sparse retrieval does not require embeddings.
+270|External retrieval versus no retrieval correctly distinguished.
+271|Generated content versus goal-driven action loop distinguished.
+272|Vector indexing/retrieval role and optional production features correct.
+273|Prompt design not substituted for authorization or evaluations.
+274|Instruction, demonstration and decomposition strategies distinguished.
+275|Mitigations reduce risk; prevention is not guaranteed by prompt text.
+276|External policy enforcement and validation correctly emphasized.
+277|Unsupported claims and multiple mitigations covered without guarantees.
+278|Parametric versus contextual information distinguished.
+279|Task-specific quality, safety, latency and cost evaluation appropriate.
+280|Multiple complementary evaluation methods; no universal judge score claimed.
+281|Modified n-gram precision, brevity penalty and metric limitations correct.
+282|Feature-distribution FID versus text-overlap BLEU distinguished.
+283|Architecture taxonomy qualified; encoder-only LLM terminology varies.
+284|Application-managed memory distinguished from model weights.
+285|Agent execution system distinguished from a bare chat model.
+286|Framework overlap acknowledged; using all three is not mandatory.
+287|Common modality-encoder/fusion description; implementations vary by model.
+288|Four common OOP principles correctly named.
+289|Encapsulation protects valid state rather than merely grouping fields.
+290|Public abstraction separated from hidden implementation.
+291|Inheritance's intended is-a modeling correctly described.
+292|Single interface with different behavior appropriately defined.
+293|Conventional compile/runtime split; duplicates Q305 concept, retained.
+294|Overload resolution explicitly scoped to supporting languages.
+295|Derived implementation of inherited virtual behavior introduced.
+296|Class blueprint description appropriate for class-based OOP.
+297|Instance state versus class-defined behavior appropriate.
+298|Construction establishes initial state.
+299|Common visibility model explicitly qualified by language.
+300|Interface contract avoids dependence on concrete implementation.
+301|Abstract instantiation restriction and shared implementation correct.
+302|Abstract base versus capability contract; language-dependent defaults noted.
+303|OOP suitability conditional on domain, not universally superior.
+304|Procedural and object organization distinguished without excluding mixed styles.
+305|Static selection versus dynamic dispatch; overlaps Q293.
+306|Relationship and ownership distinctions appropriate at design level.
+307|OS resource management and application service role correct.
+308|Ordinary user-process model; kernel/system-specific exceptions omitted intentionally.
+309|Per-thread stack and execution state correctly identified.
+310|Shared versus separate address spaces and isolation trade-offs appropriate.
+311|Thread concurrency and synchronization need correct.
+312|Saving/restoring execution context correctly described.
+313|States identified as common rather than OS-universal names.
+314|Ready-task CPU selection correctly defined.
+315|Round-robin quantum and requeue behavior correct for runnable tasks.
+316|Cyclic resource waiting defines deadlock under the standard model.
+317|Four necessary Coffman conditions correctly named.
+318|Coordinated shared-data access and order correct.
+319|Mutual exclusion applies to conflicting operations, not all reads.
+320|Virtual mapping and backing sources correctly distinguished from RAM alone.
+321|Virtual pages, physical frames and page table correct.
+322|IPC includes shared memory as well as message mechanisms.
+323|PCB as process metadata and saved context appropriate.
+324|Preemption versus running until block/burst completion correct.
+325|FCFS, estimated burst and priority selection correctly distinguished.
+326|Indefinite postponement and aging mitigation correct.
+327|Nonresident-page fault and first-use/eviction cases covered.
+328|Waste inside allocations versus separated free holes distinguished.
+329|Fixed pages versus variable logical segments correct.
+330|Working-set pressure causing excessive page movement correct.
+331|Persistent naming, allocation, metadata and permissions correct.
+332|Transfer buffering, reuse caching and device work queues distinguished.
+333|Unix-like zombie/orphan definitions correct; not universal OS terminology.
+334|Blocked nonprogress versus active nonprogress distinguished.
+335|Typical URL navigation sequence; connection reuse, cached DNS and redirects are follow-ups.
+336|DNS resolves records beyond only address records.
+337|Address and optional port translation correctly introduced.
+338|HTTP over TLS and identity/integrity distinction correct; overlaps Q377.
+339|Stream versus datagrams and reliability differences correct; HTTP/3 uses UDP via QUIC.
+340|Normal three-way handshake correct; TCP Fast Open can carry early data.
+341|Capacity versus achieved transfer rate distinguished.
+342|Seven reference layers in correct order.
+343|Reference-model distinction and common four-layer Internet model qualified.
+344|Hub repeating, L2 switching and L3 routing correctly contrasted.
+345|Receiver protection versus network congestion control correct.
+346|Outstanding data window and throughput/control purpose correct.
+347|HTTP/2 TCP versus HTTP/3 QUIC multiplexing distinguished.
+348|DevOps culture and practices distinguished from a tool list.
+349|Delivery/operation automation role plausible, organization-dependent.
+350|Tool language choices are contextual, not universal job requirements.
+351|SSH encrypted remote access and authentication correctly introduced.
+352|Integration, delivery and deployment automation distinguished.
+353|Resource scale-up versus instance scale-out and trade-offs correct.
+354|Blue/green traffic switch correct; database rollback requires compatibility.
+355|Agile development and delivery/operations collaboration are complementary.
+356|Continuous testing purpose correct; which failures gate promotion is policy-dependent.
+357|AWS service categories facilitate automation; no universal service requirement.
+358|Desired-state management and drift reduction appropriate.
+359|Versioned infrastructure definitions and reproducibility correct.
+360|Branch as movable commit reference correct.
+361|Default tracked-change stash behavior correctly described.
+362|Repository/history versus remote synchronization correct at introductory depth.
+363|Five current DORA metrics independently confirmed in DORA documentation.
+364|Jenkins automation and pipeline-as-code role correct.
+365|Selected-commit change application correctly described.
+366|Policy-controlled privilege execution and auditability correct.
+367|Fetch retrieval versus pull integration correctly distinguished.
+368|Selenium components correct; overlaps Q386.
+369|Puppet desired-state model appropriate; deployment choices vary.
+370|Ansible playbooks and typical agentless SSH use correctly qualified.
+371|Automated checks do not replace exploratory testing.
+372|Feedback across tests, production and users supports improvement.
+373|Windows Git Bash environment correctly distinguished from Git itself.
+374|Squashing and published-history risks correctly described.
+375|Manual conflict resolution, staging and continuation workflow correct.
+376|Unreachable-object prune distinguished from ordinary branch cleanup.
+377|TLS encryption, identity and integrity correct; overlaps Q338.
+378|Guest OS/hypervisor distinction appropriate; isolation strength depends on implementation.
+379|Manual production decision versus automatic deployment correct; overlaps part of Q352.
+380|Common delivery lifecycle, not a universal prescribed phase list; overlaps Q392.
+381|Organizational antipattern guidance contextual, not factual tool behavior.
+382|General component design described; DevOps-specific CBM standard not established.
+383|Jenkins pipeline construction sequence appropriate for specialist role.
+384|Chef convergence and Puppet declarative catalogs correctly qualified.
+385|Reapplication changes commit identities; shared-history warning correct.
+386|Same Selenium suite concept as Q368; retained per preservation rule.
+387|IDE record/replay capability and maintenance trade-off appropriate.
+388|Banker's safety test correct; OS topic currently placed in DevOps.
+389|Controller backup versus artifact transfer distinguished; permissions/security remain operational duties.
+390|Repository, credentials, agents and permissions are practical job setup concerns.
+391|Docker client, daemon and registry responsibilities correct.
+392|Same common lifecycle concept as Q380; retained per preservation rule.
+393|Merge retains existing history, rebase rewrites selected commits; fast-forward is a follow-up.
+394|Data-pipeline delivery discipline distinguished; term scope varies by organization.
+395|Explicitly nonuniversal mnemonic; prevalence not independently established.
+396|Earlier quality/security feedback is a process approach, not guaranteed prevention.
+397|IaC benefits and production trade-offs relevant to specialist roles.
+398|Traffic strategies and backward-compatible database changes covered.
+399|Security practices plausible; claiming universal compliance needs actual organizational controls.
+400|Telemetry and incident practices plausible; tool suitability and signal support vary.
+401|Replacement-based infrastructure and externalized-state trade-offs correct.
+402|Managed runtime/scaling and operational limits correctly distinguished.
+403|Blue/green switch versus incremental canary exposure correctly contrasted.
+404|Image-build versus runtime optimization distinguished by final measurement caveat.
+405|Deployment rollback does not reverse external database state.
+406|Pipeline profiling and reuse without dropping quality gates appropriate.
+407|Same-Pod helper with shared networking and selected volumes correct.
+408|Deployment boundaries and ownership trade-offs distinguished; SOA terminology is contextual.
+409|Property lookup and shadowing through prototype chain correct for ordinary construction.
+410|Interface merging versus broader type aliases and erased checks correct.
+411|Generic type relationships and constraints distinguished from any.
+412|Unknown narrowing distinguished from unchecked type assertion.
+413|Queued updates and render snapshots correctly explain functional updaters.
+414|Clustered leaf storage explicitly SQL Server rowstore-specific; ORDER BY caveat correct.
+415|Isolation minimums, anomalies and stronger engine guarantees distinguished.
+416|Virtual dispatch, pure final overrider and override checking correct.
+417|Ordinary polymorphic deletion requires virtual base destructor; restriction qualified.
+418|Shared virtual base initialized by most-derived class; override ambiguity remains possible.
+419|Mutex ownership distinguished from semaphore permit signaling.

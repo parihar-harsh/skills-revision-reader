@@ -1,6 +1,6 @@
 # Skills Revision Reader
 
-A static, navigable revision interface for 419 questions organized into 17 resume-technology categories: the existing 408 questions represented in relevant GeeksforGeeks interview-question collections, plus 11 focused interview fundamentals documented in [CORE_ADDITIONS.md](CORE_ADDITIONS.md). It includes all 50 numbered questions from the linked GFG GenAI collection and all 61 numbered headings currently present in the GFG DevOps collection, with original concise answers. The DevOps source itself skips number 28, so the reader preserves that source numbering instead of inventing a question.
+A static revision reader with 358 active questions in 17 sections. The fresher web-SDE scope retains CS and web fundamentals, 30 practical GenAI/RAG questions, and 19 Git/delivery basics. Sixty-one specialist or redundant entries were removed from the active bank using GFG and InterviewBit interview pages to distinguish role-specific material from general preparation. This is a role-scope judgment, not a claim that those questions are never asked. See [scope decisions and recovery archive](audit/SCOPE_REDUCTION.md). Original question IDs and GFG source numbers are preserved, so numbering intentionally has gaps.
 
 The deployment also includes `roadmap.html`, a focused NLP and GenAI engineering route for a fresher who already knows DSA/OOP and software development but is starting Python and AI from zero. It uses the verified 19-hour Data Dissection machine-learning course, Data Dissection's complete 13-video NLP playlist, CampusX only for identified NLP implementation and interview-depth gaps, and focused production lessons for LLM application engineering. The roadmap contains 121 independently trackable steps: 118 videos plus three implementation checkpoints.
 
@@ -12,13 +12,19 @@ The first visit defaults to `NLP / GenAI Engineer` and `Fast track` instead of e
 
 `live-coding.html` adds a searchable, role-filtered set of 20 broad practical patterns derived from candidate-reported live coding, machine coding, and timed interview tasks in frontend, backend, databases, DevOps, and CS fundamentals. It opens with the 15 recurring patterns; five plausible but role-specific exercises stay behind the `All verified` filter instead of inflating the default study path. `Learn` mode explains only the concepts required for each implementation with inline examples, while `Quick` mode keeps a compact recall checklist and working reference. The page also includes a reusable six-step interview execution method. Interview-experience and GeeksforGeeks sources remain recorded in `live-coding-data.js`; take-home assignments, broad theory dumps, speculative tasks, and DSA problems are excluded.
 
-New reader visits default to the SDE I / Junior Software Engineer role and priority scope. That role contains 163 questions (142 priority): the existing 155 SDE fundamentals plus eight existing questions on Git, CI/CD and Docker architecture. Specialized GenAI and advanced DevOps remain available through other roles or All positions; no question is deleted or labeled as never asked. Existing saved role selections, including All positions, are preserved. The initial section remains JavaScript, and section navigation exposes the rest of the selected role.
+New reader visits default to the SDE I / Junior Software Engineer role and priority scope. That role contains 164 questions (143 priority), including the eight Git/CI/CD/Docker fundamentals and Banker's algorithm, now correctly placed in OS. Advanced DevOps is no longer an active role or full specialist section. Other saved role selections, including All positions, are preserved; a saved DevOps role falls back to SDE. The initial section remains JavaScript.
 
-Across All positions there are 367 curated priority questions, or all 419 with the All questions scope. Priority combines the existing 356 priority questions with the 11 focused additions; it is a revision scope, not a measured interview-occurrence statistic. The reader runs entirely in the browser. Reviewed progress, theme, mode, question scope, position, active section, search, expanded questions, revealed answers, and scroll position are saved automatically in browser storage. Nothing is uploaded, and no database or account is required.
+Across All positions there are 306 curated priority questions, or 358 with All questions selected. Priority is study importance, not measured interview frequency. The reader runs entirely in the browser. Reviewed progress, theme, mode, scope, position, section, search, expanded/revealed answers and scroll position are saved in browser storage. Previously reviewed retired IDs remain stored but do not inflate active progress totals. Nothing is uploaded; no database or account is required.
 
-Resume-aligned role filters group the same verified questions for SDE I, frontend/React, backend/Node.js, full-stack JavaScript, MERN, and DevOps positions. Selecting a role does not duplicate or invent questions.
+Role filters group the same canonical questions for SDE I, frontend/React, backend/Node.js, full-stack JavaScript, MERN and practical GenAI application preparation. Selecting a role does not duplicate or invent questions.
+
+Category navigation hides sections with no questions in the selected role and priority scope. If the current section becomes unavailable, the reader switches to All questions. Search and Hide reviewed do not remove category navigation; switching roles or choosing All restores the applicable sections. See [role-category regression results](audit/ROLE_CATEGORIES.md).
 
 ## Source pages
+
+- [InterviewBit Git questions](https://www.interviewbit.com/git-interview-questions/)
+- [InterviewBit CI/CD questions](https://www.interviewbit.com/ci-cd-interview-questions/)
+- [InterviewBit Docker questions](https://www.interviewbit.com/docker-interview-questions/)
 
 - [Technical Interview Questions index](https://www.geeksforgeeks.org/gfg-academy/technical-interview-questions/#web-development-technical-interview-questions)
 - [JavaScript](https://www.geeksforgeeks.org/javascript/javascript-interview-questions/)
@@ -44,4 +50,4 @@ Resume-aligned role filters group the same verified questions for SDE I, fronten
 
 Questions from the role-based collections are included only when they match the resume technologies. Questions about unrelated stacks such as Angular, Vue, Django, PHP, Spring, and Redux are excluded.
 
-Question wording is normalized for quick revision, while answers are concise original explanations. The 11 additions retain primary technical references in `core-interview-questions.js`. They use new numbers Q409-Q419 inside the existing skill sections, preserving all original question numbers, links, and saved state.
+Question wording is normalized for revision, while answers are concise original explanations. The 11 additions retain primary technical references in `core-interview-questions.js` and use stable numbers Q409-Q419. Retired question links display an explicit notice instead of pointing to another question. No remaining question was renumbered.

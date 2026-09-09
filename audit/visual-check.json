@@ -1,0 +1,1360 @@
+{
+  "captured": "2026-09-08T14:52:32.900Z",
+  "states": [
+    "390-long-light",
+    "390-empty-light",
+    "390-drawer-light",
+    "390-long-dark",
+    "390-empty-dark",
+    "390-drawer-dark",
+    "320-comparison-dark",
+    "1440-long-dark",
+    "390-complete"
+  ],
+  "errors": [],
+  "checks": [
+    "Native control labels, ARIA references and pressed states, reduced motion",
+    "Sampled text/focus color-token contrast in both themes; role select keyboard focus",
+    "Long title/answer, empty, drawer, comparison and completed screenshots captured"
+  ],
+  "drawers": [
+    {
+      "descendants": [
+        {
+          "text": "Skills Revision",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 69,
+            "y": 14.703125,
+            "width": 234,
+            "height": 20,
+            "top": 14.703125,
+            "right": 303,
+            "bottom": 34.703125,
+            "left": 69
+          }
+        },
+        {
+          "text": "ALL\n          \n            All questions\n            0/41917 sections",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 218.09375,
+            "width": 303,
+            "height": 59.859375,
+            "top": 218.09375,
+            "right": 311,
+            "bottom": 277.953125,
+            "left": 8
+          }
+        },
+        {
+          "text": "All questions",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 227.09375,
+            "width": 240,
+            "height": 15.359375,
+            "top": 227.09375,
+            "right": 302,
+            "bottom": 242.453125,
+            "left": 62
+          }
+        },
+        {
+          "text": "JS\n          \n            JAVASCRIPT\n            0/4040 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 279.953125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 279.953125,
+            "right": 311,
+            "bottom": 339.8125,
+            "left": 8
+          }
+        },
+        {
+          "text": "JAVASCRIPT",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 288.953125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 288.953125,
+            "right": 302,
+            "bottom": 304.3125,
+            "left": 62
+          }
+        },
+        {
+          "text": "TS\n          \n            TYPESCRIPT\n            0/1616 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 341.8125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 341.8125,
+            "right": 311,
+            "bottom": 401.671875,
+            "left": 8
+          }
+        },
+        {
+          "text": "TYPESCRIPT",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 350.8125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 350.8125,
+            "right": 302,
+            "bottom": 366.171875,
+            "left": 62
+          }
+        },
+        {
+          "text": "WEB\n          \n            HTML AND CSS\n            0/3636 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 403.671875,
+            "width": 303,
+            "height": 59.859375,
+            "top": 403.671875,
+            "right": 311,
+            "bottom": 463.53125,
+            "left": 8
+          }
+        },
+        {
+          "text": "HTML AND CSS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 412.671875,
+            "width": 240,
+            "height": 15.359375,
+            "top": 412.671875,
+            "right": 302,
+            "bottom": 428.03125,
+            "left": 62
+          }
+        },
+        {
+          "text": "RE\n          \n            REACT.JS\n            0/3838 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 465.53125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 465.53125,
+            "right": 311,
+            "bottom": 525.390625,
+            "left": 8
+          }
+        },
+        {
+          "text": "REACT.JS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 474.53125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 474.53125,
+            "right": 302,
+            "bottom": 489.890625,
+            "left": 62
+          }
+        },
+        {
+          "text": "NX\n          \n            NEXT.JS\n            0/55 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 527.390625,
+            "width": 303,
+            "height": 59.859375,
+            "top": 527.390625,
+            "right": 311,
+            "bottom": 587.25,
+            "left": 8
+          }
+        },
+        {
+          "text": "NEXT.JS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 536.390625,
+            "width": 240,
+            "height": 15.359375,
+            "top": 536.390625,
+            "right": 302,
+            "bottom": 551.75,
+            "left": 62
+          }
+        },
+        {
+          "text": "TW\n          \n            TAILWIND CSS\n            0/22 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 589.25,
+            "width": 303,
+            "height": 59.859375,
+            "top": 589.25,
+            "right": 311,
+            "bottom": 649.109375,
+            "left": 8
+          }
+        },
+        {
+          "text": "TAILWIND CSS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 598.25,
+            "width": 240,
+            "height": 15.359375,
+            "top": 598.25,
+            "right": 302,
+            "bottom": 613.609375,
+            "left": 62
+          }
+        },
+        {
+          "text": "ND\n          \n            NODE.JS\n            0/1515 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 651.109375,
+            "width": 303,
+            "height": 59.859375,
+            "top": 651.109375,
+            "right": 311,
+            "bottom": 710.96875,
+            "left": 8
+          }
+        },
+        {
+          "text": "NODE.JS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 660.109375,
+            "width": 240,
+            "height": 15.359375,
+            "top": 660.109375,
+            "right": 302,
+            "bottom": 675.46875,
+            "left": 62
+          }
+        },
+        {
+          "text": "EX\n          \n            EXPRESS.JS\n            0/99 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 712.96875,
+            "width": 303,
+            "height": 59.859375,
+            "top": 712.96875,
+            "right": 311,
+            "bottom": 772.828125,
+            "left": 8
+          }
+        },
+        {
+          "text": "EXPRESS.JS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 721.96875,
+            "width": 240,
+            "height": 15.359375,
+            "top": 721.96875,
+            "right": 302,
+            "bottom": 737.328125,
+            "left": 62
+          }
+        },
+        {
+          "text": "API\n          \n            WEB APIS\n            0/2323 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 774.828125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 774.828125,
+            "right": 311,
+            "bottom": 834.6875,
+            "left": 8
+          }
+        },
+        {
+          "text": "WEB APIS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 783.828125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 783.828125,
+            "right": 302,
+            "bottom": 799.1875,
+            "left": 62
+          }
+        },
+        {
+          "text": "SQL\n          \n            SQL\n            0/1818 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 836.6875,
+            "width": 303,
+            "height": 59.859375,
+            "top": 836.6875,
+            "right": 311,
+            "bottom": 896.546875,
+            "left": 8
+          }
+        },
+        {
+          "text": "SQL",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 845.6875,
+            "width": 240,
+            "height": 15.359375,
+            "top": 845.6875,
+            "right": 302,
+            "bottom": 861.046875,
+            "left": 62
+          }
+        },
+        {
+          "text": "DB\n          \n            DBMS\n            0/1717 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 898.546875,
+            "width": 303,
+            "height": 59.859375,
+            "top": 898.546875,
+            "right": 311,
+            "bottom": 958.40625,
+            "left": 8
+          }
+        },
+        {
+          "text": "DBMS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 907.546875,
+            "width": 240,
+            "height": 15.359375,
+            "top": 907.546875,
+            "right": 302,
+            "bottom": 922.90625,
+            "left": 62
+          }
+        },
+        {
+          "text": "MDB\n          \n            MONGODB\n            0/2525 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 960.40625,
+            "width": 303,
+            "height": 59.859375,
+            "top": 960.40625,
+            "right": 311,
+            "bottom": 1020.265625,
+            "left": 8
+          }
+        },
+        {
+          "text": "MONGODB",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 969.40625,
+            "width": 240,
+            "height": 15.359375,
+            "top": 969.40625,
+            "right": 302,
+            "bottom": 984.765625,
+            "left": 62
+          }
+        },
+        {
+          "text": "AI\n          \n            GENERATIVE AI, LLM AND RAG\n            0/5050 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1022.265625,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1022.265625,
+            "right": 311,
+            "bottom": 1082.125,
+            "left": 8
+          }
+        },
+        {
+          "text": "GENERATIVE AI, LLM AND RAG",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1031.265625,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1031.265625,
+            "right": 302,
+            "bottom": 1046.625,
+            "left": 62
+          }
+        },
+        {
+          "text": "OOP\n          \n            OOP\n            0/2222 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1084.125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1084.125,
+            "right": 311,
+            "bottom": 1143.984375,
+            "left": 8
+          }
+        },
+        {
+          "text": "OOP",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1093.125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1093.125,
+            "right": 302,
+            "bottom": 1108.484375,
+            "left": 62
+          }
+        },
+        {
+          "text": "OS\n          \n            OPERATING SYSTEMS\n            0/2929 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1145.984375,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1145.984375,
+            "right": 311,
+            "bottom": 1205.84375,
+            "left": 8
+          }
+        },
+        {
+          "text": "OPERATING SYSTEMS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1154.984375,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1154.984375,
+            "right": 302,
+            "bottom": 1170.34375,
+            "left": 62
+          }
+        },
+        {
+          "text": "NET\n          \n            COMPUTER NETWORKS\n            0/1313 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1207.84375,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1207.84375,
+            "right": 311,
+            "bottom": 1267.703125,
+            "left": 8
+          }
+        },
+        {
+          "text": "COMPUTER NETWORKS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1216.84375,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1216.84375,
+            "right": 302,
+            "bottom": 1232.203125,
+            "left": 62
+          }
+        },
+        {
+          "text": "DO\n          \n            DEVOPS\n            0/6161 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1269.703125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1269.703125,
+            "right": 311,
+            "bottom": 1329.5625,
+            "left": 8
+          }
+        },
+        {
+          "text": "DEVOPS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1278.703125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1278.703125,
+            "right": 302,
+            "bottom": 1294.0625,
+            "left": 62
+          }
+        }
+      ]
+    },
+    {
+      "descendants": [
+        {
+          "text": "Skills Revision",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 69,
+            "y": 14.703125,
+            "width": 234,
+            "height": 20,
+            "top": 14.703125,
+            "right": 303,
+            "bottom": 34.703125,
+            "left": 69
+          }
+        },
+        {
+          "text": "ALL\n          \n            All questions\n            0/41917 sections",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 218.09375,
+            "width": 303,
+            "height": 59.859375,
+            "top": 218.09375,
+            "right": 311,
+            "bottom": 277.953125,
+            "left": 8
+          }
+        },
+        {
+          "text": "All questions",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 227.09375,
+            "width": 240,
+            "height": 15.359375,
+            "top": 227.09375,
+            "right": 302,
+            "bottom": 242.453125,
+            "left": 62
+          }
+        },
+        {
+          "text": "JS\n          \n            JAVASCRIPT\n            0/4040 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 279.953125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 279.953125,
+            "right": 311,
+            "bottom": 339.8125,
+            "left": 8
+          }
+        },
+        {
+          "text": "JAVASCRIPT",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 288.953125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 288.953125,
+            "right": 302,
+            "bottom": 304.3125,
+            "left": 62
+          }
+        },
+        {
+          "text": "TS\n          \n            TYPESCRIPT\n            0/1616 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 341.8125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 341.8125,
+            "right": 311,
+            "bottom": 401.671875,
+            "left": 8
+          }
+        },
+        {
+          "text": "TYPESCRIPT",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 350.8125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 350.8125,
+            "right": 302,
+            "bottom": 366.171875,
+            "left": 62
+          }
+        },
+        {
+          "text": "WEB\n          \n            HTML AND CSS\n            0/3636 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 403.671875,
+            "width": 303,
+            "height": 59.859375,
+            "top": 403.671875,
+            "right": 311,
+            "bottom": 463.53125,
+            "left": 8
+          }
+        },
+        {
+          "text": "HTML AND CSS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 412.671875,
+            "width": 240,
+            "height": 15.359375,
+            "top": 412.671875,
+            "right": 302,
+            "bottom": 428.03125,
+            "left": 62
+          }
+        },
+        {
+          "text": "RE\n          \n            REACT.JS\n            0/3838 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 465.53125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 465.53125,
+            "right": 311,
+            "bottom": 525.390625,
+            "left": 8
+          }
+        },
+        {
+          "text": "REACT.JS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 474.53125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 474.53125,
+            "right": 302,
+            "bottom": 489.890625,
+            "left": 62
+          }
+        },
+        {
+          "text": "NX\n          \n            NEXT.JS\n            0/55 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 527.390625,
+            "width": 303,
+            "height": 59.859375,
+            "top": 527.390625,
+            "right": 311,
+            "bottom": 587.25,
+            "left": 8
+          }
+        },
+        {
+          "text": "NEXT.JS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 536.390625,
+            "width": 240,
+            "height": 15.359375,
+            "top": 536.390625,
+            "right": 302,
+            "bottom": 551.75,
+            "left": 62
+          }
+        },
+        {
+          "text": "TW\n          \n            TAILWIND CSS\n            0/22 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 589.25,
+            "width": 303,
+            "height": 59.859375,
+            "top": 589.25,
+            "right": 311,
+            "bottom": 649.109375,
+            "left": 8
+          }
+        },
+        {
+          "text": "TAILWIND CSS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 598.25,
+            "width": 240,
+            "height": 15.359375,
+            "top": 598.25,
+            "right": 302,
+            "bottom": 613.609375,
+            "left": 62
+          }
+        },
+        {
+          "text": "ND\n          \n            NODE.JS\n            0/1515 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 651.109375,
+            "width": 303,
+            "height": 59.859375,
+            "top": 651.109375,
+            "right": 311,
+            "bottom": 710.96875,
+            "left": 8
+          }
+        },
+        {
+          "text": "NODE.JS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 660.109375,
+            "width": 240,
+            "height": 15.359375,
+            "top": 660.109375,
+            "right": 302,
+            "bottom": 675.46875,
+            "left": 62
+          }
+        },
+        {
+          "text": "EX\n          \n            EXPRESS.JS\n            0/99 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 712.96875,
+            "width": 303,
+            "height": 59.859375,
+            "top": 712.96875,
+            "right": 311,
+            "bottom": 772.828125,
+            "left": 8
+          }
+        },
+        {
+          "text": "EXPRESS.JS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 721.96875,
+            "width": 240,
+            "height": 15.359375,
+            "top": 721.96875,
+            "right": 302,
+            "bottom": 737.328125,
+            "left": 62
+          }
+        },
+        {
+          "text": "API\n          \n            WEB APIS\n            0/2323 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 774.828125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 774.828125,
+            "right": 311,
+            "bottom": 834.6875,
+            "left": 8
+          }
+        },
+        {
+          "text": "WEB APIS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 783.828125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 783.828125,
+            "right": 302,
+            "bottom": 799.1875,
+            "left": 62
+          }
+        },
+        {
+          "text": "SQL\n          \n            SQL\n            0/1818 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 836.6875,
+            "width": 303,
+            "height": 59.859375,
+            "top": 836.6875,
+            "right": 311,
+            "bottom": 896.546875,
+            "left": 8
+          }
+        },
+        {
+          "text": "SQL",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 845.6875,
+            "width": 240,
+            "height": 15.359375,
+            "top": 845.6875,
+            "right": 302,
+            "bottom": 861.046875,
+            "left": 62
+          }
+        },
+        {
+          "text": "DB\n          \n            DBMS\n            0/1717 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 898.546875,
+            "width": 303,
+            "height": 59.859375,
+            "top": 898.546875,
+            "right": 311,
+            "bottom": 958.40625,
+            "left": 8
+          }
+        },
+        {
+          "text": "DBMS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 907.546875,
+            "width": 240,
+            "height": 15.359375,
+            "top": 907.546875,
+            "right": 302,
+            "bottom": 922.90625,
+            "left": 62
+          }
+        },
+        {
+          "text": "MDB\n          \n            MONGODB\n            0/2525 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 960.40625,
+            "width": 303,
+            "height": 59.859375,
+            "top": 960.40625,
+            "right": 311,
+            "bottom": 1020.265625,
+            "left": 8
+          }
+        },
+        {
+          "text": "MONGODB",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 969.40625,
+            "width": 240,
+            "height": 15.359375,
+            "top": 969.40625,
+            "right": 302,
+            "bottom": 984.765625,
+            "left": 62
+          }
+        },
+        {
+          "text": "AI\n          \n            GENERATIVE AI, LLM AND RAG\n            0/5050 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1022.265625,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1022.265625,
+            "right": 311,
+            "bottom": 1082.125,
+            "left": 8
+          }
+        },
+        {
+          "text": "GENERATIVE AI, LLM AND RAG",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1031.265625,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1031.265625,
+            "right": 302,
+            "bottom": 1046.625,
+            "left": 62
+          }
+        },
+        {
+          "text": "OOP\n          \n            OOP\n            0/2222 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1084.125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1084.125,
+            "right": 311,
+            "bottom": 1143.984375,
+            "left": 8
+          }
+        },
+        {
+          "text": "OOP",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1093.125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1093.125,
+            "right": 302,
+            "bottom": 1108.484375,
+            "left": 62
+          }
+        },
+        {
+          "text": "OS\n          \n            OPERATING SYSTEMS\n            0/2929 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1145.984375,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1145.984375,
+            "right": 311,
+            "bottom": 1205.84375,
+            "left": 8
+          }
+        },
+        {
+          "text": "OPERATING SYSTEMS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1154.984375,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1154.984375,
+            "right": 302,
+            "bottom": 1170.34375,
+            "left": 62
+          }
+        },
+        {
+          "text": "NET\n          \n            COMPUTER NETWORKS\n            0/1313 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1207.84375,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1207.84375,
+            "right": 311,
+            "bottom": 1267.703125,
+            "left": 8
+          }
+        },
+        {
+          "text": "COMPUTER NETWORKS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1216.84375,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1216.84375,
+            "right": 302,
+            "bottom": 1232.203125,
+            "left": 62
+          }
+        },
+        {
+          "text": "DO\n          \n            DEVOPS\n            0/6161 questions",
+          "visibility": "visible",
+          "display": "grid",
+          "rect": {
+            "x": 8,
+            "y": 1269.703125,
+            "width": 303,
+            "height": 59.859375,
+            "top": 1269.703125,
+            "right": 311,
+            "bottom": 1329.5625,
+            "left": 8
+          }
+        },
+        {
+          "text": "DEVOPS",
+          "visibility": "visible",
+          "display": "block",
+          "rect": {
+            "x": 62,
+            "y": 1278.703125,
+            "width": 240,
+            "height": 15.359375,
+            "top": 1278.703125,
+            "right": 302,
+            "bottom": 1294.0625,
+            "left": 62
+          }
+        }
+      ]
+    }
+  ],
+  "semantics": {
+    "unnamedInputs": [],
+    "unnamedButtons": [],
+    "brokenAriaReferences": [],
+    "invalidPressed": [],
+    "progressText": "0 of 61 reviewed",
+    "decorativeProgressTracks": true,
+    "reducedScroll": "auto",
+    "headings": [
+      {
+        "level": "H1",
+        "text": "Skills Revision"
+      },
+      {
+        "level": "H2",
+        "text": "DEVOPS"
+      },
+      {
+        "level": "H3",
+        "text": "JAVASCRIPT"
+      },
+      {
+        "level": "H3",
+        "text": "TYPESCRIPT"
+      },
+      {
+        "level": "H3",
+        "text": "HTML AND CSS"
+      },
+      {
+        "level": "H3",
+        "text": "REACT.JS"
+      },
+      {
+        "level": "H3",
+        "text": "NEXT.JS"
+      },
+      {
+        "level": "H3",
+        "text": "TAILWIND CSS"
+      },
+      {
+        "level": "H3",
+        "text": "NODE.JS"
+      },
+      {
+        "level": "H3",
+        "text": "EXPRESS.JS"
+      },
+      {
+        "level": "H3",
+        "text": "WEB APIS"
+      },
+      {
+        "level": "H3",
+        "text": "SQL"
+      },
+      {
+        "level": "H3",
+        "text": "DBMS"
+      },
+      {
+        "level": "H3",
+        "text": "MONGODB"
+      },
+      {
+        "level": "H3",
+        "text": "GENERATIVE AI, LLM AND RAG"
+      },
+      {
+        "level": "H3",
+        "text": "OOP"
+      },
+      {
+        "level": "H3",
+        "text": "OPERATING SYSTEMS"
+      },
+      {
+        "level": "H3",
+        "text": "COMPUTER NETWORKS"
+      },
+      {
+        "level": "H3",
+        "text": "DEVOPS"
+      }
+    ]
+  },
+  "colors": [
+    {
+      "theme": "light",
+      "tokens": {
+        "--text": "#1d2630",
+        "--muted": "#66717f",
+        "--surface": "#ffffff",
+        "--surface-subtle": "#f8fafc",
+        "--focus": "#2563eb",
+        "--answer": "#166534",
+        "--answer-soft": "#ecfdf3",
+        "--comparison": "#8a4b08",
+        "--comparison-soft": "#fff8e6"
+      },
+      "focus": "rgb(37, 99, 235) solid 3px",
+      "contrast": [
+        {
+          "pair": "--text / --surface",
+          "ratio": 15.304253940682552
+        },
+        {
+          "pair": "--muted / --surface-subtle",
+          "ratio": 4.74107480791073
+        },
+        {
+          "pair": "--answer / --answer-soft",
+          "ratio": 6.7605180086442935
+        },
+        {
+          "pair": "--comparison / --comparison-soft",
+          "ratio": 6.413527181410544
+        },
+        {
+          "pair": "--focus / --surface",
+          "ratio": 5.168555560022562
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "tokens": {
+        "--text": "#edf1f5",
+        "--muted": "#a6b0bb",
+        "--surface": "#191d22",
+        "--surface-subtle": "#20252b",
+        "--focus": "#8bb2ff",
+        "--answer": "#84d5a4",
+        "--answer-soft": "#172a20",
+        "--comparison": "#f0bc72",
+        "--comparison-soft": "#302516"
+      },
+      "focus": "rgb(139, 178, 255) solid 3px",
+      "contrast": [
+        {
+          "pair": "--text / --surface",
+          "ratio": 14.91843944911402
+        },
+        {
+          "pair": "--muted / --surface-subtle",
+          "ratio": 7.016621849271705
+        },
+        {
+          "pair": "--answer / --answer-soft",
+          "ratio": 8.667696298539592
+        },
+        {
+          "pair": "--comparison / --comparison-soft",
+          "ratio": 8.660691372811913
+        },
+        {
+          "pair": "--focus / --surface",
+          "ratio": 7.9907415250448475
+        }
+      ]
+    }
+  ],
+  "touchTargets": [
+    {
+      "id": "menu-button",
+      "width": 64,
+      "height": 34
+    },
+    {
+      "id": "search",
+      "width": 180,
+      "height": 40
+    },
+    {
+      "id": "theme-button",
+      "width": 90,
+      "height": 40
+    },
+    {
+      "id": "position-filter",
+      "width": 277.3125,
+      "height": 38
+    },
+    {
+      "id": "Review",
+      "width": 64,
+      "height": 38
+    },
+    {
+      "id": "Recall",
+      "width": 64,
+      "height": 38
+    },
+    {
+      "id": "Priority set",
+      "width": 112,
+      "height": 39.1875
+    },
+    {
+      "id": "All questions",
+      "width": 82,
+      "height": 39.1875
+    },
+    {
+      "id": "hide-reviewed",
+      "width": 15,
+      "height": 15
+    },
+    {
+      "id": "jump-input",
+      "width": 72,
+      "height": 40
+    },
+    {
+      "id": "jump-button",
+      "width": 42,
+      "height": 40
+    }
+  ]
+}

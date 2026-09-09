@@ -1,0 +1,254 @@
+{
+  "url": "http://127.0.0.1:57231/skills-revision-reader/",
+  "tests": [
+    {
+      "name": "default SDE and inventory identity",
+      "pass": true
+    },
+    {
+      "name": "288 role/section/priority combinations and progress",
+      "pass": true
+    },
+    {
+      "name": "scoped category summary",
+      "pass": true
+    },
+    {
+      "name": "Next preserves All sections and search",
+      "pass": true
+    },
+    {
+      "name": "exact question-number search and clear",
+      "pass": true
+    },
+    {
+      "name": "title, answer, topic, XSS string and empty state",
+      "pass": true
+    },
+    {
+      "name": "review/hide/recall/reveal/refresh and explicit All persistence",
+      "pass": true
+    },
+    {
+      "name": "first/last, invalid jump, expansion and rapid toggles",
+      "pass": true
+    },
+    {
+      "name": "reset confirmation cancel/accept",
+      "pass": true
+    },
+    {
+      "name": "mobile closed drawer excluded from keyboard focus",
+      "pass": true
+    },
+    {
+      "name": "matrix, theme persistence, no overflow or duplicate IDs",
+      "pass": true
+    },
+    {
+      "name": "linked companion pages",
+      "pass": true
+    },
+    {
+      "name": "current progress and saved All",
+      "pass": true
+    },
+    {
+      "name": "legacy renumbering",
+      "pass": true
+    },
+    {
+      "name": "malformed state with valid progress",
+      "pass": true
+    },
+    {
+      "name": "invalid IDs ignored",
+      "pass": true
+    },
+    {
+      "name": "saved frontend",
+      "pass": true
+    },
+    {
+      "name": "legacy readable storage with denied writes",
+      "pass": true
+    },
+    {
+      "name": "storage disabled: memory-only progress still usable",
+      "pass": true
+    },
+    {
+      "name": "zero, partial and full progress storage size",
+      "pass": true
+    },
+    {
+      "name": "search time for 419 entries",
+      "pass": true
+    },
+    {
+      "name": "interrupted migration recovery: skills-reader-migration-v1",
+      "pass": true
+    },
+    {
+      "name": "interrupted migration recovery: skills-reader-reviewed-v2",
+      "pass": true
+    },
+    {
+      "name": "interrupted migration recovery: skills-reader-view-state-v1",
+      "pass": true
+    },
+    {
+      "name": "interrupted migration recovery: skills-reader-question-schema-v1",
+      "pass": true
+    },
+    {
+      "name": "dynamic answer escaping",
+      "pass": true
+    },
+    {
+      "name": "script load failure preserves stored progress and shows error",
+      "pass": true
+    },
+    {
+      "name": "JavaScript-disabled notice",
+      "pass": true
+    },
+    {
+      "name": "external links and script dependencies",
+      "pass": true
+    },
+    {
+      "name": "eight SDE delivery questions by title",
+      "pass": true
+    },
+    {
+      "name": "all-reviewed completion distinct from empty filter",
+      "pass": true
+    },
+    {
+      "name": "all rendered search content and removed orphan outputs",
+      "pass": true
+    },
+    {
+      "name": "keyboard focus and drawer trap",
+      "pass": true
+    },
+    {
+      "name": "comparison rows retain columns at narrow widths",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "matrix": [
+    {
+      "width": 320,
+      "theme": "light",
+      "overflow": 0
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0
+    },
+    {
+      "width": 720,
+      "theme": "light",
+      "overflow": 0
+    },
+    {
+      "width": 720,
+      "theme": "dark",
+      "overflow": 0
+    },
+    {
+      "width": 999,
+      "theme": "light",
+      "overflow": 0
+    },
+    {
+      "width": 999,
+      "theme": "dark",
+      "overflow": 0
+    },
+    {
+      "width": 1000,
+      "theme": "light",
+      "overflow": 0
+    },
+    {
+      "width": 1000,
+      "theme": "dark",
+      "overflow": 0
+    },
+    {
+      "width": 1180,
+      "theme": "light",
+      "overflow": 0
+    },
+    {
+      "width": 1180,
+      "theme": "dark",
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0
+    }
+  ],
+  "network": [
+    {
+      "file": "roadmap.html",
+      "status": 200
+    },
+    {
+      "file": "live-coding.html",
+      "status": 200
+    }
+  ],
+  "storageSizes": [
+    {
+      "count": 0,
+      "utf16Bytes": 558,
+      "progressCharacters": 2
+    },
+    {
+      "count": 100,
+      "utf16Bytes": 1140,
+      "progressCharacters": 293
+    },
+    {
+      "count": 419,
+      "utf16Bytes": 3692,
+      "progressCharacters": 1569
+    }
+  ],
+  "searchTiming": {
+    "iterations": 50,
+    "medianMs": 2.400000035762787,
+    "p95Ms": 3.599999964237213,
+    "maxMs": 15.599999964237213
+  },
+  "focusOutline": {
+    "width": "3px",
+    "style": "solid",
+    "color": "rgb(29, 38, 48)",
+    "token": "#2563eb",
+    "visible": true
+  }
+}
