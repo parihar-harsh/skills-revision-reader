@@ -325,6 +325,8 @@
 
     .quiet-button,
     .control-button,
+    .example-toggle,
+    .example-copy,
     .review-button,
     .reveal-answer,
     .question-nav-link {
@@ -343,6 +345,8 @@
 
     .quiet-button:hover,
     .control-button:hover,
+    .example-toggle:hover,
+    .example-copy:hover,
     .review-button:hover,
     .reveal-answer:hover,
     .question-nav-link:hover { background: var(--surface-hover); }
@@ -1090,6 +1094,39 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: 0.01ms !important; }
     }
+    .example-disclosure, .question-example { min-width: 0; }
+    .example-toggle {
+      min-height: 44px;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .example-toggle::before { content: "+"; width: 12px; }
+    .example-toggle[aria-expanded="true"]::before { content: "-"; }
+    .question-example { margin-top: 8px; border-top: 1px solid var(--border); }
+    .question-example[hidden] { display: none; }
+    .example-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 8px; align-items: center; padding: 6px 0; }
+    .example-language { grid-column: 1; grid-row: 1; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+    .example-copy { grid-column: 2; grid-row: 1; min-height: 44px; min-width: 56px; font-size: 12px; }
+    .example-copy-status { grid-column: 1 / -1; grid-row: 2; color: var(--text); font-size: 12px; overflow-wrap: anywhere; }
+    .example-copy-status:empty { display: none; }
+    .example-code {
+      margin: 0;
+      padding: 12px;
+      max-width: 100%;
+      overflow-x: auto;
+      background: var(--surface-subtle);
+      color: var(--text);
+      font: 12px/1.65 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      white-space: pre;
+      tab-size: 2;
+      border-radius: 4px;
+    }
+    .example-code code { font: inherit; }
+    .example-code:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .example-explanation { margin: 10px 0 0; font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
+    .example-reference { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; color: var(--accent); text-underline-offset: 3px; }
+    .example-warning { color: var(--text); padding: 12px; }
   </style>
 </head>
 <body data-mode="review" data-scope="section">
@@ -1112,7 +1149,7 @@
         <span class="progress-track" aria-hidden="true"><span id="overall-progress-bar"></span></span>
       </div>
       <nav class="section-nav" aria-label="Skill categories">
-        <div class="nav-group-label"><span>Skill categories</span><span id="visible-category-count">17</span></div>
+        <div class="nav-group-label" title="Curated study priority for the selected role, not measured interview frequency"><span>Study priority</span><span id="visible-category-count">17</span></div>
         <button class="section-nav-item" type="button" data-section-button="all" aria-pressed="false" style="--section-accent: var(--accent)">
           <span class="section-nav-code">ALL</span>
           <span class="section-nav-copy">
@@ -9687,6 +9724,8 @@ Example | HTTPS | Real-time media/DNS</pre>
   <script src="genai-questions.js?v=20260908-sde-scope"></script>
   <script src="devops-questions.js?v=20260908-sde-scope"></script>
   <script src="core-interview-questions.js?v=20260907-1"></script>
+  <script src="question-examples.js?v=20260921-1"></script>
+  <script src="reader-examples.js?v=20260921-1"></script>
   <script>
     (() => {
     const genAIQuestions = Array.isArray(window.GFG_GENAI_QUESTIONS)
@@ -10088,6 +10127,7 @@ Example | HTTPS | Real-time media/DNS</pre>
         revealedQuestions: questions
           .filter((question) => question.classList.contains("revealed"))
           .map((question) => Number(question.dataset.number)),
+        exampleQuestions: readerExamples?.expanded() || validQuestionNumbers(savedReaderState.exampleQuestions),
         hideReviewed,
       };
 
@@ -10190,7 +10230,10 @@ Example | HTTPS | Real-time media/DNS</pre>
       continueUnreviewedButton.textContent = next ? "Continue Q" + next.dataset.number : (total ? "View complete" : "No questions");
     };
 
+    const readerExamples = window.createReaderExamples?.(questions, scheduleReaderStateSave);
+
     const applyFilters = () => {
+      readerExamples?.order(activeRole);
       const query = search.value.trim().toLocaleLowerCase();
       const numberQuery = query.match(/^(?:q[\s-]*)?(\d+)$/);
       const matchesQuery = (question) => !query || (numberQuery
@@ -10581,6 +10624,7 @@ Example | HTTPS | Real-time media/DNS</pre>
 
     const openQuestions = new Set(validQuestionNumbers(savedReaderState.openQuestions));
     const revealedQuestions = new Set(validQuestionNumbers(savedReaderState.revealedQuestions));
+    readerExamples?.restore(validQuestionNumbers(savedReaderState.exampleQuestions));
     for (const question of questions) {
       const number = Number(question.dataset.number);
       question.querySelector("details").open = openQuestions.has(number);

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
+import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
 const {chromium} = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const root=path.resolve(fileURLToPath(new URL('../',import.meta.url)));
@@ -16,6 +17,13 @@ baseline.questions.splice(baseline.questions.findIndex(q=>q.section==='section-1
 delete baseline.roles['devops-engineer'];
 for(const [role,ids] of Object.entries(baseline.roles))baseline.roles[role]=baseline.questions.filter(q=>ids.includes(q.number)||(role==='sde-1'&&q.number===388)).map(q=>q.number);
 const total=baseline.questions.length;
+const exampleContext={window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'reader-examples.js'),'utf8'),exampleContext);
+baseline.categoryPriority=JSON.parse(JSON.stringify(exampleContext.window.READER_CATEGORY_PRIORITY));
+const ordered=(rows,role)=>{
+  const order=[...new Set([...(baseline.categoryPriority[role]||[]),...baseline.categoryPriority.all])];
+  return [...rows].sort((a,b)=>order.indexOf(+a.section.split('-')[1])-order.indexOf(+b.section.split('-')[1]));
+};
 assert.equal(total,358);assert.equal(retired.size,61);
 const server=http.createServer((req,res)=>{
   const file=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname.replace(/^\/skills-revision-reader/,''));
@@ -46,7 +54,7 @@ try {
     assert.equal(await p.inputValue('#position-filter'),'sde-1');
     assert.equal(await p.locator('.question-block').count(),total);
     const actual=await p.locator('.question-block').evaluateAll(es=>es.map(e=>({number:+e.dataset.number,id:e.id,title:e.querySelector('.question-title').textContent.trim(),section:e.dataset.section,priority:e.dataset.frequency})));
-    assert.deepEqual(actual,baseline.questions.map(({number,id,title,section,priority})=>({number,id,title,section,priority})));
+    assert.deepEqual(actual,ordered(baseline.questions,'sde-1').map(({number,id,title,section,priority})=>({number,id,title,section,priority})));
   });
   await test('252 role/section/priority combinations and progress',async()=>{
     const result=await p.evaluate(b=>{
@@ -54,7 +62,9 @@ try {
       for(const [role,ids] of Object.entries(b.roles))for(const freq of ['all','high'])for(const s of b.sections){
         const select=document.querySelector('#position-filter');select.value=role==='all'?'':role;select.dispatchEvent(new Event('change'));
         document.querySelector(`[data-frequency-filter='${freq}']`).click();document.querySelector(`[data-section-button='${s.id}']`).click();
-        const scope=b.questions.filter(q=>ids.includes(q.number)&&(freq==='all'||q.priority==='high'));
+        const order=[...new Set([...(b.categoryPriority[role]||[]),...b.categoryPriority.all])];
+        const scope=b.questions.filter(q=>ids.includes(q.number)&&(freq==='all'||q.priority==='high'))
+          .sort((a,c)=>order.indexOf(+a.section.split('-')[1])-order.indexOf(+c.section.split('-')[1]));
         const sectionQuestions=scope.filter(q=>s.id==='all'||q.section===s.id);
         const expected=(sectionQuestions.length?sectionQuestions:scope).map(q=>q.number);
         const actual=[...document.querySelectorAll('.question-block:not([hidden])')].map(e=>+e.dataset.number);
@@ -112,7 +122,8 @@ try {
     await all(p);await p.fill('#search','');await p.click('#expand-visible');
     assert.equal(await p.locator('.question-block details[open]').count(),total);
     assert.equal(await p.locator('#q-1 [data-question-nav="previous"]').getAttribute('aria-disabled'),'true');
-    assert.equal(await p.locator('#q-408 [data-question-nav="next"]').getAttribute('aria-disabled'),'true');
+    const last=ordered(baseline.questions,'all').at(-1).number;
+    assert.equal(await p.locator(`#q-${last} [data-question-nav="next"]`).getAttribute('aria-disabled'),'true');
     await p.click('#collapse-visible');assert.equal(await p.locator('.question-block details[open]').count(),0);
     const before=await visible(p);await p.fill('#jump-input','420');await p.click('#jump-button');assert.deepEqual(await visible(p),before);
     await p.locator('#q-1 summary').click();await p.locator('#q-1 .reveal-answer').click();
@@ -256,7 +267,8 @@ try {
   await test('all rendered search content and removed orphan outputs',async()=>{
     const mismatch=await p.locator('.question-block').evaluateAll(es=>es.filter(e=>{
       const parts=[e.dataset.number,'q'+e.dataset.number,e.closest('[data-section-group]').querySelector('h3').textContent.trim(),...[...e.querySelectorAll('.question-title,.part-body')].map(e=>e.textContent.trim())];
-      return e.dataset.search!==parts.join(' ').toLocaleLowerCase();
+      const example=window.READER_QUESTION_EXAMPLES[+e.dataset.number];
+      return e.dataset.search!==(parts.join(' ')+` ${example.code} ${example.explanation}`).toLocaleLowerCase();
     }).map(e=>+e.dataset.number));assert.deepEqual(mismatch,[]);
     assert.equal(await p.locator('#q-2 .answer-part.result').count(),0);
     assert.equal(await p.locator('.answer-part.example').count(),0);
@@ -353,7 +365,7 @@ try {
     await page.selectOption('#position-filter','sde-1');
     assert.equal(await page.locator('[data-section-button="section-4"]').isVisible(),false);
     assert.equal(await page.locator('[data-section-button="all"]').getAttribute('aria-pressed'),'true');
-    assert.deepEqual(await visible(page),baseline.roles['sde-1']);
+    assert.deepEqual(await visible(page),ordered(baseline.questions.filter(q=>baseline.roles['sde-1'].includes(q.number)),'sde-1').map(q=>q.number));
     assert.equal(await page.locator('#view-progress-copy').textContent(),'0 of 164 reviewed');
     await page.waitForTimeout(300);await page.reload();
     assert.equal(await page.locator('[data-section-button="all"]').getAttribute('aria-pressed'),'true');

@@ -1,0 +1,3238 @@
+{
+  "count": 358,
+  "code": 232,
+  "diagrams": 126,
+  "syntax": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    409,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    410,
+    411,
+    412,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    119,
+    120,
+    121,
+    123,
+    124,
+    125,
+    413,
+    126,
+    127,
+    128,
+    129,
+    130,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    177,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    202,
+    203,
+    208,
+    212,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    221,
+    226,
+    227,
+    228,
+    231,
+    232,
+    233,
+    235,
+    236,
+    237,
+    250,
+    251,
+    261,
+    265,
+    266,
+    267,
+    276,
+    288,
+    289,
+    290,
+    291,
+    292,
+    293,
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300,
+    301,
+    304,
+    305,
+    416,
+    417,
+    418,
+    311,
+    318,
+    319,
+    371
+  ],
+  "executed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    20,
+    21,
+    22,
+    24,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    34,
+    36,
+    37,
+    409,
+    132,
+    133,
+    134,
+    135,
+    136,
+    139,
+    141,
+    142,
+    143,
+    144,
+    145,
+    177,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    202,
+    203,
+    208,
+    212,
+    251,
+    276,
+    288,
+    289,
+    290,
+    291,
+    292,
+    293,
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300,
+    301,
+    304,
+    305,
+    416,
+    417,
+    418,
+    311,
+    318,
+    319
+  ],
+  "errors": [],
+  "ledger": [
+    {
+      "number": 1,
+      "title": "What does dynamically typed mean?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "number\nstring\n"
+    },
+    {
+      "number": 2,
+      "title": "What is the difference between var, let, and const?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "1\n"
+    },
+    {
+      "number": 3,
+      "title": "What is hoisting?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "undefined\n8\n"
+    },
+    {
+      "number": 4,
+      "title": "What is temporal dead zone?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "10\n"
+    },
+    {
+      "number": 5,
+      "title": "What is the difference between == and ===?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "true\nfalse\ntrue\nfalse\n"
+    },
+    {
+      "number": 6,
+      "title": "What are truthy and falsy values?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "false\ntrue\ntrue\nfalse\n"
+    },
+    {
+      "number": 7,
+      "title": "What is the difference between null and undefined?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "undefined\nnull\nundefined\n"
+    },
+    {
+      "number": 8,
+      "title": "What is closure?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "1 2\n"
+    },
+    {
+      "number": 9,
+      "title": "Where are closures useful?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "15\n"
+    },
+    {
+      "number": 10,
+      "title": "What is lexical scope?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "outer\n"
+    },
+    {
+      "number": 11,
+      "title": "What is this in JavaScript?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "Asha\nDev\n"
+    },
+    {
+      "number": 12,
+      "title": "What is higher-order function?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "7\n"
+    },
+    {
+      "number": 13,
+      "title": "What is filter?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "[ 4, 8 ]\n[ 1, 4, 7, 8 ]\n"
+    },
+    {
+      "number": 14,
+      "title": "What is destructuring?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "Asha 0 10 [ 20, 30 ]\n"
+    },
+    {
+      "number": 15,
+      "title": "What is shallow copy in JavaScript?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "Delhi\nfalse\n"
+    },
+    {
+      "number": 16,
+      "title": "What is deep copy in JavaScript?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "Pune\n"
+    },
+    {
+      "number": 17,
+      "title": "What is the difference between call, apply, and bind?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "13\n13\n13\n"
+    },
+    {
+      "number": 18,
+      "title": "What is module import and export?",
+      "format": "JavaScript modules",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 19,
+      "title": "Is JavaScript compiled or interpreted?",
+      "format": "Diagram",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 20,
+      "title": "What is strict mode in JavaScript?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "ReferenceError\n"
+    },
+    {
+      "number": 21,
+      "title": "How is async possible if JavaScript is single-threaded?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "A\nC\nB\n"
+    },
+    {
+      "number": 22,
+      "title": "What is a Promise and what states can it have?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "7\noffline\n"
+    },
+    {
+      "number": 23,
+      "title": "What is JavaScript?",
+      "format": "JavaScript (browser)",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 24,
+      "title": "What data types does JavaScript provide?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "[\n  'number',  'string',\n  'boolean', 'undefined',\n  'object',  'bigint',\n  'symbol',  'object'\n]\n"
+    },
+    {
+      "number": 25,
+      "title": "What is the DOM?",
+      "format": "JavaScript (browser)",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 26,
+      "title": "What is the difference between Object.freeze and const?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "TypeError\ntrue\n"
+    },
+    {
+      "number": 27,
+      "title": "What is an IIFE in JavaScript?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "42\n"
+    },
+    {
+      "number": 28,
+      "title": "What is the difference between forEach and map?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "[ 2, 4, 6 ]\nundefined\n"
+    },
+    {
+      "number": 29,
+      "title": "What is an arrow function, and how does it differ from a regular function?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "Asha\n"
+    },
+    {
+      "number": 30,
+      "title": "What is the difference between implicit and explicit type conversion?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "51\n4\n6\nNaN\n"
+    },
+    {
+      "number": 31,
+      "title": "How do async and await work?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "start\nend\n14\n"
+    },
+    {
+      "number": 32,
+      "title": "What is callback hell?",
+      "format": "Diagram",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 33,
+      "title": "What are event bubbling and event capturing?",
+      "format": "JavaScript (browser)",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 34,
+      "title": "What is debouncing?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "react\n"
+    },
+    {
+      "number": 35,
+      "title": "What is the difference between cookies, localStorage, and sessionStorage?",
+      "format": "JavaScript (HTTPS browser page)",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 36,
+      "title": "What is the difference between an undeclared variable and an undefined value?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "undefined\nundefined\nReferenceError\n"
+    },
+    {
+      "number": 37,
+      "title": "Why should unnecessary global variables be avoided?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "1 0\n"
+    },
+    {
+      "number": 38,
+      "title": "What is a Web Worker?",
+      "format": "JavaScript (two browser files)",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 39,
+      "title": "What are the risks of using innerHTML?",
+      "format": "JavaScript (browser)",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 409,
+      "title": "How does prototypal inheritance work in JavaScript?",
+      "format": "JavaScript",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "reader\neditor reader\ntrue\n"
+    },
+    {
+      "number": 40,
+      "title": "Why use TypeScript?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 41,
+      "title": "What is the difference between type annotation and type inference?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 42,
+      "title": "What is union type?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 43,
+      "title": "What is any?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 44,
+      "title": "What data types does TypeScript provide?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 45,
+      "title": "What is an enum in TypeScript?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 46,
+      "title": "What is a type alias?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 47,
+      "title": "What are optional and readonly properties?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 48,
+      "title": "What is tsconfig.json?",
+      "format": "JSON (tsconfig.json)",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 49,
+      "title": "What is the difference between .ts and .tsx files?",
+      "format": "TypeScript / TSX (separate files)",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 50,
+      "title": "What is a declaration file in TypeScript?",
+      "format": "TypeScript declaration (.d.ts)",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 51,
+      "title": "What is noImplicitAny?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 52,
+      "title": "What are decorators in TypeScript?",
+      "format": "TypeScript 5+ (standard decorators)",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 410,
+      "title": "What is the difference between type and interface in TypeScript?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 411,
+      "title": "What are generics in TypeScript, and why use them instead of any?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 412,
+      "title": "How does unknown differ from any, and how do you narrow it safely?",
+      "format": "TypeScript",
+      "source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "syntax": "strict TypeScript type check passed",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 53,
+      "title": "What is semantic HTML?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 54,
+      "title": "What is label?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 55,
+      "title": "What is alt text?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 56,
+      "title": "What is CSS box model?",
+      "format": "HTML + CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 57,
+      "title": "What is specificity?",
+      "format": "HTML + CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 58,
+      "title": "Flexbox vs Grid?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 59,
+      "title": "What is responsive design?",
+      "format": "HTML + CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 60,
+      "title": "display none vs visibility hidden?",
+      "format": "HTML + CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 61,
+      "title": "What are pseudo-classes?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 62,
+      "title": "What is ARIA?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 63,
+      "title": "What is the difference between an HTML tag and an element?",
+      "format": "Diagram",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 64,
+      "title": "What did HTML5 add?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 65,
+      "title": "What is the difference between block and inline elements?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 66,
+      "title": "What is the difference between id and class in HTML?",
+      "format": "HTML + CSS",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 67,
+      "title": "Why are meta tags important?",
+      "format": "HTML (head)",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 68,
+      "title": "What is the difference between div and span?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 69,
+      "title": "What are the ways to apply CSS?",
+      "format": "HTML",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 70,
+      "title": "What are CSS position values?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 71,
+      "title": "What are common CSS selector types?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 72,
+      "title": "What is HTML?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 73,
+      "title": "What is CSS?",
+      "format": "HTML + CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 74,
+      "title": "What is the DOCTYPE declaration?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 75,
+      "title": "What types of lists are available in HTML?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 76,
+      "title": "What is the purpose of an iframe?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 77,
+      "title": "What is the difference between b and strong?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 78,
+      "title": "What are void elements in HTML?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 79,
+      "title": "What are common client-side form validation techniques?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 80,
+      "title": "What is z-index?",
+      "format": "HTML + CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 81,
+      "title": "What does the CSS float property do?",
+      "format": "HTML + CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 82,
+      "title": "What is the difference between a pseudo-class and a pseudo-element?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 83,
+      "title": "What is a media query?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 84,
+      "title": "What is the difference between em and rem units?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 85,
+      "title": "How can CSS loading be optimized?",
+      "format": "Diagram",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 86,
+      "title": "What are CSS combinators?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 87,
+      "title": "What does CSS overflow control?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 88,
+      "title": "What are CSS transitions and animations?",
+      "format": "CSS",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 89,
+      "title": "What is React?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 90,
+      "title": "What is component?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 91,
+      "title": "What are props?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 92,
+      "title": "What is state?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 93,
+      "title": "Props vs state?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 94,
+      "title": "What is JSX?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 95,
+      "title": "What is virtual DOM?",
+      "format": "Diagram",
+      "source": "https://react.dev/reference/react",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 96,
+      "title": "What is reconciliation?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 97,
+      "title": "Why are keys important?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 98,
+      "title": "What is useState?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 99,
+      "title": "What is useEffect?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 100,
+      "title": "What does dependency array do?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 101,
+      "title": "What is useRef?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 102,
+      "title": "What is useReducer?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 103,
+      "title": "useState vs useReducer?",
+      "format": "Diagram",
+      "source": "https://react.dev/reference/react",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 104,
+      "title": "What is custom hook?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 105,
+      "title": "What is React Context?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 106,
+      "title": "What is useMemo?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 107,
+      "title": "What is useCallback?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 108,
+      "title": "What is React.memo?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 109,
+      "title": "What is controlled component?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 110,
+      "title": "What is uncontrolled component?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 111,
+      "title": "What is error boundary?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 112,
+      "title": "What is lazy loading?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 113,
+      "title": "What is React Fragment?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 114,
+      "title": "What is React Router?",
+      "format": "React Router JSX",
+      "source": "https://reactrouter.com/start/declarative/routing",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 115,
+      "title": "What is route parameter?",
+      "format": "React Router JSX",
+      "source": "https://reactrouter.com/start/declarative/routing",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 116,
+      "title": "What is query parameter?",
+      "format": "JavaScript (browser)",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 117,
+      "title": "What are the Rules of Hooks?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 118,
+      "title": "What is the React component lifecycle?",
+      "format": "Diagram",
+      "source": "https://react.dev/reference/react",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 119,
+      "title": "What are synthetic events in React?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 120,
+      "title": "What is a Higher-Order Component?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 121,
+      "title": "What is the difference between function and class components?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 122,
+      "title": "How does a browser read JSX?",
+      "format": "Diagram",
+      "source": "https://react.dev/reference/react",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 123,
+      "title": "What are Hooks in React?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 124,
+      "title": "What is prop drilling?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 125,
+      "title": "How does conditional rendering work in React?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 413,
+      "title": "How does React batch state updates, and when should you use a functional updater?",
+      "format": "React JSX",
+      "source": "https://react.dev/reference/react",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 126,
+      "title": "What is Next.js?",
+      "format": "Next.js App Router JSX",
+      "source": "https://nextjs.org/docs/app",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 127,
+      "title": "What is SSR?",
+      "format": "Next.js App Router JSX",
+      "source": "https://nextjs.org/docs/app",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 128,
+      "title": "What is CSR?",
+      "format": "Next.js client component JSX",
+      "source": "https://nextjs.org/docs/app",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 129,
+      "title": "What is dynamic route?",
+      "format": "Next.js App Router JSX",
+      "source": "https://nextjs.org/docs/app",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 130,
+      "title": "What are API routes in Next.js?",
+      "format": "Next.js route handler JavaScript",
+      "source": "https://nextjs.org/docs/app",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 131,
+      "title": "Why use Tailwind?",
+      "format": "HTML with generated Tailwind CSS",
+      "source": "https://tailwindcss.com/docs/detecting-classes-in-source-files",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 132,
+      "title": "How does Tailwind generate production CSS?",
+      "format": "JavaScript",
+      "source": "https://tailwindcss.com/docs/detecting-classes-in-source-files",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": ""
+    },
+    {
+      "number": 133,
+      "title": "What is blocking code?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "before\nafter 138\n"
+    },
+    {
+      "number": 134,
+      "title": "What is non-blocking I/O?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "read scheduled\nread complete 203\n"
+    },
+    {
+      "number": 135,
+      "title": "What is concurrency in Node?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "2\n"
+    },
+    {
+      "number": 136,
+      "title": "What is setImmediate compared with setTimeout(fn, 0)?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "immediate\ntimer\n"
+    },
+    {
+      "number": 137,
+      "title": "What is Node.js?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 138,
+      "title": "Why use Node.js for backend?",
+      "format": "Diagram",
+      "source": "https://nodejs.org/api/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 139,
+      "title": "What is environment variable?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "3000\n"
+    },
+    {
+      "number": 140,
+      "title": "What is package.json?",
+      "format": "JSON (package.json)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 141,
+      "title": "What is event-driven architecture in Node.js?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "before\nlistener\nafter\n"
+    },
+    {
+      "number": 142,
+      "title": "What are streams in Node.js?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "one\ntwo\n"
+    },
+    {
+      "number": 143,
+      "title": "What is a Buffer in Node.js?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "[ 72, 105 ]\n4869\nHi\n"
+    },
+    {
+      "number": 144,
+      "title": "How does the Node.js event loop work?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "sync\nnextTick\npromise\ntimer\n"
+    },
+    {
+      "number": 145,
+      "title": "What is the Node.js thread pool?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "scheduled\n32\n"
+    },
+    {
+      "number": 146,
+      "title": "How can Node.js application performance be improved?",
+      "format": "Diagram",
+      "source": "https://nodejs.org/api/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 147,
+      "title": "What are child processes in Node.js?",
+      "format": "Node.js CommonJS (.cjs)",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 148,
+      "title": "What is middleware?",
+      "format": "Express JavaScript",
+      "source": "https://expressjs.com/en/5x/api.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 149,
+      "title": "What is router in Express?",
+      "format": "Express JavaScript",
+      "source": "https://expressjs.com/en/5x/api.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 150,
+      "title": "What is next()?",
+      "format": "Express JavaScript",
+      "source": "https://expressjs.com/en/5x/api.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 151,
+      "title": "What is error-handling middleware?",
+      "format": "Express JavaScript",
+      "source": "https://expressjs.com/en/5x/api.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 152,
+      "title": "What is the difference between app.use and app.get in Express?",
+      "format": "Express JavaScript",
+      "source": "https://expressjs.com/en/5x/api.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 153,
+      "title": "How does Express serve static files?",
+      "format": "Express JavaScript",
+      "source": "https://expressjs.com/en/5x/api.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 154,
+      "title": "How does Express handle request and response objects?",
+      "format": "Express JavaScript",
+      "source": "https://expressjs.com/en/5x/api.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 155,
+      "title": "What built-in middleware does Express provide?",
+      "format": "Express JavaScript",
+      "source": "https://expressjs.com/en/5x/api.html",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 156,
+      "title": "How is an Express server different from a basic Node HTTP server?",
+      "format": "Diagram",
+      "source": "https://expressjs.com/en/5x/api.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 157,
+      "title": "What is REST API?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 158,
+      "title": "GET vs POST?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 159,
+      "title": "PUT vs PATCH?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 160,
+      "title": "What do common HTTP status codes mean?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 161,
+      "title": "Authentication vs authorization?",
+      "format": "Diagram",
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 162,
+      "title": "Session auth vs JWT auth?",
+      "format": "Diagram",
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 163,
+      "title": "What is CORS?",
+      "format": "HTTP response headers",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 164,
+      "title": "What is rate limiting?",
+      "format": "Diagram",
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 165,
+      "title": "What is idempotency?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 166,
+      "title": "What are the main REST constraints?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 167,
+      "title": "How should an API be versioned?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 168,
+      "title": "What is content negotiation?",
+      "format": "HTTP",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 169,
+      "title": "What is a reverse proxy?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 170,
+      "title": "What is JWT-based authentication?",
+      "format": "Diagram",
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 171,
+      "title": "What is the difference between client-side and server-side programming?",
+      "format": "Diagram",
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 172,
+      "title": "What are WebSockets, and how do they differ from normal HTTP requests?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 173,
+      "title": "How do you keep a REST API secure?",
+      "format": "Diagram",
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 174,
+      "title": "What do Cache-Control headers do?",
+      "format": "HTTP response headers",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 175,
+      "title": "What is multipart/form-data?",
+      "format": "HTML",
+      "source": "https://html.spec.whatwg.org/multipage/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 176,
+      "title": "What is a web server?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 177,
+      "title": "What is a URI?",
+      "format": "JavaScript",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "https:\n/books/42\n?lang=en\n#reviews\n"
+    },
+    {
+      "number": 178,
+      "title": "What is the difference between POST and PUT?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 179,
+      "title": "How do you debug a problem that crosses the frontend and backend?",
+      "format": "Diagram",
+      "source": "https://nodejs.org/api/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 180,
+      "title": "What are DDL, DML, DCL, and TCL?",
+      "format": "SQL (PostgreSQL)",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 181,
+      "title": "What is GROUP BY?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "A|30\nB|5\n"
+    },
+    {
+      "number": 182,
+      "title": "What is HAVING?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "A|30\n"
+    },
+    {
+      "number": 183,
+      "title": "What are the main SQL joins?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "1|1\n2|\n"
+    },
+    {
+      "number": 184,
+      "title": "What is UNION?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "1\n2\n"
+    },
+    {
+      "number": 185,
+      "title": "What is UNION ALL?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "1\n1\n"
+    },
+    {
+      "number": 186,
+      "title": "What is subquery?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "Dev\n"
+    },
+    {
+      "number": 187,
+      "title": "What is view?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "1\n"
+    },
+    {
+      "number": 188,
+      "title": "What are aggregate functions?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "3|2|30|15.0\n"
+    },
+    {
+      "number": 189,
+      "title": "What is index in SQL?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": ""
+    },
+    {
+      "number": 190,
+      "title": "CHAR vs VARCHAR?",
+      "format": "SQL (PostgreSQL)",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 191,
+      "title": "What is a database trigger?",
+      "format": "SQL (PostgreSQL)",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 192,
+      "title": "What is a correlated subquery?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "Dev\n"
+    },
+    {
+      "number": 193,
+      "title": "What is EXISTS compared with IN?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "2\n"
+    },
+    {
+      "number": 194,
+      "title": "What is a CTE?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "3.0\n"
+    },
+    {
+      "number": 195,
+      "title": "What is a window function?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "1|10|10\n2|20|30\n3|5|35\n"
+    },
+    {
+      "number": 196,
+      "title": "What is the difference between ROW_NUMBER, RANK, and DENSE_RANK?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "1|1|1|1\n2|2|1|1\n3|3|3|2\n"
+    },
+    {
+      "number": 414,
+      "title": "What is the difference between clustered and nonclustered indexes?",
+      "format": "SQL (SQL Server)",
+      "source": "https://learn.microsoft.com/en-us/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 197,
+      "title": "What is RDBMS?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": ""
+    },
+    {
+      "number": 198,
+      "title": "What is primary key?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": ""
+    },
+    {
+      "number": 199,
+      "title": "What is foreign key?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": ""
+    },
+    {
+      "number": 200,
+      "title": "What is unique key?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": ""
+    },
+    {
+      "number": 201,
+      "title": "What is candidate key?",
+      "format": "Diagram",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 202,
+      "title": "What is constraint?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": ""
+    },
+    {
+      "number": 203,
+      "title": "What is transaction?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": "1|80\n2|20\n"
+    },
+    {
+      "number": 204,
+      "title": "What is ACID?",
+      "format": "Diagram",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 205,
+      "title": "What is normalization, and what are 1NF, 2NF, and 3NF?",
+      "format": "Diagram",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 206,
+      "title": "What is denormalization?",
+      "format": "Diagram",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 207,
+      "title": "What is a super key?",
+      "format": "Diagram",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 208,
+      "title": "What is referential integrity?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": ""
+    },
+    {
+      "number": 209,
+      "title": "What are shared and exclusive locks?",
+      "format": "Diagram",
+      "source": "https://www.postgresql.org/docs/current/transaction-iso.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 210,
+      "title": "How can a database deadlock happen?",
+      "format": "Diagram",
+      "source": "https://www.postgresql.org/docs/current/transaction-iso.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 211,
+      "title": "One-to-many relation?",
+      "format": "Diagram",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 212,
+      "title": "Many-to-many relation?",
+      "format": "SQL",
+      "source": "https://www.postgresql.org/docs/current/sql.html",
+      "syntax": "pass",
+      "execution": "executed on SQLite with foreign keys enabled",
+      "output": ""
+    },
+    {
+      "number": 415,
+      "title": "What are transaction isolation levels and the read anomalies they control?",
+      "format": "Diagram",
+      "source": "https://www.postgresql.org/docs/current/transaction-iso.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 213,
+      "title": "What is MongoDB Atlas?",
+      "format": "Diagram",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 214,
+      "title": "What is collection?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 215,
+      "title": "What is document?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 216,
+      "title": "What is BSON?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 217,
+      "title": "What is MongoDB index?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 218,
+      "title": "What is aggregation pipeline?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 219,
+      "title": "What is MongoDB transaction?",
+      "format": "Node.js MongoDB driver (replica set/sharded deployment)",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 220,
+      "title": "How does MongoDB differ from a relational database?",
+      "format": "Diagram",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 221,
+      "title": "What BSON data types does MongoDB support?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 222,
+      "title": "How does MongoDB store data internally?",
+      "format": "Diagram",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 223,
+      "title": "What is a replica set?",
+      "format": "Diagram",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 224,
+      "title": "What is sharding in MongoDB?",
+      "format": "Diagram",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 225,
+      "title": "What is journaling in MongoDB?",
+      "format": "Diagram",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 226,
+      "title": "How do you design a MongoDB schema?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 227,
+      "title": "What are change streams?",
+      "format": "mongosh (supported replica set/sharded deployment)",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 228,
+      "title": "How do you optimize a slow MongoDB query?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 229,
+      "title": "MongoDB Atlas vs self-hosted MongoDB?",
+      "format": "Diagram",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 230,
+      "title": "When should MongoDB data be embedded or referenced?",
+      "format": "Diagram",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 231,
+      "title": "What happens when MongoDB indexes an array field?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 232,
+      "title": "What is an ObjectId in MongoDB?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 233,
+      "title": "What is a covered query in MongoDB?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 234,
+      "title": "What is the CAP theorem?",
+      "format": "Diagram",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 235,
+      "title": "What is write concern in MongoDB?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 236,
+      "title": "What is a TTL index in MongoDB?",
+      "format": "mongosh",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 237,
+      "title": "How does full-text search work in MongoDB?",
+      "format": "mongosh (classic text index)",
+      "source": "https://www.mongodb.com/docs/manual/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 238,
+      "title": "What is Generative AI and how does its architecture work?",
+      "format": "Diagram",
+      "source": "https://huggingface.co/docs/transformers/en/pipeline_tutorial",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 239,
+      "title": "What is the difference between Traditional AI and Generative AI?",
+      "format": "Diagram",
+      "source": "https://huggingface.co/docs/transformers/en/pipeline_tutorial",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 246,
+      "title": "What are Transformers and what is attention mechanism?",
+      "format": "Diagram",
+      "source": "https://huggingface.co/docs/transformers/en/pipeline_tutorial",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 249,
+      "title": "Explain the concept of Context Window in LLMs.",
+      "format": "Diagram",
+      "source": "https://huggingface.co/docs/transformers/en/pipeline_tutorial",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 250,
+      "title": "What is Tokenization and why is it important for LLMs?",
+      "format": "Python / Transformers",
+      "source": "https://huggingface.co/docs/transformers/en/pipeline_tutorial",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 251,
+      "title": "What are Embeddings and how do they capture semantic meaning?",
+      "format": "Python",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "0.994\n0.0\n"
+    },
+    {
+      "number": 252,
+      "title": "Compare different types of Embedding Databases.",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 253,
+      "title": "What are the use cases of Vector Databases in RAG pipelines?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 261,
+      "title": "What is Hugging Face and what are its main use cases?",
+      "format": "Python / Transformers",
+      "source": "https://huggingface.co/docs/transformers/en/pipeline_tutorial",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 262,
+      "title": "What is the Model Hub, Model Card and Dataset Hub on Hugging Face?",
+      "format": "Diagram",
+      "source": "https://huggingface.co/docs/hub/index",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 263,
+      "title": "Compare Pipeline, Feature Extraction and Inference API.",
+      "format": "Diagram",
+      "source": "https://huggingface.co/docs/transformers/en/pipeline_tutorial",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 264,
+      "title": "What are Spaces in Hugging Face and what are their applications?",
+      "format": "Diagram",
+      "source": "https://huggingface.co/docs/hub/index",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 265,
+      "title": "What is LangChain and what problem does it solve?",
+      "format": "Python / LangChain Core",
+      "source": "https://docs.langchain.com/oss/python/langchain/overview",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 266,
+      "title": "Explain LangGraph and how it enhances agentic workflows.",
+      "format": "Python / LangGraph",
+      "source": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 267,
+      "title": "What is LlamaIndex and how does it integrate with external data sources?",
+      "format": "Python / LlamaIndex",
+      "source": "https://developers.llamaindex.ai/python/framework/understanding/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 269,
+      "title": "Explain RAG (Retrieval-Augmented Generation) architecture in detail.",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 270,
+      "title": "Compare Closed-book models vs. RAG models.",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 271,
+      "title": "How does Generative AI differ from Agentic AI?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 272,
+      "title": "What is the role of Vector Stores in a RAG pipeline?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 273,
+      "title": "What is Prompt Engineering and why is it important?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/overview",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 274,
+      "title": "Explain different types of prompting.",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/overview",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 275,
+      "title": "What is LLM Injection (Prompt Injection) and how can it be prevented?",
+      "format": "Diagram",
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 276,
+      "title": "What are Guardrails in LLMs and why are they important?",
+      "format": "JavaScript",
+      "source": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "syntax": "pass",
+      "execution": "executed",
+      "output": "{ action: 'search', query: 'refund policy' }\n"
+    },
+    {
+      "number": 277,
+      "title": "What is Hallucination in LLMs and how can it be mitigated?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 278,
+      "title": "What is Knowledge in LLMs and how can we update or augment it?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 279,
+      "title": "What is LLM Evaluation and why is it necessary?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 280,
+      "title": "What are different types of LLM evaluation techniques?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langchain/retrieval",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 284,
+      "title": "What is Memory in LLMs and how is it implemented in agentic systems?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 285,
+      "title": "What are agentic LLMs and how do they differ from simple chat-based LLMs?",
+      "format": "Diagram",
+      "source": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 286,
+      "title": "How do frameworks like LangChain, LangGraph and LlamaIndex interconnect in an end-to-end GenAI project?",
+      "format": "Diagram",
+      "source": "https://developers.llamaindex.ai/python/framework/understanding/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 288,
+      "title": "What are four pillars of OOP?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 289,
+      "title": "What is encapsulation?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 290,
+      "title": "What is abstraction?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 291,
+      "title": "What is inheritance?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 292,
+      "title": "What is polymorphism?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 293,
+      "title": "Types of polymorphism?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 294,
+      "title": "What is function overloading in OOP?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 295,
+      "title": "What is function overriding?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 296,
+      "title": "What is a class in OOP?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 297,
+      "title": "What is an object in OOP?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 298,
+      "title": "What is constructor in OOP?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 299,
+      "title": "public vs private vs protected?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 300,
+      "title": "What is interface?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 301,
+      "title": "What is abstract class in OOP?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 302,
+      "title": "Abstract class vs interface?",
+      "format": "Diagram",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 303,
+      "title": "Why is OOP used?",
+      "format": "Diagram",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 304,
+      "title": "Procedural programming vs OOP?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 305,
+      "title": "Compile-time polymorphism vs runtime polymorphism?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 306,
+      "title": "Association, aggregation, and composition?",
+      "format": "Diagram",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 416,
+      "title": "What are virtual and pure virtual functions in C++?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 417,
+      "title": "What does a C++ destructor do, and when must it be virtual?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": "Derived\nBase\n"
+    },
+    {
+      "number": 418,
+      "title": "What is the diamond problem in C++, and how does virtual inheritance help?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/class",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 307,
+      "title": "What is operating system?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 308,
+      "title": "What is process?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 309,
+      "title": "What is thread?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 310,
+      "title": "Process vs thread?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 311,
+      "title": "What is multithreading?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/thread",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 312,
+      "title": "What is context switching?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 313,
+      "title": "What is process state?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 314,
+      "title": "What is scheduling?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 315,
+      "title": "What is Round Robin scheduling?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 316,
+      "title": "What is deadlock?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 317,
+      "title": "Four deadlock conditions?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 318,
+      "title": "What is synchronization?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/thread",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 319,
+      "title": "What is critical section?",
+      "format": "C++",
+      "source": "https://eel.is/c++draft/thread",
+      "syntax": "pass",
+      "execution": "compiled and executed (exit 0)",
+      "output": ""
+    },
+    {
+      "number": 320,
+      "title": "What is virtual memory?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 321,
+      "title": "What is paging?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 322,
+      "title": "What is IPC?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 323,
+      "title": "What is a Process Control Block?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 324,
+      "title": "Preemptive vs non-preemptive scheduling?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 325,
+      "title": "What are FCFS, SJF, and Priority scheduling?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 326,
+      "title": "What are starvation and aging?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 327,
+      "title": "What is demand paging?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 328,
+      "title": "Internal vs external fragmentation?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 329,
+      "title": "Paging vs segmentation?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 330,
+      "title": "What is thrashing?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 331,
+      "title": "What is a file system?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 332,
+      "title": "Buffering vs caching vs spooling?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 333,
+      "title": "What is a zombie process and an orphan process?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 334,
+      "title": "What is the difference between deadlock and livelock?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 419,
+      "title": "What is the difference between a mutex and a semaphore?",
+      "format": "Diagram",
+      "source": "https://eel.is/c++draft/thread",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 388,
+      "title": "What is Banker’s Algorithm in OS?",
+      "format": "Diagram",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 335,
+      "title": "What happens when you type a URL?",
+      "format": "Diagram",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/API",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 336,
+      "title": "What is DNS?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc1034.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 337,
+      "title": "What is NAT?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc3022.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 338,
+      "title": "HTTP vs HTTPS?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 339,
+      "title": "TCP vs UDP?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 340,
+      "title": "What is TCP three-way handshake?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 341,
+      "title": "What is bandwidth?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 342,
+      "title": "What are the OSI model layers?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc1122.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 343,
+      "title": "OSI model vs TCP/IP model?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc1122.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 344,
+      "title": "Hub vs switch vs router?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 345,
+      "title": "Flow control vs congestion control?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 346,
+      "title": "What is a TCP sliding window?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 347,
+      "title": "HTTP/1.1 vs HTTP/2 vs HTTP/3?",
+      "format": "Diagram",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 348,
+      "title": "What do you understand by DevOps?",
+      "format": "Diagram",
+      "source": "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 351,
+      "title": "What is the use of SSH?",
+      "format": "Shell",
+      "source": "https://www.openssh.com/manual.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 352,
+      "title": "What is CI/CD?",
+      "format": "Diagram",
+      "source": "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 353,
+      "title": "What is the difference between Horizontal and Vertical Scaling?",
+      "format": "Diagram",
+      "source": "https://docs.docker.com/get-started/docker-overview/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 359,
+      "title": "What is Infrastructure as Code (IaC)?",
+      "format": "Diagram",
+      "source": "https://developer.hashicorp.com/terraform/intro",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 360,
+      "title": "Explain the concept of branching in Git.",
+      "format": "Shell",
+      "source": "https://git-scm.com/docs",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 361,
+      "title": "What is Git stash?",
+      "format": "Shell",
+      "source": "https://git-scm.com/docs",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 362,
+      "title": "What is a GIT Repository?",
+      "format": "Diagram",
+      "source": "https://git-scm.com/docs",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 365,
+      "title": "What is the use of the cherry-pick command in git?",
+      "format": "Diagram",
+      "source": "https://git-scm.com/docs",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 366,
+      "title": "What is sudo command in Linux?",
+      "format": "Shell",
+      "source": "https://www.man7.org/linux/man-pages/man7/credentials.7.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 367,
+      "title": "What's the difference between Git fetch and Git pull?",
+      "format": "Shell",
+      "source": "https://git-scm.com/docs",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 371,
+      "title": "What is Automation Testing?",
+      "format": "JavaScript",
+      "source": "https://nodejs.org/api/",
+      "syntax": "pass",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 374,
+      "title": "What is Git Squashing?",
+      "format": "Diagram",
+      "source": "https://git-scm.com/docs",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 375,
+      "title": "What is a merge conflict in Git?",
+      "format": "Diagram",
+      "source": "https://git-scm.com/docs",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 378,
+      "title": "What are virtual machines (VMs)?",
+      "format": "Diagram",
+      "source": "https://docs.docker.com/get-started/docker-overview/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 379,
+      "title": "What is the difference between Continuous Deployment and Continuous Delivery?",
+      "format": "Diagram",
+      "source": "https://docs.github.com/en/actions/about-github-actions/understanding-github-actions",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 391,
+      "title": "Explain the architecture of Docker.",
+      "format": "Diagram",
+      "source": "https://docs.docker.com/get-started/docker-overview/",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 393,
+      "title": "What is the difference between Git Merge and Git Rebase?",
+      "format": "Diagram",
+      "source": "https://git-scm.com/docs",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    },
+    {
+      "number": 408,
+      "title": "How are monolithic, SOA, and microservices architectures different?",
+      "format": "Diagram",
+      "source": "https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/microservices-on-aws.html",
+      "syntax": "not applicable",
+      "execution": "not executed: requires its stated environment or is illustrative"
+    }
+  ]
+}

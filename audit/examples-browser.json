@@ -1,0 +1,469 @@
+{
+  "tests": [
+    {
+      "name": "every question has one lazy disclosure and unchanged answer",
+      "pass": true
+    },
+    {
+      "name": "all 358 disclosures render exact text and valid associations",
+      "pass": true
+    },
+    {
+      "name": "recall hides both code and diagrams until revealed",
+      "pass": true
+    },
+    {
+      "name": "disclosures, review state and explicit All persist on reload",
+      "pass": true
+    },
+    {
+      "name": "copy exact snippet and denied clipboard fallback",
+      "pass": true
+    },
+    {
+      "name": "keyboard disclosure, rapid toggles and no accidental review",
+      "pass": true
+    },
+    {
+      "name": "role order agrees across sidebar, groups and next navigation",
+      "pass": true
+    },
+    {
+      "name": "example text is searchable while still collapsed",
+      "pass": true
+    },
+    {
+      "name": "open code and diagram at seven widths in both themes",
+      "pass": true
+    },
+    {
+      "name": "all 358 expanded examples fit the page at every width and theme",
+      "pass": true
+    },
+    {
+      "name": "untrusted example content remains inert",
+      "pass": true
+    },
+    {
+      "name": "missing examples do not prevent reading or reviewing",
+      "pass": true
+    },
+    {
+      "name": "malformed example state and denied storage remain usable",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "network": [],
+  "matrix": [
+    {
+      "width": 320,
+      "theme": "light",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 276,
+      "scrollWidth": 276,
+      "unique": true
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 276,
+      "scrollWidth": 276,
+      "unique": true
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 276,
+      "scrollWidth": 276,
+      "unique": true
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 276,
+      "scrollWidth": 276,
+      "unique": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 346,
+      "scrollWidth": 346,
+      "unique": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 346,
+      "scrollWidth": 346,
+      "unique": true
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 346,
+      "scrollWidth": 346,
+      "unique": true
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 346,
+      "scrollWidth": 346,
+      "unique": true
+    },
+    {
+      "width": 720,
+      "theme": "light",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 646,
+      "scrollWidth": 646,
+      "unique": true
+    },
+    {
+      "width": 720,
+      "theme": "light",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 646,
+      "scrollWidth": 646,
+      "unique": true
+    },
+    {
+      "width": 720,
+      "theme": "dark",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 646,
+      "scrollWidth": 646,
+      "unique": true
+    },
+    {
+      "width": 720,
+      "theme": "dark",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 646,
+      "scrollWidth": 646,
+      "unique": true
+    },
+    {
+      "width": 999,
+      "theme": "light",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 645,
+      "scrollWidth": 645,
+      "unique": true
+    },
+    {
+      "width": 999,
+      "theme": "light",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 645,
+      "scrollWidth": 645,
+      "unique": true
+    },
+    {
+      "width": 999,
+      "theme": "dark",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 645,
+      "scrollWidth": 645,
+      "unique": true
+    },
+    {
+      "width": 999,
+      "theme": "dark",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 645,
+      "scrollWidth": 645,
+      "unique": true
+    },
+    {
+      "width": 1000,
+      "theme": "light",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 646,
+      "scrollWidth": 646,
+      "unique": true
+    },
+    {
+      "width": 1000,
+      "theme": "light",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 646,
+      "scrollWidth": 646,
+      "unique": true
+    },
+    {
+      "width": 1000,
+      "theme": "dark",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 646,
+      "scrollWidth": 646,
+      "unique": true
+    },
+    {
+      "width": 1000,
+      "theme": "dark",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 646,
+      "scrollWidth": 646,
+      "unique": true
+    },
+    {
+      "width": 1180,
+      "theme": "light",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 826,
+      "scrollWidth": 826,
+      "unique": true
+    },
+    {
+      "width": 1180,
+      "theme": "light",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 826,
+      "scrollWidth": 826,
+      "unique": true
+    },
+    {
+      "width": 1180,
+      "theme": "dark",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 826,
+      "scrollWidth": 826,
+      "unique": true
+    },
+    {
+      "width": 1180,
+      "theme": "dark",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 826,
+      "scrollWidth": 826,
+      "unique": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 1006,
+      "scrollWidth": 1006,
+      "unique": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 1006,
+      "scrollWidth": 1006,
+      "unique": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "id": 8,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 1006,
+      "scrollWidth": 1006,
+      "unique": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "id": 315,
+      "overflow": 0,
+      "toggleHeight": 44,
+      "copyHeight": 44,
+      "codeWidth": 1006,
+      "scrollWidth": 1006,
+      "unique": true
+    }
+  ],
+  "captured": "2026-09-21T05:15:17.465Z",
+  "allExamplesMatrix": [
+    {
+      "width": 320,
+      "theme": "light",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 720,
+      "theme": "light",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 720,
+      "theme": "dark",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 999,
+      "theme": "light",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 999,
+      "theme": "dark",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 1000,
+      "theme": "light",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 1000,
+      "theme": "dark",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 1180,
+      "theme": "light",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 1180,
+      "theme": "dark",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "bad": [],
+      "overflow": 0,
+      "count": 358
+    }
+  ]
+}
