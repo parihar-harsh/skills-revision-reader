@@ -1962,9 +1962,9 @@ S combines the intended changes of B, C and D.
 Commit identities and intermediate history change.`, 'Squashing can make a feature easier to review as one commit. Rewriting already-shared history requires coordination; a squash merge does not retain the original branch ancestry.', 'git'),
     375: e('Diagram', `<<<<<<< HEAD
 const limit = 10;
-=======
+${'======='}
 const limit = 20;
->>>>>>> feature
+${'>>>>>>> feature'}
 
 Resolve to the intended result -> remove markers
  -> test -> git add -> continue the merge`, 'Git cannot decide the intended behavior of conflicting edits. Do not simply delete conflict markers while leaving both incompatible versions.', 'git'),
